@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 	body {
 	
 		margin: 0;
-		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", 
 			"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 			"Helvetica Neue", sans-serif;
 
