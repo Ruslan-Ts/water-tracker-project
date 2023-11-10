@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
-const Login = () => {
+const SignIn = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -33,4 +33,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;
