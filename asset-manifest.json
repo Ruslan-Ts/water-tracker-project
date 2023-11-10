@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/water-tracker-project/static/css/main.7acaea2f.css",
+    "main.js": "/water-tracker-project/static/js/main.17970ecb.js",
+    "index.html": "/water-tracker-project/index.html",
+    "main.7acaea2f.css.map": "/water-tracker-project/static/css/main.7acaea2f.css.map",
+    "main.17970ecb.js.map": "/water-tracker-project/static/js/main.17970ecb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.17970ecb.js"
+  ]
+}
