@@ -1,8 +1,8 @@
 // import { useDispatch } from 'react-redux';
 // import { signUp } from 'redux/auth/operations';
-import { Button } from 'components/Button/Button.styled';
-import { RouterLink } from 'components/RouterLink/RouterLink.styled';
-import { Title } from 'components/Title/Title.styled';
+import { Button } from 'CommonStyle/Button/Button.styled';
+import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
+import { Title } from 'CommonStyle/Title/Title.styled';
 import { AuthForm } from 'components/forms/AuthForm.styled';
 import { Input } from 'components/forms/FormInput.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
@@ -44,7 +44,7 @@ const SignUp = () => {
   });
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="container">
       <AuthForm onSubmit={handleSubmit}>
         <Title>Sign Up</Title>
         <FormLabel>
@@ -55,7 +55,7 @@ const SignUp = () => {
             value={values.email}
             onChange={handleChange}
             onBlur={handleBlur}
-            placeholder="Enter your email"
+            placeholder="Email"
             error={touched.email && errors.email}
           />
           {touched.email && errors.email && (
@@ -70,7 +70,7 @@ const SignUp = () => {
             value={values.password}
             onChange={handleChange}
             onBlur={handleBlur}
-            placeholder="Enter your password"
+            placeholder="Password"
             error={touched.password && errors.password}
           />
           {touched.password && errors.password && (
@@ -91,8 +91,8 @@ const SignUp = () => {
             <InputError>{errors.repeatPassword}</InputError>
           )}
         </FormLabel>
-        <Button>Sign up</Button>
-        <RouterLink>Sign in</RouterLink>
+        <Button type="submit">Sign up</Button>
+        <RouterLink to="/signin">Sign in</RouterLink>
       </AuthForm>
     </div>
   );
