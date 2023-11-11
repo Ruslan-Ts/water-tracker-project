@@ -1,4 +1,5 @@
 import { lazy, useEffect } from 'react';
+import DailyNorma from './Modals/DailyNorma/DailyNorma';
 
 // const Main = lazy(() => import('../Pages/Main.jsx'));
 // const Login = lazy(() => import('../Pages/Login.jsx'));
@@ -7,4 +8,6 @@ import { lazy, useEffect } from 'react';
 
 export const App = () => {
   return <div>Water tracker project</div>;
+
+  <DailyNorma />;
 };
