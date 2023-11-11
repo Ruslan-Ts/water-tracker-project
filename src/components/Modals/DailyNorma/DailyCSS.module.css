@@ -1,0 +1,35 @@
+.content {
+  position: absolute;
+  color: red;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+
+  width: 280px;
+  padding: 24px 12px;
+  border-radius: 10px;
+  background: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    width: 704px;
+    padding: 32px 24px;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .content {
+    width: 592px;
+  }
+}

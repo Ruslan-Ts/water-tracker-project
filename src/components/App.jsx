@@ -7,7 +7,10 @@ import DailyNorma from './Modals/DailyNorma/DailyNorma';
 // const NotFound = lazy(() => import('../Pages/NotFound.jsx'));
 
 export const App = () => {
-  return <div>Water tracker project</div>;
-
-  <DailyNorma />;
+  return (
+    <>
+      <div>Water tracker project</div>;
+      <DailyNorma />;
+    </>
+  );
 };
