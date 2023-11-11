@@ -1,15 +1,18 @@
+import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
 import { Button } from 'CommonStyle/Button/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
+import { Title } from 'CommonStyle/Title/Title.styled';
+
 import { Input } from 'components/forms/Input.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
-import { signUpSchema } from 'js/validation/schemas';
 import { InputError } from 'components/forms/InputError.styled';
-import { Title } from 'CommonStyle/Title/Title.styled';
 import { AuthForm } from 'components/forms/AuthForm.styled';
-import { useFormik } from 'formik';
+import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
+
+import { signUpSchema } from 'js/validation/schemas';
 
 const SignIn = () => {
   // const dispatch = useDispatch();
@@ -47,33 +50,27 @@ const SignIn = () => {
       <FormLabel>
         Enter email
         <Input
-          type="text"
+          type="email"
           name="email"
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Email"
         />
-        {touched.email && errors.email && (
-          <InputError>{errors.email}</InputError>
-        )}
       </FormLabel>
       <FormLabel>
         Enter password
-        <Input
-          type="text"
+        <PasswordInput
           name="password"
           value={values.password}
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Password"
         />
-        {touched.password && errors.password && (
-          <InputError>{errors.password}</InputError>
-        )}
       </FormLabel>
       <Button type="submit">Sign up</Button>
       <RouterLink to="/signup">Sign up</RouterLink>
+      <RouterLink to="/forgot-password">Forgot password?</RouterLink>
     </AuthForm>
   );
 };

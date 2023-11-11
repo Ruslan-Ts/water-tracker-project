@@ -1,9 +1,8 @@
 import { lazy, useEffect } from 'react';
-import { Route, Routes } from 'react-router';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Layout from './Layout/Layout.jsx';
-// import SignUp from 'Pages/SignUpPage';
+import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
 const WelcomePage = lazy(() => import('../Pages/WelcomePage'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
@@ -18,14 +17,22 @@ const router = createBrowserRouter(
         {
           path: '/',
           element: <WelcomePage />,
+          errorElement: <NotFoundPage />,
         },
         {
           path: '/signup',
           element: <SignUp />,
+          errorElement: <NotFoundPage />,
         },
         {
           path: '/signin',
           element: <SignIn />,
+          errorElement: <NotFoundPage />,
+        },
+        {
+          path: '/forgot-password',
+          element: <ForgotPasswordPage />,
+          errorElement: <NotFoundPage />,
         },
       ],
     },

@@ -65,7 +65,7 @@ const SignUp = () => {
       <FormLabel>
         Enter your email
         <Input
-          type="text"
+          type="email"
           name="email"
           value={values.email}
           onChange={handleChange}

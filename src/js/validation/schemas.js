@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const emailPattern = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+const emailPattern = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
 export const signUpSchema = yup.object().shape({
   email: yup.string().matches(emailPattern, 'Email is not valid').required(),
