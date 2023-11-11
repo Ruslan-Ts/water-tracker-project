@@ -1,15 +1,20 @@
 // import { useDispatch } from 'react-redux';
 // import { signUp } from 'redux/auth/operations';
+import { useFormik } from 'formik';
+
 import { Button } from 'CommonStyle/Button/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
+
 import { AuthForm } from 'components/forms/AuthForm.styled';
 import { Input } from 'components/forms/Input.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
 import { InputError } from 'components/forms/InputError.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
-import { useFormik } from 'formik';
+import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
+
 import { signUpSchema } from 'js/validation/schemas';
+import { calculateStrength, getTitle } from 'js/validation/passwordStrength';
 
 const SignUp = () => {
   // const dispatch = useDispatch();
@@ -34,15 +39,25 @@ const SignUp = () => {
     handleChange,
     handleBlur,
     resetForm,
+    setFieldValue,
   } = useFormik({
     initialValues: {
       email: '',
       password: '',
       repeatPassword: '',
+      strengthScore: 0,
     },
     validationSchema: signUpSchema,
     onSubmit,
   });
+
+  const handlePasswordChange = e => {
+    const password = e.target.value;
+    const score = calculateStrength(password);
+
+    setFieldValue('password', password);
+    setFieldValue('strengthScore', score);
+  };
 
   return (
     <AuthForm onSubmit={handleSubmit}>
@@ -67,11 +82,17 @@ const SignUp = () => {
         <PasswordInput
           name="password"
           value={values.password}
-          onChange={handleChange}
+          onChange={handlePasswordChange}
           onBlur={handleBlur}
           placeholder="Password"
           error={touched.password && errors.password}
         />
+        {values.password && (
+          <>
+            <PasswordMeter score={values.strengthScore} />
+            <span>{getTitle(values.strengthScore)}</span>
+          </>
+        )}
         {touched.password && errors.password && (
           <InputError>{errors.password}</InputError>
         )}
