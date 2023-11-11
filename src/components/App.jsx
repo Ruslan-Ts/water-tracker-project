@@ -1,3 +1,4 @@
+import Home from 'Pages/Home';
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -34,5 +35,13 @@ const router = createBrowserRouter(
 );
 
 export const App = () => {
+
   return <RouterProvider router={router} />;
+
+  return (
+    <div>
+      <Home />
+    </div>
+  );
+
 };
