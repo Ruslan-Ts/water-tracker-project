@@ -1,13 +1,64 @@
 import theme from 'CommonStyle/theme';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import css from './DailyCSS.module.css';
 import { Field, Form, Formik } from 'formik';
 
+import { Button } from 'CommonStyle/Button/Button.styled';
+import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
+import { Input } from 'components/forms/Input.styled';
+import { FormLabel } from 'components/forms/FormLabel.styled';
+import { rateSchema, signUpSchema } from 'js/validation/schemas';
+import { InputError } from 'components/forms/InputError.styled';
+import { Title } from 'CommonStyle/Title/Title.styled';
+import { AuthForm } from 'components/forms/AuthForm.styled';
+import { useFormik } from 'formik';
+
 const DailyNorma = () => {
-  const fun = data => {
-    return;
+  const [gender, setGenger] = useState();
+  const [weight, setWeight] = useState();
+  const [physical, setPhysical] = useState();
+  const [result, setResult] = useState();
+
+  const calcRate = (gender, weight, physical) => {
+    let result;
+    switch (gender) {
+      case 'girl':
+        result = weight * 0.03 + physical * 0.4;
+        setResult(result);
+        break;
+
+      case 'man':
+        result = weight * 0.04 + physical * 0.6;
+        setResult(result);
+        break;
+
+      default:
+        break;
+    }
   };
+
+  const {
+    values,
+    touched,
+    errors,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    resetForm,
+  } = useFormik({
+    initialValues: {
+      gender: '',
+      weight: '0',
+      physical: '0',
+    },
+    validationSchema: rateSchema,
+  });
+
+  useEffect(() => {
+    calcRate(values.gender, values.weight, values.physical);
+  }, [calcRate, values]);
+
   return (
     <ReactModal
       isOpen={true}
@@ -29,36 +80,56 @@ const DailyNorma = () => {
         commensurate in terms of loads (in the absence of these, you must set 0)
       </p>
       <h4>Calculate your rate:</h4>
-      <Formik
-        initialValues={{
-          rate: '',
-          weight: '',
-          load: '',
-        }}
-        onSubmit={async values => {
-          await new Promise(r => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 2));
-        }}
-      >
-        {({ values }) => (
-          <Form>
-            <div id="my-radio-group">Picked</div>
-            <div role="group" aria-labelledby="my-radio-group">
-              <label>
-                <Field type="radio" name="rate" value="girl" />
-                One
-              </label>
-              <label>
-                <Field type="radio" name="rate" value="man" />
-                Two
-              </label>
-              <div>{values.rate}</div>
-            </div>
+      <p>{result}</p>
 
-            <button type="submit">Submit</button>
-          </Form>
-        )}
-      </Formik>
+      <AuthForm onSubmit={handleSubmit}>
+        <FormLabel>
+          Enter your gender
+          <Input
+            type="text"
+            name="gender"
+            value={values.gender}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="gender"
+            error={touched.gender && errors.gender}
+          />
+          {touched.gender && errors.gender && (
+            <InputError>{errors.gender}</InputError>
+          )}
+        </FormLabel>
+        <FormLabel>
+          Enter your weight
+          <Input
+            type="number"
+            name="weight"
+            value={values.weight}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="weight"
+            error={touched.weight && errors.weight}
+          />
+          {touched.weight && errors.weight && (
+            <InputError>{errors.weight}</InputError>
+          )}
+        </FormLabel>
+        <FormLabel>
+          Enter your physical
+          <Input
+            type="number"
+            name="physical"
+            value={values.physical}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="physical"
+            error={touched.physical && errors.physical}
+          />
+          {touched.physical && errors.physical && (
+            <InputError>{errors.physical}</InputError>
+          )}
+        </FormLabel>
+      </AuthForm>
+
       <h5>Your weight in kilograms:</h5>
       <p>
         The time of active participation in sports or other activities with a

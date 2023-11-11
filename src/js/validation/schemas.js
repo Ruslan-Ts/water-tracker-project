@@ -11,3 +11,8 @@ export const signUpSchema = yup.object().shape({
     .matches()
     .required(),
 });
+
+export const rateSchema = yup.object().shape({
+  weight: yup.number().min(0).max(300).required(),
+  physical: yup.number().min(0).max(12),
+});

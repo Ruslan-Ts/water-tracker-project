@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Layout from './Layout/Layout.jsx';
+import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
 // import SignUp from 'Pages/SignUpPage';
 const WelcomePage = lazy(() => import('../Pages/WelcomePage'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
@@ -35,7 +36,12 @@ const router = createBrowserRouter(
 );
 
 export const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />;
+      <DailyNorma />
+    </>
+  );
 
   return (
     <div>
