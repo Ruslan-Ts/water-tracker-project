@@ -4,6 +4,12 @@
   "private": true,
   "homepage": "https://Ruslan-Ts.github.io/water-tracker-project/",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.17",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.5",
+    "@mui/x-data-grid": "^6.18.1",
+    "@mui/x-date-pickers": "^6.18.1",
     "@redux-devtools/extension": "^3.2.6",
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.16.3",
@@ -11,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.1",
     "formik": "^2.4.5",
+    "dayjs": "^1.11.10",
     "nanoid": "^5.0.3",
     "notiflix": "^3.2.6",
     "react": "^18.1.0",
@@ -22,7 +29,8 @@
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.1.1",
-    "web-vitals": "^2.1.3"
+    "web-vitals": "^2.1.3",
+    "yup": "^1.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
