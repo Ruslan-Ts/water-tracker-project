@@ -11,3 +11,7 @@ export const signUpSchema = yup.object().shape({
     .matches()
     .required(),
 });
+
+export const recoverySchema = yup.object().shape({
+  email: yup.string().matches(emailPattern, 'Email is not valid').required(),
+});

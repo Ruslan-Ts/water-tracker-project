@@ -50,7 +50,7 @@ const SignUp = () => {
     validationSchema: signUpSchema,
     onSubmit,
   });
-
+  // console.log(values);
   const handlePasswordChange = e => {
     const password = e.target.value;
     const score = calculateStrength(password);

@@ -2,6 +2,7 @@ import zxcvbn from 'zxcvbn';
 
 export const calculateStrength = password => {
   const result = zxcvbn(password);
+  console.log(result);
   const strength = (result.score / 4) * 100; // Normalize the score to a percentage
 
   return strength;

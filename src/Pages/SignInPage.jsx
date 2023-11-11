@@ -56,7 +56,11 @@ const SignIn = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Email"
+          error={touched.email && errors.email}
         />
+        {touched.email && errors.email && (
+          <InputError>{errors.email}</InputError>
+        )}
       </FormLabel>
       <FormLabel>
         Enter password
@@ -66,11 +70,15 @@ const SignIn = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Password"
+          error={touched.password && errors.password}
         />
+        {touched.password && errors.password && (
+          <InputError>{errors.password}</InputError>
+        )}
       </FormLabel>
       <Button type="submit">Sign up</Button>
-      <RouterLink to="/signup">Sign up</RouterLink>
       <RouterLink to="/forgot-password">Forgot password?</RouterLink>
+      <RouterLink to="/signup">Sign up</RouterLink>
     </AuthForm>
   );
 };
