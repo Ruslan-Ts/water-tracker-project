@@ -25,7 +25,7 @@ const Layout = () => {
           </Navigation>
         </div>
       </Header>
-      <main>
+      <main className="container">
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

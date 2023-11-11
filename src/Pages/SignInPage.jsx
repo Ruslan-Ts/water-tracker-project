@@ -3,7 +3,7 @@ import { logIn } from 'redux/auth/operations';
 
 import { Button } from 'CommonStyle/Button/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
-import { Input } from 'components/forms/FormInput.styled';
+import { Input } from 'components/forms/Input.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
 import { signUpSchema } from 'js/validation/schemas';
 import { InputError } from 'components/forms/InputError.styled';
@@ -42,41 +42,39 @@ const SignIn = () => {
   });
 
   return (
-    <div className="container">
-      <AuthForm onSubmit={onSubmit}>
-        <Title>Sign in</Title>
-        <FormLabel>
-          Enter email
-          <Input
-            type="text"
-            name="email"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            placeholder="Email"
-          />
-          {touched.email && errors.email && (
-            <InputError>{errors.email}</InputError>
-          )}
-        </FormLabel>
-        <FormLabel>
-          Enter password
-          <Input
-            type="text"
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            placeholder="Password"
-          />
-          {touched.password && errors.password && (
-            <InputError>{errors.password}</InputError>
-          )}
-        </FormLabel>
-        <Button type="submit">Sign up</Button>
-        <RouterLink to="/signup">Sign up</RouterLink>
-      </AuthForm>
-    </div>
+    <AuthForm onSubmit={onSubmit}>
+      <Title>Sign in</Title>
+      <FormLabel>
+        Enter email
+        <Input
+          type="text"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Email"
+        />
+        {touched.email && errors.email && (
+          <InputError>{errors.email}</InputError>
+        )}
+      </FormLabel>
+      <FormLabel>
+        Enter password
+        <Input
+          type="text"
+          name="password"
+          value={values.password}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          placeholder="Password"
+        />
+        {touched.password && errors.password && (
+          <InputError>{errors.password}</InputError>
+        )}
+      </FormLabel>
+      <Button type="submit">Sign up</Button>
+      <RouterLink to="/signup">Sign up</RouterLink>
+    </AuthForm>
   );
 };
 
