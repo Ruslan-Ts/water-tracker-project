@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
 import bg from '../../img/signup/bg-mobile.webp';
 
 export const SignLayoutStyled = styled.section`

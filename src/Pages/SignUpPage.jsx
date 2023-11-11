@@ -38,7 +38,6 @@ const SignUp = () => {
     handleSubmit,
     handleChange,
     handleBlur,
-    resetForm,
     setFieldValue,
   } = useFormik({
     initialValues: {

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
 import { getColor } from 'js/validation/passwordStrength';
 
 export const PasswordMeter = styled.div`

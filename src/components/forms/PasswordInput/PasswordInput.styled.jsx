@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
 
 export const PasswordInputStyled = styled.div`
   position: relative;

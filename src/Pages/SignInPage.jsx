@@ -1,6 +1,4 @@
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/operations';
 
 import { Button } from 'CommonStyle/Button/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
@@ -16,27 +14,8 @@ import SignLayout from 'components/SignLayout/SighLayout';
 import { signUpSchema } from 'js/validation/schemas';
 
 const SignIn = () => {
-  // const dispatch = useDispatch();
-
-  const onSubmit = e => {
-    // e.preventDefault();
-    // dispatch(
-    //   logIn({
-    //     email: e.target.elements.email.value,
-    //     password: e.target.elements.password.value,
-    //   })
-    // );
-    // e.target.reset();
-  };
-  const {
-    values,
-    touched,
-    errors,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    resetForm,
-  } = useFormik({
+  const onSubmit = e => {};
+  const { values, touched, errors, handleChange, handleBlur } = useFormik({
     initialValues: {
       email: '',
       password: '',

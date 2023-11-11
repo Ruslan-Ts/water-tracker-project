@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
 
 export const Navigation = styled.nav`
   display: flex;

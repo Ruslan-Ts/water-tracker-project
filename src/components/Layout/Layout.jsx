@@ -16,7 +16,7 @@ const Layout = () => {
         <div className="container">
           <Navigation>
             <Logo>
-              <img src={img} />
+              <img src={img} alt="logo" />
               <span>
                 Tracker <br /> of water
               </span>
