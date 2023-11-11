@@ -1,3 +1,4 @@
+import Home from 'Pages/Home';
 import { lazy, useEffect } from 'react';
 
 // const Main = lazy(() => import('../Pages/Main.jsx'));
@@ -6,5 +7,9 @@ import { lazy, useEffect } from 'react';
 // const NotFound = lazy(() => import('../Pages/NotFound.jsx'));
 
 export const App = () => {
-  return <div>Water tracker project</div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 };
