@@ -9,6 +9,7 @@ const theme = Object.freeze({
     secondaryBlue: '#9EBBFF',
     secondaryRed: '#EF5050',
     secondaryYellow: '#FF9D43',
+    secondaryGray: '#8F8F8F',
   },
   fontSizes: {
     tiny: '12px',
