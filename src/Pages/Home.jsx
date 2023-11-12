@@ -1,12 +1,10 @@
-import DateSelector from 'components/Home/DateSelector/DateSelector';
-import Today from 'components/Home/Today/Today';
+import Calendar from 'components/Home/Calendar/Calendar';
 import React from 'react';
 
 const Home = () => {
   return (
     <div>
-      <Today />
-      <DateSelector />
+      <Calendar />
     </div>
   );
 };
