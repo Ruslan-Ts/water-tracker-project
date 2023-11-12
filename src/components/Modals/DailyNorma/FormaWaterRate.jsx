@@ -6,17 +6,7 @@ import { useFormik } from 'formik';
 import { Input } from 'components/forms/Input.styled';
 import { InputError } from 'components/forms/InputError.styled';
 
-const FormaWaterRate = () => {
-  const onSubmit = e => {
-    // e.preventDefault();
-    // dispatch(
-    //   logIn({
-    //     email: e.target.elements.email.value,
-    //     password: e.target.elements.password.value,
-    //   })
-    // );
-    // e.target.reset();
-  };
+const FormaWaterRate = ({ onSubmit }) => {
   const {
     values,
     touched,

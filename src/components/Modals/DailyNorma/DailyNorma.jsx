@@ -24,8 +24,13 @@ import {
   WrapperDefinition,
 } from './DailyNorma.styled';
 import FormaWaterRate from './FormaWaterRate';
+import { useDispatch } from 'react-redux';
+import { useSelect } from '@mui/base';
 
 const DailyNorma = () => {
+  // const dispatch = useDispatch();
+  // const rate = useSelect(SelectorRate);
+
   const [result, setResult] = useState();
 
   const calcRate = (gender, weight, physical) => {
@@ -51,7 +56,18 @@ const DailyNorma = () => {
         break;
     }
   };
-
+  const onSubmit = e => {
+    e.preventDefault();
+    // dispatch(updateRateThunk({ rate: e.target.elements.rate.value }));
+    // console.log(e.target.elements.rate.value);
+    // dispatch(
+    //   logIn({
+    //     email: e.target.elements.email.value,
+    //     password: e.target.elements.password.value,
+    //   })
+    // );
+    // e.target.reset();
+  };
   const {
     values,
     touched,
@@ -169,7 +185,7 @@ const DailyNorma = () => {
         <ValueResult>{result} L </ValueResult>
       </WrapperResult>
 
-      <FormaWaterRate />
+      <FormaWaterRate onSubmit={onSubmit} />
     </ReactModal>
   );
 };
