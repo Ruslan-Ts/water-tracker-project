@@ -61,4 +61,22 @@ export const GlobalStyles = createGlobalStyle`
 		font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 			monospace;
 	}
+	[class="container"] {
+		min-width: 280px;
+		max-width: 345px;
+		padding: 0 20px;
+		margin: 0 auto;
+	}
+	@media screen and (min-width: 768px) {
+		[class="container"] {
+			max-width: 704px;
+			padding: 0 32px;
+		}
+	}
+	@media screen and (min-width: 1280px) {
+		[class="container"] {
+			max-width: 1080px;
+			padding: 0 100px;
+		}
+	}
 `;
