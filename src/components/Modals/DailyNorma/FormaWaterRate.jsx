@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormaCalculation, TitlePart } from './DailyNorma.styled';
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button, FormaCalculation, TitlePart } from './DailyNorma.styled';
+
 import { rateSchema } from 'js/validation/schemas';
 import { useFormik } from 'formik';
 import { Input } from 'components/forms/Input.styled';
@@ -39,6 +39,7 @@ const FormaWaterRate = () => {
       <FormaCalculation onSubmit={onSubmit}>
         <Input
           type="number"
+          step="0.001"
           name="rate"
           value={values.rate}
           onChange={handleChange}

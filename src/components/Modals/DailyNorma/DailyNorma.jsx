@@ -1,11 +1,6 @@
-import theme from 'CommonStyle/theme';
 import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import css from './DailyCSS.module.css';
-import { Field, Form, Formik, isNaN } from 'formik';
-
-import { Button } from 'CommonStyle/Button/Button.styled';
-import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Input } from 'components/forms/Input.styled';
 import {
   FormLabel,
@@ -14,14 +9,12 @@ import {
   TitlePart,
   TitleResult,
   ValueResult,
-  WraperResult,
   WrapperRadio,
   WrapperResult,
 } from './DailyNorma.styled';
-import { rateSchema, signUpSchema } from 'js/validation/schemas';
+import { rateSchema } from 'js/validation/schemas';
 import { InputError } from 'components/forms/InputError.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
-import { AuthForm } from 'components/forms/AuthForm.styled';
 import { useFormik } from 'formik';
 import {
   ContainerDefinition,
@@ -43,7 +36,7 @@ const DailyNorma = () => {
           break;
         }
         result = weight * 0.03 + physical * 0.4;
-        setResult(result);
+        setResult(result.toFixed(1));
         break;
 
       case 'man':
@@ -51,7 +44,7 @@ const DailyNorma = () => {
           break;
         }
         result = weight * 0.04 + physical * 0.6;
-        setResult(result);
+        setResult(result.toFixed(1));
         break;
 
       default:
@@ -69,7 +62,7 @@ const DailyNorma = () => {
     resetForm,
   } = useFormik({
     initialValues: {
-      gender: 'man',
+      gender: 'girl',
       weight: '',
       physical: '',
     },
@@ -82,6 +75,7 @@ const DailyNorma = () => {
 
   return (
     <ReactModal
+      ariaHideApp={false}
       isOpen={true}
       className={css.content}
       overlayClassName={css.overlay}
@@ -115,7 +109,7 @@ const DailyNorma = () => {
               name="gender"
               value="girl"
               onChange={handleChange}
-              // onBlur={handleBlur}
+              defaultChecked="true"
             />
             <div></div>
             <span>For girl</span>
@@ -127,7 +121,6 @@ const DailyNorma = () => {
               name="gender"
               value="man"
               onChange={handleChange}
-              // onBlur={handleBlur}
             />
             <div></div>
             <span>For man</span>
@@ -138,6 +131,7 @@ const DailyNorma = () => {
           Your weight in kilograms:
           <Input
             type="number"
+            step="0.001"
             name="weight"
             value={values.weight}
             onChange={handleChange}
@@ -151,14 +145,15 @@ const DailyNorma = () => {
         </FormLabel>
         <FormLabel>
           The time of active participation in sports or other activities with a
-          high physical. load:
+          high physical load:
           <Input
             type="number"
+            step="0.001"
             name="physical"
             value={values.physical}
             onChange={handleChange}
             onBlur={handleBlur}
-            placeholder="physical"
+            placeholder="physical load"
             error={touched.physical && errors.physical}
           />
           {touched.physical && errors.physical && (
@@ -173,6 +168,7 @@ const DailyNorma = () => {
         </TitleResult>
         <ValueResult>{result} L </ValueResult>
       </WrapperResult>
+
       <FormaWaterRate />
     </ReactModal>
   );
