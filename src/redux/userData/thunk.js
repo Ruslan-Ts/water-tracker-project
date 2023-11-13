@@ -1,5 +1,5 @@
 import { updateAvatar, updateWaterRate, updateUserProfile } from "API/dataAPI";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 const { createAsyncThunk } = require("@reduxjs/toolkit")
 
