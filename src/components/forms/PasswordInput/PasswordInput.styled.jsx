@@ -11,3 +11,9 @@ export const PasswordInputStyled = styled.div`
     transform: translateY(-50%);
   }
 `;
+
+export const PasswordInputWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  position: relative;
+`;

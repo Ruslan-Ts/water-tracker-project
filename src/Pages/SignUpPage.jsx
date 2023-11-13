@@ -17,6 +17,7 @@ import SignLayout from 'components/SignLayout/SighLayout';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
+import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
 
 const SignUp = () => {
   // const dispatch = useDispatch();
@@ -81,7 +82,7 @@ const SignUp = () => {
         </FormLabel>
         <FormLabel>
           Enter your password
-          <div style={{ display: 'flex', width: '100%', position: 'relative' }}>
+          <PasswordInputWrapper>
             <PasswordInput
               name="password"
               value={values.password}
@@ -96,7 +97,7 @@ const SignUp = () => {
                 password={values.password}
               />
             )}
-          </div>
+          </PasswordInputWrapper>
           {values.password && <PasswordMeter $score={values.strengthScore} />}
           {touched.password && errors.password && (
             <InputError>{errors.password}</InputError>
