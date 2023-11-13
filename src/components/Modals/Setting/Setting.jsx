@@ -2,8 +2,15 @@ import React, { useRef } from 'react';
 import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
-import { TitlePart } from '../DailyNorma/DailyNorma.styled';
-import { ContainerAvatar, WrapperUpload } from './Setting.styled';
+import { Button, TitlePart } from '../DailyNorma/DailyNorma.styled';
+import {
+  ContainerAvatar,
+  WrapperForma,
+  WrapperFormaLeft,
+  WrapperFormaMain,
+  WrapperFormaRight,
+  WrapperUpload,
+} from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorAvatar, selectorUserProfile } from 'redux/userData/selectors';
@@ -60,6 +67,13 @@ const Setting = () => {
           </button>
         </label>
       </WrapperUpload>
+      <WrapperForma>
+        <WrapperFormaMain>
+          <WrapperFormaLeft>LEFT</WrapperFormaLeft>
+          <WrapperFormaRight>RIGHT</WrapperFormaRight>
+        </WrapperFormaMain>
+        <Button />
+      </WrapperForma>
     </ReactModal>
   );
 };

@@ -45,3 +45,21 @@ export const ContainerAvatar = styled.div`
     background-color: ${theme.colors.primaryAccent};
   }
 `;
+
+export const WrapperForma = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const WrapperFormaMain = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const WrapperFormaLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const WrapperFormaRight = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

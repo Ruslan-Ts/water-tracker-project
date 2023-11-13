@@ -1,6 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
-const { updateWaterRateThunk, updateAvatarThunk } = require("./thunk");
-const { handlerUpdateWaterRate, handlerUpdateAvatar } = require("./handlers");
+const { updateWaterRateThunk, updateAvatarThunk, updateUserProfileThunk } = require("./thunk");
+const { handlerUpdateWaterRate, handlerUpdateAvatar, handlerUpdateUserProfile } = require("./handlers");
 
 const initialState = {
     user: {
@@ -21,7 +21,7 @@ const dataSlice = createSlice({
         builder
             .addCase(updateWaterRateThunk.fulfilled, handlerUpdateWaterRate)
             .addCase(updateAvatarThunk.fulfilled, handlerUpdateAvatar)
-
+            .addCase(updateUserProfileThunk.fulfilled, handlerUpdateUserProfile)
     },
     reducers: {
 

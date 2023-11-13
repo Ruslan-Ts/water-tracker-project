@@ -1,7 +1,9 @@
-import { updateAvatar, updateWaterRate } from "API/dataAPI";
+import { updateAvatar, updateWaterRate, updateUserProfile } from "API/dataAPI";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 const { createAsyncThunk } = require("@reduxjs/toolkit")
+
+
 
 export const updateWaterRateThunk = createAsyncThunk('dataUser/updateWaterRate', async (newWaterRate, { rejectWithValue }) => {
     try {
@@ -17,6 +19,15 @@ export const updateWaterRateThunk = createAsyncThunk('dataUser/updateWaterRate',
 export const updateAvatarThunk = createAsyncThunk('dataUser/updateAvatar', async (newPhotoFile, { rejectWithValue }) => {
     try {
         const avatarURL = await updateAvatar(newPhotoFile);
+        return avatarURL;
+    } catch (error) {
+        return rejectWithValue(error.massage);
+    }
+}
+)
+export const updateUserProfileThunk = createAsyncThunk('dataUser/UserProfile', async (newPhotoFile, { rejectWithValue }) => {
+    try {
+        const avatarURL = await updateUserProfile(newPhotoFile);
         return avatarURL;
     } catch (error) {
         return rejectWithValue(error.massage);

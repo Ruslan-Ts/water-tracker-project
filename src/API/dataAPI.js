@@ -16,4 +16,13 @@ export const updateAvatar = async (newPhotoFile) => {
         }
     })
     return avatarURL;
+}
+
+export const updateUserProfile = async (newPhotoFile) => {
+    const { data: { avatarURL } } = await instance.patch('/users/avatars', newPhotoFile, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    return avatarURL;
 } 
