@@ -12,6 +12,10 @@ export const signUpSchema = yup.object().shape({
     .required(),
 });
 
+export const rateSchema = yup.object().shape({
+  weight: yup.number().min(0).max(300).required(),
+  physical: yup.number().min(0).max(12),
+});
 export const recoverySchema = yup.object().shape({
   email: yup.string().matches(emailPattern, 'Email is not valid').required(),
 });
