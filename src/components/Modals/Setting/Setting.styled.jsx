@@ -53,13 +53,32 @@ export const WrapperForma = styled.div`
 
 export const WrapperFormaMain = styled.div`
   display: flex;
+  gap: 24px;
   flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 `;
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 392px;
+  }
 `;
 export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 392px;
+  }
 `;
