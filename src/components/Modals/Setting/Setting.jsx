@@ -13,7 +13,7 @@ import {
 } from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectorAvatar, selectorUserProfile } from 'redux/userData/selectors';
+import { selectorUserProfile } from 'redux/userData/selectors';
 import { updateAvatarThunk } from 'redux/userData/thunk';
 
 const Setting = () => {

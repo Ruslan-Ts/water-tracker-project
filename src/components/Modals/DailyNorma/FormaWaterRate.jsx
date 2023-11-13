@@ -11,10 +11,10 @@ const FormaWaterRate = ({ onSubmit }) => {
     values,
     touched,
     errors,
-    handleSubmit,
+    // handleSubmit,
     handleChange,
     handleBlur,
-    resetForm,
+    // resetForm,
   } = useFormik({
     initialValues: {
       rate: '',
