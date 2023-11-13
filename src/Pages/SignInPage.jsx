@@ -37,7 +37,7 @@ const SignIn = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="Email"
-            error={touched.email && errors.email}
+            $error={touched.email && errors.email}
           />
           {touched.email && errors.email && (
             <InputError>{errors.email}</InputError>
@@ -51,7 +51,7 @@ const SignIn = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="Password"
-            error={touched.password && errors.password}
+            $error={touched.password && errors.password}
           />
           {touched.password && errors.password && (
             <InputError>{errors.password}</InputError>

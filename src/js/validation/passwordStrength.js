@@ -2,7 +2,6 @@ import zxcvbn from 'zxcvbn';
 
 export const calculateStrength = password => {
   const result = zxcvbn(password);
-  console.log(result);
   const strength = (result.score / 4) * 100; // Normalize the score to a percentage
 
   return strength;
@@ -28,4 +27,10 @@ export const getColor = strength => {
   if (strength <= 50) return 'yellow';
   if (strength <= 75) return 'lightgreen';
   return 'green';
+};
+
+export const checkPassword = {
+  hasLetters: password => /[a-z]/.test(password) && /[A-Z]/.test(password),
+  hasNumber: password => /\d/.test(password),
+  hasSpecialSymb: password => /[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password),
 };

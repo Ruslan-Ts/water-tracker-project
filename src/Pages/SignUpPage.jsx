@@ -10,11 +10,13 @@ import { AuthForm } from 'components/forms/AuthForm.styled';
 import { Input } from 'components/forms/Input.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
 import { InputError } from 'components/forms/InputError.styled';
-import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
+import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
+import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
+import SignLayout from 'components/SignLayout/SighLayout';
 
 import { signUpSchema } from 'js/validation/schemas';
-import { calculateStrength, getTitle } from 'js/validation/passwordStrength';
+import { calculateStrength } from 'js/validation/passwordStrength';
 
 const SignUp = () => {
   // const dispatch = useDispatch();
@@ -59,59 +61,64 @@ const SignUp = () => {
   };
 
   return (
-    <AuthForm onSubmit={handleSubmit}>
-      <Title>Sign Up</Title>
-      <FormLabel>
-        Enter your email
-        <Input
-          type="email"
-          name="email"
-          value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Email"
-          error={touched.email && errors.email}
-        />
-        {touched.email && errors.email && (
-          <InputError>{errors.email}</InputError>
-        )}
-      </FormLabel>
-      <FormLabel>
-        Enter your password
-        <PasswordInput
-          name="password"
-          value={values.password}
-          onChange={handlePasswordChange}
-          onBlur={handleBlur}
-          placeholder="Password"
-          error={touched.password && errors.password}
-        />
-        {values.password && (
-          <>
-            <PasswordMeter score={values.strengthScore} />
-            <span>{getTitle(values.strengthScore)}</span>
-          </>
-        )}
-        {touched.password && errors.password && (
-          <InputError>{errors.password}</InputError>
-        )}
-      </FormLabel>
-      <FormLabel>
-        Repeat password
-        <PasswordInput
-          name="repeatPassword"
-          value={values.repeatPassword}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          placeholder="Repeat password"
-        />
-        {touched.repeatPassword && errors.repeatPassword && (
-          <InputError>{errors.repeatPassword}</InputError>
-        )}
-      </FormLabel>
-      <Button type="submit">Sign up</Button>
-      <RouterLink to="/signin">Sign in</RouterLink>
-    </AuthForm>
+    <SignLayout>
+      <AuthForm onSubmit={handleSubmit}>
+        <Title>Sign Up</Title>
+        <FormLabel>
+          Enter your email
+          <Input
+            type="email"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Email"
+            $error={touched.email && errors.email}
+          />
+          {touched.email && errors.email && (
+            <InputError>{errors.email}</InputError>
+          )}
+        </FormLabel>
+        <FormLabel>
+          Enter your password
+          <div style={{ display: 'flex', width: '100%', position: 'relative' }}>
+            <PasswordInput
+              name="password"
+              value={values.password}
+              onChange={handlePasswordChange}
+              onBlur={handleBlur}
+              placeholder="Password"
+              $error={touched.password && errors.password}
+            />
+            {values.password && (
+              <PasswordToolTip
+                score={values.strengthScore}
+                password={values.password}
+              />
+            )}
+          </div>
+          {values.password && <PasswordMeter $score={values.strengthScore} />}
+          {touched.password && errors.password && (
+            <InputError>{errors.password}</InputError>
+          )}
+        </FormLabel>
+        <FormLabel>
+          Repeat password
+          <PasswordInput
+            name="repeatPassword"
+            value={values.repeatPassword}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Repeat password"
+          />
+          {touched.repeatPassword && errors.repeatPassword && (
+            <InputError>{errors.repeatPassword}</InputError>
+          )}
+        </FormLabel>
+        <Button type="submit">Sign up</Button>
+        <RouterLink to="/signin">Sign in</RouterLink>
+      </AuthForm>
+    </SignLayout>
   );
 };
 

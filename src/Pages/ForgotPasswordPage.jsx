@@ -30,7 +30,7 @@ const ForgotPasswordPage = () => {
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder="Email"
-          error={touched.email && errors.email}
+          $error={touched.email && errors.email}
         />
         {touched.email && errors.email && (
           <InputError>{errors.email}</InputError>

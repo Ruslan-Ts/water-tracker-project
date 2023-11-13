@@ -4,6 +4,9 @@ import bg from '../../img/signup/bg-mobile.webp';
 export const SignLayoutStyled = styled.section`
   display: flex;
   position: relative;
+  picture {
+    z-index: -1;
+  }
   form {
     width: 100%;
     max-width: 280px;
