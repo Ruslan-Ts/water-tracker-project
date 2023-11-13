@@ -33,7 +33,7 @@ const Setting = () => {
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={false}
+      isOpen={true}
       className={css.content}
       overlayClassName={css.overlay}
     >
