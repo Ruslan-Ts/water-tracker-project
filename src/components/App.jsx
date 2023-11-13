@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Layout from './Layout/Layout.jsx';
 // import SignUp from 'Pages/SignUpPage';
-const WelcomePage = lazy(() => import('../Pages/WelcomePage'));
+const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
 const SignUp = lazy(() => import('../Pages/SignUpPage.jsx'));
@@ -35,7 +35,6 @@ const router = createBrowserRouter(
 );
 
 export const App = () => {
-
   return <RouterProvider router={router} />;
 
   return (
@@ -43,5 +42,4 @@ export const App = () => {
       <Home />
     </div>
   );
-
 };

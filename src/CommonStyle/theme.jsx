@@ -16,7 +16,7 @@ const theme = Object.freeze({
     medium: '18px',
     large: '26px',
   },
-
+  /////
   animation: {
     duration: '0.3s',
     cubicBezier: '0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)',
