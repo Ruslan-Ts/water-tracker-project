@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { TitlePart } from '../DailyNorma/DailyNorma.styled';
 import { WrapperUpload } from './Setting.styled';
+import Icons from '../../../img/sprite.svg';
 
 const Setting = () => {
+  const filePecker = useRef(null);
+  const handlerClick = () => {
+    filePecker.current.click();
+  };
   return (
     <ReactModal
       ariaHideApp={false}
@@ -22,10 +27,15 @@ const Setting = () => {
           width={80}
         />
         <label>
-          <input className="visually-hidden" type="file" accept=".jpg" />
-          <button type="button" class="tiezer-close-btn">
-            <svg class="trailer icon-close" width="25" height="25">
-              <use href="./images/sprite.svg#icon-close"></use>
+          <input
+            className="visually-hidden"
+            ref={filePecker}
+            type="file"
+            accept=".jpg"
+          />
+          <button type="button" onClick={handlerClick}>
+            <svg width="16" height="16">
+              <use href={Icons + '#arrow-up'}></use>
             </svg>
             <span>Upload a photo</span>
           </button>
