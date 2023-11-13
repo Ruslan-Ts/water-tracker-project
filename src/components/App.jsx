@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Layout from './Layout/Layout.jsx';
 import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
-const WelcomePage = lazy(() => import('../Pages/WelcomePage'));
+const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 // const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
 const SignUp = lazy(() => import('../Pages/SignUpPage.jsx'));
