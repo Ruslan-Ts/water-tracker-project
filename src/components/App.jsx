@@ -1,12 +1,10 @@
-import Home from 'Pages/Home';
-import { lazy, useEffect } from 'react';
-import { Route, Routes } from 'react-router';
+import { lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Layout from './Layout/Layout.jsx';
-// import SignUp from 'Pages/SignUpPage';
-const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
-const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
+import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
+const WelcomePage = lazy(() => import('../Pages/WelcomePage'));
+// const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
 const SignUp = lazy(() => import('../Pages/SignUpPage.jsx'));
 const NotFoundPage = lazy(() => import('../Pages/NotFoundPage.jsx'));
@@ -19,14 +17,22 @@ const router = createBrowserRouter(
         {
           path: '/',
           element: <WelcomePage />,
+          errorElement: <NotFoundPage />,
         },
         {
           path: '/signup',
           element: <SignUp />,
+          errorElement: <NotFoundPage />,
         },
         {
           path: '/signin',
           element: <SignIn />,
+          errorElement: <NotFoundPage />,
+        },
+        {
+          path: '/forgot-password',
+          element: <ForgotPasswordPage />,
+          errorElement: <NotFoundPage />,
         },
       ],
     },
@@ -36,10 +42,4 @@ const router = createBrowserRouter(
 
 export const App = () => {
   return <RouterProvider router={router} />;
-
-  return (
-    <div>
-      <Home />
-    </div>
-  );
 };

@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const emailPattern = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+const emailPattern = new RegExp(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/);
 
 export const signUpSchema = yup.object().shape({
   email: yup.string().matches(emailPattern, 'Email is not valid').required(),
@@ -10,4 +10,8 @@ export const signUpSchema = yup.object().shape({
     .max(64, 'Max length 64')
     .matches()
     .required(),
+});
+
+export const recoverySchema = yup.object().shape({
+  email: yup.string().matches(emailPattern, 'Email is not valid').required(),
 });

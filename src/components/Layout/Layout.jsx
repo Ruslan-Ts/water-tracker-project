@@ -3,12 +3,11 @@ import { Suspense } from 'react';
 import Loader from 'components/Loader';
 import HeaderComponent from '../Header';
 
-
 const Layout = () => {
   //   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
     <div>
-      <HeaderComponent/>
+      <HeaderComponent />
       <main className="container">
         <Suspense fallback={<Loader />}>
           <Outlet />
