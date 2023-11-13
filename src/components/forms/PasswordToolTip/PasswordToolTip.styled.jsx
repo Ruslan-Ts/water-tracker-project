@@ -1,0 +1,58 @@
+import styled from 'styled-components';
+import theme from 'CommonStyle/theme';
+
+export const PasswordTipStyled = styled.div`
+  position: relative;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background-color: ${theme.colors.primaryAccent};
+    color: ${theme.colors.primaryLight};
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+  }
+  & > div {
+    display: ${props => (props.$show ? 'block' : 'none')};
+    position: absolute;
+    right: -46px;
+    top: 42px;
+    background-color: #e0e0e0;
+    width: 360px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    &:before {
+      content: '';
+      position: absolute;
+      right: 5px;
+      top: -19px;
+      border-style: solid;
+      border-width: 20px 20px 0;
+      border-color: #e0e0e0 transparent transparent transparent;
+      transform: rotate(180deg);
+    }
+    @media screen and (min-width: 1280px) {
+      width: 410px;
+    }
+  }
+
+  span {
+    display: block;
+    text-align: right;
+  }
+`;
+
+export const PasswordTipParagraph = styled.p`
+  ${props => (props.$marked ? { color: 'green', opacity: 0.5 } : null)}
+`;

@@ -21,7 +21,7 @@ export const Input = styled.input`
     border-color: ${theme.colors.secondaryRed};
   }
   ${props =>
-    props.error
+    props.$error
       ? {
           color: 'red',
           borderColor: 'red',
