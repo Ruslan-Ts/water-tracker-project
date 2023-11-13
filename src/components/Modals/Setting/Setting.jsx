@@ -3,14 +3,26 @@ import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { TitlePart } from '../DailyNorma/DailyNorma.styled';
-import { WrapperUpload } from './Setting.styled';
+import { ContainerAvatar, WrapperUpload } from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorAvatar, selectorUserProfile } from 'redux/userData/selectors';
+import { updateAvatarThunk } from 'redux/userData/thunk';
 
 const Setting = () => {
   const filePecker = useRef(null);
+  const userProfile = useSelector(selectorUserProfile);
+  const dispatch = useDispatch();
+
+  const handelChange = e => {
+    const formaData = new FormData();
+    formaData.append('avatar', e.target.files[0]);
+    dispatch(updateAvatarThunk(formaData));
+  };
   const handlerClick = () => {
     filePecker.current.click();
   };
+
   return (
     <ReactModal
       ariaHideApp={false}
@@ -21,17 +33,24 @@ const Setting = () => {
       <Title>Setting</Title>
       <TitlePart>Your photo</TitlePart>
       <WrapperUpload>
-        <img
-          src="http://res.cloudinary.com/djujpexdy/image/upload/v1699819558/water-tracker/avatars/655110e230a7d57b4b6acc8f_avatar.jpg"
-          alt="avatar"
-          width={80}
-        />
+        <ContainerAvatar>
+          {!userProfile.avatarURL && (
+            <div>
+              {userProfile.userName ? userProfile.userName.split('')[0] : 'V'}
+            </div>
+          )}
+          {userProfile.avatarURL && (
+            <img src={userProfile.avatarURL} alt="avatar" width={80} />
+          )}
+        </ContainerAvatar>
+
         <label>
           <input
             className="visually-hidden"
             ref={filePecker}
             type="file"
             accept=".jpg"
+            onChange={handelChange}
           />
           <button type="button" onClick={handlerClick}>
             <svg width="16" height="16">

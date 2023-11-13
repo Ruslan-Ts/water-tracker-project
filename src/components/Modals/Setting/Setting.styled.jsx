@@ -23,7 +23,25 @@ export const WrapperUpload = styled.div`
     stroke: ${theme.colors.primaryAccent};
     fill: none;
   }
+
   /* width: 80px;
   height: 80px;
   border-radius: 100%; */
+`;
+
+export const ContainerAvatar = styled.div`
+  width: 80px;
+  height: 80px;
+  div {
+    width: auto;
+    height: 100%;
+    background-color: red;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    color: ${theme.colors.primaryLight};
+    background-color: ${theme.colors.primaryAccent};
+  }
 `;
