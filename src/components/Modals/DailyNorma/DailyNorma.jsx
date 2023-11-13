@@ -24,8 +24,8 @@ import {
   WrapperDefinition,
 } from './DailyNorma.styled';
 import FormaWaterRate from './FormaWaterRate';
-import { useDispatch } from 'react-redux';
-import { useSelect } from '@mui/base';
+// import { useDispatch } from 'react-redux';
+// import { useSelect } from '@mui/base';
 
 const DailyNorma = () => {
   // const dispatch = useDispatch();
@@ -33,29 +33,6 @@ const DailyNorma = () => {
 
   const [result, setResult] = useState();
 
-  const calcRate = (gender, weight, physical) => {
-    let result;
-    switch (gender) {
-      case 'girl':
-        if (weight < 0 || physical < 0) {
-          break;
-        }
-        result = weight * 0.03 + physical * 0.4;
-        setResult(result.toFixed(1));
-        break;
-
-      case 'man':
-        if (weight < 0 || physical < 0) {
-          break;
-        }
-        result = weight * 0.04 + physical * 0.6;
-        setResult(result.toFixed(1));
-        break;
-
-      default:
-        break;
-    }
-  };
   const onSubmit = e => {
     e.preventDefault();
     // dispatch(updateRateThunk({ rate: e.target.elements.rate.value }));
@@ -75,7 +52,7 @@ const DailyNorma = () => {
     handleSubmit,
     handleChange,
     handleBlur,
-    resetForm,
+    // resetForm,
   } = useFormik({
     initialValues: {
       gender: 'girl',
@@ -86,8 +63,31 @@ const DailyNorma = () => {
   });
 
   useEffect(() => {
+    const calcRate = (gender, weight, physical) => {
+      let result;
+      switch (gender) {
+        case 'girl':
+          if (weight < 0 || physical < 0) {
+            break;
+          }
+          result = weight * 0.03 + physical * 0.4;
+          setResult(result.toFixed(1));
+          break;
+
+        case 'man':
+          if (weight < 0 || physical < 0) {
+            break;
+          }
+          result = weight * 0.04 + physical * 0.6;
+          setResult(result.toFixed(1));
+          break;
+
+        default:
+          break;
+      }
+    };
     calcRate(values.gender, values.weight, values.physical);
-  }, [calcRate, values]);
+  }, [values]);
 
   return (
     <ReactModal
