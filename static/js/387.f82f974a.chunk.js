@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwater_tracker_project=self.webpackChunkwater_tracker_project||[]).push([[387],{5387:(e,r,t)=>{t.r(r),t.d(r,{default:()=>c});var s=t(184);const c=()=>(0,s.jsxs)("div",{children:[(0,s.jsx)("h2",{children:"Page not found"}),(0,s.jsx)("img",{style:{height:"100%"},src:"/src/img/noFound.png",alt:"404"})]})}}]);
+//# sourceMappingURL=387.f82f974a.chunk.js.map
