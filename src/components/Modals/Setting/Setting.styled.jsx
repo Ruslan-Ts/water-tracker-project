@@ -6,6 +6,8 @@ export const WrapperUpload = styled.div`
   align-items: center;
   gap: 8px;
 
+  margin-bottom: 24px;
+
   img {
     border-radius: 100%;
   }
@@ -49,6 +51,7 @@ export const ContainerAvatar = styled.div`
 export const WrapperForma = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 24px;
 `;
 
 export const WrapperFormaMain = styled.div`
@@ -65,17 +68,25 @@ export const WrapperFormaMain = styled.div`
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;
-
+  gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {
     width: 392px;
   }
 `;
+
+export const ContainerForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+`;
+
 export const WrapperFormaRight = styled.div`
   display: flex;
   flex-direction: column;
-
+  gap: 12px;
   width: 100%;
 
   @media screen and (min-width: 768px) {

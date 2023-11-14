@@ -58,8 +58,9 @@ export const NoticeWrapper = styled.p`
 `;
 
 export const FormLabel = styled.label`
-  font-size: 16px;
-  line-height: calc(20 / 16);
+  font-size: ${prop => prop.$fontSize || '16px'};
+  font-weight: ${prop => prop.$fontWeight || '400'};
+  line-height: calc(20 / ${prop => parseInt(prop.$fontSize, 10) || '16'});
   color: ${theme.colors.primaryDark};
   display: flex;
   flex-direction: column;
@@ -71,17 +72,22 @@ export const FormLabel = styled.label`
 export const WrapperRadio = styled.div`
   display: flex;
   gap: 24px;
+
   @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1440px) {
+    margin-bottom: ${props => props.$marginBottom || '0px'};
   }
 `;
 export const FormLabelRadio = styled.label`
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: ${theme.fontSizes.small};
+  line-height: calc(20 / 16);
 
   div {
+    box-sizing: border-box;
     width: 14px;
     height: 14px;
     background-color: transparent;
@@ -126,8 +132,8 @@ export const TitlePart = styled.h3`
   font-weight: 500;
   line-height: calc(20 / 18);
 
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: ${props => props.$marginTop || '24px;'};
+  margin-bottom: ${props => props.$marginBottom || '16px'};
 `;
 
 export const WrapperResult = styled.div`
@@ -181,7 +187,7 @@ export const Button = styled.button`
   }
   @media screen and (min-width: 768px) {
     width: auto;
-    margin-top: 8px;
+    /* margin-top: 8px; */
     font-size: 18px;
     line-height: calc(24 / 18);
   }

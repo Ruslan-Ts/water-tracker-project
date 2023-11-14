@@ -3,9 +3,11 @@ import {
   Button,
   FormLabel,
   FormLabelRadio,
+  TitlePart,
   WrapperRadio,
 } from '../DailyNorma/DailyNorma.styled';
 import {
+  ContainerForm,
   WrapperForma,
   WrapperFormaLeft,
   WrapperFormaMain,
@@ -68,126 +70,140 @@ const FormaUpdateUserProfile = () => {
   };
 
   return (
-    <WrapperForma>
-      <WrapperFormaMain>
-        <WrapperFormaLeft>
-          <WrapperRadio>
-            <FormLabelRadio>
-              <input
-                className="visually-hidden"
-                type="radio"
-                name="gender"
-                value="girl"
-                onChange={handleChange}
-                defaultChecked="true"
-              />
-              <div></div>
-              <span>For girl</span>
-            </FormLabelRadio>
-            <FormLabelRadio>
-              <input
-                className="visually-hidden"
-                type="radio"
-                name="gender"
-                value="man"
-                onChange={handleChange}
-              />
-              <div></div>
-              <span>For man</span>
-            </FormLabelRadio>
-          </WrapperRadio>
+    <form>
+      <WrapperForma>
+        <WrapperFormaMain>
+          <WrapperFormaLeft>
+            <TitlePart $marginBottom="0px" $marginTop="0px">
+              Your gender identity
+            </TitlePart>
+            <ContainerForm>
+              <WrapperRadio $marginBottom="28px">
+                <FormLabelRadio>
+                  <input
+                    className="visually-hidden"
+                    type="radio"
+                    name="gender"
+                    value="girl"
+                    onChange={handleChange}
+                    defaultChecked="true"
+                  />
+                  <div></div>
+                  <span>Girl</span>
+                </FormLabelRadio>
+                <FormLabelRadio>
+                  <input
+                    className="visually-hidden"
+                    type="radio"
+                    name="gender"
+                    value="man"
+                    onChange={handleChange}
+                  />
+                  <div></div>
+                  <span>Man</span>
+                </FormLabelRadio>
+              </WrapperRadio>
 
-          <FormLabel>
-            Your name
-            <Input
-              type="text"
-              name="name"
-              value={values.name}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Your name"
-              $error={touched.name && errors.name}
-            />
-            {touched.name && errors.name && (
-              <InputError>{errors.name}</InputError>
-            )}
-          </FormLabel>
-
-          <FormLabel>
-            E-mail
-            <Input
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Email"
-              $error={touched.email && errors.email}
-            />
-            {touched.email && errors.email && (
-              <InputError>{errors.email}</InputError>
-            )}
-          </FormLabel>
-        </WrapperFormaLeft>
-        <WrapperFormaRight>
-          <FormLabel>
-            Outdated password:
-            <PasswordInput
-              name="oldPassword"
-              value={values.oldPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Old password"
-            />
-            {touched.oldPassword && errors.oldPassword && (
-              <InputError>{errors.oldPassword}</InputError>
-            )}
-          </FormLabel>
-          <FormLabel>
-            New Password:
-            <PasswordInputWrapper>
-              <PasswordInput
-                name="newPassword"
-                value={values.newPassword}
-                onChange={handlePasswordChange}
-                onBlur={handleBlur}
-                placeholder="New password"
-                // $error={touched.newPassword && errors.newPassword}
-              />
-              {values.newPassword && (
-                <PasswordToolTip
-                  score={values.strengthScore}
-                  password={values.newPassword}
+              <FormLabel $fontSize="18px" $fontWeight="500">
+                Your name
+                <Input
+                  type="text"
+                  name="name"
+                  value={values.name}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="Your name"
+                  $error={touched.name && errors.name}
                 />
+                {touched.name && errors.name && (
+                  <InputError>{errors.name}</InputError>
+                )}
+              </FormLabel>
+
+              <FormLabel $fontSize="18px" $fontWeight="500">
+                E-mail
+                <Input
+                  // autoComplete="off"
+                  type="email"
+                  name="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="Email"
+                  $error={touched.email && errors.email}
+                />
+                {touched.email && errors.email && (
+                  <InputError>{errors.email}</InputError>
+                )}
+              </FormLabel>
+            </ContainerForm>
+          </WrapperFormaLeft>
+
+          <WrapperFormaRight>
+            <TitlePart $marginBottom="0px" $marginTop="0px">
+              Password
+            </TitlePart>
+
+            <FormLabel>
+              Outdated password:
+              <PasswordInput
+                autoComplete="off"
+                name="oldPassword"
+                value={values.oldPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Old password"
+              />
+              {touched.oldPassword && errors.oldPassword && (
+                <InputError>{errors.oldPassword}</InputError>
               )}
-            </PasswordInputWrapper>
-            {values.newPassword && (
-              <PasswordMeter $score={values.strengthScore} />
-            )}
-            {errors.newPassword && (
-              <InputError>{errors.newPassword}</InputError>
-            )}
-          </FormLabel>
-          <FormLabel>
-            Repeat new password:
-            <PasswordInput
-              name="repeatPassword"
-              value={values.repeatPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              placeholder="Repeat password"
-              $error={touched.repeatPassword && errors.repeatPassword}
-            />
-            {touched.repeatPassword && errors.repeatPassword && (
-              <InputError>{errors.repeatPassword}</InputError>
-            )}
-          </FormLabel>
-        </WrapperFormaRight>
-      </WrapperFormaMain>
-      <Button type="submit" onClick={handleSubmit}>
-        Save
-      </Button>
-    </WrapperForma>
+            </FormLabel>
+            <FormLabel>
+              New Password:
+              <PasswordInputWrapper>
+                <PasswordInput
+                  name="newPassword"
+                  value={values.newPassword}
+                  onChange={handlePasswordChange}
+                  onBlur={handleBlur}
+                  placeholder="New password"
+                  // $error={touched.newPassword && errors.newPassword}
+                />
+                {values.newPassword && (
+                  <PasswordToolTip
+                    score={values.strengthScore}
+                    password={values.newPassword}
+                  />
+                )}
+              </PasswordInputWrapper>
+              {values.newPassword && (
+                <PasswordMeter $score={values.strengthScore} />
+              )}
+              {errors.newPassword && (
+                <InputError>{errors.newPassword}</InputError>
+              )}
+            </FormLabel>
+            <FormLabel>
+              Repeat new password:
+              <PasswordInput
+                name="repeatPassword"
+                value={values.repeatPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder="Repeat password"
+                $error={touched.repeatPassword && errors.repeatPassword}
+              />
+              {touched.repeatPassword && errors.repeatPassword && (
+                <InputError>{errors.repeatPassword}</InputError>
+              )}
+            </FormLabel>
+          </WrapperFormaRight>
+        </WrapperFormaMain>
+        <Button type="submit" onClick={handleSubmit}>
+          Save
+        </Button>
+      </WrapperForma>
+    </form>
   );
 };
 

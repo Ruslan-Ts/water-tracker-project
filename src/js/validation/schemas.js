@@ -26,7 +26,6 @@ export const updateUserProfileSchema = yup.object().shape({
   name: yup.string().min(3),
   email: yup.string().matches(emailPattern, 'Email is not valid'),
 
-
   oldPassword: yup.string().when('newPassword', (newPassword, field) =>
     newPassword[0] ? field.required() : field
   ),

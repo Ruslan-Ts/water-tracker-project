@@ -32,7 +32,7 @@ const Setting = () => {
       overlayClassName={css.overlay}
     >
       <Title>Setting</Title>
-      <TitlePart>Your photo</TitlePart>
+      <TitlePart $marginBottom="8px">Your photo</TitlePart>
       <WrapperUpload>
         <ContainerAvatar>
           {!userProfile.avatarURL && (
