@@ -7,5 +7,5 @@ export const handlerUpdateAvatar = (state, { payload }) => {
 }
 
 export const handlerUpdateUserProfile = (state, { payload }) => {
-    state.user = payload;
+    state.user.waterRate = 3111;
 }

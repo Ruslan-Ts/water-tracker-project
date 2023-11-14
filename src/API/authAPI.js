@@ -19,11 +19,27 @@ export const updateAvatar = async (newPhotoFile) => {
     return avatarURL;
 }
 
-export const updateUserProfile = async (newPhotoFile) => {
-    const { data: { avatarURL } } = await instance.patch('/users/avatars', newPhotoFile, {
-        headers: {
-            'Content-Type': 'multipart/form-data'
+export const updateUserProfile = async (newUserProfile) => {
+    const dataForSend = {};
+
+    const entries = Object.entries(newUserProfile);
+    entries.forEach(([key, value]) => {
+        if (value) {
+            dataForSend[key] = value;
         }
-    })
-    return avatarURL;
+    });
+    console.log(dataForSend);
+    // const { data: { avatarURL } } = await instance.patch('/users/avatars', newPhotoFile, {
+    //     headers: {
+    //         'Content-Type': 'multipart/form-data'
+    //     }
+    // })
+    // return avatarURL;
+
+    // email
+    // gender
+    // name
+    // newPassword
+    // oldPassword
+    // repeatPassword
 } 
