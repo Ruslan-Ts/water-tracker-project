@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   padding: 8px 0 24px 0;
   @media screen and (min-width: 768px) {
     padding: 16px 0 40px 0;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -26,7 +27,7 @@ export const RouterLink = styled(Link)`
   &:hover {
     color: ${theme.colors.secondaryYellow};
     transition: color 0.3s ease;
-  };
+  }
   &:before {
     content: '';
     position: absolute;
@@ -36,12 +37,12 @@ export const RouterLink = styled(Link)`
     height: 1px;
     background-color: ${theme.colors.secondaryYellow};
     transition: width 0.3s ease;
-  };
+  }
   &:hover:before {
     width: 65%;
   }
 `;
 
 export const HeaderIcon = styled(HeaderIconSvg)`
-margin-left: 8px;
+  margin-left: 8px;
 `;
