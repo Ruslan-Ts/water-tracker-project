@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
@@ -6,8 +6,8 @@ import { TitlePart } from '../DailyNorma/DailyNorma.styled';
 import { ContainerAvatar, WrapperUpload } from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectorUserProfile } from 'redux/userData/selectors';
-import { updateAvatarThunk } from 'redux/userData/thunk';
+import { selectorUserProfile } from 'redux/auth/selectors';
+import { updateAvatarThunk } from 'redux/auth/thunk';
 import FormaUpdateUserProfile from './FormaUpdateUserProfile';
 import { selectorIsOpenSetting } from 'redux/modals/selectors';
 import { isOpenModalSetting } from 'redux/modals/slice';

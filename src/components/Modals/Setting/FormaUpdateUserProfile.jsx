@@ -23,7 +23,7 @@ import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
 import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
 import { calculateStrength } from 'js/validation/passwordStrength';
 import { useSelector } from 'react-redux';
-import { selectorUserProfile } from 'redux/userData/selectors';
+import { selectorUserProfile } from 'redux/auth/selectors';
 
 const FormaUpdateUserProfile = ({ onClose }) => {
   const userProfile = useSelector(selectorUserProfile);
@@ -79,7 +79,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
                     className="visually-hidden"
                     type="radio"
                     name="gender"
-                    value="girl"
+                    value="female"
                     onChange={handleChange}
                     checked={values.gender === 'female'}
                     // defaultChecked="true"
