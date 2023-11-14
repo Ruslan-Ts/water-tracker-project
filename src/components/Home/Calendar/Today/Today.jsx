@@ -3,11 +3,15 @@ import pencil from '../pencil.svg';
 import trash from '../trash.svg';
 import React, { useState } from 'react';
 import {
-  Container,
+  Viewport,
   TableStyled,
   TableRow,
   TableCell,
+  TextCell,
+  TimeCell,
   Button,
+  Container,
+  AddButton,
 } from './Today.styled';
 
 // const {
@@ -25,10 +29,10 @@ const Today = () => {
     {
       id: 1,
       svg: (
-        <img src={cup} alt="Cup" style={{ width: '24px', height: '24px' }} />
+        <img src={cup} alt="Cup" style={{ width: '26px', height: '26px' }} />
       ),
       text: '200ml',
-      time: '14:00',
+      time: '14:00 PM',
     },
     // Add more initial data as needed
   ];
@@ -41,10 +45,10 @@ const Today = () => {
     const newLine = {
       id: newId,
       svg: (
-        <img src={cup} alt="Cup" style={{ width: '24px', height: '24px' }} />
+        <img src={cup} alt="Cup" style={{ width: '26px', height: '26px' }} />
       ),
-      text: '300ml',
-      time: '00:00',
+      text: '200ml',
+      time: '14:00 PM',
     };
     setData([...data, newLine]);
     // setIsModalOpen(true);
@@ -60,23 +64,22 @@ const Today = () => {
   };
 
   return (
-    <>
+    <Container>
       <h2>Today</h2>
-      <Container>
+      <Viewport>
         <TableStyled>
           <tbody>
             {data.map(row => (
               <TableRow key={row.id}>
                 <TableCell>{row.svg}</TableCell>
-                <TableCell>{row.text}</TableCell>
-                <TableCell>{row.time}</TableCell>
+                <TextCell>{row.text}</TextCell>
+                <TimeCell>{row.time}</TimeCell>
                 <TableCell>
                   <Button onClick={handleEdit}>
-                    {' '}
                     <img
                       src={pencil}
                       alt="Delete"
-                      style={{ width: '24px', height: '24px' }}
+                      style={{ width: '16px', height: '16px' }}
                     />
                   </Button>
                 </TableCell>
@@ -85,7 +88,7 @@ const Today = () => {
                     <img
                       src={trash}
                       alt="Delete"
-                      style={{ width: '24px', height: '24px' }}
+                      style={{ width: '16px', height: '16px' }}
                     />
                   </Button>
                 </TableCell>
@@ -93,10 +96,10 @@ const Today = () => {
             ))}
           </tbody>
         </TableStyled>
-      </Container>
-      <Button type="submit" onClick={handleAddWater}>
-        + Add water
-      </Button>
+        <AddButton type="submit" onClick={handleAddWater}>
+          + Add water
+        </AddButton>
+      </Viewport>
 
       {/* {isModalOpen && (
         <div>
@@ -104,7 +107,7 @@ const Today = () => {
           <button onClick={() => setIsModalOpen(false)}>Close Modal</button>
         </div>
       )} */}
-    </>
+    </Container>
   );
 };
 

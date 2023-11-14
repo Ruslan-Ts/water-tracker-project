@@ -1,19 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 20px;
-  height: 250px;
+  width: 100%;
+`;
+export const Viewport = styled.div`
+  height: 220px;
+  width: 100%;
   overflow-y: auto;
+
+  /* WebKit (Chrome, Safari, etc.) */
   &::-webkit-scrollbar {
     width: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #d7e3ff;
+    background-color: #9ebbff;
+    border-radius: 2px;
   }
 
   &::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: #d7e3ff;
+    width: 1px;
   }
 `;
 
@@ -27,13 +34,51 @@ export const TableRow = styled.tr`
 `;
 
 export const TableCell = styled.td`
-  padding: 8px;
-  text-align: center;
+  text-align: left;
+  color: var(--primery-color-blue, #407bff);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`;
+
+export const TextCell = styled.td`
+  padding: 12px;
+  text-align: left;
+  color: var(--primery-color-blue, #407bff);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`;
+
+export const TimeCell = styled.td`
+  padding-right: 35px;
+  text-align: left;
+  color: var(--primery-color-black, #2f2f2f);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  @media (min-width: 768px) {
+    adding-right: 35px; /* Adjust spacing for screens wider than 768px */
+  }
 `;
 
 export const Button = styled.button`
   margin: 4px;
   cursor: pointer;
+`;
+
+export const AddButton = styled.button`
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 12px 8px;
+  color: #407bff;
+  background-color: transparent;
 `;
 
 export const Input = styled.input`
