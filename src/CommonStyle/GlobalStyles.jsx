@@ -73,10 +73,14 @@ export const GlobalStyles = createGlobalStyle`
 			padding: 0 32px;
 		}
 	}
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1440px) {
 		[class="container"] {
 			max-width: 1216px;
 			/* padding: 0 32px; */
 		}
 	}
+
+	.ReactModal__Body--open {
+    overflow: hidden;
+}
 `;

@@ -2,8 +2,8 @@
   position: absolute;
   color: var(--colorsPrimaryDark);
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 40px;
+  transform: translate(-50%);
   background-color: white;
 
   width: 280px;
@@ -20,6 +20,9 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media screen and (min-width: 768px) {
@@ -35,6 +38,7 @@
     width: 1008px;
   }
 }
+
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
