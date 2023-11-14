@@ -35,6 +35,8 @@
 
 @media screen and (min-width: 1440px) {
   .content {
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 1008px;
   }
 }
