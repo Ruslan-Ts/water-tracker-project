@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
@@ -9,8 +9,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/userData/selectors';
 import { updateAvatarThunk } from 'redux/userData/thunk';
 import FormaUpdateUserProfile from './FormaUpdateUserProfile';
+import { selectorIsOpenSetting } from 'redux/modals/selectors';
+import { isOpenModalSetting } from 'redux/modals/slice';
 
 const Setting = () => {
+  const isOpenSetting = useSelector(selectorIsOpenSetting);
   const filePecker = useRef(null);
   const userProfile = useSelector(selectorUserProfile);
   const dispatch = useDispatch();
@@ -24,10 +27,14 @@ const Setting = () => {
     filePecker.current.click();
   };
 
+  const handleOpenCloseModal = () => {
+    dispatch(isOpenModalSetting(!isOpenSetting));
+  };
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={true}
+      isOpen={isOpenSetting}
+      onRequestClose={handleOpenCloseModal}
       className={css.content}
       overlayClassName={css.overlay}
     >
@@ -61,7 +68,7 @@ const Setting = () => {
           </button>
         </label>
       </WrapperUpload>
-      <FormaUpdateUserProfile />
+      <FormaUpdateUserProfile onClose={handleOpenCloseModal} />
     </ReactModal>
   );
 };

@@ -7,7 +7,7 @@ const initialState = {
         email: "peralat152@undewp.com",
         avatarURL: "http://res.cloudinary.com/djujpexdy/image/upload/v1699882245/water-tracker/avatars/655110e230a7d57b4b6acc8f_avatar.jpg",
         userName: "David",
-        gender: "female",
+        gender: "man",
         waterRate: 1111
     },
     month: '',

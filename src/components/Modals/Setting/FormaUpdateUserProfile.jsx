@@ -22,42 +22,37 @@ import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInp
 import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
 import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
 import { calculateStrength } from 'js/validation/passwordStrength';
+import { useSelector } from 'react-redux';
+import { selectorUserProfile } from 'redux/userData/selectors';
 
-const FormaUpdateUserProfile = () => {
-  const onSubmit = e => {
-    //   e.preventDefault();
-    //   dispatch(
-    //     signUp({
-    //       name: e.target.elements.name.value,
-    //       email: e.target.elements.email.value,
-    //       password: e.target.elements.password.value,
-    //     })
-    //   );
-    //   e.target.reset();
-    console.log(values.name);
-  };
+const FormaUpdateUserProfile = ({ onClose }) => {
+  const userProfile = useSelector(selectorUserProfile);
 
   const {
     values,
     touched,
     errors,
     setFieldValue,
-
     handleSubmit,
     handleChange,
     handleBlur,
     // resetForm,
   } = useFormik({
     initialValues: {
-      gender: '',
-      name: '',
-      email: '',
+      gender: userProfile.gender,
+      name: userProfile.userName,
+      email: userProfile.email,
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
     },
     validationSchema: updateUserProfileSchema,
-    onSubmit,
+    onSubmit: values => {
+      console.log('end');
+      console.log(values);
+
+      onClose();
+    },
   });
 
   const handlePasswordChange = e => {
@@ -70,7 +65,7 @@ const FormaUpdateUserProfile = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <WrapperForma>
         <WrapperFormaMain>
           <WrapperFormaLeft>
@@ -86,7 +81,8 @@ const FormaUpdateUserProfile = () => {
                     name="gender"
                     value="girl"
                     onChange={handleChange}
-                    defaultChecked="true"
+                    checked={values.gender === 'female'}
+                    // defaultChecked="true"
                   />
                   <div></div>
                   <span>Girl</span>
@@ -98,6 +94,7 @@ const FormaUpdateUserProfile = () => {
                     name="gender"
                     value="man"
                     onChange={handleChange}
+                    checked={values.gender === 'man'}
                   />
                   <div></div>
                   <span>Man</span>
@@ -199,9 +196,7 @@ const FormaUpdateUserProfile = () => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <Button type="submit" onClick={handleSubmit}>
-          Save
-        </Button>
+        <Button type="submit">Save</Button>
       </WrapperForma>
     </form>
   );
