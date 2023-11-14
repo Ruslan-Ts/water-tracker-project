@@ -32,7 +32,9 @@ export const updateUserProfileSchema = yup.object().shape({
   newPassword: yup.string()
     .transform(value => (!value[0] ? null : value))
     .nullable()
-    .min(6),
+    .min(6)
+    .notOneOf([yup.ref('oldPassword')], 'The new password must differ from the old one.')
+  ,
   repeatPassword: yup.string().when('newPassword', (newPassword, field) =>
     newPassword[0]
       ? field.required().oneOf([yup.ref('newPassword')], 'Passwords do not match')

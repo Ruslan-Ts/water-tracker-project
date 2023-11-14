@@ -40,8 +40,8 @@ const FormaUpdateUserProfile = ({ onClose }) => {
   } = useFormik({
     initialValues: {
       gender: userProfile.gender,
-      name: userProfile.userName,
-      email: userProfile.email,
+      name: '',
+      email: '',
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
@@ -109,7 +109,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
                   value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder="Your name"
+                  placeholder={userProfile.userName}
                   $error={touched.name && errors.name}
                 />
                 {touched.name && errors.name && (
@@ -120,13 +120,13 @@ const FormaUpdateUserProfile = ({ onClose }) => {
               <FormLabel $fontSize="18px" $fontWeight="500">
                 E-mail
                 <Input
-                  // autoComplete="off"
+                  autoComplete="off"
                   type="email"
                   name="email"
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder="Email"
+                  placeholder={userProfile.email}
                   $error={touched.email && errors.email}
                 />
                 {touched.email && errors.email && (
