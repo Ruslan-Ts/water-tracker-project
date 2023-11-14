@@ -45,6 +45,7 @@ const Calendar = () => {
   return (
     <CalendarContainer>
       <MonthNavigation>
+        <h2>Month</h2>
         <ArrowButton onClick={handlePrevMonth}>{'<'}</ArrowButton>
         <span>
           {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(

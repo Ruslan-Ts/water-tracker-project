@@ -5,9 +5,13 @@ export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #d7e3ff;
+  background-color: #ecf2ff;
   padding: 24px 8px;
   justify-content: end;
+
+  @media screen and (min-width: 768px) {
+    padding: 16px 0 40px 0;
+  }
 `;
 
 export const MonthNavigation = styled.div`

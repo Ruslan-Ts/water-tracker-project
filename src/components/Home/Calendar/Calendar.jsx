@@ -1,14 +1,15 @@
 import React from 'react';
 import Today from './Today/Today';
 import DateSelector from './DateSelector/DateSelector';
-import { StyledComponent } from './Calendar.styled';
+import { CalendarWrap } from './Calendar.styled';
+import { Button } from 'CommonStyle/Button/Button.styled';
 
 const Calendar = () => {
   return (
-    <StyledComponent>
+    <CalendarWrap>
       <Today />
       <DateSelector />
-    </StyledComponent>
+    </CalendarWrap>
   );
 };
 
