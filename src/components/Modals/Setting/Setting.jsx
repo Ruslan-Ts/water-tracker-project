@@ -2,21 +2,18 @@ import React, { useRef } from 'react';
 import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
-import { Button, TitlePart } from '../DailyNorma/DailyNorma.styled';
-import {
-  ContainerAvatar,
-  WrapperForma,
-  WrapperFormaLeft,
-  WrapperFormaMain,
-  WrapperFormaRight,
-  WrapperUpload,
-} from './Setting.styled';
+import { TitlePart } from '../DailyNorma/DailyNorma.styled';
+import { ContainerAvatar, WrapperUpload } from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectorUserProfile } from 'redux/userData/selectors';
-import { updateAvatarThunk } from 'redux/userData/thunk';
+import { selectorUserProfile } from 'redux/auth/selectors';
+import { updateAvatarThunk } from 'redux/auth/thunk';
+import FormaUpdateUserProfile from './FormaUpdateUserProfile';
+import { selectorIsOpenSetting } from 'redux/modals/selectors';
+import { isOpenModalSetting } from 'redux/modals/slice';
 
 const Setting = () => {
+  const isOpenSetting = useSelector(selectorIsOpenSetting);
   const filePecker = useRef(null);
   const userProfile = useSelector(selectorUserProfile);
   const dispatch = useDispatch();
@@ -30,15 +27,19 @@ const Setting = () => {
     filePecker.current.click();
   };
 
+  const handleOpenCloseModal = () => {
+    dispatch(isOpenModalSetting(!isOpenSetting));
+  };
   return (
     <ReactModal
       ariaHideApp={false}
-      isOpen={false}
+      isOpen={isOpenSetting}
+      onRequestClose={handleOpenCloseModal}
       className={css.content}
       overlayClassName={css.overlay}
     >
       <Title>Setting</Title>
-      <TitlePart>Your photo</TitlePart>
+      <TitlePart $marginBottom="8px">Your photo</TitlePart>
       <WrapperUpload>
         <ContainerAvatar>
           {!userProfile.avatarURL && (
@@ -67,13 +68,7 @@ const Setting = () => {
           </button>
         </label>
       </WrapperUpload>
-      <WrapperForma>
-        <WrapperFormaMain>
-          <WrapperFormaLeft>LEFT</WrapperFormaLeft>
-          <WrapperFormaRight>RIGHT</WrapperFormaRight>
-        </WrapperFormaMain>
-        <Button />
-      </WrapperForma>
+      <FormaUpdateUserProfile onClose={handleOpenCloseModal} />
     </ReactModal>
   );
 };
