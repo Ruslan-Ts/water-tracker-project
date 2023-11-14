@@ -144,8 +144,8 @@ const FormaUpdateUserProfile = ({ onClose }) => {
             <FormLabel>
               Outdated password:
               <PasswordInput
-                autoComplete="off"
-                name="oldPassword"
+                autoComplete="new-password"
+                id="oldPassword"
                 value={values.oldPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -159,6 +159,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
               New Password:
               <PasswordInputWrapper>
                 <PasswordInput
+                  autoComplete="off"
                   name="newPassword"
                   value={values.newPassword}
                   onChange={handlePasswordChange}
@@ -183,6 +184,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
             <FormLabel>
               Repeat new password:
               <PasswordInput
+                autoComplete="off"
                 name="repeatPassword"
                 value={values.repeatPassword}
                 onChange={handleChange}

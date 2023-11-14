@@ -1,7 +1,7 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-    isOpenModalSetting: false,
+    isOpenModalSetting: true,
     isOpenModalWaterRate: false,
 }
 
