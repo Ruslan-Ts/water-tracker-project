@@ -21,36 +21,6 @@ export const recoverySchema = yup.object().shape({
   email: yup.string().matches(emailPattern, 'Email is not valid').required(),
 });
 
-
-
-
-// export const updateUserProfileSchema = yup.object().shape({
-//   gender: yup.string().required(),
-//   name: yup.string().min(3),
-//   email: yup.string().matches(emailPattern, 'Email is not valid'),
-
-//   oldPassword: yup.string().when('newPassword', (newPassword, field) =>
-//     newPassword[0] ? field.required() : field
-//   ),
-//   newPassword: yup.string()
-//     .transform(value => (!!value ? value : null))
-//     .nullable()
-//     .min(6)
-//     .transform(value => {
-//       if (value === '' || value === null) {
-//         return value;
-//       }
-//       return value.notOneOf([yup.ref('oldPassword')], 'The new password must differ from the old one.')
-//     })
-//   ,
-//   // .notOneOf([yup.ref('oldPassword')], 'The new password must differ from the old one.')
-//   repeatPassword: yup.string().when('newPassword', (newPassword, field) =>
-//     newPassword[0]
-//       ? field.required().oneOf([yup.ref('newPassword')], 'Passwords do not match')
-//       : field.transform(value => (!value[0] ? null : value))
-//   ),
-// });
-
 export const updateUserProfileSchema = yup.object().shape({
   gender: yup.string().required(),
   name: yup.string().min(3),
@@ -69,7 +39,7 @@ export const updateUserProfileSchema = yup.object().shape({
   ,
   repeatPassword: yup.string().test('commonPassword', 'Passwords do not match.', function (value) {
     const newPassword = this.resolve(yup.ref('newPassword'));
-    return !newPassword || value == newPassword;
+    return !newPassword || String(value) === String(newPassword);
   })
 
 });
