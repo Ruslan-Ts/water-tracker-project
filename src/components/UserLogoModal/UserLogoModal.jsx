@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import UserSettingsModal from '../Settings/Settings';
+import React, { useRef, useState } from 'react';
 import UserLogoutModal from '../UserLogoutModal';
 import {
   LogoModalMenu,
@@ -32,38 +31,6 @@ const UserLogoModal = ({ isOpen, onClose }) => {
       onClose();
     }
   };
-
-  useEffect(() => {
-    const handleClickOutside = event => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        if (isUserLogoutModalOpen) {
-          handleCloseUserLogoutModal();
-        } else if (onClose && typeof onClose === 'function') {
-          onClose();
-        }
-      }
-    };
-
-    const handleKeyDown = event => {
-      if (event.key === 'Escape') {
-        if (isUserLogoutModalOpen) {
-          handleCloseUserLogoutModal();
-        } else if (onClose && typeof onClose === 'function') {
-          onClose();
-        }
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose, isUserLogoutModalOpen, handleCloseUserLogoutModal]);
 
   return (
     <>
