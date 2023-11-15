@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  logOut,
-  signUp,
-  signIn,
+  logOutThunk,
+  signUpThunk,
+  signInThunk,
   updateWaterRateThunk,
   updateAvatarThunk,
   updateUserProfileThunk,
+  refreshUserThunk,
 } from './thunk';
 import {
   handlerUpdateWaterRate,
@@ -13,6 +14,7 @@ import {
   handlerUpdateUserProfile,
   handleAuth,
   handleLogout,
+  handleRefresh,
 } from './handlers.js';
 
 const initialState = {
@@ -25,8 +27,8 @@ const initialState = {
     waterRate: 1111,
   },
   token: null,
-  isAuth: false,
   stayAuth: false,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -37,9 +39,15 @@ const authSlice = createSlice({
       .addCase(updateWaterRateThunk.fulfilled, handlerUpdateWaterRate)
       .addCase(updateAvatarThunk.fulfilled, handlerUpdateAvatar)
       .addCase(updateUserProfileThunk.fulfilled, handlerUpdateUserProfile)
-      .addCase(signUp.fulfilled, handleAuth)
-      .addCase(signIn.fulfilled, handleAuth)
-      .addCase(logOut.fulfilled, handleLogout);
+      .addCase(signUpThunk.fulfilled, handleAuth)
+      .addCase(signInThunk.fulfilled, handleAuth)
+      .addCase(logOutThunk.fulfilled, handleLogout)
+      .addCase(refreshUserThunk.fulfilled, handleRefresh)
+      .addCase(refreshUserThunk.rejected, (state, { payload }) => {
+        state.user = {};
+        state.token = null;
+        state.isRefreshing = true;
+      });
   },
 });
 

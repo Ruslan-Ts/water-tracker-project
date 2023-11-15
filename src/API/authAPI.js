@@ -5,12 +5,12 @@ export const instance = axios.create({
 });
 
 const setToken = token => {
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   localStorage.setItem('token', token);
 };
 
 const removeToken = () => {
-  delete axios.defaults.headers.common['Authorization'];
+  delete instance.defaults.headers.common['Authorization'];
   localStorage.removeItem('token');
 };
 
@@ -37,6 +37,12 @@ export const logout = async () => {
 //   const { data } = await instance.get('/users/current');
 //   return data;
 // };
+
+export const refreshUser = async token => {
+  setToken(token);
+  const { data } = await instance.get('/users/current');
+  return data;
+};
 
 // Authorization api ends here
 

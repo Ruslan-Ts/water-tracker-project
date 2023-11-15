@@ -8,6 +8,10 @@ export const signUpSchema = yup.object().shape({
     .string()
     .min(8, 'Min length 8')
     .max(64, 'Max length 64')
+    .matches(
+      /^(?=.*[0-9])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\/-])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+      'Password must contain at least 1 number, 1 special symbol, 1 uppercase letter, and 1 lowercase letter'
+    )
     .required(),
   repeatPassword: yup
     .string()

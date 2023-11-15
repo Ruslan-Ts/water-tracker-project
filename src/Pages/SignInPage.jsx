@@ -11,15 +11,15 @@ import { AuthForm } from 'components/forms/AuthForm.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import SignLayout from 'components/SignLayout/SignLayout';
 
-import { signInSchema, signUpSchema } from 'js/validation/schemas';
+import { signInSchema } from 'js/validation/schemas';
 import { useDispatch } from 'react-redux';
-import { signIn } from 'redux/auth/thunk';
+import { signInThunk } from 'redux/auth/thunk';
 
 const SignIn = () => {
   const dispatch = useDispatch();
 
   const onSubmit = e => {
-    dispatch(signIn(e));
+    dispatch(signInThunk(e));
   };
 
   const { values, touched, errors, handleSubmit, handleChange, handleBlur } =

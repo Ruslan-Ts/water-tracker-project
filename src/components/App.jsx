@@ -1,13 +1,13 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Layout from './Layout/Layout.jsx';
 import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
 import Setting from './Modals/Setting/Setting.jsx';
 import PublicRoute from 'guards/PublicRoute.jsx';
-import PrivateRoute from 'guards/PrivateRoute.jsx';
-import { useSelector } from 'react-redux';
-import { selectIsAuth } from 'redux/auth/selectors.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRefreshing, selectUserToken } from 'redux/auth/selectors.js';
+import { refreshUserThunk } from 'redux/auth/thunk.js';
 
 const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
@@ -65,13 +65,21 @@ const createRouter = isAuth => {
 };
 
 export const App = () => {
-  const isAuth = useSelector(selectIsAuth);
+  const token = useSelector(selectUserToken);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
 
-  return (
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
+
+  return isRefreshing ? (
     <>
-      <RouterProvider router={createRouter(isAuth)} />;
+      <RouterProvider router={createRouter(token)} />;
       <DailyNorma />
       <Setting />
     </>
+  ) : (
+    <p>Refreshing...</p>
   );
 };

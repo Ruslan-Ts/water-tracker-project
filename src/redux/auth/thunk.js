@@ -6,37 +6,60 @@ import {
   signup,
   signin,
   logout,
+  refreshUser,
 } from 'API/authAPI';
 
-export const signUp = createAsyncThunk(
+export const signUpThunk = createAsyncThunk(
   'auth/signUp',
   async (body, thunkApi) => {
     try {
       const data = await signup(body);
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.massage);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
-export const signIn = createAsyncThunk('auth/logIn', async (body, thunkApi) => {
-  try {
-    const data = await signin(body);
-    return data;
-  } catch (error) {
-    return thunkApi.rejectWithValue(error.massage);
+export const signInThunk = createAsyncThunk(
+  'auth/logIn',
+  async (body, thunkApi) => {
+    try {
+      const data = await signin(body);
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
-  try {
-    await logout();
-    return;
-  } catch (error) {
-    return thunkApi.rejectWithValue(error.massage);
+export const logOutThunk = createAsyncThunk(
+  'auth/logOut',
+  async (_, thunkApi) => {
+    try {
+      await logout();
+      return;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
   }
-});
+);
+
+export const refreshUserThunk = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkApi) => {
+    try {
+      const {
+        auth: { token },
+      } = thunkApi.getState();
+      const data = await refreshUser(token);
+
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 // export const refreshAuth = createAsyncThunk(
 //   'auth/refresh',

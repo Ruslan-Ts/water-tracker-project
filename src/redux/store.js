@@ -23,10 +23,10 @@ const PersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    root: persistReducer(PersistConfig, rootReducer),
+    root: rootReducer,
     auth: persistReducer(PersistConfig, authReducer),
-    dataUser: persistReducer(PersistConfig, dataReducer),
-    modals: persistReducer(PersistConfig, modalReducer),
+    dataUser: dataReducer,
+    modals: modalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

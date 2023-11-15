@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-import { signUp } from 'redux/auth/thunk';
+import { signUpThunk } from 'redux/auth/thunk';
 
 import { Button } from 'CommonStyle/Button/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
@@ -19,17 +19,13 @@ import SignLayout from 'components/SignLayout/SignLayout';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
-import { useNavigate } from 'react-router';
 
 const SignUp = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const onSubmit = e => {
     const { email, password } = e;
-    dispatch(signUp({ email, password }));
-    // navigate('/');
-    console.log(e);
+    dispatch(signUpThunk({ email, password }));
   };
 
   const {
