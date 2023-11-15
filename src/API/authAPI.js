@@ -74,13 +74,9 @@ export const updateUserProfile = async (newUserProfile) => {
             dataForSend[key] = value;
         }
     });
-    console.log('dataForSend', dataForSend);
     if (!dataForSend.newPassword) {
         delete dataForSend.oldPassword;
     }
-
-
     const { data } = await instance.patch('/users', dataForSend)
     return data
-
 } 

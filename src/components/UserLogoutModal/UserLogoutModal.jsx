@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { logOut } from '../../redux/auth/operations';
+// import { logOut } from '../../redux/auth/slice'; |!!!!!!!!
 import {
   Backdrop,
   LogOutBtn,
@@ -16,14 +16,17 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logOut())
-      .then(() => {
-        dispatch({ type: 'CLEAR_USER_DATA' });
-        closeModal();
-      })
-      .catch(error => {
-        console.error('Error logging out:', error);
-      });
+    //
+    //
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // dispatch(logOut())
+    //   .then(() => {
+    //     dispatch({ type: 'CLEAR_USER_DATA' });
+    //     closeModal();
+    //   })
+    //   .catch(error => {
+    //     console.error('Error logging out:', error);
+    //   });
   };
 
   const handleCancel = () => {
@@ -34,7 +37,7 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
     closeModal();
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = e => {
     if (e.key === 'Escape') {
       closeModal();
     }
@@ -56,8 +59,8 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
             <p>Log out</p>
             <LogOutClose onClick={handleCancel}>
               <svg>
-              <use href={sprite + '#close'}></use>
-            </svg>
+                <use href={sprite + '#close'}></use>
+              </svg>
             </LogOutClose>
           </LogOutHeader>
           <LogOutText>
