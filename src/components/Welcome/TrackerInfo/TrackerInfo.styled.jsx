@@ -5,6 +5,7 @@ export const TrackerInfoContainer = styled.div`
   background-color: ${theme.colors.secondaryLight};
   padding: 24px 16px;
   border-radius: 10px;
+  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
 
   @media screen and (min-width: 480px) and (max-width: 1279px) {
     width: 494px;
@@ -12,7 +13,11 @@ export const TrackerInfoContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding: 32px 24px;
   }
+  @media screen and (min-width: 1200px) {
+    margin-top: 34px;
+  }
 `;
+
 export const InfoList = styled.ul``;
 export const InfoItems = styled.li`
   display: flex;
