@@ -2,14 +2,19 @@ import { TrackerBenefits } from 'components/Welcome/TrackerBenefits/TrackerBenef
 import { TrackerInfo } from 'components/Welcome/TrackerInfo/TrackerInfo';
 import React from 'react';
 import { Tracker } from './WelcomePage.styled';
+import WelcomeLayout from 'components/Welcome/WelcomeLayout/WelcomeLayout';
 
 const WelcomePage = () => {
   return (
     <>
-      <Tracker>
-        <TrackerBenefits />
-        <TrackerInfo />
-      </Tracker>
+      <WelcomeLayout>
+        <div className="container">
+          <Tracker>
+            <TrackerBenefits />
+            <TrackerInfo />
+          </Tracker>
+        </div>
+      </WelcomeLayout>
     </>
   );
 };

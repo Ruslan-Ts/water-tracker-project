@@ -13,6 +13,8 @@ const Layout = () => {
     <div>
       <HeaderComponent isAuthenticated={isLoggedIn}/>
       <main className="container">
+      <HeaderComponent />
+      <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

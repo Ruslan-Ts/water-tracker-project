@@ -1,0 +1,19 @@
+:root {
+  --colorsPrimaryLight: #ffffff;
+  --colorsPrimaryDark: #2f2f2f;
+  --colorsPrimaryAccent: #407bff;
+
+  --colorsSecondaryLight: #ecf2ff;
+  --colorsSecondaryLightBlue: #d7e3ff;
+  --colorsSecondaryBlue: #9ebbff;
+  --colorsSecondaryRed: #ef5050;
+  --colorsSecondaryYellow: #ff9d43;
+
+  --fontSizesTiny: 12px;
+  --fontSizesSmall: 16px;
+  --fontSizesMedium: 18px;
+  --fontSizesLarge: 26px;
+
+  --animationDuration: 0.3s;
+  --animationCubicBezier: 3.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+}
