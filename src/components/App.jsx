@@ -23,7 +23,20 @@ const router = createBrowserRouter(
       children: [
         {
           path: '/',
-          element: <WelcomePage />,
+          element: (
+            <PublicRoute>
+              <WelcomePage />
+            </PublicRoute>
+          ),
+          errorElement: <NotFoundPage />,
+        },
+        {
+          path: '/',
+          element: (
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          ),
           errorElement: <NotFoundPage />,
         },
         {
