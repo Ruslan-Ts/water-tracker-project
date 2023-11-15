@@ -1,6 +1,6 @@
 import styled from 'styled-components';
+import theme from 'CommonStyle/theme';
 import { Link } from 'react-router-dom';
-import theme from '../../CommonStyle/theme';
 import { ReactComponent as HeaderIconSvg } from '../../img/icon-signin.svg';
 
 export const HeaderContainer = styled.header`

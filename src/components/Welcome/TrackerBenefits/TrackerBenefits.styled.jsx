@@ -50,13 +50,14 @@ export const Descr = styled.p`
   }
 `;
 export const Container = styled.div`
+  margin-bottom: 40px;
   @media only screen and (min-width: 1440px) {
     font-size: ${theme.fontSizes.large};
     margin-right: 81px;
+    margin-bottom: 0;
   }
-  margin-bottom: 40px;
 
-  @media only screen and (min-width: 767px) {
+  @media only screen and (min-width: 767px) and (max-width: 1200px) {
     margin-bottom: 60px;
   }
 `;
