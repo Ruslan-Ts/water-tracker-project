@@ -1,18 +1,6 @@
 import styled from 'styled-components';
-
-export const HeaderContainer = styled.header`
-  padding: 8px 0 24px 0;
-  @media screen and (min-width: 768px) {
-    padding: 16px 0 40px 0;
-  }
-`;
-
-export const Navigation = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
+import { Link } from 'react-router-dom';
+import theme from '../../CommonStyle/theme';
 
 export const RouterLink = styled(Link)`
   position: relative;
@@ -25,7 +13,7 @@ export const RouterLink = styled(Link)`
   &:hover {
     color: ${theme.colors.secondaryYellow};
     transition: color 0.3s ease;
-  }
+  };
   &:before {
     content: '';
     position: absolute;
@@ -35,13 +23,18 @@ export const RouterLink = styled(Link)`
     height: 1px;
     background-color: ${theme.colors.secondaryYellow};
     transition: width 0.3s ease;
-  }
+  };
   &:hover:before {
     width: 65%;
   }
 `;
 
-export const HeaderIcon = styled(HeaderIconSvg)`
-  margin-left: 8px;
+export const HeaderIcon = styled.div`
+  svg {
+    margin-left: 8px;
+    width: 28px;
+    height: 28px;
+    fill: ${theme.colors.primaryLight};
+    stroke: ${theme.colors.primaryDark};
+  }
 `;
-
