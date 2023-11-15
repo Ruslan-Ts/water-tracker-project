@@ -128,14 +128,21 @@ export const updateAvatarThunk = createAsyncThunk(
   }
 );
 
-export const updateUserProfileThunk = createAsyncThunk(
-  'auth/UserProfile',
-  async (newPhotoFile, { rejectWithValue }) => {
-    try {
-      const avatarURL = await updateUserProfile(newPhotoFile);
-      return avatarURL;
-    } catch (error) {
-      return rejectWithValue(error.massage);
+export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newProfile, { rejectWithValue }) => {
+  try {
+    const response = await updateUserProfile(newProfile);
+    return response
+  } catch (error) {
+    switch (error.response.status) {
+      case 409:
+        toast.error(`This email is already in use by another user. Please try a different address.`);
+        return rejectWithValue(error.massage);
+      case 401:
+        toast.error(`The old password is incorrect. Please try entering the correct password.`);
+        return rejectWithValue(error.massage);
+      default:
+        return rejectWithValue(error.massage);
     }
+
   }
-);
+});

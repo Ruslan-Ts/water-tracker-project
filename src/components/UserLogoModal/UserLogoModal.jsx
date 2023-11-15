@@ -1,15 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import UserSettingsModal from '../Settings/Settings';
 import UserLogoutModal from '../UserLogoutModal';
-import { LogoModalMenu, ModalMenuBtn, ModalMenuIcon } from './UserLogoModal.styled';
+import {
+  LogoModalMenu,
+  ModalMenuBtn,
+  ModalMenuIcon,
+} from './UserLogoModal.styled';
 import sprite from '../../img/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { isOpenModalSetting } from 'redux/modals/slice';
 
 const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
+  const dispatch = useDispatch();
   const [isUserLogoutModalOpen, setUserLogoutModalOpen] = useState(false);
 
   const handleSettingButtonClick = () => {
     if (onClose && typeof onClose === 'function') {
+      dispatch(isOpenModalSetting(true));
       onClose();
     }
   };
@@ -26,7 +34,7 @@ const UserLogoModal = ({ isOpen, onClose }) => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = event => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         if (isUserLogoutModalOpen) {
           handleCloseUserLogoutModal();
@@ -36,7 +44,7 @@ const UserLogoModal = ({ isOpen, onClose }) => {
       }
     };
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = event => {
       if (event.key === 'Escape') {
         if (isUserLogoutModalOpen) {
           handleCloseUserLogoutModal();

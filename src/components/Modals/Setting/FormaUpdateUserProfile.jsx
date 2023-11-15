@@ -49,19 +49,16 @@ const FormaUpdateUserProfile = ({ onClose }) => {
       repeatPassword: '',
     },
     validationSchema: updateUserProfileSchema,
-    onSubmit: async values => {
-      console.log('end');
-      console.log(values);
-      await dispatch(
+    onSubmit: values => {
+      dispatch(
         updateUserProfileThunk({
           gender: values.gender,
-          name: values.name,
+          userName: values.name,
           email: values.email,
           oldPassword: values.oldPassword,
           newPassword: values.newPassword,
         })
       );
-      onClose();
     },
   });
 
@@ -102,9 +99,9 @@ const FormaUpdateUserProfile = ({ onClose }) => {
                     className="visually-hidden"
                     type="radio"
                     name="gender"
-                    value="man"
+                    value="male"
                     onChange={handleChange}
-                    checked={values.gender === 'man'}
+                    checked={values.gender === 'male'}
                   />
                   <div></div>
                   <span>Man</span>

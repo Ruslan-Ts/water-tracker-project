@@ -34,7 +34,7 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
     closeModal();
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = e => {
     if (e.key === 'Escape') {
       closeModal();
     }
@@ -56,8 +56,8 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
             <p>Log out</p>
             <LogOutClose onClick={handleCancel}>
               <svg>
-              <use href={sprite + '#close'}></use>
-            </svg>
+                <use href={sprite + '#close'}></use>
+              </svg>
             </LogOutClose>
           </LogOutHeader>
           <LogOutText>
