@@ -1,13 +1,17 @@
 import { lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
+import { selectIsRefreshing, selectUserToken } from 'redux/auth/selectors.js';
+import { refreshUserThunk } from 'redux/auth/thunk.js';
 
 import Layout from './Layout/Layout.jsx';
 import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
 import Setting from './Modals/Setting/Setting.jsx';
 import PublicRoute from 'guards/PublicRoute.jsx';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsRefreshing, selectUserToken } from 'redux/auth/selectors.js';
-import { refreshUserThunk } from 'redux/auth/thunk.js';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
@@ -78,6 +82,18 @@ export const App = () => {
       <RouterProvider router={createRouter(token)} />;
       <DailyNorma />
       <Setting />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   ) : (
     <p>Refreshing...</p>

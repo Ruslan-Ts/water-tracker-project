@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   updateAvatar,
@@ -11,24 +12,39 @@ import {
 
 export const signUpThunk = createAsyncThunk(
   'auth/signUp',
-  async (body, thunkApi) => {
+  async (body, { rejectWithValue }) => {
     try {
       const data = await signup(body);
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      switch (error.response.status) {
+        case 409:
+          toast.error(
+            `This email is already in use by another user. Please try a different address.`
+          );
+          return rejectWithValue(error.massage);
+        case 400:
+          toast.error(
+            `The password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character`
+          );
+          return rejectWithValue(error.massage);
+
+        default:
+          return rejectWithValue(error.message);
+      }
     }
   }
 );
 
 export const signInThunk = createAsyncThunk(
   'auth/logIn',
-  async (body, thunkApi) => {
+  async (body, { rejectWithValue }) => {
     try {
       const data = await signin(body);
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      toast.error(`Email or password is wrong. Try again =)`);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -40,6 +56,7 @@ export const logOutThunk = createAsyncThunk(
       await logout();
       return;
     } catch (error) {
+      toast.error(`Error! User not logged in!`);
       return thunkApi.rejectWithValue(error.message);
     }
   }
