@@ -4,7 +4,7 @@ import theme from 'CommonStyle/theme';
 export const Input = styled.input`
   font-size: 16px;
   line-height: calc(20 / 16);
-  padding: 12px 10px;
+  padding: 11px 10px;
   color: ${theme.colors.primaryAccent};
   border: 1px solid ${theme.colors.secondaryLightBlue};
   border-radius: 6px;
@@ -21,7 +21,7 @@ export const Input = styled.input`
     border-color: ${theme.colors.secondaryRed};
   }
   ${props =>
-    props.error
+    props.$error
       ? {
           color: 'red',
           borderColor: 'red',

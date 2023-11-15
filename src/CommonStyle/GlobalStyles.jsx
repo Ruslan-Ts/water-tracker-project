@@ -28,7 +28,7 @@ export const GlobalStyles = createGlobalStyle`
 	h5,
 	h6,
 	p {
-		margin-top: 0;
+		margin: 0;
 	}
 
 	ul,
@@ -73,10 +73,26 @@ export const GlobalStyles = createGlobalStyle`
 			padding: 0 32px;
 		}
 	}
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1440px) {
 		[class="container"] {
-			max-width: 1080px;
-			padding: 0 100px;
+			max-width: 1216px;
+			/* padding: 0 32px; */
 		}
 	}
+
+	.ReactModal__Body--open {
+    overflow: hidden;
+}
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 350ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
 `;

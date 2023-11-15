@@ -10,17 +10,21 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { authReducer } from './auth/authSlise';
+import { authReducer } from './auth/slice';
+import { dataReducer } from './userData/slice';
+import { modalReducer } from './modals/slice';
 
-const authPersistConfig = {
-  key: 'auth',
+const PersistConfig = {
+  key: 'root',
   storage,
   whitelist: ['token'],
 };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(PersistConfig, authReducer),
+    dataUser: persistReducer(PersistConfig, dataReducer),
+    modals: persistReducer(PersistConfig, modalReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
