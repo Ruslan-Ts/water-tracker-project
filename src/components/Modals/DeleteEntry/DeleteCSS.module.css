@@ -1,0 +1,25 @@
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  overflow-y: auto;
+  transition: opacity 0.3s;
+  z-index: 999;
+  /* position: absolute;
+  color: var(--colorsPrimaryDark);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+
+  width: 280px;
+  padding: 24px 12px;
+  border-radius: 10px;
+  background: #fff;
+
+  box-sizing: border-box; */
+}

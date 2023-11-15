@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { updateAvatar, updateWaterRate, updateUserProfile } from "API/authAPI";
+import { updateAvatar, updateWaterRate, updateUserProfile } from 'API/authAPI';
 
 import axios from 'axios';
 
@@ -68,34 +68,40 @@ export const refreshAuth = createAsyncThunk(
 
 // *** Work with UP Profile, UP Water Rate, UP Avatar ***
 
-export const updateWaterRateThunk = createAsyncThunk('auth/updateWaterRate', async (newWaterRate, { rejectWithValue }) => {
-  try {
-    const rate = Number(newWaterRate) * 1000;
-    const { waterRate } = await updateWaterRate(rate);
-    return waterRate;
-  } catch (error) {
-    return rejectWithValue(error.massage);
+export const updateWaterRateThunk = createAsyncThunk(
+  'auth/updateWaterRate',
+  async (newWaterRate, { rejectWithValue }) => {
+    try {
+      const rate = Number(newWaterRate) * 1000;
+      const { waterRate } = await updateWaterRate(rate);
+      return waterRate;
+    } catch (error) {
+      return rejectWithValue(error.massage);
+    }
   }
-}
-)
+);
 
-export const updateAvatarThunk = createAsyncThunk('auth/updateAvatar', async (newPhotoFile, { rejectWithValue }) => {
-  try {
-    console.log(1);
-    const avatarURL = await updateAvatar(newPhotoFile);
-    return avatarURL;
-  } catch (error) {
-    return rejectWithValue(error.massage);
+export const updateAvatarThunk = createAsyncThunk(
+  'auth/updateAvatar',
+  async (newPhotoFile, { rejectWithValue }) => {
+    try {
+      console.log(1);
+      const avatarURL = await updateAvatar(newPhotoFile);
+      return avatarURL;
+    } catch (error) {
+      return rejectWithValue(error.massage);
+    }
   }
-}
-)
+);
 
-export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newPhotoFile, { rejectWithValue }) => {
-  try {
-    const avatarURL = await updateUserProfile(newPhotoFile);
-    return avatarURL;
-  } catch (error) {
-    return rejectWithValue(error.massage);
+export const updateUserProfileThunk = createAsyncThunk(
+  'auth/UserProfile',
+  async (newPhotoFile, { rejectWithValue }) => {
+    try {
+      const avatarURL = await updateUserProfile(newPhotoFile);
+      return avatarURL;
+    } catch (error) {
+      return rejectWithValue(error.massage);
+    }
   }
-}
-)
+);

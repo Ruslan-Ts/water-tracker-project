@@ -90,12 +90,7 @@ const DailyNorma = () => {
   }, [values]);
 
   return (
-    <ReactModal
-      ariaHideApp={false}
-      isOpen={false}
-      className={css.content}
-      overlayClassName={css.overlay}
-    >
+    <ReactModal ariaHideApp={false} isOpen={false} className={css.content}>
       <Title>My daily norma</Title>
 
       <WrapperDefinition>
