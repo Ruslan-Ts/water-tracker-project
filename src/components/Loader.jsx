@@ -1,5 +1,4 @@
 import { Circles } from 'react-loader-spinner';
-import theme from 'CommonStyle/theme';
 
 const Loader = () => {
   return (

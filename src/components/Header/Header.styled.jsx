@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import theme from 'CommonStyle/theme';
+import { Link } from 'react-router-dom';
+import { ReactComponent as HeaderIconSvg } from '../../img/icon-signin.svg';
 
 export const HeaderContainer = styled.header`
   padding: 8px 0 24px 0;
@@ -12,7 +15,6 @@ export const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
 `;
-
 
 export const RouterLink = styled(Link)`
   position: relative;
@@ -44,4 +46,3 @@ export const RouterLink = styled(Link)`
 export const HeaderIcon = styled(HeaderIconSvg)`
   margin-left: 8px;
 `;
-
