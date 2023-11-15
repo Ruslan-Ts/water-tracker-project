@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-// import { logOut } from '../../redux/auth/slice'; |!!!!!!!!
+import { logOutThunk } from '../../redux/auth/thunk';
 import {
   Backdrop,
   LogOutBtn,
@@ -16,17 +16,14 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    //
-    //
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // dispatch(logOut())
-    //   .then(() => {
-    //     dispatch({ type: 'CLEAR_USER_DATA' });
-    //     closeModal();
-    //   })
-    //   .catch(error => {
-    //     console.error('Error logging out:', error);
-    //   });
+    dispatch(logOutThunk())
+      .then(() => {
+        dispatch({ type: 'CLEAR_USER_DATA' });
+        closeModal();
+      })
+      .catch(error => {
+        console.error('Error logging out:', error);
+      });
   };
 
   const handleCancel = () => {
@@ -48,7 +45,7 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, []);
+  });
 
   return (
     showModal && (
