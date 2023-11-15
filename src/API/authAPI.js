@@ -1,7 +1,7 @@
 
 import axios from "axios";
 export const instance = axios.create({ baseURL: 'https://water-tracker-backend.onrender.com/api' });
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTRmN2MyODQ1MjdmYTk3NmU3NTk5ZiIsImlhdCI6MTcwMDA2NzI2NiwiZXhwIjoxNzAwMTUwMDY2fQ.BqVMTUr1SDPJUJ0dQ138ch7Y1Rk2-hX6MimJ8WaHqKk';
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTUyNWI1Nzg3NGI3YTQxYjcyMDA1ZiIsImlhdCI6MTcwMDA3OTAzMCwiZXhwIjoxNzAwMTYxODMwfQ.yDEBgXb3OEU6hpRJ2dBYnkkxGaH2gVu0UIVi4uSinN4';
 instance.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
 export const updateWaterRate = async (newWaterRate) => {
@@ -31,7 +31,7 @@ export const updateUserProfile = async (newUserProfile) => {
     if (!dataForSend.newPassword) {
         delete dataForSend.oldPassword;
     }
-    console.log('dataForSend - after', dataForSend);
+
 
     const { data } = await instance.patch('/users', dataForSend)
     return data

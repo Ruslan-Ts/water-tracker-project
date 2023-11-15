@@ -26,18 +26,28 @@ export const updateUserProfileSchema = yup.object().shape({
   name: yup.string().min(3),
   email: yup.string().matches(emailPattern, 'Email is not valid'),
 
-  oldPassword: yup.string().when('newPassword', (newPassword, field) =>
-    newPassword[0] ? field.required() : field
-  ),
+  oldPassword: yup.string()
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/,
+      'Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character'
+    ).when('newPassword', (newPassword, field) =>
+      newPassword[0] ? field.required() : field
+    ),
   newPassword: yup.string()
     .nullable()
-    .min(6)
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/,
+      'Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character'
+    )
     .test('differentPassword', 'The new password must differ from the old one.', function (value) {
       const oldPassword = this.resolve(yup.ref('oldPassword'));
       return !oldPassword || value !== oldPassword;
     })
   ,
-  repeatPassword: yup.string().test('commonPassword', 'Passwords do not match.', function (value) {
+  repeatPassword: yup.string().matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/,
+    'Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character'
+  ).test('commonPassword', 'Passwords do not match.', function (value) {
     const newPassword = this.resolve(yup.ref('newPassword'));
     return !newPassword || String(value) === String(newPassword);
   })

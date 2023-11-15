@@ -92,16 +92,10 @@ export const updateAvatarThunk = createAsyncThunk('auth/updateAvatar', async (ne
 )
 
 export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newProfile, { rejectWithValue }) => {
-  console.log('newProfile', newProfile);
   try {
-
     const response = await updateUserProfile(newProfile);
-    console.log(response);
-    // return avatarURL;
+    return response
   } catch (error) {
-    console.log(error);
-    console.log(error.response.status);
-
     switch (error.response.status) {
       case 409:
         toast.error(`This email is already in use by another user. Please try a different address.`);
@@ -109,11 +103,10 @@ export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async
       case 401:
         toast.error(`The old password is incorrect. Please try entering the correct password.`);
         return rejectWithValue(error.massage);
-
       default:
-        break;
+        return rejectWithValue(error.massage);
     }
-    // return rejectWithValue(error.massage);
+
   }
 }
 )
