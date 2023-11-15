@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { updateAvatar, updateWaterRate, updateUserProfile } from "API/authAPI";
 
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://';
 
@@ -90,12 +91,29 @@ export const updateAvatarThunk = createAsyncThunk('auth/updateAvatar', async (ne
 }
 )
 
-export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newPhotoFile, { rejectWithValue }) => {
+export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newProfile, { rejectWithValue }) => {
+  console.log('newProfile', newProfile);
   try {
-    const avatarURL = await updateUserProfile(newPhotoFile);
-    return avatarURL;
+
+    const response = await updateUserProfile(newProfile);
+    console.log(response);
+    // return avatarURL;
   } catch (error) {
-    return rejectWithValue(error.massage);
+    console.log(error);
+    console.log(error.response.status);
+
+    switch (error.response.status) {
+      case 409:
+        toast.error(`This email is already in use by another user. Please try a different address.`);
+        return rejectWithValue(error.massage);
+      case 401:
+        toast.error(`The old password is incorrect. Please try entering the correct password.`);
+        return rejectWithValue(error.massage);
+
+      default:
+        break;
+    }
+    // return rejectWithValue(error.massage);
   }
 }
 )

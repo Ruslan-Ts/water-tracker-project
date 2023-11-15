@@ -6,6 +6,8 @@ import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
 import Setting from './Modals/Setting/Setting.jsx';
 // import SignUp from 'Pages/SignUpPage';
 import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 // const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
@@ -49,6 +51,18 @@ export const App = () => {
       <RouterProvider router={router} />;
       <DailyNorma />
       <Setting />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };
