@@ -11,22 +11,30 @@ import { AuthForm } from 'components/forms/AuthForm.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import SignLayout from 'components/SignLayout/SignLayout';
 
-import { signUpSchema } from 'js/validation/schemas';
+import { signInSchema, signUpSchema } from 'js/validation/schemas';
+import { useDispatch } from 'react-redux';
+import { signIn } from 'redux/auth/thunk';
 
 const SignIn = () => {
-  const onSubmit = e => {};
-  const { values, touched, errors, handleChange, handleBlur } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: signUpSchema,
-    onSubmit,
-  });
+  const dispatch = useDispatch();
+
+  const onSubmit = e => {
+    dispatch(signIn(e));
+  };
+
+  const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      validationSchema: signInSchema,
+      onSubmit,
+    });
 
   return (
     <SignLayout>
-      <AuthForm onSubmit={onSubmit}>
+      <AuthForm onSubmit={handleSubmit}>
         <Title>Sign in</Title>
         <FormLabel>
           Enter email
@@ -57,7 +65,7 @@ const SignIn = () => {
             <InputError>{errors.password}</InputError>
           )}
         </FormLabel>
-        <Button type="submit">Sign up</Button>
+        <Button type="submit">Sign in</Button>
         <RouterLink to="/forgot-password">Forgot password?</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
       </AuthForm>

@@ -8,12 +8,20 @@ export const signUpSchema = yup.object().shape({
     .string()
     .min(8, 'Min length 8')
     .max(64, 'Max length 64')
-    .matches()
     .required(),
   repeatPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Password must match')
     .required('You must to confirm your password!'),
+});
+
+export const signInSchema = yup.object().shape({
+  email: yup.string().matches(emailPattern, 'Email is not valid').required(),
+  password: yup
+    .string()
+    .min(8, 'Min length 8')
+    .max(64, 'Max length 64')
+    .required(),
 });
 
 export const rateSchema = yup.object().shape({

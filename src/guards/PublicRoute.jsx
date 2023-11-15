@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router';
 import { selectIsAuth } from 'redux/auth/selectors';
 
 const PublicRoute = ({ children }) => {
-  const isAuth = true;
+  const isAuth = useSelector(selectIsAuth);
   const location = useLocation();
 
   return !isAuth ? children : <Navigate to={location.state ?? '/'} />;

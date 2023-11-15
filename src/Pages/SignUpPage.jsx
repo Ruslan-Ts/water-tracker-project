@@ -26,9 +26,9 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const onSubmit = e => {
-    // dispatch(signUp(e));
-    // e.target.reset();
-    navigate('/');
+    const { email, password } = e;
+    dispatch(signUp({ email, password }));
+    // navigate('/');
     console.log(e);
   };
 
@@ -50,7 +50,6 @@ const SignUp = () => {
     validationSchema: signUpSchema,
     onSubmit,
   });
-  // console.log(values);
   const handlePasswordChange = e => {
     const password = e.target.value;
     const score = calculateStrength(password);

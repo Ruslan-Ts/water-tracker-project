@@ -17,7 +17,7 @@ const removeToken = () => {
 // Authorization api starts here
 
 export const signup = async body => {
-  const { data } = await axios.post('/auth/signup', body);
+  const { data } = await instance.post('/auth/signup', body);
   setToken(data.token);
   return data;
 };
@@ -29,12 +29,12 @@ export const signin = async body => {
 };
 
 export const logout = async () => {
-  await axios.post('auth/logout');
+  await instance.post('auth/logout');
   removeToken();
 };
 
 // export const refresh = async () => {
-//   const { data } = await axios.get('/users/current');
+//   const { data } = await instance.get('/users/current');
 //   return data;
 // };
 

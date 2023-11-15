@@ -3,11 +3,10 @@ import { Navigate, useLocation } from 'react-router';
 import { selectIsAuth } from 'redux/auth/selectors';
 
 const PrivateRoute = ({ children }) => {
-  const isAuth = true;
+  const isAuth = useSelector(selectIsAuth);
   const location = useLocation();
-  console.log(123);
 
-  return isAuth ? children : <Navigate to="/login" state={location} replace />;
+  return isAuth ? children : <Navigate to="/login" state={location} />;
 };
 
 export default PrivateRoute;

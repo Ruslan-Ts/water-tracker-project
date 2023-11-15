@@ -17,7 +17,7 @@ const PasswordToolTip = ({ score, password }) => {
         ?
       </button>
       <div>
-        <p>Tips for creating strong passwords:</p>
+        <h4>Tips for creating strong passwords:</h4>
         <PasswordTipParagraph $marked={checkPassword.hasNumber(password)}>
           Try to include numbers.
         </PasswordTipParagraph>
@@ -28,7 +28,9 @@ const PasswordToolTip = ({ score, password }) => {
           Special symbols like:!"#$%&'()*+,-./:;&lt;=&gt;?@[\]&#123;&#124;&#125;
           ^_`~
         </PasswordTipParagraph>
-        <span>Password strength: {getTitle(score)}</span>
+        <div>
+          Password strength: <span>{getTitle(score)}</span>
+        </div>
       </div>
     </PasswordTipStyled>
   );

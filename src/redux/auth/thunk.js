@@ -12,7 +12,7 @@ export const signUp = createAsyncThunk(
   'auth/signUp',
   async (body, thunkApi) => {
     try {
-      const data = signup(body);
+      const data = await signup(body);
       return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.massage);
