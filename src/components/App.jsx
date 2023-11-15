@@ -9,6 +9,10 @@ import { refreshUserThunk } from 'redux/auth/thunk.js';
 import Layout from './Layout/Layout.jsx';
 import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
 import Setting from './Modals/Setting/Setting.jsx';
+// import SignUp from 'Pages/SignUpPage';
+import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
+
+import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from 'guards/PublicRoute.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,9 +22,9 @@ const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
 const SignUp = lazy(() => import('../Pages/SignUpPage.jsx'));
 const NotFoundPage = lazy(() => import('../Pages/NotFoundPage.jsx'));
-const ForgotPasswordPage = lazy(() =>
-  import('../Pages/ForgotPasswordPage.jsx')
-);
+// const ForgotPasswordPage = lazy(() =>
+//   import('../Pages/ForgotPasswordPage.jsx')
+// );
 
 const createRouter = isAuth => {
   const router = createBrowserRouter(
@@ -79,7 +83,6 @@ export const App = () => {
 
   return isRefreshing ? (
     <>
-
       <RouterProvider router={createRouter(token)} />;
       <DailyNorma />
       <Setting />
