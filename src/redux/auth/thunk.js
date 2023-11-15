@@ -50,7 +50,8 @@ export const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
 //     condition: (_, thunkApi) => {
 //       const state = thunkApi.getState();
 //       const token = state.auth.token;
-//       if (!token) {
+//       const stayAuth = state.auth.stayAuth;
+//       if (!token || stayAuth) {
 //         return false;
 //       }
 //     },

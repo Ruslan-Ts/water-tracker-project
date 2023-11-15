@@ -18,7 +18,7 @@ import { rootReducer } from './root/slice';
 const PersistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'stayAuth'],
 };
 
 export const store = configureStore({

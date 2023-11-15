@@ -10,6 +10,10 @@ export const signUpSchema = yup.object().shape({
     .max(64, 'Max length 64')
     .matches()
     .required(),
+  repeatPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Password must match')
+    .required('You must to confirm your password!'),
 });
 
 export const rateSchema = yup.object().shape({
@@ -26,21 +30,27 @@ export const updateUserProfileSchema = yup.object().shape({
   name: yup.string().min(3),
   email: yup.string().matches(emailPattern, 'Email is not valid'),
 
-  oldPassword: yup.string().when('newPassword', (newPassword, field) =>
-    newPassword[0] ? field.required() : field
-  ),
-  newPassword: yup.string()
+  oldPassword: yup
+    .string()
+    .when('newPassword', (newPassword, field) =>
+      newPassword[0] ? field.required() : field
+    ),
+  newPassword: yup
+    .string()
     .nullable()
     .min(6)
-    .test('differentPassword', 'The new password must differ from the old one.', function (value) {
-      const oldPassword = this.resolve(yup.ref('oldPassword'));
-      return !oldPassword || value !== oldPassword;
-    })
-  ,
-  repeatPassword: yup.string().test('commonPassword', 'Passwords do not match.', function (value) {
-    const newPassword = this.resolve(yup.ref('newPassword'));
-    return !newPassword || String(value) === String(newPassword);
-  })
-
+    .test(
+      'differentPassword',
+      'The new password must differ from the old one.',
+      function (value) {
+        const oldPassword = this.resolve(yup.ref('oldPassword'));
+        return !oldPassword || value !== oldPassword;
+      }
+    ),
+  repeatPassword: yup
+    .string()
+    .test('commonPassword', 'Passwords do not match.', function (value) {
+      const newPassword = this.resolve(yup.ref('newPassword'));
+      return !newPassword || String(value) === String(newPassword);
+    }),
 });
-

@@ -1,6 +1,7 @@
-// import { useDispatch } from 'react-redux';
-// import { signUp } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
+
+import { signUp } from 'redux/auth/thunk';
 
 import { Button } from 'CommonStyle/Button/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
@@ -18,19 +19,16 @@ import SignLayout from 'components/SignLayout/SignLayout';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
+import { useNavigate } from 'react-router';
 
 const SignUp = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const onSubmit = e => {
-    //   e.preventDefault();
-    //   dispatch(
-    //     signUp({
-    //       name: e.target.elements.name.value,
-    //       email: e.target.elements.email.value,
-    //       password: e.target.elements.password.value,
-    //     })
-    //   );
-    //   e.target.reset();
+    // dispatch(signUp(e));
+    // e.target.reset();
+    navigate('/');
     console.log(e);
   };
 
@@ -111,6 +109,7 @@ const SignUp = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="Repeat password"
+            $error={touched.repeatPassword && errors.repeatPassword}
           />
           {touched.repeatPassword && errors.repeatPassword && (
             <InputError>{errors.repeatPassword}</InputError>
