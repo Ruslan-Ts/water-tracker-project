@@ -6,15 +6,12 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 const Layout = () => {
-    const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <div>
-      <HeaderComponent isAuthenticated={isLoggedIn}/>
+      <HeaderComponent isAuthenticated={isLoggedIn} />
       <main className="container">
-      <HeaderComponent />
-      <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
@@ -22,5 +19,3 @@ const Layout = () => {
     </div>
   );
 };
-
-export default Layout;
