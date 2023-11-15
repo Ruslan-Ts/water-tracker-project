@@ -13,11 +13,11 @@ import { InputError } from 'components/forms/InputError.styled';
 import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
-import SignLayout from 'components/SignLayout/SighLayout';
+import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
+import SignLayout from 'components/SignLayout/SignLayout';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
-import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
 
 const SignUp = () => {
   // const dispatch = useDispatch();
