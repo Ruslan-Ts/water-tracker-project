@@ -63,5 +63,8 @@
         stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2"
         d="M8 24l16-16M8 8l16 16"></path>
     </symbol>
+    <symbol id="close" viewBox="0 0 32 32">
+      <path fill="none" stroke="#407bff" style="stroke: var(--color1, #407bff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 24l16-16M8 8l16 16"></path>
+    </symbol>
   </defs>
 </svg>

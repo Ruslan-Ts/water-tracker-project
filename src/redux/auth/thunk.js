@@ -1,5 +1,6 @@
 import { toast } from 'react-toastify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import {
   updateAvatar,
   updateWaterRate,
@@ -9,6 +10,7 @@ import {
   logout,
   refreshUser,
 } from 'API/authAPI';
+
 
 export const signUpThunk = createAsyncThunk(
   'auth/signUp',

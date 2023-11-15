@@ -79,6 +79,7 @@ export const App = () => {
 
   return isRefreshing ? (
     <>
+
       <RouterProvider router={createRouter(token)} />;
       <DailyNorma />
       <Setting />
