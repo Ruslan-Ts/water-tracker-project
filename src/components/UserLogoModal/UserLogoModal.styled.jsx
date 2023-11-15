@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../../CommonStyle/theme';
 
 export const LogoModalMenu = styled.div`
-position: absolute;
+  position: absolute;
   border-radius: 10px;
   z-index: 500;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);

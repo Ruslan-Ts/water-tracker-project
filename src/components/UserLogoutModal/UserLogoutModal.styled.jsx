@@ -42,7 +42,7 @@ export const LogOutText = styled.div`
 `;
 
 export const LogOutBtns = styled.div`
-display: flex;
+  display: flex;
   flex-direction: row;
 `;
 
@@ -65,7 +65,7 @@ export const LogOutBtn = styled.button`
 `;
 
 export const LogOutClose = styled.button`
-  background-color: ${theme.colors.primaryLight} ;
+  background-color: ${theme.colors.primaryLight};
   svg {
     width: 24px;
     height: 24px;
