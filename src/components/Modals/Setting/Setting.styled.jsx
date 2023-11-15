@@ -93,3 +93,25 @@ export const WrapperFormaRight = styled.div`
     width: 392px;
   }
 `;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 36px;
+  right: 12px;
+
+  box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 0px;
+  svg {
+    stroke: ${theme.colors.primaryAccent};
+
+    width: 24px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 24px;
+  }
+`;

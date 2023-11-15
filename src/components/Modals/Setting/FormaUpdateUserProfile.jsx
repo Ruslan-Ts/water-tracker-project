@@ -22,11 +22,13 @@ import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInp
 import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
 import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
 import { calculateStrength } from 'js/validation/passwordStrength';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/auth/selectors';
+import { updateUserProfileThunk } from 'redux/auth/thunk';
 
 const FormaUpdateUserProfile = ({ onClose }) => {
   const userProfile = useSelector(selectorUserProfile);
+  const dispatch = useDispatch();
 
   const {
     values,
@@ -47,10 +49,18 @@ const FormaUpdateUserProfile = ({ onClose }) => {
       repeatPassword: '',
     },
     validationSchema: updateUserProfileSchema,
-    onSubmit: values => {
+    onSubmit: async values => {
       console.log('end');
       console.log(values);
-
+      await dispatch(
+        updateUserProfileThunk({
+          gender: values.gender,
+          name: values.name,
+          email: values.email,
+          oldPassword: values.oldPassword,
+          newPassword: values.newPassword,
+        })
+      );
       onClose();
     },
   });
@@ -144,8 +154,8 @@ const FormaUpdateUserProfile = ({ onClose }) => {
             <FormLabel>
               Outdated password:
               <PasswordInput
-                autoComplete="off"
-                name="oldPassword"
+                autoComplete="new-password"
+                id="oldPassword"
                 value={values.oldPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -159,6 +169,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
               New Password:
               <PasswordInputWrapper>
                 <PasswordInput
+                  autoComplete="off"
                   name="newPassword"
                   value={values.newPassword}
                   onChange={handlePasswordChange}
@@ -183,6 +194,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
             <FormLabel>
               Repeat new password:
               <PasswordInput
+                autoComplete="off"
                 name="repeatPassword"
                 value={values.repeatPassword}
                 onChange={handleChange}

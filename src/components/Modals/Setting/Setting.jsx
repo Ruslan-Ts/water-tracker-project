@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import css from './SettingCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { TitlePart } from '../DailyNorma/DailyNorma.styled';
-import { ContainerAvatar, WrapperUpload } from './Setting.styled';
+import { CloseBtn, ContainerAvatar, WrapperUpload } from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/auth/selectors';
@@ -32,12 +32,19 @@ const Setting = () => {
   };
   return (
     <ReactModal
+      shouldFocusAfterRender={false}
+      closeTimeoutMS={350}
       ariaHideApp={false}
       isOpen={isOpenSetting}
       onRequestClose={handleOpenCloseModal}
       className={css.content}
       overlayClassName={css.overlay}
     >
+      <CloseBtn onClick={handleOpenCloseModal}>
+        <svg width="24" height="24">
+          <use href={Icons + '#icon-outline'}></use>
+        </svg>
+      </CloseBtn>
       <Title>Setting</Title>
       <TitlePart $marginBottom="8px">Your photo</TitlePart>
       <WrapperUpload>

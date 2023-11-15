@@ -20,6 +20,9 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media screen and (min-width: 768px) {
