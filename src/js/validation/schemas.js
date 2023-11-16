@@ -31,6 +31,10 @@ export const signInSchema = yup.object().shape({
 export const rateSchema = yup.object().shape({
   weight: yup.number().min(0).max(300).required(),
   physical: yup.number().min(0).max(12),
+  rate: yup.number()
+});
+export const rateOutSchema = yup.object().shape({
+  rate: yup.number()
 });
 
 export const recoverySchema = yup.object().shape({
