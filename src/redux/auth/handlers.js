@@ -13,6 +13,12 @@ export const handleRefresh = (state, { payload }) => {
   state.isRefreshing = true;
 };
 
+export const handleRefreshReject = (state, { payload }) => {
+  state.user = {};
+  state.token = null;
+  state.isRefreshing = true;
+};
+
 export const handlerUpdateWaterRate = (state, { payload }) => {
   state.dataUser.user.waterRate = payload;
 };
