@@ -45,7 +45,7 @@ export const resetPassword = async email => {
 // Authorization api ends here
 
 export const updateWaterRate = async newWaterRate => {
-  const { data } = await instance.patch('/users/water-rate', {
+  const { data } = await instance.patch('/water-rate', {
     waterRate: newWaterRate,
   });
   return data;
