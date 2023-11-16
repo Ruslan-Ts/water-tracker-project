@@ -8,9 +8,13 @@ export const handleLogout = (state, { payload }) => {
   state.token = null;
 };
 
+export const handlePendingRefresh = (state, { payload }) => {
+  state.isRefreshing = true;
+};
+
 export const handleRefresh = (state, { payload }) => {
   state.user = payload;
-  state.isRefreshing = true;
+  state.isRefreshing = false;
 };
 
 export const handleRefreshReject = (state, { payload }) => {

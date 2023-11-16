@@ -77,6 +77,16 @@ export const refreshUserThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
+  },
+  {
+    condition: (_, thunkApi) => {
+      const {
+        auth: { token },
+      } = thunkApi.getState();
+      if (!token) {
+        return false;
+      }
+    },
   }
 );
 
