@@ -5,7 +5,7 @@ import imgTablet from '../../img/signup/bottle-tablet.webp';
 import imgMob from '../../img/signup/bottle-mob.webp';
 import img from '../../img/signup/bottle-desk.png';
 
-const SighLayout = ({ children }) => {
+const SignLayout = ({ children }) => {
   return (
     <SignLayoutStyled>
       <picture>
@@ -27,4 +27,4 @@ const SighLayout = ({ children }) => {
   );
 };
 
-export default SighLayout;
+export default SignLayout;

@@ -1,3 +1,6 @@
+import { updateUserProfileThunk } from 'redux/auth/thunk';
+import { handlerCloseModalSetting } from './handlers';
+
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
@@ -14,7 +17,7 @@ const modalSlice = createSlice({
       state.isOpenModalSetting = payload;
     },
     isOpenModalWaterRate: (state, { payload }) => {
-      state.isOpenModalWaterRate = payload;
+      state.isOpenModalSetting = payload;
     },
     isOpenDeleteEntryModal: (state, { payload }) => {
       state.isOpenDeleteEntryModal = payload;
@@ -22,6 +25,9 @@ const modalSlice = createSlice({
     isOpenAddWaterModal: (state, { payload }) => {
       state.isOpenAddWaterModal = payload;
     },
+  },
+  extraReducers: builder => {
+    builder.addCase(updateUserProfileThunk.fulfilled, handlerCloseModalSetting);
   },
 });
 

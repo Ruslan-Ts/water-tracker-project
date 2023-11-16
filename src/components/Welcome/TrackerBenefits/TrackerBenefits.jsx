@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button } from 'CommonStyle/Button/Button.styled';
 import {
   BenefitsList,
@@ -31,7 +32,9 @@ export const TrackerBenefits = () => {
             Personal rate setting
           </BenefitsItems>
         </BenefitsList>
-        <Button type="submit">Try tracker</Button>
+        <Link to="/signup">
+          <Button type="submit">Try tracker</Button>
+        </Link>
       </Container>
     </>
   );

@@ -25,7 +25,7 @@ export const PasswordTipStyled = styled.div`
     position: absolute;
     right: -46px;
     top: 42px;
-    background-color: #e0e0e0;
+    background-color: #eee;
     width: 360px;
     border-radius: 10px;
     padding: 15px;
@@ -46,13 +46,11 @@ export const PasswordTipStyled = styled.div`
       width: 410px;
     }
   }
-
-  span {
-    display: block;
-    text-align: right;
-  }
 `;
 
 export const PasswordTipParagraph = styled.p`
   ${props => (props.$marked ? { color: 'green', opacity: 0.5 } : null)}
+  font-size: 14px;
+  padding-left: 10px;
+  margin: 5px 0;
 `;

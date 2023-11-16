@@ -4,31 +4,21 @@ import bgTablet from '../../../img/welcome/bg-tablet.png';
 import bgMobile from '../../../img/welcome/bg-mobile.png';
 
 export const WelcomeStyledLayout = styled.section`
-  /* padding-left: 95px;
-  padding-right: 95px;
-  padding-bottom: 250px; */
+  padding-bottom: 40px;
+  background-size: 100%;
 
   @media screen and (min-width: 1280px) {
+    padding-top: 80px;
+    padding-bottom: 294px;
     background-image: url(${bg});
-    /* background-size: 100%;
-    background-position: bottom;
-    background-repeat: no-repeat; */
-
-    padding-left: 95px;
-    padding-right: 95px;
-    padding-bottom: 250px;
-    /* margin: 0; */
   }
-  @media screen and (min-width: 480px) and (max-width: 1279px) {
+  @media screen and (min-width: 480px) and (max-width: 1200px) {
     background-image: url(${bgTablet});
-    /* background-size: 100%;
-    background-position: bottom;
-    background-repeat: no-repeat; */
-    /* margin: 0; */
+    padding-bottom: 50px;
+    /* background-size: auto; */
   }
 
   background-image: url(${bgMobile});
-  background-size: 100%;
   background-position: bottom;
   background-repeat: no-repeat;
 `;

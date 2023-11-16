@@ -1,70 +1,104 @@
+import { toast } from 'react-toastify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { updateAvatar, updateWaterRate, updateUserProfile } from 'API/authAPI';
 
-import axios from 'axios';
+import {
+  updateAvatar,
+  updateWaterRate,
+  updateUserProfile,
+  signup,
+  signin,
+  logout,
+  refreshUser,
+} from 'API/authAPI';
 
-axios.defaults.baseURL = 'https://';
 
-const setToken = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
-const removeToken = () => {
-  axios.defaults.headers.common.Authorization = '';
-};
-
-export const logIn = createAsyncThunk(
-  'auth/logIn',
-  async (userData, thunkAPI) => {
-    try {
-      const response = await axios.post('/users/login', userData);
-      setToken(response.data.token);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.massage);
-    }
-  }
-);
-
-export const signUp = createAsyncThunk(
+export const signUpThunk = createAsyncThunk(
   'auth/signUp',
-  async (userData, thunkAPI) => {
+  async (body, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/users/signup', userData);
-      setToken(response.data.token);
-      return response.data;
+      const data = await signup(body);
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.massage);
+      switch (error.response.status) {
+        case 409:
+          toast.error(
+            `This email is already in use by another user. Please try a different address.`
+          );
+          return rejectWithValue(error.massage);
+        case 400:
+          toast.error(
+            `The password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and 1 special character`
+          );
+          return rejectWithValue(error.massage);
+
+        default:
+          return rejectWithValue(error.message);
+      }
     }
   }
 );
 
-export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
-  try {
-    await axios.post('/users/logout');
-    removeToken();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.massage);
+export const signInThunk = createAsyncThunk(
+  'auth/logIn',
+  async (body, { rejectWithValue }) => {
+    try {
+      const data = await signin(body);
+      return data;
+    } catch (error) {
+      toast.error(`Email or password is wrong. Try again =)`);
+      return rejectWithValue(error.message);
+    }
   }
-});
+);
 
-export const refreshAuth = createAsyncThunk(
+export const logOutThunk = createAsyncThunk(
+  'auth/logOut',
+  async (_, thunkApi) => {
+    try {
+      await logout();
+      return;
+    } catch (error) {
+      toast.error(`Error! User not logged in!`);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const refreshUserThunk = createAsyncThunk(
   'auth/refresh',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-    if (!persistedToken) {
-      return thunkAPI.rejectWithValue('User is not found');
-    }
+  async (_, thunkApi) => {
     try {
-      setToken(persistedToken);
-      const response = await axios.get('/users/current');
-      return response.data;
+      const {
+        auth: { token },
+      } = thunkApi.getState();
+      const data = await refreshUser(token);
+
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.massage);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
+
+// export const refreshAuth = createAsyncThunk(
+//   'auth/refresh',
+//   async (_, thunkApi) => {
+//     try {
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.massage);
+//     }
+//   },
+//   {
+//     condition: (_, thunkApi) => {
+//       const state = thunkApi.getState();
+//       const token = state.auth.token;
+//       const stayAuth = state.auth.stayAuth;
+//       if (!token || stayAuth) {
+//         return false;
+//       }
+//     },
+//   }
+// );
 
 // *** Work with UP Profile, UP Water Rate, UP Avatar ***
 
@@ -94,14 +128,21 @@ export const updateAvatarThunk = createAsyncThunk(
   }
 );
 
-export const updateUserProfileThunk = createAsyncThunk(
-  'auth/UserProfile',
-  async (newPhotoFile, { rejectWithValue }) => {
-    try {
-      const avatarURL = await updateUserProfile(newPhotoFile);
-      return avatarURL;
-    } catch (error) {
-      return rejectWithValue(error.massage);
+export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newProfile, { rejectWithValue }) => {
+  try {
+    const response = await updateUserProfile(newProfile);
+    return response
+  } catch (error) {
+    switch (error.response.status) {
+      case 409:
+        toast.error(`This email is already in use by another user. Please try a different address.`);
+        return rejectWithValue(error.massage);
+      case 401:
+        toast.error(`The old password is incorrect. Please try entering the correct password.`);
+        return rejectWithValue(error.massage);
+      default:
+        return rejectWithValue(error.massage);
     }
+
   }
-);
+});
