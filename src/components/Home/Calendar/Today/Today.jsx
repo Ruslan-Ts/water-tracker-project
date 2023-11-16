@@ -2,6 +2,7 @@ import cup from '../cup.svg';
 import pencil from '../pencil.svg';
 import trash from '../trash.svg';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Viewport,
   TableStyled,
@@ -14,44 +15,23 @@ import {
   AddButton,
 } from './Today.styled';
 
-// const {
-//   state: { drinks },
-//   dispatch,
-// } = useValue();
-
-// useEffect(() => {
-//   setDrinks(link);
-//   if (drinks.length === 0) getDrinks(dispatch);
-// }, []);
-
 const Today = () => {
-  const initialData = [
-    {
-      id: 1,
-      svg: (
-        <img src={cup} alt="Cup" style={{ width: '26px', height: '26px' }} />
-      ),
-      text: '200ml',
-      time: '14:00 PM',
-    },
-    // Add more initial data as needed
-  ];
-
+  const initialState = useSelector(state => state.dataUser.today);
+  const initialData = initialState.waterInputsForToday.map(input => ({
+    ...input,
+    date: new Date(input.date).toLocaleString(),
+  }));
   const [data, setData] = useState(initialData);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleAddWater = () => {
     const newId = data.length + 1;
     const newLine = {
       id: newId,
-      svg: (
-        <img src={cup} alt="Cup" style={{ width: '26px', height: '26px' }} />
-      ),
-      text: '200ml',
-      time: '14:00 PM',
+      waterVolume: '200ml',
+      date: '14:00 PM',
+      owner: '6555014c84527fa976e759bd',
     };
     setData([...data, newLine]);
-    // setIsModalOpen(true);
   };
 
   const handleDelete = id => {
@@ -71,7 +51,13 @@ const Today = () => {
           <tbody>
             {data.map(row => (
               <TableRow key={row.id}>
-                <TableCell>{row.svg}</TableCell>
+                <TableCell>
+                  <img
+                    src={cup}
+                    alt="Cup"
+                    style={{ width: '26px', height: '26px' }}
+                  />
+                </TableCell>
                 <TextCell>{row.text}</TextCell>
                 <TimeCell>{row.time}</TimeCell>
                 <TableCell>
