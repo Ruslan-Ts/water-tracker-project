@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import {
   BenefitsList,
   BenefitsItems,

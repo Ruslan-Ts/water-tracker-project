@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 
 import { signUpThunk } from 'redux/auth/thunk';
 
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
