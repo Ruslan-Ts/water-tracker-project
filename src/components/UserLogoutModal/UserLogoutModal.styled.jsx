@@ -18,13 +18,19 @@ export const LogOutWindow = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 101;
-  width: 544px;
-  height: 144px;
   border-radius: 10px;
   padding: 32px 24px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  @media screen and (min-width: 320px) {
+    width: 232px;
+    height: 196px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 544px;
+    height: 144px;
+  }
 `;
 
 export const LogOutHeader = styled.div`
@@ -43,33 +49,76 @@ export const LogOutText = styled.div`
 
 export const LogOutBtns = styled.div`
   display: flex;
-  flex-direction: row;
+  @media screen and (min-width: 320px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const LogOutBtn = styled.button`
-  width: 160px;
-  height: 44px;
   display: flex;
-  padding: 10px 30px;
+
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  font-size: 18px;
   background-color: ${theme.colors.secondaryRed};
   color: ${theme.colors.primaryLight};
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
   &:not(:last-child) {
-    margin-right: 24px;
     background-color: ${theme.colors.secondaryLightBlue};
     color: ${theme.colors.primaryAccent};
+  }
+  &:hover {
+    box-shadow: 0px 8px 16px 0px rgba(64, 123, 255, 0.5);
+    transform: scale(1.05);
+  }
+  @media screen and (min-width: 320px) {
+    width: 232px;
+    height: 36px;
+    font-size: 16px;
+    padding: 8px 30px;
+    &:not(:first-child){
+      margin-bottom: 24px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    width: 160px;
+    height: 44px;
+    font-size: 18px;
+    padding: 10px 30px;
+    &:not(:last-child){
+      margin-right: 24px;
+      margin-bottom: 0;
+    }
+    &:not(:first-child){
+      margin-bottom: 0;
+    }
   }
 `;
 
 export const LogOutClose = styled.button`
   background-color: ${theme.colors.primaryLight};
+  transition: transform 0.5s ease-out;
   svg {
     width: 24px;
     height: 24px;
     fill: ${theme.colors.primaryLight};
     stroke: ${theme.colors.primaryAccent};
+    &:hover {
+      transform: scale(1.15);
+    }
+  }
+  &:active {
+    svg {
+      transform: scale(0.9);
+    }
   }
 `;

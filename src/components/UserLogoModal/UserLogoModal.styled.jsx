@@ -28,6 +28,10 @@ export const ModalMenuBtn = styled.button`
   &:not(:last-child) {
     margin-bottom: 16px;
   }
+  &:hover {
+    color: ${theme.colors.secondaryYellow};
+    transition: color 0.3s ease;
+  }
 `;
 
 export const ModalMenuIcon= styled.div`
