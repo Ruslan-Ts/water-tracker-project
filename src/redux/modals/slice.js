@@ -1,5 +1,5 @@
-import { updateUserProfileThunk } from "redux/auth/thunk";
-import { handlerCloseModalSetting } from "./handlers";
+import { updateUserProfileThunk, updateWaterRateThunk } from "redux/auth/thunk";
+import { handlerCloseModalSetting, handlerCloseModalWaterRate } from "./handlers";
 
 const { createSlice } = require("@reduxjs/toolkit");
 
@@ -24,6 +24,8 @@ const modalSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(updateUserProfileThunk.fulfilled, handlerCloseModalSetting);
+    builder.addCase(updateWaterRateThunk.fulfilled, handlerCloseModalWaterRate);
+
   }
 })
 

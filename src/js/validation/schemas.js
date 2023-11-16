@@ -33,6 +33,9 @@ export const rateSchema = yup.object().shape({
   physical: yup.number().min(0).max(12),
   rate: yup.number()
 });
+export const rateOutSchema = yup.object().shape({
+  rate: yup.number()
+});
 
 export const recoverySchema = yup.object().shape({
   email: yup.string().matches(emailPattern, 'Email is not valid').required(),

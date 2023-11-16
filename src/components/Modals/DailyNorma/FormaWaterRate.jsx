@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, FormaCalculation, TitlePart } from './DailyNorma.styled';
 
-import { rateSchema } from 'js/validation/schemas';
+import { rateOutSchema } from 'js/validation/schemas';
 import { useFormik } from 'formik';
 import { Input } from 'components/forms/Input.styled';
 import { InputError } from 'components/forms/InputError.styled';
@@ -22,11 +22,10 @@ const FormaWaterRate = () => {
     // resetForm,
   } = useFormik({
     initialValues: {
-      rate: waterRate,
+      rate: (waterRate / 1000).toFixed(2),
     },
-    validationSchema: rateSchema,
+    validationSchema: rateOutSchema,
     onSubmit: values => {
-      console.log('click');
       dispatch(updateWaterRateThunk(values.rate));
     },
   });
