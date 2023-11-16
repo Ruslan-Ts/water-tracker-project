@@ -90,7 +90,7 @@ export const App = () => {
     dispatch(refreshUserThunk());
   }, [dispatch]);
 
-  return isRefreshing ? (
+  return !isRefreshing ? (
     <>
       <RouterProvider router={createRouter(token)} />;
       <DailyNorma />

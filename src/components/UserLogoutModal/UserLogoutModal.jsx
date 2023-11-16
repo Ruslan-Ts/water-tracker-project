@@ -65,7 +65,7 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
           </LogOutText>
           <LogOutBtns>
             <LogOutBtn onClick={handleCancel}>Cancel</LogOutBtn>
-            <LogOutBtn onClick={handleLogout}>Logout</LogOutBtn>
+            <LogOutBtn onClick={handleLogout}>Log out</LogOutBtn>
           </LogOutBtns>
         </LogOutWindow>
       </>

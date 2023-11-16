@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
@@ -11,17 +11,27 @@ import { InputError } from 'components/forms/InputError.styled';
 import SignLayout from 'components/SignLayout/SignLayout';
 
 import { recoverySchema } from 'js/validation/schemas';
+import { useDispatch } from 'react-redux';
+import { resetPasswordThunk } from 'redux/auth/thunk';
 
 const ForgotPasswordPage = () => {
-  const { values, touched, errors, handleBlur, handleChange } = useFormik({
-    initialValues: {
-      email: '',
-    },
-    validationSchema: recoverySchema,
-  });
+  const dispatch = useDispatch();
+
+  const onSubmit = e => {
+    dispatch(resetPasswordThunk(e));
+  };
+
+  const { values, touched, errors, handleSubmit, handleBlur, handleChange } =
+    useFormik({
+      initialValues: {
+        email: '',
+      },
+      validationSchema: recoverySchema,
+      onSubmit,
+    });
   return (
     <SignLayout>
-      <AuthForm>
+      <AuthForm onSubmit={handleSubmit}>
         <Title>Password recovery</Title>
         <FormLabel>
           Enter your email

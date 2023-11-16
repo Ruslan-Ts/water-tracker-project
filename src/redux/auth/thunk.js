@@ -9,8 +9,8 @@ import {
   signin,
   logout,
   refreshUser,
+  resetPassword,
 } from 'API/authAPI';
-
 
 export const signUpThunk = createAsyncThunk(
   'auth/signUp',
@@ -53,29 +53,51 @@ export const signInThunk = createAsyncThunk(
 
 export const logOutThunk = createAsyncThunk(
   'auth/logOut',
-  async (_, thunkApi) => {
+  async (_, { rejectWithValue }) => {
     try {
       await logout();
       return;
     } catch (error) {
       toast.error(`Error! User not logged in!`);
-      return thunkApi.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
 
 export const refreshUserThunk = createAsyncThunk(
   'auth/refresh',
-  async (_, thunkApi) => {
+  async (_, { rejectWithValue, getState }) => {
     try {
       const {
         auth: { token },
-      } = thunkApi.getState();
+      } = getState();
       const data = await refreshUser(token);
 
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, thunkApi) => {
+      const {
+        auth: { token },
+      } = thunkApi.getState();
+      if (!token) {
+        return false;
+      }
+    },
+  }
+);
+
+export const resetPasswordThunk = createAsyncThunk(
+  'auth/reset-password',
+  async (body, { rejectWithValue }) => {
+    try {
+      await resetPassword(body);
+    } catch (error) {
+      toast.error(`Error! User with this email not found!`);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -128,21 +150,27 @@ export const updateAvatarThunk = createAsyncThunk(
   }
 );
 
-export const updateUserProfileThunk = createAsyncThunk('auth/UserProfile', async (newProfile, { rejectWithValue }) => {
-  try {
-    const response = await updateUserProfile(newProfile);
-    return response
-  } catch (error) {
-    switch (error.response.status) {
-      case 409:
-        toast.error(`This email is already in use by another user. Please try a different address.`);
-        return rejectWithValue(error.massage);
-      case 401:
-        toast.error(`The old password is incorrect. Please try entering the correct password.`);
-        return rejectWithValue(error.massage);
-      default:
-        return rejectWithValue(error.massage);
+export const updateUserProfileThunk = createAsyncThunk(
+  'auth/UserProfile',
+  async (newProfile, { rejectWithValue }) => {
+    try {
+      const response = await updateUserProfile(newProfile);
+      return response;
+    } catch (error) {
+      switch (error.response.status) {
+        case 409:
+          toast.error(
+            `This email is already in use by another user. Please try a different address.`
+          );
+          return rejectWithValue(error.massage);
+        case 401:
+          toast.error(
+            `The old password is incorrect. Please try entering the correct password.`
+          );
+          return rejectWithValue(error.massage);
+        default:
+          return rejectWithValue(error.massage);
+      }
     }
-
   }
-});
+);

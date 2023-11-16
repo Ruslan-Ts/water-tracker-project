@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  PasswordTipInfo,
   PasswordTipParagraph,
   PasswordTipStyled,
 } from './PasswordToolTip.styled';
@@ -12,14 +13,14 @@ const PasswordToolTip = ({ score, password }) => {
   };
 
   return (
-    <PasswordTipStyled $show={showTip}>
+    <PasswordTipStyled>
       <button type="button" onClick={toggleToolTip}>
         ?
       </button>
-      <div>
-        <h4>Tips for creating strong passwords:</h4>
+      <PasswordTipInfo $show={showTip}>
+        <h4>Make sure your password has:</h4>
         <PasswordTipParagraph $marked={checkPassword.hasNumber(password)}>
-          Try to include numbers.
+          Numbers.
         </PasswordTipParagraph>
         <PasswordTipParagraph $marked={checkPassword.hasLetters(password)}>
           Both uppercase and lowercase letters.
@@ -31,7 +32,7 @@ const PasswordToolTip = ({ score, password }) => {
         <div>
           Password strength: <span>{getTitle(score)}</span>
         </div>
-      </div>
+      </PasswordTipInfo>
     </PasswordTipStyled>
   );
 };

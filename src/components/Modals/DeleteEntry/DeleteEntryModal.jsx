@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
 import css from './DeleteCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { selectorDeleteEntryModalStatus } from 'redux/modals/selectors';
 import { isOpenDeleteEntryModal } from 'redux/modals/slice';
 
