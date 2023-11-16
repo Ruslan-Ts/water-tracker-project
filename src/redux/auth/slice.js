@@ -7,6 +7,7 @@ import {
   updateAvatarThunk,
   updateUserProfileThunk,
   refreshUserThunk,
+  resetPasswordThunk,
 } from './thunk';
 import {
   handlerUpdateWaterRate,
@@ -15,6 +16,7 @@ import {
   handleAuth,
   handleLogout,
   handleRefresh,
+  handleRefreshReject,
 } from './handlers.js';
 
 const initialState = {
@@ -43,11 +45,8 @@ const authSlice = createSlice({
       .addCase(signInThunk.fulfilled, handleAuth)
       .addCase(logOutThunk.fulfilled, handleLogout)
       .addCase(refreshUserThunk.fulfilled, handleRefresh)
-      .addCase(refreshUserThunk.rejected, (state, { payload }) => {
-        state.user = {};
-        state.token = null;
-        state.isRefreshing = true;
-      });
+      .addCase(refreshUserThunk.rejected, handleRefreshReject)
+      .addCase(resetPasswordThunk.fulfilled, handleLogout);
   },
 });
 

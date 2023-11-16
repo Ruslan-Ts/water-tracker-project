@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <div>
       <HeaderComponent isAuthenticated={isLoggedIn} />
-      <main className="container">
+      <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

@@ -4,12 +4,18 @@ export const handleAuth = (state, { payload }) => {
 };
 
 export const handleLogout = (state, { payload }) => {
-  state.user = null;
+  state.user = {};
   state.token = null;
 };
 
 export const handleRefresh = (state, { payload }) => {
   state.user = payload;
+  state.isRefreshing = true;
+};
+
+export const handleRefreshReject = (state, { payload }) => {
+  state.user = {};
+  state.token = null;
   state.isRefreshing = true;
 };
 
@@ -21,8 +27,11 @@ export const handlerUpdateAvatar = (state, { payload }) => {
   state.user.avatarURL = payload;
 };
 
-export const handlerUpdateUserProfile = (state, { payload: { gender, userName, email } }) => {
-    state.user.gender = gender;
-    state.user.userName = userName;
-    state.user.email = email;
-}
+export const handlerUpdateUserProfile = (
+  state,
+  { payload: { gender, userName, email } }
+) => {
+  state.user.gender = gender;
+  state.user.userName = userName;
+  state.user.email = email;
+};

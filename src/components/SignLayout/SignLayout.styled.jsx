@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import bg from '../../img/signup/bg-mobile.webp';
+import bg_1x from '../../img/signup/bg-mobile-1x.png';
+import bg_2x from '../../img/signup/bg-mobile-2x.png';
 
-export const SignLayoutStyled = styled.section`
+export const SignLayoutStyled = styled.div`
   display: flex;
   position: relative;
   picture {
@@ -15,10 +16,14 @@ export const SignLayoutStyled = styled.section`
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    background-image: url(${bg});
+    background-image: url(${bg_1x});
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (min-device-pixel-ratio: 2) {
+    background-image: url(${bg_2x});
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     form {
       width: 50%;
       max-width: 336px;
@@ -28,7 +33,7 @@ export const SignLayoutStyled = styled.section`
       right: 0;
     }
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     form {
       width: 33.3%;
       max-width: 384px;
