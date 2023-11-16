@@ -6,14 +6,15 @@ const Loader = () => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        margin: 'auto',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         textAlign: 'center',
       }}
     >
       <Circles
-        height="80"
-        width="80"
-        color="#407BFF"
+        height="50"
+        width="50"
+        color="#9ebbff"
         ariaLabel="circles-loading"
         wrapperStyle={{}}
         wrapperClass=""
