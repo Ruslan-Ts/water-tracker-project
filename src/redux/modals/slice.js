@@ -14,7 +14,7 @@ const modalSlice = createSlice({
       state.isOpenModalSetting = payload;
     },
     isOpenModalWaterRate: (state, { payload }) => {
-      state.isOpenModalSetting = payload;
+      state.isOpenModalWaterRate = payload;
     },
     isOpenDeleteEntryModal: (state, { payload }) => {
       state.isOpenDeleteEntryModal = payload;
