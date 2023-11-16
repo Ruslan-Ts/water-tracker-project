@@ -64,6 +64,15 @@ const createRouter = isAuth => {
             ),
             errorElement: <NotFoundPage />,
           },
+          {
+            path: '/home',
+            element: (
+              <PublicRoute>
+                <HomePage />
+              </PublicRoute>
+            ),
+            errorElement: <NotFoundPage />,
+          },
         ],
       },
     ],
