@@ -3,15 +3,18 @@ import UserLogoModal from '../UserLogoModal';
 import { UserAvatar, UserName, UserLogoBtn, UserLogoText, UserLogoIcon } from './UserLogo.styled';
 import sprite from '../../img/sprite.svg';
 import { useSelector } from 'react-redux';
+import { selectorUserProfile } from '../../redux/auth/selectors';
+
 const UserLogo = () => {
-  const name = useSelector(state => state.auth.user.name);
-  const avatar = useSelector(state => state.auth.user.avatar);
+  const userProfile = useSelector(selectorUserProfile);
+  const name = userProfile.userName;
+  const avatar = userProfile.avatarURL;
   const defaultName = name ? name.slice(0, 1).toUpperCase() : 'V';
 
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleButtonClick = () => {
-    setModalOpen(true);
+    setModalOpen(!isModalOpen);
   };
 
   const handleModalClose = () => {
@@ -29,15 +32,13 @@ const UserLogo = () => {
             <p>{defaultName}</p>
           </UserLogoText>
         )}
-          <UserLogoIcon>
-            <svg>
-              <use href={sprite + '#arrow-down'}></use>
-            </svg>
-          </UserLogoIcon>
-
+        <UserLogoIcon>
+          <svg>
+            <use href={sprite + '#arrow-down'}></use>
+          </svg>
+        </UserLogoIcon>
       </UserLogoBtn>
       <UserLogoModal isOpen={isModalOpen} onClose={handleModalClose} />
-
     </div>
   );
 };
