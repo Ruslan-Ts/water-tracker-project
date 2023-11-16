@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/water-tracker-project/static/css/main.799b20ee.css",
-    "main.js": "/water-tracker-project/static/js/main.2ef99844.js",
+    "main.js": "/water-tracker-project/static/js/main.bbba698a.js",
     "static/js/438.48b57f06.chunk.js": "/water-tracker-project/static/js/438.48b57f06.chunk.js",
-    "static/js/76.2f764c91.chunk.js": "/water-tracker-project/static/js/76.2f764c91.chunk.js",
+    "static/js/76.625d3926.chunk.js": "/water-tracker-project/static/js/76.625d3926.chunk.js",
     "static/js/700.b3a070b5.chunk.js": "/water-tracker-project/static/js/700.b3a070b5.chunk.js",
     "static/js/722.362de32f.chunk.js": "/water-tracker-project/static/js/722.362de32f.chunk.js",
     "static/js/387.f82f974a.chunk.js": "/water-tracker-project/static/js/387.f82f974a.chunk.js",
@@ -31,9 +31,9 @@
     "static/media/calendar.svg": "/water-tracker-project/static/media/calendar.566bea3a06cbe5f7ac704cdc07c7c3bf.svg",
     "static/media/statistics.svg": "/water-tracker-project/static/media/statistics.8cfec11a5c739ea320477bba603d1a57.svg",
     "main.799b20ee.css.map": "/water-tracker-project/static/css/main.799b20ee.css.map",
-    "main.2ef99844.js.map": "/water-tracker-project/static/js/main.2ef99844.js.map",
+    "main.bbba698a.js.map": "/water-tracker-project/static/js/main.bbba698a.js.map",
     "438.48b57f06.chunk.js.map": "/water-tracker-project/static/js/438.48b57f06.chunk.js.map",
-    "76.2f764c91.chunk.js.map": "/water-tracker-project/static/js/76.2f764c91.chunk.js.map",
+    "76.625d3926.chunk.js.map": "/water-tracker-project/static/js/76.625d3926.chunk.js.map",
     "700.b3a070b5.chunk.js.map": "/water-tracker-project/static/js/700.b3a070b5.chunk.js.map",
     "722.362de32f.chunk.js.map": "/water-tracker-project/static/js/722.362de32f.chunk.js.map",
     "387.f82f974a.chunk.js.map": "/water-tracker-project/static/js/387.f82f974a.chunk.js.map",
@@ -41,6 +41,6 @@
   },
   "entrypoints": [
     "static/css/main.799b20ee.css",
-    "static/js/main.2ef99844.js"
+    "static/js/main.bbba698a.js"
   ]
 }
