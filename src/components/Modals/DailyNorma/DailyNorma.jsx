@@ -34,25 +34,10 @@ import Icons from '../../../img/sprite.svg';
 // import { useSelect } from '@mui/base';
 
 const DailyNorma = () => {
-  // const dispatch = useDispatch();
-  // const rate = useSelect(SelectorRate);
-
-  const [result, setResult] = useState();
   const dispatch = useDispatch();
+  const [result, setResult] = useState();
   const IsOpenWaterRate = useSelector(selectorIsOpenWaterRate);
 
-  const onSubmit = e => {
-    e.preventDefault();
-    // dispatch(updateRateThunk({ rate: e.target.elements.rate.value }));
-    // console.log(e.target.elements.rate.value);
-    // dispatch(
-    //   logIn({
-    //     email: e.target.elements.email.value,
-    //     password: e.target.elements.password.value,
-    //   })
-    // );
-    // e.target.reset();
-  };
   const {
     values,
     touched,
@@ -203,7 +188,7 @@ const DailyNorma = () => {
         <ValueResult>{result} L </ValueResult>
       </WrapperResult>
 
-      <FormaWaterRate onSubmit={onSubmit} />
+      <FormaWaterRate />
     </ReactModal>
   );
 };

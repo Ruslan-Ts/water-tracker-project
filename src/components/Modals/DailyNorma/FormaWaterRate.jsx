@@ -5,28 +5,36 @@ import { rateSchema } from 'js/validation/schemas';
 import { useFormik } from 'formik';
 import { Input } from 'components/forms/Input.styled';
 import { InputError } from 'components/forms/InputError.styled';
+import { updateWaterRateThunk } from 'redux/auth/thunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorWaterRate } from 'redux/auth/selectors';
 
-const FormaWaterRate = ({ onSubmit }) => {
+const FormaWaterRate = () => {
+  const dispatch = useDispatch();
+  const waterRate = useSelector(selectorWaterRate);
   const {
     values,
     touched,
     errors,
-    // handleSubmit,
     handleChange,
     handleBlur,
+    handleSubmit,
     // resetForm,
   } = useFormik({
     initialValues: {
-      rate: '',
+      rate: waterRate,
     },
     validationSchema: rateSchema,
-    onSubmit,
+    onSubmit: values => {
+      console.log('click');
+      dispatch(updateWaterRateThunk(values.rate));
+    },
   });
 
   return (
     <>
       <TitlePart>Write down how much water you will drink:</TitlePart>
-      <FormaCalculation onSubmit={onSubmit}>
+      <FormaCalculation onSubmit={handleSubmit}>
         <Input
           type="number"
           step="0.001"

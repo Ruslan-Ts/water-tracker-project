@@ -20,7 +20,7 @@ export const handleRefreshReject = (state, { payload }) => {
 };
 
 export const handlerUpdateWaterRate = (state, { payload }) => {
-  state.dataUser.user.waterRate = payload;
+  state.user.waterRate = payload;
 };
 
 export const handlerUpdateAvatar = (state, { payload }) => {
