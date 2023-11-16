@@ -17,6 +17,7 @@ import {
   handleLogout,
   handleRefresh,
   handleRefreshReject,
+  handlePendingRefresh,
 } from './handlers.js';
 
 const initialState = {
@@ -44,6 +45,7 @@ const authSlice = createSlice({
       .addCase(signUpThunk.fulfilled, handleAuth)
       .addCase(signInThunk.fulfilled, handleAuth)
       .addCase(logOutThunk.fulfilled, handleLogout)
+      .addCase(refreshUserThunk.pending, handlePendingRefresh)
       .addCase(refreshUserThunk.fulfilled, handleRefresh)
       .addCase(refreshUserThunk.rejected, handleRefreshReject)
       .addCase(resetPasswordThunk.fulfilled, handleLogout);
