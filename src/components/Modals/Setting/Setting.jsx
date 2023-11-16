@@ -42,7 +42,7 @@ const Setting = () => {
     >
       <CloseBtn onClick={handleOpenCloseModal}>
         <svg width="24" height="24">
-          <use href={Icons + '#icon-outline'}></use>
+          <use href={Icons + '#close'}></use>
         </svg>
       </CloseBtn>
       <Title>Setting</Title>

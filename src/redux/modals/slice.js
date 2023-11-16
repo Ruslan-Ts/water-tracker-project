@@ -14,7 +14,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     isOpenModalSetting: (state, { payload }) => { state.isOpenModalSetting = payload },
-    isOpenModalWaterRate: (state, { payload }) => { state.isOpenModalSetting = payload },
+    isOpenModalWaterRateAction: (state, { payload }) => { state.isOpenModalWaterRate = payload },
     isOpenDeleteEntryModal: (state, { payload }) => {
       state.isOpenDeleteEntryModal = payload;
     },
@@ -30,7 +30,7 @@ const modalSlice = createSlice({
 export const modalReducer = modalSlice.reducer;
 export const {
   isOpenModalSetting,
-  isOpenModalWaterRate,
+  isOpenModalWaterRateAction,
   isOpenDeleteEntryModal,
   isOpenAddWaterModal,
 } = modalSlice.actions;

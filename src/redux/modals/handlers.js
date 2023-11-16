@@ -1,3 +1,3 @@
-export const handlerCloseModalSetting = (state) => {
-    state.isOpenModalSetting = false;
+export const handlerCloseModalSetting = (state, { payload }) => {
+    state.isOpenModalSetting = payload
 }

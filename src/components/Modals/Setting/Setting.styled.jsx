@@ -106,7 +106,6 @@ export const CloseBtn = styled.button`
   margin-bottom: 0px;
   svg {
     stroke: ${theme.colors.primaryAccent};
-
     width: 24px;
     height: 24px;
   }

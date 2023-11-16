@@ -24,6 +24,12 @@ import {
   WrapperDefinition,
 } from './DailyNorma.styled';
 import FormaWaterRate from './FormaWaterRate';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorIsOpenWaterRate } from 'redux/modals/selectors';
+import { isOpenModalWaterRateAction } from 'redux/modals/slice';
+import { CloseBtn } from '../Setting/Setting.styled';
+import Icons from '../../../img/sprite.svg';
+
 // import { useDispatch } from 'react-redux';
 // import { useSelect } from '@mui/base';
 
@@ -32,6 +38,8 @@ const DailyNorma = () => {
   // const rate = useSelect(SelectorRate);
 
   const [result, setResult] = useState();
+  const dispatch = useDispatch();
+  const IsOpenWaterRate = useSelector(selectorIsOpenWaterRate);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -88,9 +96,24 @@ const DailyNorma = () => {
     };
     calcRate(values.gender, values.weight, values.physical);
   }, [values]);
-
+  const handleOpenCloseModal = () => {
+    dispatch(isOpenModalWaterRateAction(!IsOpenWaterRate));
+  };
   return (
-    <ReactModal ariaHideApp={false} isOpen={false} className={css.content}>
+    <ReactModal
+      shouldFocusAfterRender={false}
+      closeTimeoutMS={350}
+      onRequestClose={handleOpenCloseModal}
+      ariaHideApp={false}
+      isOpen={IsOpenWaterRate}
+      className={css.content}
+      overlayClassName={css.overlay}
+    >
+      <CloseBtn onClick={handleOpenCloseModal}>
+        <svg width="24" height="24">
+          <use href={Icons + '#close'}></use>
+        </svg>
+      </CloseBtn>
       <Title>My daily norma</Title>
 
       <WrapperDefinition>
