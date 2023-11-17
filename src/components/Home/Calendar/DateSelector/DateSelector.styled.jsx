@@ -59,7 +59,7 @@ export const DaysContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   box-sizing: border-box;
   gap: 26px;
   row-gap: 16px;
@@ -78,4 +78,8 @@ export const DayCell = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  /* &:last-child {
+    color: red;
+    margin-right: auto;
+  } */
 `;
