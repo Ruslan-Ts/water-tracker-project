@@ -79,7 +79,6 @@ export const GlobalStyles = createGlobalStyle`
 			/* padding: 0 32px; */
 		}
 	}
-
 	.ReactModal__Body--open {
     overflow: hidden;
 }
