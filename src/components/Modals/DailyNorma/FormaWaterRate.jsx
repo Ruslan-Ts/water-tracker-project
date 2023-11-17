@@ -32,7 +32,7 @@ const FormaWaterRate = () => {
 
   return (
     <>
-      <TitlePart>Write down how much water you will drink:</TitlePart>
+      <TitlePart>Write down how much water you drink in liters:</TitlePart>
       <FormaCalculation onSubmit={handleSubmit}>
         <Input
           type="number"

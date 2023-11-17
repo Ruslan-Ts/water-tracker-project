@@ -98,6 +98,7 @@ export const CloseBtn = styled.button`
   position: absolute;
   top: 36px;
   right: 12px;
+  height: 24px;
 
   box-sizing: border-box;
   background-color: transparent;
