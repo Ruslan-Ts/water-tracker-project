@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import theme from '../../CommonStyle/theme';
 
+export const UserLogoContainer= styled.div`
+position: relative;
+`;
+
 export const UserLogoBtn = styled.button`
   position: relative;
   display: flex;

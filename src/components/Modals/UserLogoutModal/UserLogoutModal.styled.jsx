@@ -1,15 +1,6 @@
 import styled from 'styled-components';
-import theme from '../../CommonStyle/theme';
-
-export const Backdrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.80);
-  z-index: 100;
-`;
+import theme from '../../../CommonStyle/theme.jsx';
+import ReactModal from 'react-modal';
 
 export const LogOutWindow = styled.div`
   background-color: ${theme.colors.primaryLight};
@@ -17,7 +8,6 @@ export const LogOutWindow = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 101;
   border-radius: 10px;
   padding: 32px 24px;
   flex-direction: column;
@@ -122,3 +112,10 @@ export const LogOutClose = styled.button`
     }
   }
 `;
+
+export const CustomReactModal = styled(ReactModal)`
+  .ReactModalPortal {
+    border: none;
+  }
+`;
+

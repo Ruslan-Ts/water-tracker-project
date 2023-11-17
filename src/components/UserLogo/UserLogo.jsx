@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import UserLogoModal from '../UserLogoModal';
-import { UserAvatar, UserName, UserLogoBtn, UserLogoText, UserLogoIcon } from './UserLogo.styled';
+import UserLogoModal from '../Modals/UserLogoModal';
+import { UserAvatar, UserName, UserLogoBtn, UserLogoText, UserLogoIcon, UserLogoContainer } from './UserLogo.styled';
 import sprite from '../../img/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectorUserProfile } from '../../redux/auth/selectors';
@@ -22,7 +22,7 @@ const UserLogo = () => {
   };
 
   return (
-    <div>
+    <UserLogoContainer>
       <UserLogoBtn onClick={handleButtonClick} aria-label="User Logo">
         <UserName>{name}</UserName>
         {avatar ? (
@@ -39,7 +39,7 @@ const UserLogo = () => {
         </UserLogoIcon>
       </UserLogoBtn>
       <UserLogoModal isOpen={isModalOpen} onClose={handleModalClose} />
-    </div>
+    </UserLogoContainer>
   );
 };
 
