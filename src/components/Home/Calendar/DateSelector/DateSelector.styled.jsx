@@ -20,8 +20,8 @@ export const ArrowButton = styled.button`
 `;
 
 export const Day = styled.div`
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: #fff;
   display: flex;
@@ -33,6 +33,12 @@ export const Day = styled.div`
   font-size: 14px;
   line-height: 18px;
 
+  @media screen and (min-width: 768px) {
+    gap: 34px;
+    row-gap: 20px;
+    width: 34px;
+    height: 34px;
+  }
   /* padding: 7px 6px; */
 `;
 
@@ -60,7 +66,7 @@ export const DaysContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   /* justify-content: space-between; */
-  box-sizing: border-box;
+
   gap: 26px;
   row-gap: 16px;
 

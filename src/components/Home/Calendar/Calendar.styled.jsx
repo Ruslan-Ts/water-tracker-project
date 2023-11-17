@@ -10,9 +10,10 @@ export const CalendarWrap = styled.div`
   gap: 24px;
   width: 264px;
   margin: 0 auto;
+  box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
-    width: 656px;
+    width: 704px;
     padding: 32px 24px;
   }
   @media screen and (min-width: 1440px) {
