@@ -5,7 +5,7 @@ import {
   ModalMenuBtn,
   ModalMenuIcon,
 } from './UserLogoModal.styled';
-import sprite from '../../img/sprite.svg';
+import sprite from '../../../img/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { isOpenModalSetting } from 'redux/modals/slice';
 

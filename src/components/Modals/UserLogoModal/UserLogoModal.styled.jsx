@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../CommonStyle/theme';
+import theme from '../../../CommonStyle/theme';
 
 export const LogoModalMenu = styled.div`
   position: absolute;
@@ -14,6 +14,7 @@ export const LogoModalMenu = styled.div`
   align-items: center;
   justify-content: center;
   padding: 16px;
+  right: 7%;
 `;
 
 export const ModalMenuBtn = styled.button`
