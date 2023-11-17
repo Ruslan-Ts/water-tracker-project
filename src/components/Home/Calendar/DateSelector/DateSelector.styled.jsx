@@ -27,12 +27,13 @@ export const Day = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ff9d43;
+  outline: 1px solid #ff9d43;
 
   cursor: pointer;
   font-size: 14px;
+  line-height: 18px;
 
-  padding: 7px 6px;
+  /* padding: 7px 6px; */
 `;
 
 export const MonthControl = styled.div`
@@ -60,13 +61,21 @@ export const DaysContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   box-sizing: border-box;
+  gap: 26px;
+  row-gap: 16px;
+  @media screen and (min-width: 768px) {
+    gap: 34px;
+    row-gap: 20px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 22px;
+  }
 `;
 
 export const DayCell = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 16px;
-  margin-right: 15px;
+
   box-sizing: border-box;
 `;
