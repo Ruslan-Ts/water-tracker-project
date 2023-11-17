@@ -63,6 +63,7 @@ export const DaysContainer = styled.div`
   box-sizing: border-box;
   gap: 26px;
   row-gap: 16px;
+
   @media screen and (min-width: 768px) {
     gap: 34px;
     row-gap: 20px;
@@ -76,6 +77,5 @@ export const DayCell = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   box-sizing: border-box;
 `;
