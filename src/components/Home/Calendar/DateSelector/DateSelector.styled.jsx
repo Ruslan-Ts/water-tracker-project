@@ -20,8 +20,8 @@ export const ArrowButton = styled.button`
 `;
 
 export const Day = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background-color: #fff;
   display: flex;
