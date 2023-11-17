@@ -3,7 +3,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="container">
       <Calendar />
     </div>
   );

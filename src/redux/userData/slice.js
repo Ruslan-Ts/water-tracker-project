@@ -47,3 +47,19 @@ const dataSlice = createSlice({
 });
 
 export const dataReducer = dataSlice.reducer;
+
+const todaySlice = createSlice({
+  name: 'today',
+  initialState: {
+    data: [],
+  },
+  reducers: {
+    setData: (state, action) => {
+      state.data = action.payload;
+    },
+  },
+});
+
+export const { setData } = todaySlice.actions;
+
+export default todaySlice.reducer;

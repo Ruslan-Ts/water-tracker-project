@@ -2,7 +2,8 @@ import cup from '../cup.svg';
 import pencil from '../pencil.svg';
 import trash from '../trash.svg';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { isOpenAddWaterModal } from '../../../../redux/modals/slice';
 import {
   Viewport,
   TableStyled,
@@ -15,7 +16,14 @@ import {
   AddButton,
 } from './Today.styled';
 
+import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
+
 const Today = () => {
+  const dispatch = useDispatch();
+  const handleOpenWaterModal = () => {
+    dispatch(isOpenAddWaterModal(true));
+  };
+
   const initialState = useSelector(state => state.dataUser.today);
   const initialData = initialState.waterInputsForToday.map(input => ({
     ...input,
@@ -82,9 +90,10 @@ const Today = () => {
             ))}
           </tbody>
         </TableStyled>
-        <AddButton type="submit" onClick={handleAddWater}>
+        <AddButton type="submit" onClick={handleOpenWaterModal}>
           + Add water
         </AddButton>
+        {isOpenAddWaterModal && <AddWaterModal />}
       </Viewport>
 
       {/* {isModalOpen && (

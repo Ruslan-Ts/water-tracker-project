@@ -8,7 +8,6 @@ export const Viewport = styled.div`
   width: 100%;
   overflow-y: auto;
 
-  /* WebKit (Chrome, Safari, etc.) */
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -61,9 +60,6 @@ export const TimeCell = styled.td`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  @media (min-width: 768px) {
-    adding-right: 35px; /* Adjust spacing for screens wider than 768px */
-  }
 `;
 
 export const Button = styled.button`
