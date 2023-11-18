@@ -1,20 +1,23 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { handlerAddWater, handlerDeleteWater } from './handlers';
+import { addWatersThunk, deleteEntryThunk } from './thunk';
+
+const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
-    month: [],
-    today: [],
-}
+  month: {},
+  today: {},
+  isLoading: false,
+};
 
 const dataSlice = createSlice({
-    name: 'dataUser',
-    initialState,
-    extraReducers: (builder) => {
-
-
-    },
-    reducers: {
-
-    }
-})
+  name: 'dataUser',
+  initialState,
+  extraReducers: builder => {
+    builder
+      .addCase(addWatersThunk.fulfilled, handlerAddWater)
+      .addCase(deleteEntryThunk.fulfilled, handlerDeleteWater);
+  },
+  reducers: {},
+});
 
 export const dataReducer = dataSlice.reducer;

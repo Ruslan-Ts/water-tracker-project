@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { useSelector, useDispatch } from 'react-redux';
+import { deleteEntryThunk } from 'redux/userData/thunk';
 import css from './DeleteCSS.module.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { Button } from 'CommonStyle/Button/Button.styled';
@@ -9,20 +10,20 @@ import { isOpenDeleteEntryModal } from 'redux/modals/slice';
 
 import {
   ModalWrapper,
-  ModalContent,
   Wrapper,
+  WrapperTitle,
   ButtonClose,
   ModalList,
   ButtonCancel,
   ButtonDelete,
 } from './DeleteEntryModal.styled';
 
-const DeleteEntryModal = () => {
+const DeleteEntryModal = waterId => {
   const isOpen = useSelector(selectorDeleteEntryModalStatus);
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    // запрос на удаление
+  const handleDelete = waterId => {
+    dispatch(deleteEntryThunk(waterId));
     dispatch(isOpenDeleteEntryModal(false));
   };
 
@@ -34,33 +35,35 @@ const DeleteEntryModal = () => {
     <>
       {isOpen && (
         <ReactModal
+          ariaHideApp={false}
           isOpen={isOpen}
           onRequestClose={handleClose}
           contentLabel="Delete Entry Modal"
           className={css.content}
+          overlayClassName={css.overlay}
         >
           <ModalWrapper>
-            <ModalContent>
-              <Wrapper>
-                <Title>Delete Entry</Title>
-                <ButtonClose onClick={handleClose}>
-                  X<svg width="" height=""></svg>
-                </ButtonClose>
-              </Wrapper>
-              <p>Are you sure you want to delete the entry?</p>
-              <ModalList>
-                <li>
-                  <Button as={ButtonCancel} onClick={handleClose}>
-                    Cancel
-                  </Button>
-                </li>
-                <li>
-                  <Button as={ButtonDelete} onClick={handleDelete}>
-                    Delete
-                  </Button>
-                </li>
-              </ModalList>
-            </ModalContent>
+            <Wrapper>
+              <Title>Delete Entry</Title>
+              <ButtonClose onClick={handleClose}>
+                X<svg width="" height=""></svg>
+              </ButtonClose>
+            </Wrapper>
+            <WrapperTitle>
+              Are you sure you want to delete the entry?
+            </WrapperTitle>
+            <ModalList>
+              <li>
+                <Button as={ButtonCancel} onClick={handleClose}>
+                  Cancel
+                </Button>
+              </li>
+              <li>
+                <Button as={ButtonDelete} onClick={handleDelete(contactId)}>
+                  Delete
+                </Button>
+              </li>
+            </ModalList>
           </ModalWrapper>
         </ReactModal>
       )}

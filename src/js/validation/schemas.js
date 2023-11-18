@@ -26,21 +26,35 @@ export const updateUserProfileSchema = yup.object().shape({
   name: yup.string().min(3),
   email: yup.string().matches(emailPattern, 'Email is not valid'),
 
-  oldPassword: yup.string().when('newPassword', (newPassword, field) =>
-    newPassword[0] ? field.required() : field
-  ),
-  newPassword: yup.string()
+  oldPassword: yup
+    .string()
+    .when('newPassword', (newPassword, field) =>
+      newPassword[0] ? field.required() : field
+    ),
+  newPassword: yup
+    .string()
     .nullable()
     .min(6)
-    .test('differentPassword', 'The new password must differ from the old one.', function (value) {
-      const oldPassword = this.resolve(yup.ref('oldPassword'));
-      return !oldPassword || value !== oldPassword;
-    })
-  ,
-  repeatPassword: yup.string().test('commonPassword', 'Passwords do not match.', function (value) {
-    const newPassword = this.resolve(yup.ref('newPassword'));
-    return !newPassword || String(value) === String(newPassword);
-  })
-
+    .test(
+      'differentPassword',
+      'The new password must differ from the old one.',
+      function (value) {
+        const oldPassword = this.resolve(yup.ref('oldPassword'));
+        return !oldPassword || value !== oldPassword;
+      }
+    ),
+  repeatPassword: yup
+    .string()
+    .test('commonPassword', 'Passwords do not match.', function (value) {
+      const newPassword = this.resolve(yup.ref('newPassword'));
+      return !newPassword || String(value) === String(newPassword);
+    }),
 });
 
+export const AddWaterSchema = yup.object({
+  waterVolume: yup
+    .number()
+    .min(0, 'Water usage must be greater than or equal to 0')
+    .required('Water usage is required'),
+  date: yup.date().required('Date is required'),
+});

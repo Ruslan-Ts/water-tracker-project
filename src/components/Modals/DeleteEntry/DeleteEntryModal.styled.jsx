@@ -1,36 +1,24 @@
 import styled from 'styled-components';
+import theme from '../../../CommonStyle/theme.jsx';
 
 export const ModalWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const ModalContent = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 280px;
-  min-height: 280px;
-  background-color: #ffff;
-  border-radius: 10px;
   padding: 32px 24px;
-
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1440px) {
-  }
+  border-radius: 10px;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const WrapperTitle = styled.p`
+  font-weight: 500;
+  line-height: calc(20 / 18);
 `;
 
 export const ButtonClose = styled.button`
@@ -40,12 +28,13 @@ export const ButtonClose = styled.button`
 
 export const ModalList = styled.ul`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
   gap: 24px;
 
   @media screen and (min-width: 768px) {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: end;
   }
@@ -58,7 +47,7 @@ export const ButtonCancel = styled.button`
   width: 232px;
   height: 36px;
   background-color: #d7e3ff;
-  color: #407bff;
+  color: ${theme.colors.primaryAccent};
 
   @media screen and (min-width: 768px) {
     width: 160px;
@@ -69,8 +58,8 @@ export const ButtonCancel = styled.button`
 export const ButtonDelete = styled.button`
   width: 232px;
   height: 36px;
-  background-color: #ef5050;
-  color: #ffff;
+  background-color: ${theme.colors.secondaryRed};
+  color: ${theme.colors.primaryLight};
 
   @media screen and (min-width: 768px) {
     width: 160px;
