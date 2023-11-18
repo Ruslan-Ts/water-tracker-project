@@ -25,7 +25,7 @@ export const RouterLink = styled(Link)`
     transition: width 0.3s ease;
   };
   &:hover:before {
-    width: 65%;
+    width: 60%;
   }
 `;
 

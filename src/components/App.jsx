@@ -92,7 +92,7 @@ export const App = () => {
 
   return !isRefreshing ? (
     <>
-      <RouterProvider router={createRouter(token)} />;
+      <RouterProvider router={createRouter(token)} />
       <DailyNorma />
       <Setting />
       <ToastContainer

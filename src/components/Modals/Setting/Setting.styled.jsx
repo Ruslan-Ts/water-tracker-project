@@ -98,6 +98,7 @@ export const CloseBtn = styled.button`
   position: absolute;
   top: 36px;
   right: 12px;
+  height: 24px;
 
   box-sizing: border-box;
   background-color: transparent;
@@ -106,7 +107,6 @@ export const CloseBtn = styled.button`
   margin-bottom: 0px;
   svg {
     stroke: ${theme.colors.primaryAccent};
-
     width: 24px;
     height: 24px;
   }
