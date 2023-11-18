@@ -1,12 +1,12 @@
 import { instance } from './authAPI';
 
 export const addWaters = async newWaterUsed => {
-  console.log(newWaterUsed)
+  console.log(newWaterUsed);
   const { data } = await instance.post('/water', newWaterUsed);
+  console.log(data);
   return data;
 };
 
 export const deleteEntry = async waterId => {
-  const { data } = await instance.delete(`/water/${waterId}`);
-  return data;
+  await instance.delete(`/water/${waterId}`);
 };

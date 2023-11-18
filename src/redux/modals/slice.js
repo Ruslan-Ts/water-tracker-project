@@ -3,7 +3,7 @@ const { createSlice } = require('@reduxjs/toolkit');
 const initialState = {
   isOpenModalSetting: false,
   isOpenModalWaterRate: false,
-  isOpenDeleteEntryModal: false, //если что удалить//
+  isOpenDeleteEntryModal: false, 
 };
 
 const modalSlice = createSlice({

@@ -18,8 +18,9 @@ import {
   ButtonDelete,
 } from './DeleteEntryModal.styled';
 
-const DeleteEntryModal = waterId => {
+const DeleteEntryModal = () => {
   const isOpen = useSelector(selectorDeleteEntryModalStatus);
+  console.log(isOpen);
   const dispatch = useDispatch();
 
   const handleDelete = waterId => {
@@ -36,7 +37,7 @@ const DeleteEntryModal = waterId => {
       {isOpen && (
         <ReactModal
           ariaHideApp={false}
-          isOpen={isOpen}
+          isOpen={!!isOpen}
           onRequestClose={handleClose}
           contentLabel="Delete Entry Modal"
           className={css.content}
@@ -59,7 +60,7 @@ const DeleteEntryModal = waterId => {
                 </Button>
               </li>
               <li>
-                <Button as={ButtonDelete} onClick={handleDelete(contactId)}>
+                <Button as={ButtonDelete} onClick={handleDelete(isOpen)}>
                   Delete
                 </Button>
               </li>

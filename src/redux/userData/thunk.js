@@ -10,7 +10,7 @@ export const addWatersThunk = createAsyncThunk(
   'water/addWaters',
   async (newWaterUsed, { rejectWithValue }) => {
     try {
-      const { data } = await addWaters(newWaterUsed);
+      const data = await addWaters(newWaterUsed);
       return data;
     } catch (error) {
       return rejectWithValue(error.massage);
@@ -22,8 +22,8 @@ export const deleteEntryThunk = createAsyncThunk(
   'water/deleteEntry',
   async (waterId, { rejectWithValue }) => {
     try {
-      const { data } = await deleteEntry(waterId);
-      return data;
+      await deleteEntry(waterId);
+      return waterId;
     } catch (error) {
       return rejectWithValue(error.massage);
     }

@@ -5,7 +5,7 @@ const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
   month: {},
-  today: {},
+  today: { waterInputsForToday: [] },
   isLoading: false,
 };
 

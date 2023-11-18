@@ -3,7 +3,7 @@ export const instance = axios.create({
   baseURL: 'https://water-tracker-backend.onrender.com/api',
 });
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTM3MWUyNWE0YjJjOWJiZGY3ZWE2OCIsImlhdCI6MTY5OTk2NzQ1OCwiZXhwIjoxNzAwMDUwMjU4fQ.7MX8bzDB6cpSP8_lkfflQXPdftJvL29Jnnv8Av7yiZw';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NThjOWNlMDk4ZTAyMDM5ZjYzOWU2MSIsImlhdCI6MTcwMDMxNzY0NiwiZXhwIjoxNzAwNDAwNDQ2fQ.cBJwZ3243ltUIqS2QqZoRAuUYQoEaI-seZjEn74Dgdc';
 instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 export const updateWaterRate = async newWaterRate => {
@@ -49,4 +49,3 @@ export const updateUserProfile = async newUserProfile => {
   // oldPassword
   // repeatPassword
 };
-
