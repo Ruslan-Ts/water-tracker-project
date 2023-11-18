@@ -1,7 +1,6 @@
 import cup from '../cup.svg';
 import pencil from '../pencil.svg';
 import trash from '../trash.svg';
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isOpenAddWaterModal } from '../../../../redux/modals/slice';
 import {
@@ -15,8 +14,10 @@ import {
   Container,
   AddButton,
 } from './Today.styled';
-
 import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
+import { selectWaterData } from '../../../../redux/userData/selectors';
+
+import { fetchTodayData } from '../../../../redux/userData/thunk';
 
 const Today = () => {
   const dispatch = useDispatch();
@@ -24,32 +25,12 @@ const Today = () => {
     dispatch(isOpenAddWaterModal(true));
   };
 
-  const initialState = useSelector(state => state.dataUser.today);
-  const initialData = initialState.waterInputsForToday.map(input => ({
-    ...input,
-    date: new Date(input.date).toLocaleString(),
-  }));
-  const [data, setData] = useState(initialData);
-
-  const handleAddWater = () => {
-    const newId = data.length + 1;
-    const newLine = {
-      id: newId,
-      waterVolume: '200ml',
-      date: '14:00 PM',
-      owner: '6555014c84527fa976e759bd',
-    };
-    setData([...data, newLine]);
+  const handleModalClose = () => {
+    dispatch(fetchTodayData());
   };
 
-  const handleDelete = id => {
-    const updatedData = data.filter(row => row.id !== id);
-    setData(updatedData);
-  };
-
-  const handleEdit = () => {
-    // setIsModalOpen(true);
-  };
+  const waterData = useSelector(selectWaterData);
+  const { waterInputsForToday } = waterData;
 
   return (
     <Container>
@@ -57,8 +38,8 @@ const Today = () => {
       <Viewport>
         <TableStyled>
           <tbody>
-            {data.map(row => (
-              <TableRow key={row.id}>
+            {waterInputsForToday.map(data => (
+              <TableRow key={data._id}>
                 <TableCell>
                   <img
                     src={cup}
@@ -66,10 +47,10 @@ const Today = () => {
                     style={{ width: '26px', height: '26px' }}
                   />
                 </TableCell>
-                <TextCell>{row.text}</TextCell>
-                <TimeCell>{row.time}</TimeCell>
+                <TextCell>{data.waterVolume}</TextCell>
+                <TimeCell>{data.date}</TimeCell>
                 <TableCell>
-                  <Button onClick={handleEdit}>
+                  <Button>
                     <img
                       src={pencil}
                       alt="Delete"
@@ -78,7 +59,7 @@ const Today = () => {
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button onClick={() => handleDelete(row.id)}>
+                  <Button>
                     <img
                       src={trash}
                       alt="Delete"
@@ -93,15 +74,9 @@ const Today = () => {
         <AddButton type="submit" onClick={handleOpenWaterModal}>
           + Add water
         </AddButton>
-        {isOpenAddWaterModal && <AddWaterModal />}
       </Viewport>
 
-      {/* {isModalOpen && (
-        <div>
-        
-          <button onClick={() => setIsModalOpen(false)}>Close Modal</button>
-        </div>
-      )} */}
+      {isOpenAddWaterModal && <AddWaterModal onClose={handleModalClose} />}
     </Container>
   );
 };

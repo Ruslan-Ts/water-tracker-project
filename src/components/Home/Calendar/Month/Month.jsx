@@ -12,7 +12,7 @@ import {
   Month,
   DayPercent,
   Day,
-} from './DateSelector.styled';
+} from './Month.styled';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
