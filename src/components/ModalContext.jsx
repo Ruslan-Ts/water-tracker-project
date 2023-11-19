@@ -1,5 +1,4 @@
 import React, { createContext, useCallback, useEffect, useState } from 'react';
-import css from './Modals/Setting/SettingCSS.module.css';
 import ReactModal from 'react-modal';
 export const ModalContext = createContext();
 
@@ -35,8 +34,8 @@ const ModalProvider = ({ children }) => {
         onRequestClose={() => {
           togModal();
         }}
-        className={css.content}
-        overlayClassName={css.overlay}
+        className="content"
+        overlayClassName="overlay"
       >
         {modalComponent}
       </ReactModal>

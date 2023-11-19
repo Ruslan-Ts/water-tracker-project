@@ -58,7 +58,11 @@ const FormaUpdateUserProfile = ({ onClose }) => {
           oldPassword: values.oldPassword,
           newPassword: values.newPassword,
         })
-      );
+      )
+        .unwrap()
+        .then(() => {
+          onClose();
+        });
     },
   });
 

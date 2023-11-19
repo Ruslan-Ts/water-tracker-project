@@ -8,7 +8,6 @@ import { refreshUserThunk } from 'redux/auth/thunk.js';
 
 import Layout from './Layout/Layout.jsx';
 import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
-import Setting from './Modals/Setting/Setting.jsx';
 
 // import SignUp from 'Pages/SignUpPage';
 import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
@@ -96,7 +95,6 @@ export const App = () => {
     <ModalProvider>
       <RouterProvider router={createRouter(token)} />
       <DailyNorma />
-      <Setting />
 
       <ToastContainer
         position="bottom-right"
