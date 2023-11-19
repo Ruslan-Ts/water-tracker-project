@@ -1,5 +1,4 @@
 import React, { useContext, useRef } from 'react';
-
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { TitlePart } from '../DailyNorma/DailyNorma.styled';
 import {
@@ -13,7 +12,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/auth/selectors';
 import { updateAvatarThunk } from 'redux/auth/thunk';
 import FormaUpdateUserProfile from './FormaUpdateUserProfile';
-
 import { ModalContext } from 'components/ModalContext';
 
 const Setting = () => {
@@ -27,6 +25,7 @@ const Setting = () => {
     formaData.append('avatar', e.target.files[0]);
     dispatch(updateAvatarThunk(formaData));
   };
+
   const handlerClick = () => {
     filePecker.current.click();
   };

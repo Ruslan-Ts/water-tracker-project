@@ -1,23 +1,29 @@
 import { handlerAddWater, handlerDeleteWater } from './handlers';
 import { addWatersThunk, deleteEntryThunk } from './thunk';
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchTodayThunk } from '../userData/thunk';
+import { handleFetchToday } from './handlers';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
 const initialState = {
   month: {},
-  today: { waterInputsForToday: [] },
-  isLoading: false,
+  today: {
+    waterInputsForToday: [],
+    dailyNormFulfillment: 0,
+  },
 };
 
 const dataSlice = createSlice({
   name: 'dataUser',
   initialState,
+  reducers: {},
   extraReducers: builder => {
     builder
+      .addCase(fetchTodayThunk.fulfilled, handleFetchToday)
       .addCase(addWatersThunk.fulfilled, handlerAddWater)
       .addCase(deleteEntryThunk.fulfilled, handlerDeleteWater);
   },
-  reducers: {},
 });
 
 export const dataReducer = dataSlice.reducer;

@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
 
 export const ContainerSettings = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translate(-50%);
+
   color: ${theme.colors.primaryDark};
   background-color: white;
   box-sizing: border-box;
@@ -16,6 +21,8 @@ export const ContainerSettings = styled.div`
   }
   @media screen and (min-width: 1440px) {
     width: 1008px;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 `;
 export const WrapperUpload = styled.div`
