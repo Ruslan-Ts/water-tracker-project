@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import theme from '../../../../CommonStyle/theme';
 
+import tabImg from '../../../../img/home/img-tablet.png';
+import deskImg from '../../../../img/home/img-desktop.png';
+
 export const DailyNormaContainer = styled.div`
   border-radius: 10px;
   border: 1px solid ${theme.colors.secondaryLight};
@@ -25,6 +28,11 @@ export const Norma = styled.p`
   font-weight: 700;
   line-height: 22px;
   color: ${theme.colors.primaryAccent};
+
+  @media only screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 24px;
+  }
 `;
 
 export const NormaContainer = styled.div`
@@ -38,4 +46,26 @@ export const NormaBtn = styled.button`
   line-height: calc(20 / 16);
   background-color: transparent;
   color: ${theme.colors.secondaryBlue};
+`;
+export const Image = styled.img`
+  margin-left: auto;
+  margin-right: auto;
+
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const Container = styled.div`
+  margin-bottom: 16px;
+  @media only screen and (min-width: 768px) {
+    background-image: url(${tabImg});
+    height: 386px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  @media only screen and (min-width: 1440px) {
+    background-image: url(${deskImg});
+    height: 548px;
+    background-repeat: no-repeat;
+  }
 `;
