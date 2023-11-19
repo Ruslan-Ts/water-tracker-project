@@ -15,7 +15,7 @@ import {
   AddButton,
 } from './Today.styled';
 import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
-import { selectWaterData } from '../../../../redux/userData/selectors';
+import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
 
 import { fetchTodayData } from '../../../../redux/userData/thunk';
 
@@ -29,7 +29,7 @@ const Today = () => {
     dispatch(fetchTodayData());
   };
 
-  const waterData = useSelector(selectWaterData);
+  const waterData = useSelector(selectorWaterCurrentDay);
   const { waterInputsForToday } = waterData;
 
   return (

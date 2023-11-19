@@ -12,10 +12,10 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
-// import { dataReducer } from './userData/slice';
+import { dataReducer } from './userData/slice';
 import { modalReducer } from './modals/slice';
 import { rootReducer } from './root/slice';
-import { todayReducer } from './userData/slice';
+// import { todayReducer } from './userData/slice';
 
 const PersistConfig = {
   key: 'root',
@@ -27,9 +27,9 @@ export const store = configureStore({
   reducer: {
     root: rootReducer,
     auth: persistReducer(PersistConfig, authReducer),
-    // dataUser: dataReducer,
+    dataUser: dataReducer,
     modals: modalReducer,
-    today: todayReducer,
+    // today: todayReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
