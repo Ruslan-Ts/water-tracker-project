@@ -16,4 +16,7 @@
 
   --animationDuration: 0.3s;
   --animationCubicBezier: 3.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+
+  --ident: 26px;
+  --items: 5;
 }

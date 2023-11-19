@@ -1,1 +1,1 @@
-export const selectorWaterCurrentDay = state => state.dataUser.today;
+export const selectWaterData = state => state.today;
