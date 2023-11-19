@@ -5,6 +5,7 @@ import React from 'react';
 import Loader from 'components/Loader';
 import { useSelector } from 'react-redux';
 import { selectorIsLoading } from 'redux/auth/selectors';
+import { WrapperHomePage } from './HomePage.styled';
 
 const HomePage = () => {
   const isLoading = useSelector(selectorIsLoading);
@@ -12,9 +13,11 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      {isLoading && <Loader />}
-      <MyDailyNorma />
-      <Calendar />
+      <WrapperHomePage>
+        {isLoading && <Loader />}
+        <MyDailyNorma />
+        <Calendar />
+      </WrapperHomePage>
     </div>
   );
 };

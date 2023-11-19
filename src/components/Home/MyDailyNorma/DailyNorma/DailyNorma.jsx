@@ -15,13 +15,11 @@ import { useContext } from 'react';
 
 import DailyNormaModal from 'components/Modals/DailyNorma/DailyNorma';
 
-
 export const DailyNorma = () => {
   const onClose = useContext(ModalContext);
 
   return (
     <>
-
       <Container>
         <DailyNormaContainer>
           <Title>My daily norma</Title>
@@ -29,7 +27,7 @@ export const DailyNorma = () => {
             <Norma>1.5 L</Norma>
             <NormaBtn
               onClick={() => {
-                dispatch(isOpenModalWaterRateAction(true));
+                onClose(<DailyNormaModal />);
               }}
             >
               Edit
@@ -38,21 +36,6 @@ export const DailyNorma = () => {
         </DailyNormaContainer>
         <Image src={imgMob} alt="Bottle" />
       </Container>
-
-      <DailyNormaContainer>
-        <Title>My daily norma</Title>
-        <NormaContainer>
-          <Norma>1.5 L</Norma>
-          <NormaBtn
-            onClick={() => {
-              onClose(<DailyNormaModal />);
-            }}
-          >
-            Edit
-          </NormaBtn>
-        </NormaContainer>
-      </DailyNormaContainer>
-
     </>
   );
 };
