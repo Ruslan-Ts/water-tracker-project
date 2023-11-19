@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import ReactModal from 'react-modal';
-import css from './DailyCSS.module.css';
+import React, { useContext, useEffect, useState } from 'react';
 import { Input } from 'components/forms/Input.styled';
 import {
+  ContainerNorma,
   FormLabel,
   FormLabelRadio,
   FormaCalculation,
@@ -24,19 +23,13 @@ import {
   WrapperDefinition,
 } from './DailyNorma.styled';
 import FormaWaterRate from './FormaWaterRate';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectorIsOpenWaterRate } from 'redux/modals/selectors';
-import { isOpenModalWaterRateAction } from 'redux/modals/slice';
 import { CloseBtn } from '../Setting/Setting.styled';
 import Icons from '../../../img/sprite.svg';
-
-// import { useDispatch } from 'react-redux';
-// import { useSelect } from '@mui/base';
+import { ModalContext } from 'components/ModalContext';
 
 const DailyNorma = () => {
-  const dispatch = useDispatch();
   const [result, setResult] = useState();
-  const IsOpenWaterRate = useSelector(selectorIsOpenWaterRate);
+  const onClose = useContext(ModalContext);
 
   const {
     values,
@@ -81,20 +74,14 @@ const DailyNorma = () => {
     };
     calcRate(values.gender, values.weight, values.physical);
   }, [values]);
-  const handleOpenCloseModal = () => {
-    dispatch(isOpenModalWaterRateAction(!IsOpenWaterRate));
-  };
+
   return (
-    <ReactModal
-      shouldFocusAfterRender={false}
-      closeTimeoutMS={350}
-      onRequestClose={handleOpenCloseModal}
-      ariaHideApp={false}
-      isOpen={IsOpenWaterRate}
-      className={css.content}
-      overlayClassName={css.overlay}
-    >
-      <CloseBtn onClick={handleOpenCloseModal}>
+    <ContainerNorma>
+      <CloseBtn
+        onClick={() => {
+          onClose();
+        }}
+      >
         <svg width="24" height="24">
           <use href={Icons + '#close'}></use>
         </svg>
@@ -188,8 +175,12 @@ const DailyNorma = () => {
         <ValueResult>{result} L </ValueResult>
       </WrapperResult>
 
-      <FormaWaterRate />
-    </ReactModal>
+      <FormaWaterRate
+        onClose={() => {
+          onClose();
+        }}
+      />
+    </ContainerNorma>
   );
 };
 

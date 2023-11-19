@@ -97,12 +97,9 @@ export const GlobalStyles = createGlobalStyle`
     opacity: 0;
 }
 
+
 .content {
-  position: absolute;
-  left: 50%;
-  top: 40px;
-  transform: translate(-50%);
-  box-sizing: border-box;
+  position: static;
 }
 .overlay {
   position: fixed;
@@ -114,16 +111,5 @@ export const GlobalStyles = createGlobalStyle`
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-
-@media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 1440px) {
-  .content {
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
 
 `;
