@@ -4,8 +4,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchTodayThunk } from '../userData/thunk';
 import { handleFetchToday } from './handlers';
 
-const { createSlice } = require('@reduxjs/toolkit');
-
 const initialState = {
   month: {},
   today: {
