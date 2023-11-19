@@ -17,7 +17,7 @@ import {
 import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
 import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
 
-import { fetchTodayData } from '../../../../redux/userData/thunk';
+import { fetchTodayThunk } from '../../../../redux/userData/thunk';
 
 const Today = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Today = () => {
   };
 
   const handleModalClose = () => {
-    dispatch(fetchTodayData());
+    dispatch(fetchTodayThunk());
   };
 
   const waterData = useSelector(selectorWaterCurrentDay);

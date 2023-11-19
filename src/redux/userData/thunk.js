@@ -1,17 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { fetchTodayAPI } from 'API/dataAPI';
+import { toast } from 'react-toastify';
 
-export const fetchTodayData = createAsyncThunk(
-  'today/fetchTodayData',
-  async () => {
-    try {
-      const response = await axios.get(
-        'https://water-tracker-backend.onrender.com/api/today/'
-      );
 
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+
+export const fetchTodayThunk = createAsyncThunk('today/fetchTodayData', async (_, { rejectWithValue }) => {
+  try {
+    const response = await fetchTodayAPI()
+    return response;
+
+  } catch (error) {
+    toast.error(` Try again =)`); // щось попиши
+    return rejectWithValue(error.message);
   }
+}
 );
