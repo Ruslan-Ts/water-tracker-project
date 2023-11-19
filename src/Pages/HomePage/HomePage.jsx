@@ -1,5 +1,5 @@
 import { MyDailyNorma } from 'components/Home/MyDailyNorma/MyDailyNorma';
-import Calendar from '../components/Home/Calendar/Calendar';
+import Calendar from '../../components/Home/Calendar/Calendar';
 
 import React from 'react';
 import Loader from 'components/Loader';

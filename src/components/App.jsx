@@ -19,7 +19,7 @@ import ModalProvider from './ModalContext.jsx';
 import Loader from './Loader.jsx';
 
 const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
-const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
+const HomePage = lazy(() => import('../Pages/HomePage/HomePage.jsx'));
 const SignIn = lazy(() => import('../Pages/SignInPage.jsx'));
 const SignUp = lazy(() => import('../Pages/SignUpPage.jsx'));
 const NotFoundPage = lazy(() => import('../Pages/NotFoundPage.jsx'));

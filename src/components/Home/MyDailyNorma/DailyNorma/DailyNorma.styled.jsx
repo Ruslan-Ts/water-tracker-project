@@ -66,6 +66,7 @@ export const Container = styled.div`
   @media only screen and (min-width: 1440px) {
     background-image: url(${deskImg});
     height: 548px;
+    min-width: 738px;
     background-repeat: no-repeat;
   }
 `;
