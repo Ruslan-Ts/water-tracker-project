@@ -20,12 +20,10 @@ import {
 
 const DeleteEntryModal = () => {
   const isOpen = useSelector(selectorDeleteEntryModalStatus);
-  console.log(isOpen);
   const dispatch = useDispatch();
 
   const handleDelete = waterId => {
     dispatch(deleteEntryThunk(waterId));
-    dispatch(isOpenDeleteEntryModal(false));
   };
 
   const handleClose = () => {
@@ -47,7 +45,9 @@ const DeleteEntryModal = () => {
             <Wrapper>
               <Title>Delete Entry</Title>
               <ButtonClose onClick={handleClose}>
-                X<svg width="" height=""></svg>
+                <svg width="24" height="24">
+                  <use href={Icons + '#close'}></use>
+                </svg>
               </ButtonClose>
             </Wrapper>
             <WrapperTitle>
@@ -60,7 +60,7 @@ const DeleteEntryModal = () => {
                 </Button>
               </li>
               <li>
-                <Button as={ButtonDelete} onClick={handleDelete(isOpen)}>
+                <Button as={ButtonDelete} onClick={() => handleDelete(isOpen)}>
                   Delete
                 </Button>
               </li>

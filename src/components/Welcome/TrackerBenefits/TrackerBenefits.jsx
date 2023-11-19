@@ -1,6 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { isOpenDeleteEntryModal } from 'redux/modals/slice';
 import { Button } from 'CommonStyle/Button/Button.styled';
 import {
   BenefitsList,
@@ -12,15 +10,8 @@ import {
   SettingsIcon,
 } from './TrackerBenefits.styled';
 import { MainTitle, SubTitle } from 'CommonStyle/Title/Title.styled';
-import DeleteEntryModal from 'components/Modals/DeleteEntry/DeleteEntryModal';
 
 export const TrackerBenefits = () => {
-  const dispatch = useDispatch();
-
-  const handleOpenWaterModal = () => {
-    dispatch(isOpenDeleteEntryModal('6558dbea2da25461e9f6621f'));
-  };
-
   return (
     <>
       <Container>
@@ -42,8 +33,6 @@ export const TrackerBenefits = () => {
           </BenefitsItems>
         </BenefitsList>
         <Button type="submit">Try tracker</Button>
-        <Button onClick={handleOpenWaterModal}>Modal2</Button>
-        {isOpenDeleteEntryModal && <DeleteEntryModal />}
       </Container>
     </>
   );

@@ -2,7 +2,6 @@ export const handlerAddWater = (
   state,
   { payload: { _id, waterVolume, date, owner } }
 ) => {
-  console.log(_id);
   state.today.waterInputsForToday.push({ _id, waterVolume, date, owner });
 };
 

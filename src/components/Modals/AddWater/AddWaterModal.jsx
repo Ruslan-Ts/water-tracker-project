@@ -62,8 +62,8 @@ const AddWaterModal = () => {
   const handleSave = ({ waterVolume, date }) => {
     const formattedDate = date.toISOString();
     const newWaterUsed = { waterVolume, date: formattedDate };
+    console.log(newWaterUsed);
     dispatch(addWatersThunk(newWaterUsed));
-    dispatch(isOpenAddWaterModal(false));
   };
 
   const { handleSubmit, handleChange, setFieldValue, errors, touched } =
@@ -93,10 +93,9 @@ const AddWaterModal = () => {
             <Wrapper>
               <Title>Add water</Title>
               <ButtonClose onClick={handleClose}>
-                X
-                {/* <svg width="24" height="24">
-                    <use href={Icons + '#icon-Vector'}></use>
-                  </svg> */}
+                <svg width="24" height="24">
+                  <use href={Icons + '#close'}></use>
+                </svg>
               </ButtonClose>
             </Wrapper>
             <Forma onSubmit={handleSubmit}>
