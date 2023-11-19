@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import UserLogoutModal from '../UserLogoutModal';
 import {
   LogoModalMenu,
@@ -6,35 +6,31 @@ import {
   ModalMenuIcon,
 } from './UserLogoModal.styled';
 import sprite from '../../../img/sprite.svg';
-import { useDispatch } from 'react-redux';
-import { isOpenModalSetting } from 'redux/modals/slice';
+import { ModalContext } from '../../ModalContext';
+import Setting from '../Setting/Setting';
 
 const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
-  const dispatch = useDispatch();
-  const [isUserLogoutModalOpen, setUserLogoutModalOpen] = useState(false);
+  const togModal = useContext(ModalContext);
+
 
   const handleSettingButtonClick = () => {
     if (onClose && typeof onClose === 'function') {
-      dispatch(isOpenModalSetting(true));
+      togModal(<Setting />);
       onClose();
     }
   };
 
   const handleLogoutButtonClick = () => {
-    setUserLogoutModalOpen(true);
-  };
-
-  const handleCloseUserLogoutModal = () => {
-    setUserLogoutModalOpen(false);
     if (onClose && typeof onClose === 'function') {
       onClose();
+      togModal(<UserLogoutModal showModal={true} closeModal={onClose} />);
     }
   };
 
   return (
     <>
-      {isOpen && !isUserLogoutModalOpen && (
+      {isOpen && (
         <LogoModalMenu ref={modalRef}>
           <ModalMenuBtn onClick={handleSettingButtonClick}>
             <ModalMenuIcon>
@@ -53,13 +49,6 @@ const UserLogoModal = ({ isOpen, onClose }) => {
             Log out
           </ModalMenuBtn>
         </LogoModalMenu>
-      )}
-      {isUserLogoutModalOpen && (
-        <UserLogoutModal
-          showModal={isUserLogoutModalOpen}
-          closeModal={handleCloseUserLogoutModal}
-          onClose={onClose}
-        />
       )}
     </>
   );
