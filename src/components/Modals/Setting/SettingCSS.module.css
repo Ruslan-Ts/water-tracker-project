@@ -1,18 +1,12 @@
 .content {
   position: absolute;
-  color: var(--colorsPrimaryDark);
   left: 50%;
   top: 40px;
   transform: translate(-50%);
-  background-color: white;
-
-  width: 280px;
-  padding: 32px 12px;
-  border-radius: 10px;
-  background: #fff;
 
   box-sizing: border-box;
 }
+
 .overlay {
   position: fixed;
   top: 0;
@@ -26,18 +20,13 @@
 }
 
 @media screen and (min-width: 768px) {
-  .content {
-    width: 704px;
-    padding: 32px 24px;
-    border-radius: 10px;
-  }
 }
 
 @media screen and (min-width: 1440px) {
   .content {
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 1008px;
+    /* width: 1008px; */
   }
 }
 
