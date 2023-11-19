@@ -1,26 +1,36 @@
 import styled from 'styled-components';
 import theme from 'CommonStyle/theme';
 
-export const ModalContent = styled.div`
-  position: relative;
+export const ModalWrapper = styled.div`
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 280px;
-  min-height: 540px;
   background-color: #ffff;
   border-radius: 10px;
   padding: 24px 12px;
 
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  transition: opacity 0.3s;
+  width: 280px;
+  height: 540px;
+  border-radius: 10px;
+
   @media screen and (min-width: 768px) {
     width: 704px;
-    min-height: 504px;
-    padding: 32px 24px;
+    height: 504px;
   }
-
   @media screen and (min-width: 1440px) {
     width: 592px;
-    min-height: 504px;
+    height: 504px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 32px 24px;
   }
 `;
 
@@ -31,18 +41,17 @@ export const Forma = styled.form`
 `;
 
 export const FormTitle = styled.p`
-  font-size: 18px;
+  font-size: ${theme.fontSizes.medium};
   line-height: calc(20 / 18);
   font-weight: 500;
   color: ${theme.colors.primaryDark};
   padding: 0;
-  margin-bottom: 16px;
 `;
 export const Label2 = styled.label`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  font-size: 18px;
+  font-size: ${theme.fontSizes.medium};
   line-height: calc(20 / 18);
   font-weight: 500;
   color: ${theme.colors.primaryDark};
@@ -53,7 +62,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  font-size: 16px;
+  font-size: ${theme.fontSizes.small};
   line-height: calc(20 / 16);
   font-weight: 400;
   color: ${theme.colors.primaryDark};
@@ -73,12 +82,7 @@ export const BtnSign = styled.button`
   border: 1px solid ${theme.colors.primaryAccent};
   background-color: ${theme.colors.primaryLight};
   color: ${theme.colors.primaryAccent};
-
-  @media screen and (min-width: 768px) {
-  }
-
-  @media screen and (min-width: 1440px) {
-  }
+  fill: ${theme.colors.primaryAccent};
 `;
 
 export const CounterInput = styled.div`
@@ -116,9 +120,6 @@ export const BtnSave = styled.button`
     width: 160px;
     height: 44px;
   }
-
-  @media screen and (min-width: 1440px) {
-  }
 `;
 
 export const BtnCounter = styled.button`
@@ -132,8 +133,5 @@ export const BtnCounter = styled.button`
   @media screen and (min-width: 768px) {
     width: 72px;
     height: 44px;
-  }
-
-  @media screen and (min-width: 1440px) {
   }
 `;
