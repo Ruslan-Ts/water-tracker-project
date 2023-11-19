@@ -45,5 +45,11 @@
     <symbol id="close" viewBox="0 0 32 32">
       <path fill="none" stroke="#407bff" style="stroke: var(--color1, #407bff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 24l16-16M8 8l16 16"></path>
     </symbol>
+    <symbol id="icon-plus" viewBox="0 0 32 32">
+      <path d="M16 7c0.265 0 0.52 0.105 0.707 0.293s0.293 0.442 0.293 0.707v7h7c0.265 0 0.52 0.105 0.707 0.293s0.293 0.442 0.293 0.707-0.105 0.52-0.293 0.707c-0.187 0.188-0.442 0.293-0.707 0.293h-7v7c0 0.265-0.105 0.52-0.293 0.707s-0.442 0.293-0.707 0.293-0.52-0.105-0.707-0.293c-0.188-0.187-0.293-0.442-0.293-0.707v-7h-7c-0.265 0-0.52-0.105-0.707-0.293s-0.293-0.442-0.293-0.707 0.105-0.52 0.293-0.707c0.188-0.188 0.442-0.293 0.707-0.293h7v-7c0-0.265 0.105-0.52 0.293-0.707s0.442-0.293 0.707-0.293z"></path>
+    </symbol>
+    <symbol id="icon-Vector" viewBox="0 0 32 32">
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.4286" d="M2.286 29.714l27.429-27.429M2.286 2.286l27.429 27.429"></path>
+    </symbol>
   </defs>
 </svg>
