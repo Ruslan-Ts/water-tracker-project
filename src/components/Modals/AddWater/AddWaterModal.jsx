@@ -1,10 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useFormik } from 'formik';
-import { useSelector, useDispatch } from 'react-redux';
-import ReactModal from 'react-modal';
+import { useDispatch } from 'react-redux';
 import Icons from '../../../img/sprite.svg';
-import { selectorisOpenAddWater } from 'redux/modals/selectors';
-import { isOpenAddWaterModal } from 'redux/modals/slice';
 import { addWatersThunk } from 'redux/userData/thunk';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';

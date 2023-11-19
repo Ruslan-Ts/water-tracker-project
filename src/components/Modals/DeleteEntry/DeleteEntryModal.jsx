@@ -7,6 +7,7 @@ import { Title } from 'CommonStyle/Title/Title.styled';
 import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { selectorDeleteEntryModalStatus } from 'redux/modals/selectors';
 import { isOpenDeleteEntryModal } from 'redux/modals/slice';
+import Icons from '../../../img/sprite.svg';
 
 import {
   ModalWrapper,
