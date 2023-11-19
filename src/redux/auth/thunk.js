@@ -12,6 +12,8 @@ import {
   resetPassword,
 } from 'API/authAPI';
 
+// *** Work with SingIN, SingUP logOut refreshUser, resetPassword  ***
+
 export const signUpThunk = createAsyncThunk(
   'auth/signUp',
   async (body, { rejectWithValue }) => {
@@ -102,25 +104,6 @@ export const resetPasswordThunk = createAsyncThunk(
   }
 );
 
-// export const refreshAuth = createAsyncThunk(
-//   'auth/refresh',
-//   async (_, thunkApi) => {
-//     try {
-//     } catch (error) {
-//       return thunkApi.rejectWithValue(error.massage);
-//     }
-//   },
-//   {
-//     condition: (_, thunkApi) => {
-//       const state = thunkApi.getState();
-//       const token = state.auth.token;
-//       const stayAuth = state.auth.stayAuth;
-//       if (!token || stayAuth) {
-//         return false;
-//       }
-//     },
-//   }
-// );
 
 // *** Work with UP Profile, UP Water Rate, UP Avatar ***
 

@@ -12,7 +12,6 @@ export const ContainerNorma = styled.div`
   padding: 24px 12px;
   border-radius: 10px;
   background: #fff;
-
   box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
