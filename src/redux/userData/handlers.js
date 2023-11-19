@@ -1,4 +1,4 @@
-export const setTodayData = (state, action) => {
-  state.waterInputsForToday = action.payload.waterInputsForToday;
-  state.dailyNormFulfillment = action.payload.dailyNormFulfillment;
+export const handleFetchToday = (state, { payload }) => {
+  state.today.waterInputsForToday = payload.waterInputsForToday;
+  state.today.dailyNormFulfillment = payload.dailyNormFulfillment;
 };

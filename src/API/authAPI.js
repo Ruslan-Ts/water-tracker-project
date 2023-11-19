@@ -52,7 +52,7 @@ export const updateWaterRate = async newWaterRate => {
 };
 
 export const updateAvatar = async newPhotoFile => {
-  console.log(2);
+
   const {
     data: { avatarURL },
   } = await instance.patch('/users/avatars', newPhotoFile, {

@@ -124,8 +124,7 @@ export const updateAvatarThunk = createAsyncThunk(
   'auth/updateAvatar',
   async (newPhotoFile, { rejectWithValue }) => {
     try {
-      console.log(1);
-      const avatarURL = await updateAvatar(newPhotoFile);
+         const avatarURL = await updateAvatar(newPhotoFile);
       return avatarURL;
     } catch (error) {
       return rejectWithValue(error.massage);

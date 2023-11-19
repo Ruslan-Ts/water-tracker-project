@@ -1,16 +1,22 @@
-const { createSlice } = require('@reduxjs/toolkit');
-const { setTodayData } = require('../../redux/userData/handlers');
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchTodayThunk } from '../userData/thunk';
+import { handleFetchToday } from './handlers';
 
-const todaySlice = createSlice({
-  name: 'today',
-  initialState: {
+const initialState = {
+  month: {},
+  today: {
     waterInputsForToday: [],
     dailyNormFulfillment: 0,
   },
-  reducers: {
-    setTodayData,
+};
+
+const dataSlice = createSlice({
+  name: 'dataUser',
+  initialState,
+  reducers: {},
+  extraReducers: builder => {
+    builder.addCase(fetchTodayThunk.fulfilled, handleFetchToday);
   },
 });
 
-export const { setTodayData: setTodayDataAction } = todaySlice.actions;
-export const todayReducer = todaySlice.reducer;
+export const dataReducer = dataSlice.reducer;
