@@ -10,7 +10,6 @@ import { selectorIsLoading } from 'redux/root/selectors';
 
 const HomePage = () => {
   const isLoading = useSelector(selectorIsLoading);
-  console.log(isLoading);
 
   return (
     <div className="container">

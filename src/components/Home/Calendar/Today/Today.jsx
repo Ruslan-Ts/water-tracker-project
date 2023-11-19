@@ -2,7 +2,7 @@ import cup from '../cup.svg';
 import pencil from '../pencil.svg';
 import trash from '../trash.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { isOpenAddWaterModal } from '../../../../redux/modals/slice';
+
 import {
   Viewport,
   TableStyled,
@@ -18,19 +18,21 @@ import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
 import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
 
 import { fetchTodayThunk } from '../../../../redux/userData/thunk';
+import { useContext, useEffect } from 'react';
+import { ModalContext } from 'components/ModalContext';
 
 const Today = () => {
   const dispatch = useDispatch();
+  const toggleModal = useContext(ModalContext);
   const handleOpenWaterModal = () => {
-    dispatch(isOpenAddWaterModal(true));
+    toggleModal(<AddWaterModal />);
   };
 
-  const handleModalClose = () => {
+  useEffect(() => {
     dispatch(fetchTodayThunk());
-  };
+  }, [dispatch]);
 
-  const waterData = useSelector(selectorWaterCurrentDay);
-  const { waterInputsForToday } = waterData;
+  const { waterInputsForToday } = useSelector(selectorWaterCurrentDay);
 
   return (
     <Container>
@@ -75,8 +77,6 @@ const Today = () => {
           + Add water
         </AddButton>
       </Viewport>
-
-      {isOpenAddWaterModal && <AddWaterModal onClose={handleModalClose} />}
     </Container>
   );
 };
