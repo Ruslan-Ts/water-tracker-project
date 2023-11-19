@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
 import { logOutThunk } from '../../../redux/auth/thunk';
@@ -13,17 +13,19 @@ import {
 } from './UserLogoutModal.styled';
 import sprite from '../../../img/sprite.svg';
 import css from './UserLogoutModal.module.css';
+import { ModalContext } from '../../ModalContext';
 
 ReactModal.setAppElement('#root');
 
-const UserLogoutModal = ({ showModal, closeModal }) => {
+const UserLogoutModal = () => {
   const dispatch = useDispatch();
+  const onClose = useContext(ModalContext);
 
   const handleLogout = () => {
     dispatch(logOutThunk())
       .then(() => {
         dispatch({ type: 'CLEAR_USER_DATA' });
-        closeModal();
+        onClose();
       })
       .catch(error => {
         console.error('Error logging out:', error);
@@ -31,12 +33,12 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
   };
 
   const handleCancel = () => {
-    closeModal();
+    onClose();
   };
 
   const handleKeyPress = e => {
     if (e.key === 'Escape') {
-      closeModal();
+      onClose();
     }
   };
 
@@ -49,7 +51,7 @@ const UserLogoutModal = ({ showModal, closeModal }) => {
 
   return (
     <CustomReactModal
-      isOpen={showModal}
+      isOpen={true}
       onRequestClose={handleCancel}
       contentLabel="Log Out Modal"
       ariaHideApp={false}
