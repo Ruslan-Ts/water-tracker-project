@@ -18,6 +18,9 @@ import {
   handleRefresh,
   handleRefreshReject,
   handlePendingRefresh,
+  handlePending,
+  handleRejected,
+  handleFulfilled,
 } from './handlers.js';
 
 const initialState = {
@@ -32,6 +35,7 @@ const initialState = {
   token: null,
   stayAuth: false,
   isRefreshing: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -48,7 +52,11 @@ const authSlice = createSlice({
       .addCase(refreshUserThunk.pending, handlePendingRefresh)
       .addCase(refreshUserThunk.fulfilled, handleRefresh)
       .addCase(refreshUserThunk.rejected, handleRefreshReject)
-      .addCase(resetPasswordThunk.fulfilled, handleLogout);
+      .addCase(resetPasswordThunk.fulfilled, handleLogout)
+      .addMatcher(action => action.type.endsWith('/pending'), handlePending)
+      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected)
+      .addMatcher(action => action.type.endsWith('/fulfilled'), handleFulfilled)
+
   },
 });
 
