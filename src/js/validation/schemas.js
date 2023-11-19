@@ -93,8 +93,7 @@ export const updateUserProfileSchema = yup.object().shape({
     }),
 });
 export const AddWaterSchema = yup.object({
-  waterVolume: yup
-    .number()
+  waterVolume: yup.number()
     .min(0, 'Water usage must be greater than or equal to 0')
     .required('Water usage is required'),
   date: yup.date().required('Date is required'),
