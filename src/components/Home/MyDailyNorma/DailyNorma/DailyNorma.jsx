@@ -1,5 +1,3 @@
-import { isOpenModalWaterRateAction } from '../../../../redux/modals/slice';
-import { useDispatch } from 'react-redux';
 import {
   DailyNormaContainer,
   Norma,
@@ -7,9 +5,14 @@ import {
   NormaContainer,
   Title,
 } from './DailyNorma.styled';
+import { ModalContext } from 'components/ModalContext';
+import { useContext } from 'react';
+
+import DailyNormaModal from 'components/Modals/DailyNorma/DailyNorma';
 
 export const DailyNorma = () => {
-  const dispatch = useDispatch();
+  const onClose = useContext(ModalContext);
+
   return (
     <>
       <DailyNormaContainer>
@@ -18,7 +21,7 @@ export const DailyNorma = () => {
           <Norma>1.5 L</Norma>
           <NormaBtn
             onClick={() => {
-              dispatch(isOpenModalWaterRateAction(true));
+              onClose(<DailyNormaModal />);
             }}
           >
             Edit

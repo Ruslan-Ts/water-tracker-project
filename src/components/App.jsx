@@ -7,7 +7,6 @@ import { selectIsRefreshing, selectUserToken } from 'redux/auth/selectors.js';
 import { refreshUserThunk } from 'redux/auth/thunk.js';
 
 import Layout from './Layout/Layout.jsx';
-import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
 
 // import SignUp from 'Pages/SignUpPage';
 import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
@@ -94,8 +93,6 @@ export const App = () => {
   return !isRefreshing ? (
     <ModalProvider>
       <RouterProvider router={createRouter(token)} />
-      <DailyNorma />
-
       <ToastContainer
         position="bottom-right"
         autoClose={2000}
