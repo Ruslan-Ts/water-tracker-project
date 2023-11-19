@@ -18,24 +18,20 @@ import {
   handleRefresh,
   handleRefreshReject,
   handlePendingRefresh,
-  handlePending,
-  handleRejected,
-  handleFulfilled,
+
 } from './handlers.js';
 
 const initialState = {
   user: {
-    email: 'peralat152@undewp.com',
-    avatarURL:
-      'http://res.cloudinary.com/djujpexdy/image/upload/v1699882245/water-tracker/avatars/655110e230a7d57b4b6acc8f_avatar.jpg',
-    userName: 'David',
-    gender: 'man',
-    waterRate: 1111,
+    email: '',
+    avatarURL: '',
+    userName: '',
+    gender: '',
+    waterRate: '',
   },
   token: null,
   stayAuth: false,
   isRefreshing: false,
-  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -53,10 +49,6 @@ const authSlice = createSlice({
       .addCase(refreshUserThunk.fulfilled, handleRefresh)
       .addCase(refreshUserThunk.rejected, handleRefreshReject)
       .addCase(resetPasswordThunk.fulfilled, handleLogout)
-      .addMatcher(action => action.type.endsWith('/pending'), handlePending)
-      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected)
-      .addMatcher(action => action.type.endsWith('/fulfilled'), handleFulfilled)
-
   },
 });
 
