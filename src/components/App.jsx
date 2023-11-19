@@ -16,6 +16,7 @@ import PublicRoute from 'guards/PublicRoute.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
 import ModalProvider from './ModalContext.jsx';
+import Loader from './Loader.jsx';
 
 const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
@@ -107,6 +108,6 @@ export const App = () => {
       />
     </ModalProvider>
   ) : (
-    <p>Refreshing...</p>
+    <Loader />
   );
 };

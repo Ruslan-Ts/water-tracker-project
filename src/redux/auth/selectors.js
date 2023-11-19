@@ -5,3 +5,4 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const selectorWaterRate = state => state.auth.user.waterRate;
 export const selectorUserProfile = state => state.auth.user;
+export const selectorIsLoading = state => state.auth.isLoading;

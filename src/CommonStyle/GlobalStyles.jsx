@@ -112,4 +112,21 @@ export const GlobalStyles = createGlobalStyle`
   -webkit-overflow-scrolling: touch;
 }
 
+/* ----------------Loader CSS--------------- */
+.LoaderWr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+}
+.LoaderWrCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 12000000000000; */
+}
+
 `;
