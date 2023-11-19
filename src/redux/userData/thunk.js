@@ -1,10 +1,25 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { addWaters, deleteEntry } from 'API/dataAPI';
-
 import axios from 'axios';
 
+import { addWaters, deleteEntry } from 'API/dataAPI';
+
 axios.defaults.baseURL = 'https://';
+
+export const fetchTodayData = createAsyncThunk(
+  'today/fetchTodayData',
+  async () => {
+    try {
+      const response = await axios.get(
+        'https://water-tracker-backend.onrender.com/api/today/'
+      );
+
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+);
 
 export const addWatersThunk = createAsyncThunk(
   'water/addWaters',

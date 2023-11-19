@@ -1,8 +1,9 @@
-// import { useDispatch } from 'react-redux';
-// import { signUp } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { signUpThunk } from 'redux/auth/thunk';
+
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
@@ -13,25 +14,18 @@ import { InputError } from 'components/forms/InputError.styled';
 import { PasswordMeter } from 'components/forms/PasswordMeter.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
-import SignLayout from 'components/SignLayout/SighLayout';
+import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
+import SignLayout from 'components/SignLayout/SignLayout';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
-import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
 
 const SignUp = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
   const onSubmit = e => {
-    //   e.preventDefault();
-    //   dispatch(
-    //     signUp({
-    //       name: e.target.elements.name.value,
-    //       email: e.target.elements.email.value,
-    //       password: e.target.elements.password.value,
-    //     })
-    //   );
-    //   e.target.reset();
-    console.log(e);
+    const { email, password } = e;
+    dispatch(signUpThunk({ email, password }));
   };
 
   const {
@@ -52,7 +46,6 @@ const SignUp = () => {
     validationSchema: signUpSchema,
     onSubmit,
   });
-  // console.log(values);
   const handlePasswordChange = e => {
     const password = e.target.value;
     const score = calculateStrength(password);
@@ -111,6 +104,7 @@ const SignUp = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             placeholder="Repeat password"
+            $error={touched.repeatPassword && errors.repeatPassword}
           />
           {touched.repeatPassword && errors.repeatPassword && (
             <InputError>{errors.repeatPassword}</InputError>

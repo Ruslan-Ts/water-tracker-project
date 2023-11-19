@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
@@ -9,24 +9,32 @@ import { FormLabel } from 'components/forms/FormLabel.styled';
 import { InputError } from 'components/forms/InputError.styled';
 import { AuthForm } from 'components/forms/AuthForm.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
-import SignLayout from 'components/SignLayout/SighLayout';
+import SignLayout from 'components/SignLayout/SignLayout';
 
-import { signUpSchema } from 'js/validation/schemas';
+import { signInSchema } from 'js/validation/schemas';
+import { useDispatch } from 'react-redux';
+import { signInThunk } from 'redux/auth/thunk';
 
 const SignIn = () => {
-  const onSubmit = e => {};
-  const { values, touched, errors, handleChange, handleBlur } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: signUpSchema,
-    onSubmit,
-  });
+  const dispatch = useDispatch();
+
+  const onSubmit = e => {
+    dispatch(signInThunk(e));
+  };
+
+  const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      validationSchema: signInSchema,
+      onSubmit,
+    });
 
   return (
     <SignLayout>
-      <AuthForm onSubmit={onSubmit}>
+      <AuthForm onSubmit={handleSubmit}>
         <Title>Sign in</Title>
         <FormLabel>
           Enter email
@@ -57,7 +65,7 @@ const SignIn = () => {
             <InputError>{errors.password}</InputError>
           )}
         </FormLabel>
-        <Button type="submit">Sign up</Button>
+        <Button type="submit">Sign in</Button>
         <RouterLink to="/forgot-password">Forgot password?</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
       </AuthForm>

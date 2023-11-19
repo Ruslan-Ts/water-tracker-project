@@ -8,10 +8,12 @@ const WelcomePage = () => {
   return (
     <>
       <WelcomeLayout>
-        <Tracker>
-          <TrackerBenefits />
-          <TrackerInfo />
-        </Tracker>
+        <div className="container">
+          <Tracker>
+            <TrackerBenefits />
+            <TrackerInfo />
+          </Tracker>
+        </div>
       </WelcomeLayout>
     </>
   );

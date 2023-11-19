@@ -1,4 +1,12 @@
+import { updateUserProfileThunk, updateWaterRateThunk } from 'redux/auth/thunk';
 import { addWatersThunk, deleteEntryThunk } from 'redux/userData/thunk';
+
+import {
+  handlerCloseModalAddWater,
+  handlerCloseModalDeleteEntry,
+  handlerCloseModalSetting,
+  handlerCloseModalWaterRate,
+} from './handlers';
 
 const { createSlice } = require('@reduxjs/toolkit');
 
@@ -16,9 +24,10 @@ const modalSlice = createSlice({
     isOpenModalSetting: (state, { payload }) => {
       state.isOpenModalSetting = payload;
     },
-    isOpenModalWaterRate: (state, { payload }) => {
-      state.isOpenModalSetting = payload;
+    isOpenModalWaterRateAction: (state, { payload }) => {
+      state.isOpenModalWaterRate = payload;
     },
+
     isOpenDeleteEntryModal: (state, { payload }) => {
       state.isOpenDeleteEntryModal = payload;
     },
@@ -27,20 +36,17 @@ const modalSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder
-      .addCase(deleteEntryThunk.fulfilled, state => {
-        state.isOpenDeleteEntryModal = false;
-      })
-      .addCase(addWatersThunk.fulfilled, state => {
-        state.isOpenAddWaterModal = false;
-      });
+    builder.addCase(updateUserProfileThunk.fulfilled, handlerCloseModalSetting);
+    builder.addCase(updateWaterRateThunk.fulfilled, handlerCloseModalWaterRate);
+    builder.addCase(deleteEntryThunk.fulfilled, handlerCloseModalDeleteEntry);
+    builder.addCase(addWatersThunk.fulfilled, handlerCloseModalAddWater);
   },
 });
 
 export const modalReducer = modalSlice.reducer;
 export const {
   isOpenModalSetting,
-  isOpenModalWaterRate,
+  isOpenModalWaterRateAction,
   isOpenDeleteEntryModal,
   isOpenAddWaterModal,
 } = modalSlice.actions;

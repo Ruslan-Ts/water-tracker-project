@@ -78,8 +78,9 @@ export const GlobalStyles = createGlobalStyle`
 			max-width: 1216px;
 			/* padding: 0 32px; */
 		}
+	
+		/* -----------------CSS MODAL----------------- */
 	}
-
 	.ReactModal__Body--open {
     overflow: hidden;
 }
@@ -95,4 +96,37 @@ export const GlobalStyles = createGlobalStyle`
 .ReactModal__Overlay--before-close{
     opacity: 0;
 }
+
+
+.content {
+  position: static;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ----------------Loader CSS--------------- */
+.LoaderWr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+}
+.LoaderWrCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 12000000000000; */
+}
+
 `;

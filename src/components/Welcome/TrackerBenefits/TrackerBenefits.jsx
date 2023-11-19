@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Link } from 'react-router-dom';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import {
   BenefitsList,
   BenefitsItems,
@@ -32,7 +32,9 @@ export const TrackerBenefits = () => {
             Personal rate setting
           </BenefitsItems>
         </BenefitsList>
-        <Button type="submit">Try tracker</Button>
+        <Link to="/signup">
+          <Button type="submit">Try tracker</Button>
+        </Link>
       </Container>
     </>
   );

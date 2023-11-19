@@ -1,25 +1,23 @@
-import { Circles } from 'react-loader-spinner';
+import { createPortal } from 'react-dom';
+import { RotatingLines } from 'react-loader-spinner';
+import theme from '../CommonStyle/theme.jsx';
+
+const loader = document.querySelector('#loader-root');
 
 const Loader = () => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        margin: 'auto',
-        textAlign: 'center',
-      }}
-    >
-      <Circles
-        height="80"
-        width="80"
-        color="blue"
-        ariaLabel="circles-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
-    </div>
+  return createPortal(
+    <div className="LoaderWr">
+      <div className="LoaderWrCon">
+        <RotatingLines
+          strokeColor={`${theme.colors.primaryAccent}`}
+          strokeWidth="5"
+          animationDuration="0.75"
+          width="96"
+          visible={true}
+        />
+      </div>
+    </div>,
+    loader
   );
 };
 export default Loader;

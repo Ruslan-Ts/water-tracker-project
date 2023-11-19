@@ -1,22 +1,26 @@
-import React, { useRef } from 'react';
-import ReactModal from 'react-modal';
-import css from './SettingCSS.module.css';
+import React, { useContext, useRef } from 'react';
+
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { TitlePart } from '../DailyNorma/DailyNorma.styled';
-import { CloseBtn, ContainerAvatar, WrapperUpload } from './Setting.styled';
+import {
+  CloseBtn,
+  ContainerAvatar,
+  ContainerSettings,
+  WrapperUpload,
+} from './Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/auth/selectors';
 import { updateAvatarThunk } from 'redux/auth/thunk';
 import FormaUpdateUserProfile from './FormaUpdateUserProfile';
-import { selectorIsOpenSetting } from 'redux/modals/selectors';
-import { isOpenModalSetting } from 'redux/modals/slice';
+
+import { ModalContext } from 'components/ModalContext';
 
 const Setting = () => {
-  const isOpenSetting = useSelector(selectorIsOpenSetting);
   const filePecker = useRef(null);
   const userProfile = useSelector(selectorUserProfile);
   const dispatch = useDispatch();
+  const onClose = useContext(ModalContext);
 
   const handelChange = e => {
     const formaData = new FormData();
@@ -27,22 +31,15 @@ const Setting = () => {
     filePecker.current.click();
   };
 
-  const handleOpenCloseModal = () => {
-    dispatch(isOpenModalSetting(!isOpenSetting));
-  };
   return (
-    <ReactModal
-      shouldFocusAfterRender={false}
-      closeTimeoutMS={350}
-      ariaHideApp={false}
-      isOpen={isOpenSetting}
-      onRequestClose={handleOpenCloseModal}
-      className={css.content}
-      overlayClassName={css.overlay}
-    >
-      <CloseBtn onClick={handleOpenCloseModal}>
+    <ContainerSettings>
+      <CloseBtn
+        onClick={() => {
+          onClose();
+        }}
+      >
         <svg width="24" height="24">
-          <use href={Icons + '#icon-outline'}></use>
+          <use href={Icons + '#close'}></use>
         </svg>
       </CloseBtn>
       <Title>Setting</Title>
@@ -75,8 +72,12 @@ const Setting = () => {
           </button>
         </label>
       </WrapperUpload>
-      <FormaUpdateUserProfile onClose={handleOpenCloseModal} />
-    </ReactModal>
+      <FormaUpdateUserProfile
+        onClose={() => {
+          onClose();
+        }}
+      />
+    </ContainerSettings>
   );
 };
 

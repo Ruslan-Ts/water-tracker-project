@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import ReactModal from 'react-modal';
-import css from './DailyCSS.module.css';
+import React, { useContext, useEffect, useState } from 'react';
 import { Input } from 'components/forms/Input.styled';
 import {
+  ContainerNorma,
   FormLabel,
   FormLabelRadio,
   FormaCalculation,
@@ -24,27 +23,14 @@ import {
   WrapperDefinition,
 } from './DailyNorma.styled';
 import FormaWaterRate from './FormaWaterRate';
-// import { useDispatch } from 'react-redux';
-// import { useSelect } from '@mui/base';
+import { CloseBtn } from '../Setting/Setting.styled';
+import Icons from '../../../img/sprite.svg';
+import { ModalContext } from 'components/ModalContext';
 
 const DailyNorma = () => {
-  // const dispatch = useDispatch();
-  // const rate = useSelect(SelectorRate);
-
   const [result, setResult] = useState();
+  const onClose = useContext(ModalContext);
 
-  const onSubmit = e => {
-    e.preventDefault();
-    // dispatch(updateRateThunk({ rate: e.target.elements.rate.value }));
-    // console.log(e.target.elements.rate.value);
-    // dispatch(
-    //   logIn({
-    //     email: e.target.elements.email.value,
-    //     password: e.target.elements.password.value,
-    //   })
-    // );
-    // e.target.reset();
-  };
   const {
     values,
     touched,
@@ -90,7 +76,16 @@ const DailyNorma = () => {
   }, [values]);
 
   return (
-    <ReactModal ariaHideApp={false} isOpen={false} className={css.content}>
+    <ContainerNorma>
+      <CloseBtn
+        onClick={() => {
+          onClose();
+        }}
+      >
+        <svg width="24" height="24">
+          <use href={Icons + '#close'}></use>
+        </svg>
+      </CloseBtn>
       <Title>My daily norma</Title>
 
       <WrapperDefinition>
@@ -180,8 +175,12 @@ const DailyNorma = () => {
         <ValueResult>{result} L </ValueResult>
       </WrapperResult>
 
-      <FormaWaterRate onSubmit={onSubmit} />
-    </ReactModal>
+      <FormaWaterRate
+        onClose={() => {
+          onClose();
+        }}
+      />
+    </ContainerNorma>
   );
 };
 

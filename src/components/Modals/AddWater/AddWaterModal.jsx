@@ -10,7 +10,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { Input } from 'components/forms/Input.styled';
-import { Button } from 'CommonStyle/Button/Button.styled';
+import { Button } from 'CommonStyle/Buttons/Button.styled';
 import css from './AddWaterCSS.module.css';
 import {
   Wrapper,
