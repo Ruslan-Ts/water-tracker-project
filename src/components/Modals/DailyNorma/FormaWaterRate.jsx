@@ -9,7 +9,7 @@ import { updateWaterRateThunk } from 'redux/auth/thunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorWaterRate } from 'redux/auth/selectors';
 
-const FormaWaterRate = () => {
+const FormaWaterRate = ({ onClose }) => {
   const dispatch = useDispatch();
   const waterRate = useSelector(selectorWaterRate);
   const {
@@ -26,7 +26,11 @@ const FormaWaterRate = () => {
     },
     validationSchema: rateOutSchema,
     onSubmit: values => {
-      dispatch(updateWaterRateThunk(values.rate));
+      dispatch(updateWaterRateThunk(values.rate))
+        .unwrap()
+        .then(() => {
+          onClose();
+        });
     },
   });
 

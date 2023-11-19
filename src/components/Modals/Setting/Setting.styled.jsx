@@ -1,6 +1,23 @@
 import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
 
+export const ContainerSettings = styled.div`
+  color: ${theme.colors.primaryDark};
+  background-color: white;
+  box-sizing: border-box;
+  width: 280px;
+  padding: 32px 12px;
+  border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 32px 24px;
+    border-radius: 10px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1008px;
+  }
+`;
 export const WrapperUpload = styled.div`
   display: flex;
   align-items: center;

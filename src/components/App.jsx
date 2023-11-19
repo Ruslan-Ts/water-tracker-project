@@ -7,8 +7,7 @@ import { selectIsRefreshing, selectUserToken } from 'redux/auth/selectors.js';
 import { refreshUserThunk } from 'redux/auth/thunk.js';
 
 import Layout from './Layout/Layout.jsx';
-import DailyNorma from './Modals/DailyNorma/DailyNorma.jsx';
-import Setting from './Modals/Setting/Setting.jsx';
+
 // import SignUp from 'Pages/SignUpPage';
 import ForgotPasswordPage from 'Pages/ForgotPasswordPage.jsx';
 
@@ -16,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from 'guards/PublicRoute.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
+import ModalProvider from './ModalContext.jsx';
 
 const WelcomePage = lazy(() => import('../Pages/WelcomePage/WelcomePage.jsx'));
 const HomePage = lazy(() => import('../Pages/HomePage.jsx'));
@@ -91,10 +91,8 @@ export const App = () => {
   }, [dispatch]);
 
   return !isRefreshing ? (
-    <>
+    <ModalProvider>
       <RouterProvider router={createRouter(token)} />
-      <DailyNorma />
-      <Setting />
       <ToastContainer
         position="bottom-right"
         autoClose={2000}
@@ -107,7 +105,7 @@ export const App = () => {
         pauseOnHover
         theme="light"
       />
-    </>
+    </ModalProvider>
   ) : (
     <p>Refreshing...</p>
   );

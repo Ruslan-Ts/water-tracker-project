@@ -78,6 +78,8 @@ export const GlobalStyles = createGlobalStyle`
 			max-width: 1216px;
 			/* padding: 0 32px; */
 		}
+	
+		/* -----------------CSS MODAL----------------- */
 	}
 	.ReactModal__Body--open {
     overflow: hidden;
@@ -94,4 +96,20 @@ export const GlobalStyles = createGlobalStyle`
 .ReactModal__Overlay--before-close{
     opacity: 0;
 }
+
+
+.content {
+  position: static;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 `;
