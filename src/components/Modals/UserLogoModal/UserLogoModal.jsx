@@ -13,7 +13,6 @@ const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
   const togModal = useContext(ModalContext);
 
-
   const handleSettingButtonClick = () => {
     if (onClose && typeof onClose === 'function') {
       togModal(<Setting />);
@@ -24,7 +23,13 @@ const UserLogoModal = ({ isOpen, onClose }) => {
   const handleLogoutButtonClick = () => {
     if (onClose && typeof onClose === 'function') {
       onClose();
-      togModal(<UserLogoutModal showModal={true} closeModal={onClose} />);
+      togModal(
+        <UserLogoutModal
+          onClose={() => {
+            togModal();
+          }}
+        />
+      );
     }
   };
 
