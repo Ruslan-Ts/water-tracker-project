@@ -1,10 +1,32 @@
 import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
 
-//  tiny: '12px',
-//     small: '16px',
-//     medium: '18px',
-//     large: '26px',
+export const ContainerNorma = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  transform: translate(-50%);
+
+  color: ${theme.colors.primaryDark};
+  width: 280px;
+  padding: 24px 12px;
+  border-radius: 10px;
+  background: #fff;
+
+  box-sizing: border-box;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    padding: 32px 24px;
+    border-radius: 10px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 592px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
 export const WrapperDefinition = styled.div`
   display: flex;
   flex-wrap: wrap;
