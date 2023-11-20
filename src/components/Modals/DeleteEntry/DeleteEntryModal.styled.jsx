@@ -2,12 +2,28 @@ import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
 
 export const ModalWrapper = styled.div`
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 32px 24px;
   border-radius: 10px;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-sizing: border-box;
+
+  transition: opacity 0.3s;
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    width: 592px;
+    height: 208px;
+  }
 `;
 
 export const Wrapper = styled.div`

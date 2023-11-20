@@ -63,7 +63,7 @@ const AddWaterModal = () => {
     console.log(date);
     const formattedDate = date.toISOString();
     const newWaterUsed = { waterVolume, date: formattedDate };
-    console.log(newWaterUsed);
+
     dispatch(addWatersThunk(newWaterUsed))
       .unwrap()
       .then(() => {
