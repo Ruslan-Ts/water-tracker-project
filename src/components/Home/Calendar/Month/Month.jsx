@@ -22,11 +22,10 @@ const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const dispatch = useDispatch();
   const waterForMonth = useSelector(selectorWaterMonth);
-  console.log(waterForMonth);
 
   useEffect(() => {
-    dispatch(fetchMonthThunk());
-  }, [dispatch]);
+    dispatch(fetchMonthThunk(currentDate.getMonth()));
+  }, [dispatch, currentDate]);
 
   const handleNextMonth = () => {
     setCurrentDate(
@@ -52,16 +51,17 @@ const Calendar = () => {
     const daysInMonth = getDaysInMonth();
     const days = Array.from({ length: daysInMonth }, (_, index) => index + 1);
 
-    return days.map((day, index) => {
-      const waterEntry = waterForMonth[11];
-      // console.log('waterEntry', waterEntry);
-
-      const waterPercentage = waterEntry.dailyNormFulfillment;
+    return days.map(day => {
+      const waterPercentage = waterForMonth?.find(item => {
+        return Number(item.data.split(',')[0]) === day;
+      });
 
       return (
         <DayCell key={day}>
           <Day>{day}</Day>
-          <DayPercent>{waterPercentage && `${waterPercentage}%`}</DayPercent>
+          <DayPercent>
+            {waterPercentage && `${waterPercentage.dailyNormFulfillment}%`}
+          </DayPercent>
         </DayCell>
       );
     });

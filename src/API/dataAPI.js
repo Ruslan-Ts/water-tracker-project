@@ -6,7 +6,8 @@ export const fetchTodayAPI = async () => {
 };
 
 export const fetchMonthAPI = async monthNumber => {
-  const { data } = await instance.get(`/month/${monthNumber}`);
+
+  const { data } = await instance.get(`/month/${monthNumber + 1}`);
   return data;
 };
 

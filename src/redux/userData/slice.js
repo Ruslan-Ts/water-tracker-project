@@ -5,7 +5,7 @@ import { fetchTodayThunk } from '../userData/thunk';
 import { handleFetchToday, handleFetchMonth } from './handlers';
 
 const initialState = {
-  month: {},
+  month: [],
   today: {
     waterInputsForToday: [],
     dailyNormFulfillment: 0,
