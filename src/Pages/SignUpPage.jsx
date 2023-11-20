@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 
 import { signUpThunk } from 'redux/auth/thunk';
@@ -16,12 +16,15 @@ import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
 import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
 import SignLayout from 'components/SignLayout/SignLayout';
+import { ButtonLoader } from 'components/forms/Loader.styled';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
+import { selectIsLoading } from 'redux/root/selectors';
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   const onSubmit = e => {
     const { email, password } = e;
@@ -110,7 +113,9 @@ const SignUp = () => {
             <InputError>{errors.repeatPassword}</InputError>
           )}
         </FormLabel>
-        <Button type="submit">Sign up</Button>
+        <Button type="submit" disabled={isLoading}>
+          Sign up {isLoading && <ButtonLoader />}
+        </Button>
         <RouterLink to="/signin">Sign in</RouterLink>
       </AuthForm>
     </SignLayout>

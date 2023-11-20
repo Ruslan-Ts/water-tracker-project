@@ -6,12 +6,10 @@ import { CalendarWrap } from './Calendar.styled';
 
 const Calendar = () => {
   return (
-    <div>
-      <CalendarWrap>
-        <Today />
-        <Month />
-      </CalendarWrap>
-    </div>
+    <CalendarWrap>
+      <Today />
+      <Month />
+    </CalendarWrap>
   );
 };
 
