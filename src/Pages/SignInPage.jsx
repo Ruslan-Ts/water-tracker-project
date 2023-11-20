@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
@@ -12,11 +13,13 @@ import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import SignLayout from 'components/SignLayout/SignLayout';
 
 import { signInSchema } from 'js/validation/schemas';
-import { useDispatch } from 'react-redux';
+
 import { signInThunk } from 'redux/auth/thunk';
+import { selectIsLoading } from 'redux/root/selectors';
 
 const SignIn = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   const onSubmit = e => {
     dispatch(signInThunk(e));
@@ -65,7 +68,9 @@ const SignIn = () => {
             <InputError>{errors.password}</InputError>
           )}
         </FormLabel>
-        <Button type="submit">Sign in</Button>
+        <Button type="submit" disabled={isLoading}>
+          Sign in
+        </Button>
         <RouterLink to="/forgot-password">Forgot password?</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
       </AuthForm>
