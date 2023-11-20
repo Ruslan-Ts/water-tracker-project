@@ -8,10 +8,16 @@ export const DailyNormaContainer = styled.div`
   box-shadow: 0px 4px 8px 0px rgba(158, 187, 255, 0.12);
   width: 164px;
   padding: 8px 20px;
+  margin-bottom: 8px;
   /* @media only screen and (min-width: 1440px) {
     display: flex;
     justify-content: center;
   } */
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: 40px;
+    left: 0;
+  }
 `;
 export const Title = styled.h2`
   font-size: ${theme.fontSizes.medium};
@@ -46,27 +52,55 @@ export const NormaBtn = styled.button`
 `;
 
 export const Container = styled.div`
-  margin-bottom: 16px;
+  position: relative;
+  padding-top: 40px;
+  width: 100%;
+  img {
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 50%;
+  }
 `;
 
 export const StatusContainer = styled.div`
   display: flex;
-  gap: 24px;
-  width: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 32px;
+  button {
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
+    @media screen and (min-width: 1440px) {
+      width: 31%;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+  }
 `;
 
 export const WaterStatus = styled.div`
   display: flex;
   flex-direction: column;
   gap: 19px;
-  width: 70%;
+  width: 100%;
   p {
     color: ${theme.colors.primaryAccent};
     font-weight: 400;
     font-size: ${theme.fontSizes.medium};
-    line-height: calc(24 / ${theme.fontSizes.medium});
+    line-height: calc(24 / 18);
+  }
+  @media screen and (min-width: 768px) {
+    width: 55%;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 66%;
   }
 `;
 
@@ -116,7 +150,7 @@ export const WaterInfo = styled.div`
     position: absolute;
     color: ${theme.colors.primaryAccent};
     font-size: ${theme.fontSizes.tiny};
-    line-height: calc(16 / ${theme.fontSizes.tiny});
+    line-height: calc(16 / 12);
     &:first-child {
       left: 0;
     }
@@ -124,7 +158,7 @@ export const WaterInfo = styled.div`
       left: 50%;
       transform: translateX(-50%);
       font-size: ${theme.fontSizes.small};
-      line-height: calc(20 / ${theme.fontSizes.small});
+      line-height: calc(20 / 16);
       font-weight: 500;
     }
     &:last-child {

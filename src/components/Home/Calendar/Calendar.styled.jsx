@@ -17,7 +17,7 @@ export const CalendarWrap = styled.div`
     padding: 32px 24px;
   }
   @media screen and (min-width: 1440px) {
-    width: 592px;
+    width: 50%;
     padding: 32px 24px;
   }
 `;

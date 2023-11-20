@@ -6,11 +6,11 @@ export const AddButton = styled(CommonStyles)`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   padding: 10px 30px;
   svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     fill: none;
     stroke: ${theme.colors.primaryLight};
   }
