@@ -58,6 +58,9 @@ export const Container = styled.div`
   img {
     margin: 0 auto;
     margin-bottom: 16px;
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 24px;
+    }
   }
   @media screen and (min-width: 1440px) {
     width: 50%;
