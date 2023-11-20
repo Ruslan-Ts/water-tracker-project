@@ -14,3 +14,7 @@ export const handleFetchToday = (state, { payload }) => {
   state.today.waterInputsForToday = payload.waterInputsForToday;
   state.today.dailyNormFulfillment = payload.dailyNormFulfillment;
 };
+
+export const handleFetchMonth = (state, { payload }) => {
+  state.month = payload;
+};

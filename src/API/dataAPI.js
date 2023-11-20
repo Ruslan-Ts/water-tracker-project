@@ -5,6 +5,11 @@ export const fetchTodayAPI = async () => {
   return data;
 };
 
+export const fetchMonthAPI = async monthNumber => {
+  const { data } = await instance.get(`/month/${monthNumber}`);
+  return data;
+};
+
 export const addWaters = async newWaterUsed => {
   const { data } = await instance.post('/water', newWaterUsed);
   return data;
