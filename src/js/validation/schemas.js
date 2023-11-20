@@ -92,6 +92,7 @@ export const AddWaterSchema = yup.object({
   waterVolume: yup
     .number()
     .min(0, 'Water usage must be greater than or equal to 0')
+    .max(5000, 'Max water usage 5000ml')
     .required('Water usage is required'),
-  date: yup.date().required('Date is required'),
+  date: yup.date(),
 });
