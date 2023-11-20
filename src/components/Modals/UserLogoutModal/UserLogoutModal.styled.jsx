@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
-import ReactModal from 'react-modal';
+
 
 export const LogOutWindow = styled.div`
   background-color: ${theme.colors.primaryLight};
@@ -9,17 +9,14 @@ export const LogOutWindow = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
+  box-sizing: border-box;
+  width: 260px;
   padding: 32px 24px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  @media screen and (min-width: 320px) {
-    width: 232px;
-    height: 196px;
-  }
   @media screen and (min-width: 768px) {
-    width: 544px;
-    height: 144px;
+    width: 572px;
   }
 `;
 
@@ -39,10 +36,9 @@ export const LogOutText = styled.div`
 
 export const LogOutBtns = styled.div`
   display: flex;
-  @media screen and (min-width: 320px) {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
+  flex-direction: column-reverse;
+  align-items: center;
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: flex-end;
@@ -62,6 +58,12 @@ export const LogOutBtn = styled.button`
   color: ${theme.colors.primaryLight};
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
+  box-sizing: border-box;
+  width: 232px;
+  padding: 8px 30px;
+  &:not(:first-child){
+    margin-bottom: 24px;
+  }
   &:not(:last-child) {
     background-color: ${theme.colors.secondaryLightBlue};
     color: ${theme.colors.primaryAccent};
@@ -69,15 +71,6 @@ export const LogOutBtn = styled.button`
   &:hover {
     box-shadow: 0px 8px 16px 0px rgba(64, 123, 255, 0.5);
     transform: scale(1.05);
-  }
-  @media screen and (min-width: 320px) {
-    width: 232px;
-    height: 36px;
-    font-size: 16px;
-    padding: 8px 30px;
-    &:not(:first-child){
-      margin-bottom: 24px;
-    }
   }
   @media screen and (min-width: 768px) {
     width: 160px;
@@ -113,9 +106,4 @@ export const LogOutClose = styled.button`
   }
 `;
 
-export const CustomReactModal = styled(ReactModal)`
-  .ReactModalPortal {
-    border: none;
-  }
-`;
 
