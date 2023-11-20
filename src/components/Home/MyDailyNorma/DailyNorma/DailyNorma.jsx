@@ -30,16 +30,21 @@ import imgMobPng from '../../../../img/home/bottle-mob-1x.png';
 import imgMobPng2x from '../../../../img/home/bottle-mob-2x.png';
 
 import sprite from '../../../../img/sprite.svg';
+import { useSelector } from 'react-redux';
+import { selectorWaterCurrentDay } from 'redux/userData/selectors';
+import { selectorWaterRate } from 'redux/auth/selectors';
 
 export const DailyNorma = () => {
   const onClose = useContext(ModalContext);
+  const currentDayData = useSelector(selectorWaterCurrentDay);
+  const waterRate = useSelector(selectorWaterRate);
 
   return (
     <Container>
       <DailyNormaContainer>
         <Title>My daily norma</Title>
         <NormaContainer>
-          <Norma>1.5 L</Norma>
+          <Norma>{(waterRate / 1000).toFixed(1)} L</Norma>
           <NormaBtn
             onClick={() => {
               onClose(<DailyNormaModal />);
@@ -85,7 +90,7 @@ export const DailyNorma = () => {
       <StatusContainer>
         <WaterStatus>
           <p>Today</p>
-          <WaterMeter $filled={25}>
+          <WaterMeter $filled={currentDayData.dailyNormFulfillment}>
             <div />
           </WaterMeter>
           <WaterInfo>
