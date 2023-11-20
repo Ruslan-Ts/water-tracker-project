@@ -19,7 +19,8 @@ export const SignLayoutStyled = styled.div`
     background-image: url(${bg_1x});
   }
 
-  @media screen and (min-device-pixel-ratio: 2) {
+  @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+    (max-width: 767px) and (min-resolution: 192dpi) {
     background-image: url(${bg_2x});
   }
 

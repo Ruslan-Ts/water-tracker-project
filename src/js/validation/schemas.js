@@ -8,10 +8,6 @@ export const signUpSchema = yup.object().shape({
     .string()
     .min(8, 'Min length 8')
     .max(64, 'Max length 64')
-    .matches(
-      /^(?=.*[0-9])(?=.*[!@#$%^&*()_+{}[\]:;<>,.?~\\/-])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
-      'Password must contain at least 1 number, 1 special symbol, 1 uppercase letter, and 1 lowercase letter'
-    )
     .required(),
   repeatPassword: yup
     .string()
@@ -93,7 +89,8 @@ export const updateUserProfileSchema = yup.object().shape({
     }),
 });
 export const AddWaterSchema = yup.object({
-  waterVolume: yup.number()
+  waterVolume: yup
+    .number()
     .min(0, 'Water usage must be greater than or equal to 0')
     .required('Water usage is required'),
   date: yup.date().required('Date is required'),
