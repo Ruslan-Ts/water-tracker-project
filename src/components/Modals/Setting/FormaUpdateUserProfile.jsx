@@ -8,6 +8,7 @@ import {
 } from '../DailyNorma/DailyNorma.styled';
 import {
   ContainerForm,
+  InputSettingEdit,
   WrapperForma,
   WrapperFormaLeft,
   WrapperFormaMain,
@@ -15,7 +16,7 @@ import {
 } from './Setting.styled';
 import { useFormik } from 'formik';
 import { updateUserProfileSchema } from 'js/validation/schemas';
-import { Input } from 'components/forms/Input.styled';
+
 import { InputError } from 'components/forms/InputError.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
@@ -42,8 +43,8 @@ const FormaUpdateUserProfile = ({ onClose }) => {
   } = useFormik({
     initialValues: {
       gender: userProfile.gender,
-      name: '',
-      email: '',
+      name: userProfile.userName,
+      email: userProfile.email,
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
@@ -114,13 +115,12 @@ const FormaUpdateUserProfile = ({ onClose }) => {
 
               <FormLabel $fontSize="18px" $fontWeight="500">
                 Your name
-                <Input
+                <InputSettingEdit
                   type="text"
                   name="name"
                   value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder={userProfile.userName}
                   $error={touched.name && errors.name}
                 />
                 {touched.name && errors.name && (
@@ -130,14 +130,13 @@ const FormaUpdateUserProfile = ({ onClose }) => {
 
               <FormLabel $fontSize="18px" $fontWeight="500">
                 E-mail
-                <Input
+                <InputSettingEdit
                   autoComplete="off"
                   type="email"
                   name="email"
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  placeholder={userProfile.email}
                   $error={touched.email && errors.email}
                 />
                 {touched.email && errors.email && (
