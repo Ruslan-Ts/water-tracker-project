@@ -25,8 +25,8 @@ const Today = () => {
   const handleOpenWaterModal = () => {
     toggleModal(<AddWaterModal />);
   };
-  const handleDeleteNotice = () => {
-    toggleModal(<DeleteEntryModal />);
+  const handleDeleteNotice = waterId => {
+    toggleModal(<DeleteEntryModal waterId={waterId} />);
   };
 
   useEffect(() => {
@@ -49,14 +49,18 @@ const Today = () => {
                 <TextCell>{data.waterVolume}</TextCell>
                 <TimeCell>{data.date}</TimeCell>
                 <TableCell>
-                  <Button class>
+                  <Button>
                     <svg className={css.icon_pencil} width="16" height="16">
                       <use href={Icons + '#pencil-square'}></use>
                     </svg>
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button onClick={handleDeleteNotice}>
+                  <Button
+                    onClick={() => {
+                      handleDeleteNotice(data._id);
+                    }}
+                  >
                     <svg className={css.icon_trash} width="16" height="16">
                       <use href={Icons + '#trash'}></use>
                     </svg>
