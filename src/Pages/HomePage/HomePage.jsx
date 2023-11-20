@@ -6,10 +6,10 @@ import Loader from 'components/Loader';
 import { useSelector } from 'react-redux';
 
 import { WrapperHomePage } from './HomePage.styled';
-import { selectorIsLoading } from 'redux/root/selectors';
+import { selectIsLoading } from 'redux/root/selectors';
 
 const HomePage = () => {
-  const isLoading = useSelector(selectorIsLoading);
+  const isLoading = useSelector(selectIsLoading);
 
   return (
     <div className="container">
