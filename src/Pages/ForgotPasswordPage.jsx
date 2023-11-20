@@ -10,6 +10,7 @@ import { Input } from 'components/forms/Input.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
 import { InputError } from 'components/forms/InputError.styled';
 import SignLayout from 'components/SignLayout/SignLayout';
+import { ButtonLoader } from 'components/forms/Loader.styled';
 
 import { recoverySchema } from 'js/validation/schemas';
 
@@ -52,7 +53,7 @@ const ForgotPasswordPage = () => {
           )}
         </FormLabel>
         <Button type="submit" disabled={isLoading}>
-          Send
+          Send {isLoading && <ButtonLoader />}
         </Button>
         <RouterLink to="/signin">Sign in</RouterLink>
       </AuthForm>

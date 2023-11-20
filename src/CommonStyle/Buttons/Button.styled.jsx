@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import theme from 'CommonStyle/theme';
 
 export const CommonStyles = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   transition: all ${theme.animation.cubicBezier};
   font-size: 16px;
@@ -19,6 +23,9 @@ export const CommonStyles = styled.button`
   }
   &:active {
     box-shadow: none;
+  }
+  &:disabled {
+    background-color: ${theme.colors.secondaryBlue};
   }
   @media screen and (min-width: 768px) {
     font-size: 18px;

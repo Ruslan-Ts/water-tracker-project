@@ -16,6 +16,7 @@ import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import PasswordToolTip from 'components/forms/PasswordToolTip/PasswordToolTip';
 import { PasswordInputWrapper } from 'components/forms/PasswordInput/PasswordInput.styled';
 import SignLayout from 'components/SignLayout/SignLayout';
+import { ButtonLoader } from 'components/forms/Loader.styled';
 
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
@@ -113,7 +114,7 @@ const SignUp = () => {
           )}
         </FormLabel>
         <Button type="submit" disabled={isLoading}>
-          Sign up
+          Sign up {isLoading && <ButtonLoader />}
         </Button>
         <RouterLink to="/signin">Sign in</RouterLink>
       </AuthForm>

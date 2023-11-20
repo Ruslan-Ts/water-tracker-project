@@ -11,6 +11,7 @@ import { InputError } from 'components/forms/InputError.styled';
 import { AuthForm } from 'components/forms/AuthForm.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
 import SignLayout from 'components/SignLayout/SignLayout';
+import { ButtonLoader } from 'components/forms/Loader.styled';
 
 import { signInSchema } from 'js/validation/schemas';
 
@@ -69,7 +70,7 @@ const SignIn = () => {
           )}
         </FormLabel>
         <Button type="submit" disabled={isLoading}>
-          Sign in
+          Sign in {isLoading && <ButtonLoader />}
         </Button>
         <RouterLink to="/forgot-password">Forgot password?</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
