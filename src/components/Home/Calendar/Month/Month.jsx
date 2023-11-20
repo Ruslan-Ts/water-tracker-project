@@ -60,7 +60,7 @@ const Calendar = () => {
         <DayCell key={day}>
           <Day>{day}</Day>
           <DayPercent>
-            {waterPercentage && `${waterPercentage.dailyNormFulfillment}%`}
+            {waterPercentage ? `${waterPercentage.dailyNormFulfillment}%` : '-'}
           </DayPercent>
         </DayCell>
       );
