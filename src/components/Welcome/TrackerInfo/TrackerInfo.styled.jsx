@@ -7,13 +7,11 @@ export const TrackerInfoContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
 
-  @media screen and (min-width: 480px) and (max-width: 1279px) {
-    width: 494px;
-  }
   @media screen and (min-width: 768px) {
     padding: 32px 24px;
+    width: 494px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin-top: 34px;
   }
 `;
