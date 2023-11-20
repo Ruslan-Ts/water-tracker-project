@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import {
   DailyNormaContainer,
-  Image,
   Container,
   Norma,
   NormaBtn,
