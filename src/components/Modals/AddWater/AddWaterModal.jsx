@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import Icons from '../../../img/sprite.svg';
-import { addWatersThunk } from 'redux/userData/thunk';
+import { addWatersThunk, fetchTodayThunk } from 'redux/userData/thunk';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
@@ -65,7 +65,9 @@ const AddWaterModal = () => {
     dispatch(addWatersThunk(newWaterUsed))
       .unwrap()
       .then(() => {
-        toggleModal();
+        dispatch(fetchTodayThunk()).then(() => {
+          toggleModal();
+        });
       });
   };
 

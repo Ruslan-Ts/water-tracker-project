@@ -33,12 +33,15 @@ import sprite from '../../../../img/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectorWaterCurrentDay } from 'redux/userData/selectors';
 import { selectorWaterRate } from 'redux/auth/selectors';
+import AddWaterModal from 'components/Modals/AddWater/AddWaterModal';
 
 export const DailyNorma = () => {
   const onClose = useContext(ModalContext);
   const currentDayData = useSelector(selectorWaterCurrentDay);
   const waterRate = useSelector(selectorWaterRate);
-
+  const handleOpenWaterModal = () => {
+    onClose(<AddWaterModal />);
+  };
   return (
     <Container>
       <DailyNormaContainer>
@@ -99,7 +102,7 @@ export const DailyNorma = () => {
             <span>100%</span>
           </WaterInfo>
         </WaterStatus>
-        <AddButton>
+        <AddButton onClick={handleOpenWaterModal}>
           <svg>
             <use href={sprite + '#plus-circle'} />
           </svg>

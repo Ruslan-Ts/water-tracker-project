@@ -112,6 +112,7 @@ export const WaterMeter = styled.div`
   width: calc(100% - 30px);
   height: 8px;
   background-color: ${theme.colors.secondaryLightBlue};
+
   border-radius: 10px;
   margin: 0 auto;
   &::after {
@@ -133,8 +134,11 @@ export const WaterMeter = styled.div`
   }
   div {
     position: absolute;
+    border-radius: 10px;
+
     top: 0;
     left: 0;
+
     width: ${props => {
       if (props.$filled > 100) {
         return '100%';
