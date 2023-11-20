@@ -8,6 +8,7 @@ import { InputError } from 'components/forms/InputError.styled';
 import { updateWaterRateThunk } from 'redux/auth/thunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorWaterRate } from 'redux/auth/selectors';
+import { fetchTodayThunk } from 'redux/userData/thunk';
 
 const FormaWaterRate = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -29,7 +30,9 @@ const FormaWaterRate = ({ onClose }) => {
       dispatch(updateWaterRateThunk(values.rate))
         .unwrap()
         .then(() => {
-          onClose();
+          dispatch(fetchTodayThunk()).then(() => {
+            onClose();
+          });
         });
     },
   });
