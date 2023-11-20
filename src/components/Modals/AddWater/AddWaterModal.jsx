@@ -37,30 +37,31 @@ const AddWaterModal = () => {
 
   const dispatch = useDispatch();
 
-  // const updateWaterVolume = newValue => {
-  //   setFieldValue('waterVolume', newValue);
-  // };
-
   const handleClose = () => {
     toggleModal();
   };
 
   const handleClickPlus = e => {
     if (counterValue < 5000) {
-      setCounterValue(prevValue => prevValue + 50);
-      // updateWaterVolume(counterValue + 50);
+      setCounterValue(prevValue => {
+        const newValue = prevValue + 50;
+        setFieldValue('waterVolume', newValue);
+        return newValue;
+      });
     }
   };
 
   const handleClickMinus = e => {
     if (counterValue > 0) {
-      setCounterValue(prevValue => prevValue - 50);
-      // updateWaterVolume(counterValue - 50);
+      setCounterValue(prevValue => {
+        const newValue = prevValue - 50;
+        setFieldValue('waterVolume', newValue);
+        return newValue;
+      });
     }
   };
 
   const handleSave = ({ waterVolume, date }) => {
-    console.log(date);
     const formattedDate = date.toISOString();
     const newWaterUsed = { waterVolume, date: formattedDate };
 
@@ -144,8 +145,13 @@ const AddWaterModal = () => {
             name="waterVolume"
             onChange={e => {
               const newValue = e.target.value;
-              setFieldValue('waterVolume', newValue);
-              setCounterValue(newValue);
+              if (newValue !== '') {
+                setFieldValue('waterVolume', Number(newValue));
+                setCounterValue(Number(newValue));
+              } else {
+                setFieldValue('waterVolume', '');
+                setCounterValue('');
+              }
             }}
             onBlur={() => {
               setFieldValue('waterVolume', counterValue);
