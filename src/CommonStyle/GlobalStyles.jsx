@@ -128,5 +128,16 @@ export const GlobalStyles = createGlobalStyle`
   align-items: center;
   /* z-index: 12000000000000; */
 }
+/* ---------------- Input arrow -------------- */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
+input[type='number'],
+input[type='number']:hover,
+input[type='number']:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
 `;

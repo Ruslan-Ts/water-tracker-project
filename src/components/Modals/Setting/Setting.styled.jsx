@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
+import { Input } from 'components/forms/Input.styled';
 
 export const ContainerSettings = styled.div`
   position: absolute;
@@ -137,5 +138,16 @@ export const CloseBtn = styled.button`
 
   @media screen and (min-width: 768px) {
     right: 24px;
+  }
+`;
+
+export const InputSettingEdit = styled(Input)`
+  color: ${theme.colors.secondaryBlue};
+  opacity: 0.6;
+
+  &:focus,
+  &:active {
+    color: ${theme.colors.primaryAccent};
+    opacity: 1;
   }
 `;

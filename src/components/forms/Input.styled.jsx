@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from 'CommonStyle/theme';
 
 export const Input = styled.input`
+  font-family: inherit;
   font-size: 16px;
   line-height: calc(20 / 16);
   padding: 11px 10px;
