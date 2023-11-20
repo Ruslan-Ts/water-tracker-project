@@ -1,8 +1,5 @@
-import cup from '../cup.svg';
-import pencil from '../pencil.svg';
-import trash from '../trash.svg';
 import { useDispatch, useSelector } from 'react-redux';
-
+import Icons from '../../../../img/sprite.svg';
 import {
   Viewport,
   TableStyled,
@@ -20,12 +17,16 @@ import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
 import { fetchTodayThunk } from '../../../../redux/userData/thunk';
 import { useContext, useEffect } from 'react';
 import { ModalContext } from 'components/ModalContext';
-
+import css from './Today.module.css';
+import DeleteEntryModal from 'components/Modals/DeleteEntry/DeleteEntryModal';
 const Today = () => {
   const dispatch = useDispatch();
   const toggleModal = useContext(ModalContext);
   const handleOpenWaterModal = () => {
     toggleModal(<AddWaterModal />);
+  };
+  const handleDeleteNotice = () => {
+    toggleModal(<DeleteEntryModal />);
   };
 
   useEffect(() => {
@@ -43,30 +44,22 @@ const Today = () => {
             {waterInputsForToday.map(data => (
               <TableRow key={data._id}>
                 <TableCell>
-                  <img
-                    src={cup}
-                    alt="Cup"
-                    style={{ width: '26px', height: '26px' }}
-                  />
+                  <img alt="Cup" style={{ width: '26px', height: '26px' }} />
                 </TableCell>
                 <TextCell>{data.waterVolume}</TextCell>
                 <TimeCell>{data.date}</TimeCell>
                 <TableCell>
-                  <Button>
-                    <img
-                      src={pencil}
-                      alt="Delete"
-                      style={{ width: '16px', height: '16px' }}
-                    />
+                  <Button class>
+                    <svg className={css.icon_pencil} width="16" height="16">
+                      <use href={Icons + '#pencil-square'}></use>
+                    </svg>
                   </Button>
                 </TableCell>
                 <TableCell>
-                  <Button>
-                    <img
-                      src={trash}
-                      alt="Delete"
-                      style={{ width: '16px', height: '16px' }}
-                    />
+                  <Button onClick={handleDeleteNotice}>
+                    <svg className={css.icon_trash} width="16" height="16">
+                      <use href={Icons + '#trash'}></use>
+                    </svg>
                   </Button>
                 </TableCell>
               </TableRow>
