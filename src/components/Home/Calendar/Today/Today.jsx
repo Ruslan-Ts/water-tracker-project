@@ -10,6 +10,7 @@ import {
   Button,
   Container,
   AddButton,
+  ImgCont,
 } from './Today.styled';
 import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
 import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
@@ -44,10 +45,20 @@ const Today = () => {
             {waterInputsForToday.map(data => (
               <TableRow key={data._id}>
                 <TableCell>
-                  <img alt="Cup" style={{ width: '26px', height: '26px' }} />
+                  <ImgCont>
+                    <svg className={css.cup} width="26" height="26">
+                      <use href={Icons + '#cup'}></use>
+                    </svg>
+                  </ImgCont>
                 </TableCell>
-                <TextCell>{data.waterVolume}</TextCell>
-                <TimeCell>{data.date}</TimeCell>
+                <TextCell>{data.waterVolume} ml</TextCell>
+                <TimeCell>
+                  {new Intl.DateTimeFormat('en', {
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true,
+                  }).format(new Date(data.date))}
+                </TimeCell>
                 <TableCell>
                   <Button>
                     <svg className={css.icon_pencil} width="16" height="16">
