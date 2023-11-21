@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { addWaters, deleteEntry } from 'API/dataAPI';
+import { editWaters, addWaters, deleteEntry } from 'API/dataAPI';
 import { fetchTodayAPI } from 'API/dataAPI';
 import { fetchMonthAPI } from 'API/dataAPI';
 import { toast } from 'react-toastify';
@@ -36,6 +36,18 @@ export const addWatersThunk = createAsyncThunk(
   async (newWaterUsed, { rejectWithValue }) => {
     try {
       const data = await addWaters(newWaterUsed);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.massage);
+    }
+  }
+);
+export const editWatersThunk = createAsyncThunk(
+  'water/editWaters',
+  async (_id, newWaterUsed, { rejectWithValue }) => {
+    try {
+      const data = await editWaters(newWaterUsed);
+      console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.massage);
