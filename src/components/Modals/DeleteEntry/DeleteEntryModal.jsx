@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteEntryThunk, fetchTodayThunk } from 'redux/userData/thunk';
+import {
+  deleteEntryThunk,
+  fetchMonthThunk,
+  fetchTodayThunk,
+} from 'redux/userData/thunk';
 
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { Button } from 'CommonStyle/Buttons/Button.styled';
@@ -22,16 +26,11 @@ const DeleteEntryModal = ({ waterId }) => {
   const dispatch = useDispatch();
   const toggleModal = useContext(ModalContext);
 
-  const handleDelete = waterId => {
-    dispatch(deleteEntryThunk(waterId))
-      .unwrap()
-      .then(() => {
-        dispatch(fetchTodayThunk())
-          .unwrap()
-          .then(() => {
-            handleClose();
-          });
-      });
+  const handleDelete = async waterId => {
+    await dispatch(deleteEntryThunk(waterId)).unwrap();
+    await dispatch(fetchTodayThunk()).unwrap();
+    await dispatch(fetchMonthThunk(new Date().getMonth())).unwrap();
+    handleClose();
   };
   const handleClose = () => {
     toggleModal();
