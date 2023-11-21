@@ -18,7 +18,7 @@ export const MainTitle = styled.h1`
   padding: 0;
   margin-bottom: 16px;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 767px) {
     font-size: ${theme.fontSizes.large};
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { RightArrow } from './img/RightArrow';
-import { LeftArrow } from './img/LeftArrow';
+import Icons from '../../../../img/sprite.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorWaterMonth } from '../../../../redux/userData/selectors';
 import { fetchMonthThunk } from '../../../../redux/userData/thunk';
@@ -72,7 +72,9 @@ const Calendar = () => {
         <h2>Month</h2>
         <MonthControl>
           <ArrowButton onClick={handlePrevMonth}>
-            <LeftArrow />
+            <svg width="14" height="14">
+              <use href={Icons + '#arrow-left'}></use>
+            </svg>
           </ArrowButton>
           <Month>
             {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
@@ -80,7 +82,9 @@ const Calendar = () => {
             )}
           </Month>
           <ArrowButton onClick={handleNextMonth}>
-            <RightArrow />
+            <svg width="14" height="14">
+              <use href={Icons + '#arrow-right'}></use>
+            </svg>
           </ArrowButton>
         </MonthControl>
       </MonthNavigation>
