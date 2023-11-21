@@ -19,9 +19,8 @@ export const deleteEntry = async waterId => {
   await instance.delete(`/water/${waterId}`);
 };
 
-export const editWaters = async (newWaterUsed, _id) => {
-  const { data } = await instance.patch(
-    `/water/${_id}/waterVolume`,
+export const editWaters = async ({ newWaterUsed, id }) => {
+  const { data } = await instance.patch(`/water/${id}/waterVolume`,
     newWaterUsed
   );
   return data;

@@ -19,7 +19,7 @@ export const handleFetchMonth = (state, { payload }) => {
   state.month = payload;
 };
 
-export const handleEditWater = (state, { payload: { waterVolume, date } }) => {
-  state.today.waterInputsForToday.waterVolume = waterVolume;
-  state.today.waterInputsForToday.date = date;
+export const handleEditWater = (state, { payload }) => {
+  state.today.waterInputsForToday.push(payload);
+
 };

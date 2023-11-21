@@ -67,10 +67,9 @@ const EditAmountModal = data => {
   };
 
   const handleSave = ({ waterVolume, date }) => {
-    const formattedDate = date.toISOString();
-    const newWaterUsed = { waterVolume, date: formattedDate };
+    const newWaterUsed = { waterVolume, date };
 
-    dispatch(editWatersThunk(newWaterUsed, data.data._id))
+    dispatch(editWatersThunk({ newWaterUsed, id: data.data._id }))
       .unwrap()
       .then(() => {
         dispatch(fetchTodayThunk()).then(() => {
@@ -143,7 +142,7 @@ const EditAmountModal = data => {
             selected={startDate}
             onChange={date => {
               setStartDate(date);
-              setFieldValue('date', date);
+              setFieldValue('date', date.toISOString());
             }}
             showTimeSelect
             showTimeSelectOnly
