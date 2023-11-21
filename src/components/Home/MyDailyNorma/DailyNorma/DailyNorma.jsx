@@ -93,7 +93,7 @@ export const DailyNorma = () => {
       <StatusContainer>
         <WaterStatus>
           <p>Today</p>
-          <WaterMeter $filled={currentDayData.dailyNormFulfillment}>
+          <WaterMeter $filled={50}>
             <div />
           </WaterMeter>
           <WaterInfo>
