@@ -18,6 +18,7 @@ export const LayoutStyled = styled.div`
 
   main {
     height: 100%;
+    /* position: relative; */
   }
 
   @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),

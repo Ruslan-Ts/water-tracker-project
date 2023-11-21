@@ -2,9 +2,12 @@ import { CalendarModalStyled } from './CalendarModal.styled';
 
 const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
   const { data, waterRate, dailyNormFulfillment, servingOfWater } = waterData;
+
   const currentRef = refData?.current.getBoundingClientRect().left;
   const containerRef = calendarRef?.current.getBoundingClientRect().left;
+
   let position = true;
+
   const delta = currentRef - containerRef;
 
   if (delta < 300) {
