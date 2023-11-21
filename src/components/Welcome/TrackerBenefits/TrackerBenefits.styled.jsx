@@ -9,7 +9,7 @@ export const BenefitsList = styled.ul`
   line-height: calc(20 / 16);
   margin-bottom: 24px;
 
-  @media screen and (min-width: 480px) and (max-width: 1200px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,19 +19,13 @@ export const BenefitsItems = styled.li`
   display: flex;
   align-items: center;
 
-  @media screen and (max-width: 767px) and (min-width: 1200px) {
-    &:not(:last-child) {
-      margin-bottom: 16px;
-    }
-  }
-
   @media screen and (max-width: 767px) {
     &:not(:last-child) {
       margin-bottom: 16px;
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     &:not(:last-child) {
       margin-bottom: 16px;
     }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'CommonStyle/Buttons/Button.styled';
 import {
   BenefitsList,
@@ -12,6 +12,10 @@ import {
 import { MainTitle, SubTitle } from 'CommonStyle/Title/Title.styled';
 
 export const TrackerBenefits = () => {
+  const navigate = useNavigate();
+  function TryClick() {
+    navigate('/signup');
+  }
   return (
     <>
       <Container>
@@ -32,9 +36,10 @@ export const TrackerBenefits = () => {
             Personal rate setting
           </BenefitsItems>
         </BenefitsList>
-        <Link to="/signup">
-          <Button type="submit">Try tracker</Button>
-        </Link>
+
+        <Button type="button" onClick={TryClick}>
+          Try tracker
+        </Button>
       </Container>
     </>
   );
