@@ -15,7 +15,7 @@ import imgMobPng2x from '../../img/signup/bottle-mob-2x.png';
 
 const SignLayout = ({ children }) => {
   return (
-    <section className="container">
+    <section className="auth-container">
       <SignLayoutStyled>
         <picture>
           <source
