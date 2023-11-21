@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  width: fit-content;
 `;
 export const Viewport = styled.div`
   height: 220px;
-  width: 100%;
   overflow-y: auto;
+  margin-top: 16px;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -25,24 +25,45 @@ export const Viewport = styled.div`
 
 export const TableStyled = styled.table`
   border-collapse: collapse;
-  width: 100%;
+  @media screen and (min-width: 768px) {
+    width: 656px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 534px;
+  }
 `;
 
 export const TableRow = styled.tr`
   border-bottom: 1px solid #d7e3ff;
+  margin-bottom: 12px;
+
   & Button {
     background-color: transparent;
   }
 `;
 
+export const ImgCont = styled.div`
+  justify-content: center;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+`;
+
 export const TableCell = styled.td`
-  text-align: left;
+  text-align: center;
   color: var(--primery-color-blue, #407bff);
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
 `;
 
 export const TextCell = styled.td`
@@ -63,6 +84,14 @@ export const TimeCell = styled.td`
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 390px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-right: 278px;
+  }
 `;
 
 export const Button = styled.button`
