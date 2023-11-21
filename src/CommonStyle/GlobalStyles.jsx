@@ -61,19 +61,19 @@ export const GlobalStyles = createGlobalStyle`
 		font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 			monospace;
 	}
-	[class="container"], [class$="container"] {
+	[class="container"], [class$="main-container"] {
 		width: 280px;
 		padding: 0 20px;
 		margin: 0 auto;
 	}
 	@media screen and (min-width: 768px) {
-		[class="container"], [class$="container"] {
+		[class="container"], [class$="main-container"] {
 			width: 704px;
 			padding: 0 32px;
 		}
 	}
 	@media screen and (min-width: 1440px) {
-		[class="container"], [class$="container"] {
+		[class="container"], [class$="main-container"] {
 			width: 1216px;
 			/* padding: 0 32px; */
 		}
