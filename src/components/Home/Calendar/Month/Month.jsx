@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-import { RightArrow } from './img/RightArrow';
-import { LeftArrow } from './img/LeftArrow';
+import Icons from '../../../../img/sprite.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorWaterMonth } from '../../../../redux/userData/selectors';
 import { fetchMonthThunk } from '../../../../redux/userData/thunk';
@@ -9,19 +9,18 @@ import { fetchMonthThunk } from '../../../../redux/userData/thunk';
 import {
   ArrowButton,
   CalendarContainer,
-  DayCell,
   DaysContainer,
   MonthNavigation,
   MonthControl,
   Month,
-  DayPercent,
-  Day,
 } from './Month.styled';
+import DayComponent from './DayComponent/DayComponent';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const dispatch = useDispatch();
   const waterForMonth = useSelector(selectorWaterMonth);
+  const ref = useRef(null);
 
   useEffect(() => {
     dispatch(fetchMonthThunk(currentDate.getMonth()));
@@ -57,23 +56,25 @@ const Calendar = () => {
       });
 
       return (
-        <DayCell key={day}>
-          <Day>{day}</Day>
-          <DayPercent>
-            {waterPercentage ? `${waterPercentage.dailyNormFulfillment}%` : '-'}
-          </DayPercent>
-        </DayCell>
+        <DayComponent
+          calendarRef={ref}
+          key={day}
+          day={day}
+          waterPercentage={waterPercentage}
+        />
       );
     });
   };
 
   return (
-    <CalendarContainer>
+    <CalendarContainer className="calendar" ref={ref}>
       <MonthNavigation>
         <h2>Month</h2>
         <MonthControl>
           <ArrowButton onClick={handlePrevMonth}>
-            <LeftArrow />
+            <svg width="14" height="14">
+              <use href={Icons + '#arrow-left'}></use>
+            </svg>
           </ArrowButton>
           <Month>
             {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
@@ -81,7 +82,9 @@ const Calendar = () => {
             )}
           </Month>
           <ArrowButton onClick={handleNextMonth}>
-            <RightArrow />
+            <svg width="14" height="14">
+              <use href={Icons + '#arrow-right'}></use>
+            </svg>
           </ArrowButton>
         </MonthControl>
       </MonthNavigation>

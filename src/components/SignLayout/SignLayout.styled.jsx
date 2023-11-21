@@ -4,13 +4,14 @@ import bg_2x from '../../img/signup/bg-mobile-2x.png';
 
 export const SignLayoutStyled = styled.div`
   display: flex;
+  align-items: flex-start;
   position: relative;
+  height: 100%;
   picture {
     z-index: -1;
   }
   form {
-    width: 100%;
-    max-width: 280px;
+    width: 280px;
   }
   @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
@@ -26,8 +27,7 @@ export const SignLayoutStyled = styled.div`
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     form {
-      width: 50%;
-      max-width: 336px;
+      width: 336px;
     }
     picture {
       position: absolute;
@@ -36,11 +36,14 @@ export const SignLayoutStyled = styled.div`
   }
   @media screen and (min-width: 1440px) {
     form {
-      width: 33.3%;
-      max-width: 384px;
+      margin-left: auto;
+      width: 384px;
+      padding-top: 100px;
+      padding-right: 105px;
     }
     picture {
-      width: 58.1%;
+      position: absolute;
+      left: -150px;
     }
   }
 `;

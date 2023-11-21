@@ -8,10 +8,19 @@ import bg_mob_1x from './bg/bg-main-mob-1x.png';
 import bg_mob_2x from './bg/bg-main-mob-2x.png';
 
 export const LayoutStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
   background-image: url(${bg_mob_1x});
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
+
+  main {
+    height: 100%;
+    /* position: relative; */
+  }
 
   @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767px) and (min-resolution: 192dpi) {

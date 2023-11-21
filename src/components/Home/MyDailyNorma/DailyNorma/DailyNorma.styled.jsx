@@ -76,10 +76,10 @@ export const StatusContainer = styled.div`
   button {
     width: 100%;
     @media screen and (min-width: 768px) {
-      width: 50%;
+      width: 336px;
     }
     @media screen and (min-width: 1440px) {
-      width: 31%;
+      width: 178px;
     }
   }
   @media screen and (min-width: 768px) {
@@ -100,10 +100,10 @@ export const WaterStatus = styled.div`
     line-height: calc(24 / 18);
   }
   @media screen and (min-width: 768px) {
-    width: 55%;
+    width: 356px;
   }
   @media screen and (min-width: 1440px) {
-    width: 66%;
+    width: 391px;
   }
 `;
 
@@ -152,24 +152,20 @@ export const WaterMeter = styled.div`
 
 export const WaterInfo = styled.div`
   display: flex;
+  justify-content: space-between;
   position: relative;
   span {
-    position: absolute;
     color: ${theme.colors.primaryAccent};
     font-size: ${theme.fontSizes.tiny};
     line-height: calc(16 / 12);
-    &:first-child {
-      left: 0;
-    }
     &:nth-child(2) {
-      left: 50%;
-      transform: translateX(-50%);
       font-size: ${theme.fontSizes.small};
       line-height: calc(20 / 16);
       font-weight: 500;
-    }
-    &:last-child {
-      right: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 `;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-// Styled components for the calendar layout
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,8 +26,7 @@ export const Day = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  outline: 1px solid #ff9d43;
-
+  outline: ${props => (props.$isOutlineVisible ? '1px solid #ff9d43' : 'none')};
   cursor: pointer;
   font-size: 14px;
   line-height: 18px;
@@ -82,4 +80,5 @@ export const DayCell = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  position: relative;
 `;
