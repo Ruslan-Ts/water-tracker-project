@@ -38,19 +38,19 @@ export const addWatersThunk = createAsyncThunk(
       const data = await addWaters(newWaterUsed);
       return data;
     } catch (error) {
-      return rejectWithValue(error.massage);
+      return rejectWithValue(error.message);
     }
   }
 );
 export const editWatersThunk = createAsyncThunk(
   'water/editWaters',
-  async (_id, newWaterUsed, { rejectWithValue }) => {
+  async ({ _id, newWaterUsed }, { rejectWithValue }) => {
     try {
-      const data = await editWaters(newWaterUsed);
+      const data = await editWaters(_id, newWaterUsed);
       console.log(data);
       return data;
     } catch (error) {
-      return rejectWithValue(error.massage);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -62,7 +62,7 @@ export const deleteEntryThunk = createAsyncThunk(
       await deleteEntry(waterId);
       return waterId;
     } catch (error) {
-      return rejectWithValue(error.massage);
+      return rejectWithValue(error.message);
     }
   }
 );
