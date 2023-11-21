@@ -10,13 +10,13 @@ export const LogOutWindow = styled.div`
   transform: translate(-50%, -50%);
   border-radius: 10px;
   box-sizing: border-box;
-  width: 260px;
+  width: 280px;
   padding: 32px 24px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
   @media screen and (min-width: 768px) {
-    width: 572px;
+    width: 592px;
   }
 `;
 
@@ -32,6 +32,7 @@ export const LogOutHeader = styled.div`
 export const LogOutText = styled.div`
   font-size: 18px;
   margin-bottom: 24px;
+  line-height: 20px;
 `;
 
 export const LogOutBtns = styled.div`
@@ -50,7 +51,6 @@ export const LogOutBtns = styled.div`
 
 export const LogOutBtn = styled.button`
   display: flex;
-
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -60,6 +60,7 @@ export const LogOutBtn = styled.button`
   transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
   box-sizing: border-box;
   width: 232px;
+  height: 36px;
   padding: 8px 30px;
   &:not(:first-child){
     margin-bottom: 24px;
@@ -90,6 +91,9 @@ export const LogOutBtn = styled.button`
 export const LogOutClose = styled.button`
   background-color: ${theme.colors.primaryLight};
   transition: transform 0.5s ease-out;
+  padding: 4px;
+  width: 32px;
+  height: 32px;
   svg {
     width: 24px;
     height: 24px;

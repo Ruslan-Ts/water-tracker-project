@@ -15,3 +15,8 @@ export const Logo = styled.div`
   text-transform: uppercase;
   gap: 4px;
 `;
+
+export const LogoText = styled.span`
+  width: 58px;
+  height: 28px;
+`;

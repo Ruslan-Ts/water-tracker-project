@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import theme from '../../CommonStyle/theme';
 
 export const RouterLink = styled(Link)`
+  width: 84px;
   position: relative;
   font-size: 16px;
-  line-height: calc(20 / 16);
+  line-height: 20px;
   color: ${theme.colors.primaryAccent};
   text-decoration: none;
   display: flex;
@@ -27,14 +28,17 @@ export const RouterLink = styled(Link)`
   &:hover:before {
     width: 60%;
   }
+  @media screen and (min-width: 768px) {
+    width: 90px;
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;
 
-export const HeaderIcon = styled.div`
-  svg {
+export const HeaderIcon = styled.svg`
     margin-left: 8px;
     width: 28px;
     height: 28px;
     fill: ${theme.colors.primaryLight};
     stroke: ${theme.colors.primaryDark};
-  }
 `;
