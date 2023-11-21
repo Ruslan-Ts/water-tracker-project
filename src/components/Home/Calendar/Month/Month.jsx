@@ -9,13 +9,10 @@ import { fetchMonthThunk } from '../../../../redux/userData/thunk';
 import {
   ArrowButton,
   CalendarContainer,
-  DayCell,
   DaysContainer,
   MonthNavigation,
   MonthControl,
   Month,
-  DayPercent,
-  Day,
 } from './Month.styled';
 import DayComponent from './DayComponent/DayComponent';
 
