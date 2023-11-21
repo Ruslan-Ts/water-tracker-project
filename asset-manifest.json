@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/water-tracker-project/static/css/main.a7a8d34a.css",
-    "main.js": "/water-tracker-project/static/js/main.856df147.js",
-    "static/js/438.16262350.chunk.js": "/water-tracker-project/static/js/438.16262350.chunk.js",
-    "static/css/712.7d6c963c.chunk.css": "/water-tracker-project/static/css/712.7d6c963c.chunk.css",
-    "static/js/712.b1a3b868.chunk.js": "/water-tracker-project/static/js/712.b1a3b868.chunk.js",
-    "static/js/940.dbdfd821.chunk.js": "/water-tracker-project/static/js/940.dbdfd821.chunk.js",
-    "static/js/549.1e285313.chunk.js": "/water-tracker-project/static/js/549.1e285313.chunk.js",
+    "main.css": "/water-tracker-project/static/css/main.97c827a8.css",
+    "main.js": "/water-tracker-project/static/js/main.9789bb1c.js",
+    "static/js/438.114b30df.chunk.js": "/water-tracker-project/static/js/438.114b30df.chunk.js",
+    "static/css/353.64451dcb.chunk.css": "/water-tracker-project/static/css/353.64451dcb.chunk.css",
+    "static/js/353.16dd54d3.chunk.js": "/water-tracker-project/static/js/353.16dd54d3.chunk.js",
+    "static/js/940.b594b12a.chunk.js": "/water-tracker-project/static/js/940.b594b12a.chunk.js",
+    "static/js/549.dd9e8101.chunk.js": "/water-tracker-project/static/js/549.dd9e8101.chunk.js",
     "static/js/387.f82f974a.chunk.js": "/water-tracker-project/static/js/387.f82f974a.chunk.js",
-    "static/js/829.22f02477.chunk.js": "/water-tracker-project/static/js/829.22f02477.chunk.js",
+    "static/js/829.b94782ae.chunk.js": "/water-tracker-project/static/js/829.b94782ae.chunk.js",
     "static/js/44.9d5865f9.chunk.js": "/water-tracker-project/static/js/44.9d5865f9.chunk.js",
     "static/media/bottle-desk-2x.png": "/water-tracker-project/static/media/bottle-desk-2x.1775bd96fc412d403b4f.png",
     "static/media/bottle-tab-2x.png": "/water-tracker-project/static/media/bottle-tab-2x.5c52f919da333e45d456.png",
@@ -37,19 +37,19 @@
     "index.html": "/water-tracker-project/index.html",
     "static/media/calendar.svg": "/water-tracker-project/static/media/calendar.566bea3a06cbe5f7ac704cdc07c7c3bf.svg",
     "static/media/statistics.svg": "/water-tracker-project/static/media/statistics.8cfec11a5c739ea320477bba603d1a57.svg",
-    "main.a7a8d34a.css.map": "/water-tracker-project/static/css/main.a7a8d34a.css.map",
-    "main.856df147.js.map": "/water-tracker-project/static/js/main.856df147.js.map",
-    "438.16262350.chunk.js.map": "/water-tracker-project/static/js/438.16262350.chunk.js.map",
-    "712.7d6c963c.chunk.css.map": "/water-tracker-project/static/css/712.7d6c963c.chunk.css.map",
-    "712.b1a3b868.chunk.js.map": "/water-tracker-project/static/js/712.b1a3b868.chunk.js.map",
-    "940.dbdfd821.chunk.js.map": "/water-tracker-project/static/js/940.dbdfd821.chunk.js.map",
-    "549.1e285313.chunk.js.map": "/water-tracker-project/static/js/549.1e285313.chunk.js.map",
+    "main.97c827a8.css.map": "/water-tracker-project/static/css/main.97c827a8.css.map",
+    "main.9789bb1c.js.map": "/water-tracker-project/static/js/main.9789bb1c.js.map",
+    "438.114b30df.chunk.js.map": "/water-tracker-project/static/js/438.114b30df.chunk.js.map",
+    "353.64451dcb.chunk.css.map": "/water-tracker-project/static/css/353.64451dcb.chunk.css.map",
+    "353.16dd54d3.chunk.js.map": "/water-tracker-project/static/js/353.16dd54d3.chunk.js.map",
+    "940.b594b12a.chunk.js.map": "/water-tracker-project/static/js/940.b594b12a.chunk.js.map",
+    "549.dd9e8101.chunk.js.map": "/water-tracker-project/static/js/549.dd9e8101.chunk.js.map",
     "387.f82f974a.chunk.js.map": "/water-tracker-project/static/js/387.f82f974a.chunk.js.map",
-    "829.22f02477.chunk.js.map": "/water-tracker-project/static/js/829.22f02477.chunk.js.map",
+    "829.b94782ae.chunk.js.map": "/water-tracker-project/static/js/829.b94782ae.chunk.js.map",
     "44.9d5865f9.chunk.js.map": "/water-tracker-project/static/js/44.9d5865f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7a8d34a.css",
-    "static/js/main.856df147.js"
+    "static/css/main.97c827a8.css",
+    "static/js/main.9789bb1c.js"
   ]
 }
