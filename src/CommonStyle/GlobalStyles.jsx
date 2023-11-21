@@ -62,20 +62,19 @@ export const GlobalStyles = createGlobalStyle`
 			monospace;
 	}
 	[class="container"], [class$="container"] {
-		min-width: 280px;
-		max-width: 345px;
+		width: 280px;
 		padding: 0 20px;
 		margin: 0 auto;
 	}
 	@media screen and (min-width: 768px) {
 		[class="container"], [class$="container"] {
-			max-width: 704px;
+			width: 704px;
 			padding: 0 32px;
 		}
 	}
 	@media screen and (min-width: 1440px) {
 		[class="container"], [class$="container"] {
-			max-width: 1216px;
+			width: 1216px;
 			/* padding: 0 32px; */
 		}
 	

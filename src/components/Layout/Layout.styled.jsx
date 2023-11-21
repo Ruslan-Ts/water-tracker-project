@@ -10,9 +10,10 @@ import bg_mob_2x from './bg/bg-main-mob-2x.png';
 export const LayoutStyled = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background-image: url(${bg_mob_1x});
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
 
