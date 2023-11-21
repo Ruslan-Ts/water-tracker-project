@@ -30,6 +30,9 @@ export const TableStyled = styled.table`
 
 export const TableRow = styled.tr`
   border-bottom: 1px solid #d7e3ff;
+  & Button {
+    background-color: transparent;
+  }
 `;
 
 export const TableCell = styled.td`

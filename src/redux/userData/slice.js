@@ -1,11 +1,11 @@
 import { handlerAddWater, handlerDeleteWater } from './handlers';
-import { addWatersThunk, deleteEntryThunk } from './thunk';
+import { addWatersThunk, deleteEntryThunk, fetchMonthThunk } from './thunk';
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchTodayThunk } from '../userData/thunk';
-import { handleFetchToday } from './handlers';
+import { handleFetchToday, handleFetchMonth } from './handlers';
 
 const initialState = {
-  month: {},
+  month: [],
   today: {
     waterInputsForToday: [],
     dailyNormFulfillment: 0,
@@ -19,6 +19,7 @@ const dataSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchTodayThunk.fulfilled, handleFetchToday)
+      .addCase(fetchMonthThunk.fulfilled, handleFetchMonth)
       .addCase(addWatersThunk.fulfilled, handlerAddWater)
       .addCase(deleteEntryThunk.fulfilled, handlerDeleteWater);
   },

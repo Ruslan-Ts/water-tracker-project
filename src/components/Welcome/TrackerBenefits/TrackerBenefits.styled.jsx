@@ -57,7 +57,7 @@ export const Container = styled.div`
     margin-bottom: 0;
   }
 
-  @media only screen and (min-width: 767px) and (max-width: 1200px) {
+  @media only screen and (min-width: 767px) and (max-width: 1439px) {
     margin-bottom: 60px;
   }
 `;

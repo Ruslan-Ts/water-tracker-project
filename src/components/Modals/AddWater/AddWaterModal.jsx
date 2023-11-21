@@ -28,6 +28,7 @@ import {
 } from './AddWaterModal.styled';
 import { AddWaterSchema } from 'js/validation/schemas';
 import { ModalContext } from 'components/ModalContext';
+import { InputError } from 'components/forms/InputError.styled';
 
 const AddWaterModal = () => {
   const [counterValue, setCounterValue] = useState(50);
@@ -36,32 +37,34 @@ const AddWaterModal = () => {
 
   const dispatch = useDispatch();
 
-  const updateWaterVolume = newValue => {
-    setFieldValue('waterVolume', newValue);
-  };
-
   const handleClose = () => {
     toggleModal();
   };
 
   const handleClickPlus = e => {
     if (counterValue < 5000) {
-      setCounterValue(prevValue => prevValue + 50);
-      updateWaterVolume(counterValue + 50);
+      setCounterValue(prevValue => {
+        const newValue = prevValue + 50;
+        setFieldValue('waterVolume', newValue);
+        return newValue;
+      });
     }
   };
 
   const handleClickMinus = e => {
     if (counterValue > 0) {
-      setCounterValue(prevValue => prevValue - 50);
-      updateWaterVolume(counterValue - 50);
+      setCounterValue(prevValue => {
+        const newValue = prevValue - 50;
+        setFieldValue('waterVolume', newValue);
+        return newValue;
+      });
     }
   };
 
   const handleSave = ({ waterVolume, date }) => {
     const formattedDate = date.toISOString();
     const newWaterUsed = { waterVolume, date: formattedDate };
-    console.log(newWaterUsed);
+
     dispatch(addWatersThunk(newWaterUsed))
       .unwrap()
       .then(() => {
@@ -71,17 +74,16 @@ const AddWaterModal = () => {
       });
   };
 
-  const { handleSubmit, handleChange, setFieldValue, errors, touched } =
-    useFormik({
-      initialValues: {
-        waterVolume: 50,
-        date: '',
-      },
-      validationSchema: AddWaterSchema,
-      onSubmit: values => {
-        handleSave(values);
-      },
-    });
+  const { handleSubmit, setFieldValue, errors, touched } = useFormik({
+    initialValues: {
+      waterVolume: '50',
+      date: startDate,
+    },
+    validationSchema: AddWaterSchema,
+    onSubmit: values => {
+      handleSave(values);
+    },
+  });
 
   return (
     <ModalWrapper>
@@ -141,14 +143,25 @@ const AddWaterModal = () => {
             type="number"
             id="waterVolume"
             name="waterVolume"
-            onChange={handleChange}
+            onChange={e => {
+              const newValue = e.target.value;
+              if (newValue !== '') {
+                setFieldValue('waterVolume', Number(newValue));
+                setCounterValue(Number(newValue));
+              } else {
+                setFieldValue('waterVolume', '');
+                setCounterValue('');
+              }
+            }}
+            onBlur={() => {
+              setFieldValue('waterVolume', counterValue);
+            }}
             value={counterValue}
-            readOnly
           />
         </Label2>
 
         {touched.waterVolume && errors.waterVolume && (
-          <div>{errors.waterVolume}</div>
+          <InputError>{errors.waterVolume}</InputError>
         )}
         <ModalList>
           <li>
