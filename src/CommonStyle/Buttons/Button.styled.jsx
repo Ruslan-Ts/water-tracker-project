@@ -26,6 +26,7 @@ export const CommonStyles = styled.button`
   }
   &:disabled {
     background-color: ${theme.colors.secondaryBlue};
+    cursor: not-allowed;
   }
   @media screen and (min-width: 768px) {
     font-size: 18px;

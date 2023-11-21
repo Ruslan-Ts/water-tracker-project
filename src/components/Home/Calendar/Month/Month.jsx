@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import Icons from '../../../../img/sprite.svg';
 
@@ -9,19 +9,18 @@ import { fetchMonthThunk } from '../../../../redux/userData/thunk';
 import {
   ArrowButton,
   CalendarContainer,
-  DayCell,
   DaysContainer,
   MonthNavigation,
   MonthControl,
   Month,
-  DayPercent,
-  Day,
 } from './Month.styled';
+import DayComponent from './DayComponent/DayComponent';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const dispatch = useDispatch();
   const waterForMonth = useSelector(selectorWaterMonth);
+  const ref = useRef(null);
 
   useEffect(() => {
     dispatch(fetchMonthThunk(currentDate.getMonth()));
@@ -57,24 +56,18 @@ const Calendar = () => {
       });
 
       return (
-        <DayCell key={day}>
-          <Day
-            $isOutlineVisible={
-              waterPercentage && waterPercentage.dailyNormFulfillment >= 100
-            }
-          >
-            {day}
-          </Day>
-          <DayPercent>
-            {waterPercentage ? `${waterPercentage.dailyNormFulfillment}%` : '-'}
-          </DayPercent>
-        </DayCell>
+        <DayComponent
+          calendarRef={ref}
+          key={day}
+          day={day}
+          waterPercentage={waterPercentage}
+        />
       );
     });
   };
 
   return (
-    <CalendarContainer>
+    <CalendarContainer className="calendar" ref={ref}>
       <MonthNavigation>
         <h2>Month</h2>
         <MonthControl>

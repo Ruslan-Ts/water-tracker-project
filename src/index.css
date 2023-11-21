@@ -27,3 +27,7 @@ code {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.section-container {
+  height: 100%;
+}

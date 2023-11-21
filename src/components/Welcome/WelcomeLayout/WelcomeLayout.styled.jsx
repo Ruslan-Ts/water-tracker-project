@@ -9,6 +9,12 @@ export const WelcomeStyledLayout = styled.section`
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; */
   /* min-height: 100%;
   inset: 0;
 
