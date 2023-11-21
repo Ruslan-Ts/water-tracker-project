@@ -82,4 +82,5 @@ export const DayCell = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  position: relative;
 `;

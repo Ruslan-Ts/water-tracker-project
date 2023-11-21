@@ -1,19 +1,27 @@
-import { useState } from 'react';
 import { CalendarModalStyled } from './CalendarModal.styled';
 
-const CalendarModal = ({ data }) => {
-  const [first, setfirst] = useState('');
+const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
+  const { data, waterRate, dailyNormFulfillment, servingOfWater } = waterData;
+  const currentRef = refData?.current.getBoundingClientRect().left;
+  const containerRef = calendarRef?.current.getBoundingClientRect().left;
+  let position = true;
+  const delta = currentRef - containerRef;
+
+  if (delta < 300) {
+    position = false;
+  }
+
   return (
-    <CalendarModalStyled>
-      <h3>5, April</h3>
+    <CalendarModalStyled $delta={position} $deltaNum={delta}>
+      <h3>{data}</h3>
       <p>
-        Daily norma: <span>1.5 L</span>
+        Daily norma: <span>{waterRate} L</span>
       </p>
       <p>
-        Fulfillment of the daily norm: <span>60%</span>
+        Fulfillment of the daily norm: <span>{dailyNormFulfillment}%</span>
       </p>
       <p>
-        How many servings of water: <span>6</span>
+        How many servings of water: <span>{servingOfWater}</span>
       </p>
     </CalendarModalStyled>
   );
