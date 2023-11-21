@@ -58,7 +58,13 @@ const Calendar = () => {
 
       return (
         <DayCell key={day}>
-          <Day>{day}</Day>
+          <Day
+            $isOutlineVisible={
+              waterPercentage && waterPercentage.dailyNormFulfillment >= 100
+            }
+          >
+            {day}
+          </Day>
           <DayPercent>
             {waterPercentage ? `${waterPercentage.dailyNormFulfillment}%` : '-'}
           </DayPercent>
