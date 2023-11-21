@@ -8,7 +8,7 @@ import { InputError } from 'components/forms/InputError.styled';
 import { updateWaterRateThunk } from 'redux/auth/thunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorWaterRate } from 'redux/auth/selectors';
-import { fetchTodayThunk } from 'redux/userData/thunk';
+import { fetchMonthThunk, fetchTodayThunk } from 'redux/userData/thunk';
 
 const FormaWaterRate = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -26,14 +26,11 @@ const FormaWaterRate = ({ onClose }) => {
       rate: (waterRate / 1000).toFixed(2),
     },
     validationSchema: rateOutSchema,
-    onSubmit: values => {
-      dispatch(updateWaterRateThunk(values.rate))
-        .unwrap()
-        .then(() => {
-          dispatch(fetchTodayThunk()).then(() => {
-            onClose();
-          });
-        });
+    onSubmit: async values => {
+      await dispatch(updateWaterRateThunk(values.rate)).unwrap();
+      await dispatch(fetchTodayThunk()).unwrap();
+      await dispatch(fetchMonthThunk(new Date().getMonth())).unwrap();
+      onClose();
     },
   });
 
