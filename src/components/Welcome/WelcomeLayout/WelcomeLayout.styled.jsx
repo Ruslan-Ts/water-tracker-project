@@ -4,7 +4,7 @@ import bgTablet from '../../../img/welcome/bg-tablet.png';
 import bgMobile from '../../../img/welcome/bg-mobile.png';
 
 export const WelcomeStyledLayout = styled.section`
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 80px);
   background-image: url(${bgMobile});
   background-size: cover;
   background-position: center bottom;
@@ -15,12 +15,14 @@ export const WelcomeStyledLayout = styled.section`
   background-size: 100%; */
 
   @media screen and (min-width: 768px) {
+    min-height: calc(100vh - 104px);
     background-image: url(${bgTablet});
 
     background-size: 100%;
   }
 
   @media screen and (min-width: 1440px) {
+    min-height: calc(100vh - 140px);
     padding-top: 40px;
     background-image: url(${bg});
   }
