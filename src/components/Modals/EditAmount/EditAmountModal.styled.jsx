@@ -138,12 +138,15 @@ export const BtnCounter = styled.button`
 export const CounterScore = styled.div`
   width: 254px;
   height: 52px;
+  display: flex;
+  text-align: center;
+  align-items: center;
   border-radius: 10px;
   background-color: ${theme.colors.secondaryLightBlue};
 `;
 
 export const ImgCont = styled.div`
-  justify-content: center;
+  margin-left: 24px;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -166,7 +169,9 @@ export const TableCell = styled.div`
 `;
 
 export const TextCell = styled.div`
-  padding: 12px;
+  /* padding: 12px; */
+  margin-left: 12px;
+  align-items: center;
   text-align: left;
   color: var(--primery-color-blue, #407bff);
   font-size: 18px;
@@ -176,7 +181,9 @@ export const TextCell = styled.div`
 `;
 
 export const TimeCell = styled.div`
-  padding-right: 35px;
+  /* padding-right: 35px; */
+  margin-left: 16px;
+  align-items: center;
   text-align: left;
   color: var(--primery-color-black, #2f2f2f);
   font-size: 12px;
@@ -185,10 +192,10 @@ export const TimeCell = styled.div`
   line-height: 24px;
 
   @media screen and (min-width: 768px) {
-    padding-right: 390px;
+    /* padding-right: 390px; */
   }
 
   @media screen and (min-width: 768px) {
-    padding-right: 278px;
+    /* padding-right: 278px; */
   }
 `;

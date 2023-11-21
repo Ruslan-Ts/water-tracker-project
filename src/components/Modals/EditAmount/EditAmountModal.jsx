@@ -26,7 +26,6 @@ import {
   BtnSave,
   BtnCounter,
   CounterScore,
-  TableCell,
   ImgCont,
   TimeCell,
   TextCell,
@@ -99,25 +98,23 @@ const EditAmountModal = data => {
           </svg>
         </ButtonClose>
       </Wrapper>
-      <CounterScore>
-        <TableCell>
+      <Forma onSubmit={handleSubmit}>
+        <CounterScore>
           <ImgCont>
             <svg className={css.cup} width="26" height="26">
               <use href={Icons + '#cup'}></use>
             </svg>
           </ImgCont>
-        </TableCell>
-        <TextCell>{data.data.waterVolume} ml</TextCell>
-        <TimeCell>
-          {new Intl.DateTimeFormat('en', {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true,
-          }).format(new Date(data.data.date))}
-        </TimeCell>
-        <TableCell></TableCell>
-      </CounterScore>
-      <Forma onSubmit={handleSubmit}>
+
+          <TextCell>{data.data.waterVolume} ml</TextCell>
+          <TimeCell>
+            {new Intl.DateTimeFormat('en', {
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            }).format(new Date(data.data.date))}
+          </TimeCell>
+        </CounterScore>
         <FormTitle>Correct entered data:</FormTitle>
         <Label htmlFor="counterValue">
           Amount of water:
