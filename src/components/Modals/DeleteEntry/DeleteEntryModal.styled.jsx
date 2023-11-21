@@ -3,22 +3,19 @@ import theme from '../../../CommonStyle/theme.jsx';
 
 export const ModalWrapper = styled.div`
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding: 32px 24px;
-  border-radius: 10px;
-
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
-  box-sizing: border-box;
-
-  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
   width: 280px;
   height: 280px;
+  gap: 24px;
+  padding: 32px 24px;
   border-radius: 10px;
+  background: #fff;
+  box-sizing: border-box;
+  transition: opacity 0.3s;
 
   @media screen and (min-width: 768px) {
     width: 592px;
@@ -38,6 +35,7 @@ export const WrapperTitle = styled.p`
 `;
 
 export const ButtonClose = styled.button`
+  background-color: transparent;
   width: 24px;
   height: 24px;
 `;

@@ -2,35 +2,29 @@ import styled from 'styled-components';
 import theme from 'CommonStyle/theme';
 
 export const ModalWrapper = styled.div`
-  /* position: relative; */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   gap: 24px;
   background-color: #ffff;
   border-radius: 10px;
   padding: 24px 12px;
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
   transition: opacity 0.3s;
   width: 280px;
   height: 540px;
-  border-radius: 10px;
+  box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 504px;
+    padding: 32px 24px;
   }
   @media screen and (min-width: 1440px) {
     width: 592px;
     height: 504px;
-  }
-
-  @media screen and (min-width: 768px) {
-    padding: 32px 24px;
   }
 `;
 
@@ -71,11 +65,14 @@ export const Label = styled.label`
 export const Counter = styled.div`
   display: flex;
   align-items: center;
-  justify-content: baseline;
+  justify-content: start;
   gap: 7px;
 `;
 
 export const BtnSign = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 44px;
   height: 44px;
   border-radius: 30px;
@@ -86,6 +83,8 @@ export const BtnSign = styled.button`
 `;
 
 export const CounterInput = styled.div`
+  font-size: ${theme.fontSizes.medium};
+  font-weight: 700;
   width: 92px;
   height: 36px;
   border-radius: 40px;
