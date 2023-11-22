@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/water-tracker-project/static/css/main.282d7fe6.css",
-    "main.js": "/water-tracker-project/static/js/main.2e2499b6.js",
+    "main.js": "/water-tracker-project/static/js/main.473be38e.js",
     "static/js/122.7c5efc4a.chunk.js": "/water-tracker-project/static/js/122.7c5efc4a.chunk.js",
     "static/css/362.2712d472.chunk.css": "/water-tracker-project/static/css/362.2712d472.chunk.css",
-    "static/js/362.950a0838.chunk.js": "/water-tracker-project/static/js/362.950a0838.chunk.js",
+    "static/js/362.b0cd246a.chunk.js": "/water-tracker-project/static/js/362.b0cd246a.chunk.js",
     "static/js/940.da055179.chunk.js": "/water-tracker-project/static/js/940.da055179.chunk.js",
     "static/js/549.d6597b53.chunk.js": "/water-tracker-project/static/js/549.d6597b53.chunk.js",
     "static/js/387.f82f974a.chunk.js": "/water-tracker-project/static/js/387.f82f974a.chunk.js",
@@ -48,10 +48,10 @@
     "index.html": "/water-tracker-project/index.html",
     "static/media/statistics.svg": "/water-tracker-project/static/media/statistics.8cfec11a5c739ea320477bba603d1a57.svg",
     "main.282d7fe6.css.map": "/water-tracker-project/static/css/main.282d7fe6.css.map",
-    "main.2e2499b6.js.map": "/water-tracker-project/static/js/main.2e2499b6.js.map",
+    "main.473be38e.js.map": "/water-tracker-project/static/js/main.473be38e.js.map",
     "122.7c5efc4a.chunk.js.map": "/water-tracker-project/static/js/122.7c5efc4a.chunk.js.map",
     "362.2712d472.chunk.css.map": "/water-tracker-project/static/css/362.2712d472.chunk.css.map",
-    "362.950a0838.chunk.js.map": "/water-tracker-project/static/js/362.950a0838.chunk.js.map",
+    "362.b0cd246a.chunk.js.map": "/water-tracker-project/static/js/362.b0cd246a.chunk.js.map",
     "940.da055179.chunk.js.map": "/water-tracker-project/static/js/940.da055179.chunk.js.map",
     "549.d6597b53.chunk.js.map": "/water-tracker-project/static/js/549.d6597b53.chunk.js.map",
     "387.f82f974a.chunk.js.map": "/water-tracker-project/static/js/387.f82f974a.chunk.js.map",
@@ -60,6 +60,6 @@
   },
   "entrypoints": [
     "static/css/main.282d7fe6.css",
-    "static/js/main.2e2499b6.js"
+    "static/js/main.473be38e.js"
   ]
 }
