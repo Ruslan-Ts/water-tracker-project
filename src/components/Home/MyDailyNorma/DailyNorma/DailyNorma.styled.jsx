@@ -110,10 +110,10 @@ export const WaterStatus = styled.div`
 
 export const WaterMeter = styled.div`
   position: relative;
-  width: calc(100% - 30px);
   height: 8px;
   background-color: ${theme.colors.secondaryLightBlue};
-
+  width: calc(100% - 31px);
+  padding: 0 20px 0 11px;
   border-radius: 10px;
   margin: 0 auto;
   &::after {
@@ -159,6 +159,21 @@ export const WaterInfo = styled.div`
     color: ${theme.colors.primaryAccent};
     font-size: ${theme.fontSizes.tiny};
     line-height: calc(16 / 12);
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      width: 3px;
+      height: 8px;
+      background-color: ${theme.colors.secondaryLightBlue};
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    &:first-child {
+      margin-left: 11px;
+    }
     &:nth-child(2) {
       font-size: ${theme.fontSizes.small};
       line-height: calc(20 / 16);
