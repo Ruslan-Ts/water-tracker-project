@@ -36,10 +36,8 @@ export const UserLogoText= styled.div`
   justify-content: center;
 `;
 
-export const UserLogoIcon = styled.div`
-  svg {
+export const UserLogoIcon = styled.svg`
     width: 16px;
     height: 16px;
     fill: ${theme.colors.primaryAccent};
-  }
 `;

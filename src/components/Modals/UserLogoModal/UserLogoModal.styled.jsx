@@ -14,7 +14,10 @@ export const LogoModalMenu = styled.div`
   align-items: center;
   justify-content: center;
   padding: 16px;
-  right: 7%;
+  margin-top: 2px;
+  @media screen and (min-width: 1440px) {
+    margin-top: 6px;
+  }
 `;
 
 export const ModalMenuBtn = styled.button`
