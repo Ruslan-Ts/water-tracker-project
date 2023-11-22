@@ -78,6 +78,7 @@ const Today = () => {
                   </TimeCell>
                   <TableCell>
                     <Button
+                      aria-label="Edit notice"
                       onClick={() => {
                         handleEditNotice({ data });
                       }}
@@ -89,6 +90,7 @@ const Today = () => {
                   </TableCell>
                   <TableCell>
                     <Button
+                      aria-label="Delete notice"
                       onClick={() => {
                         handleDeleteNotice(data._id);
                       }}

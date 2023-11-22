@@ -71,7 +71,7 @@ const Calendar = () => {
       <MonthNavigation>
         <h2>Month</h2>
         <MonthControl>
-          <ArrowButton onClick={handlePrevMonth}>
+          <ArrowButton aria-label="Previous month" onClick={handlePrevMonth}>
             <svg width="14" height="14">
               <use href={Icons + '#arrow-left'}></use>
             </svg>
@@ -81,7 +81,7 @@ const Calendar = () => {
               currentDate
             )}
           </Month>
-          <ArrowButton onClick={handleNextMonth}>
+          <ArrowButton aria-label="Previous month" onClick={handleNextMonth}>
             <svg width="14" height="14">
               <use href={Icons + '#arrow-right'}></use>
             </svg>
