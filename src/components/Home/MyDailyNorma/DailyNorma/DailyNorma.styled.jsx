@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../../CommonStyle/theme';
+import { HoverBtnStyled } from 'CommonStyle/Buttons/Button.styled';
 
 export const DailyNormaContainer = styled.div`
   border-radius: 10px;
@@ -44,7 +45,7 @@ export const NormaContainer = styled.div`
   align-items: center;
 `;
 
-export const NormaBtn = styled.button`
+export const NormaBtn = styled(HoverBtnStyled)`
   font-size: ${theme.fontSizes.small};
   line-height: calc(20 / 16);
   background-color: transparent;
@@ -108,11 +109,12 @@ export const WaterStatus = styled.div`
 `;
 
 export const WaterMeter = styled.div`
+  box-sizing: border-box;
   position: relative;
-  width: calc(100% - 30px);
   height: 8px;
   background-color: ${theme.colors.secondaryLightBlue};
-
+  width: calc(100% - 31px);
+  padding: 0 20px 0 11px;
   border-radius: 10px;
   margin: 0 auto;
   &::after {
@@ -158,6 +160,21 @@ export const WaterInfo = styled.div`
     color: ${theme.colors.primaryAccent};
     font-size: ${theme.fontSizes.tiny};
     line-height: calc(16 / 12);
+    position: relative;
+    &::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 8px;
+      background-color: ${theme.colors.secondaryLightBlue};
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    &:first-child {
+      margin-left: 11px;
+    }
     &:nth-child(2) {
       font-size: ${theme.fontSizes.small};
       line-height: calc(20 / 16);

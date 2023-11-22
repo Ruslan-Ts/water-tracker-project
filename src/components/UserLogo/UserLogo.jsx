@@ -1,9 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import UserLogoModal from '../Modals/UserLogoModal';
-import { UserAvatar, UserName, UserLogoBtn, UserLogoText, UserLogoIcon, UserLogoContainer } from './UserLogo.styled';
-import sprite from '../../img/sprite.svg';
 import { useSelector } from 'react-redux';
 import { selectorUserProfile } from '../../redux/auth/selectors';
+
+import UserLogoModal from '../Modals/UserLogoModal';
+import {
+  UserAvatar,
+  UserName,
+  UserLogoBtn,
+  UserLogoText,
+  UserLogoIcon,
+  UserLogoContainer,
+} from './UserLogo.styled';
+
+import { rotate180DegVariants } from 'js/animations/variants';
+
+import sprite from '../../img/sprite.svg';
 
 const UserLogo = () => {
   const userProfile = useSelector(selectorUserProfile);
@@ -14,18 +25,18 @@ const UserLogo = () => {
   const modalRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleButtonClick = (e) => {
+  const handleButtonClick = e => {
     setIsOpen(!isOpen);
     e.stopPropagation();
   };
 
   useEffect(() => {
-    const handleEscapeKey = (e) => {
+    const handleEscapeKey = e => {
       if (e.key === 'Escape') {
         setIsOpen(false);
       }
     };
-    const closeModal = (e) => {
+    const closeModal = e => {
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         setIsOpen(false);
       }
@@ -39,13 +50,16 @@ const UserLogo = () => {
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
       document.removeEventListener('click', closeModal);
-
     };
   }, [isOpen, setIsOpen, modalRef]);
 
   return (
     <UserLogoContainer>
-      <UserLogoBtn onClick={(e) => handleButtonClick(e)} ref={modalRef} aria-label="User Logo">
+      <UserLogoBtn
+        onClick={e => handleButtonClick(e)}
+        ref={modalRef}
+        aria-label="User Logo"
+      >
         <UserName>{name}</UserName>
         {avatar ? (
           <UserAvatar src={avatar} alt="Avatar" />
@@ -54,14 +68,16 @@ const UserLogo = () => {
             <p>{defaultName}</p>
           </UserLogoText>
         )}
-        <UserLogoIcon>
+        <UserLogoIcon
+          variants={rotate180DegVariants}
+          animate={isOpen ? 'rotate' : 'stop'}
+        >
           <svg>
             <use href={sprite + '#arrow-down'}></use>
           </svg>
         </UserLogoIcon>
       </UserLogoBtn>
       <UserLogoModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
-
     </UserLogoContainer>
   );
 };

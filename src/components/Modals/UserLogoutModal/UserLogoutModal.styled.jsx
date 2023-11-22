@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme.jsx';
 
-
 export const LogOutWindow = styled.div`
   background-color: ${theme.colors.primaryLight};
   position: absolute;
@@ -62,7 +61,7 @@ export const LogOutBtn = styled.button`
   width: 232px;
   height: 36px;
   padding: 8px 30px;
-  &:not(:first-child){
+  &:not(:first-child) {
     margin-bottom: 24px;
   }
   &:not(:last-child) {
@@ -78,11 +77,11 @@ export const LogOutBtn = styled.button`
     height: 44px;
     font-size: 18px;
     padding: 10px 30px;
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-right: 24px;
       margin-bottom: 0;
     }
-    &:not(:first-child){
+    &:not(:first-child) {
       margin-bottom: 0;
     }
   }
@@ -94,14 +93,14 @@ export const LogOutClose = styled.button`
   padding: 4px;
   width: 32px;
   height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   svg {
     width: 24px;
     height: 24px;
     fill: ${theme.colors.primaryLight};
     stroke: ${theme.colors.primaryAccent};
-    &:hover {
-      transform: scale(1.15);
-    }
   }
   &:active {
     svg {
@@ -109,5 +108,3 @@ export const LogOutClose = styled.button`
     }
   }
 `;
-
-

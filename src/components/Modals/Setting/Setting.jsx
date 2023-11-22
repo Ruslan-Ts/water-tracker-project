@@ -13,6 +13,7 @@ import { selectorUserProfile } from 'redux/auth/selectors';
 import { updateAvatarThunk } from 'redux/auth/thunk';
 import FormaUpdateUserProfile from './FormaUpdateUserProfile';
 import { ModalContext } from 'components/ModalContext';
+import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 
 const Setting = () => {
   const filePecker = useRef(null);
@@ -39,9 +40,11 @@ const Setting = () => {
           onClose();
         }}
       >
-        <svg width="24" height="24">
-          <use href={Icons + '#close'}></use>
-        </svg>
+        <HoverCloseBtn>
+          <svg width="24" height="24">
+            <use href={Icons + '#close'}></use>
+          </svg>
+        </HoverCloseBtn>
       </CloseBtn>
       <Title>Setting</Title>
       <TitlePart $marginBottom="8px">Your photo</TitlePart>

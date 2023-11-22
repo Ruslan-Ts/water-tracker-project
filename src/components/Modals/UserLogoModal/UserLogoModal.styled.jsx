@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import theme from '../../../CommonStyle/theme';
+import { motion } from 'framer-motion';
 
-export const LogoModalMenu = styled.div`
+export const LogoModalMenu = styled(motion.div)`
   position: absolute;
   border-radius: 10px;
   z-index: 500;
@@ -15,6 +16,7 @@ export const LogoModalMenu = styled.div`
   justify-content: center;
   padding: 16px;
   margin-top: 2px;
+  transform-origin: top;
   right: 0;
   @media screen and (min-width: 1440px) {
     margin-top: 6px;
@@ -22,7 +24,7 @@ export const LogoModalMenu = styled.div`
 `;
 
 export const ModalMenuBtn = styled.button`
-  background-color: ${theme.colors.primaryLight} ;
+  background-color: ${theme.colors.primaryLight};
   color: ${theme.colors.primaryAccent};
   width: 86px;
   height: 20px;
@@ -39,7 +41,7 @@ export const ModalMenuBtn = styled.button`
   }
 `;
 
-export const ModalMenuIcon= styled.div`
+export const ModalMenuIcon = styled.div`
   margin-right: 8px;
   display: flex;
   align-items: center;

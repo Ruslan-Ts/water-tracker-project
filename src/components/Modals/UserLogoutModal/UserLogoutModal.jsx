@@ -11,6 +11,7 @@ import {
   LogOutWindow,
 } from './UserLogoutModal.styled';
 import sprite from '../../../img/sprite.svg';
+import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 
 ReactModal.setAppElement('#root');
 
@@ -37,9 +38,11 @@ const UserLogoutModal = ({ onClose }) => {
       <LogOutHeader>
         <p>Log out</p>
         <LogOutClose onClick={handleCancel}>
-          <svg>
-            <use href={sprite + '#close'}></use>
-          </svg>
+          <HoverCloseBtn>
+            <svg>
+              <use href={sprite + '#close'}></use>
+            </svg>
+          </HoverCloseBtn>
         </LogOutClose>
       </LogOutHeader>
       <LogOutText>

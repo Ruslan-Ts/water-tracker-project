@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import theme from 'CommonStyle/theme';
+import { motion } from 'framer-motion';
 
-export const CalendarModalStyled = styled.div`
+export const CalendarModalStyled = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -13,8 +14,8 @@ export const CalendarModalStyled = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
   padding: 24px 13px;
+  transform-origin: bottom;
   z-index: 2;
-
   @media screen and (max-width: 767px) {
     /* left: 50%; */
     left: ${props => 132 - props.$deltaNum}px;

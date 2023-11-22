@@ -19,6 +19,7 @@
     "axios": "^1.6.1",
     "dayjs": "^1.11.10",
     "formik": "^2.4.5",
+    "framer-motion": "^10.16.5",
     "nanoid": "^5.0.3",
     "notiflix": "^3.2.6",
     "react": "^18.1.0",
