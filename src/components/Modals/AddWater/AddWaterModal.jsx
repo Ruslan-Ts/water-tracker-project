@@ -127,10 +127,10 @@ const AddWaterModal = () => {
             timeIntervals={15}
             timeCaption="Time"
             dateFormat="h:mm aa"
-            maxDate={new Date()}
             minTime={new Date(2023, 1, 1, 0, 0)}
             maxTime={new Date()}
             timeZone="UTC"
+            maxDate={new Date()}
             style={{
               border: '1px solid #ccc',
               borderRadius: '4px',
