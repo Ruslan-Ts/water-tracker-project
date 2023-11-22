@@ -109,6 +109,7 @@ export const WaterStatus = styled.div`
 `;
 
 export const WaterMeter = styled.div`
+  box-sizing: border-box;
   position: relative;
   height: 8px;
   background-color: ${theme.colors.secondaryLightBlue};
