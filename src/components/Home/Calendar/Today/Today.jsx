@@ -18,13 +18,16 @@ import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
 import EditAmountModal from '../../../Modals/EditAmount/EditAmountModal.jsx';
 
 import { fetchTodayThunk } from '../../../../redux/userData/thunk';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { ModalContext } from 'components/ModalContext';
 import css from './Today.module.css';
 import DeleteEntryModal from 'components/Modals/DeleteEntry/DeleteEntryModal';
 const Today = () => {
   const dispatch = useDispatch();
   const toggleModal = useContext(ModalContext);
+  const { waterInputsForToday } = useSelector(selectorWaterCurrentDay);
+  const listRef = useRef(null);
+
   const handleOpenWaterModal = () => {
     toggleModal(<AddWaterModal />);
   };
@@ -39,12 +42,16 @@ const Today = () => {
     dispatch(fetchTodayThunk());
   }, [dispatch]);
 
-  const { waterInputsForToday } = useSelector(selectorWaterCurrentDay);
+  useEffect(() => {
+    if (listRef.current) {
+      listRef.current.scrollTop = listRef.current.scrollHeight;
+    }
+  }, [waterInputsForToday]);
 
   return (
     <Container>
       <h2>Today</h2>
-      <Viewport>
+      <Viewport ref={listRef}>
         <TableStyled>
           <tbody>
             {waterInputsForToday
