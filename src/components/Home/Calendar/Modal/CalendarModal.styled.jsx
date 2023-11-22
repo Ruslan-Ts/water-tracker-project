@@ -8,13 +8,14 @@ export const CalendarModalStyled = styled(motion.div)`
   gap: 16px;
   width: 280px;
   position: absolute;
-  bottom: 60px;
+  bottom: 48px;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
   padding: 24px 13px;
   transform-origin: bottom;
+  z-index: 2;
   @media screen and (max-width: 767px) {
     /* left: 50%; */
     left: ${props => 132 - props.$deltaNum}px;
@@ -26,6 +27,7 @@ export const CalendarModalStyled = styled(motion.div)`
     left: ${props => (props.$delta ? '' : '17px')};
     padding: 24px 16px;
     width: 292px;
+    bottom: 51px;
   }
 
   h3 {
