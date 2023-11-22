@@ -21,8 +21,8 @@ export const CalendarModalStyled = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    right: ${props => (props.$delta ? 0 : '')};
-    left: ${props => (props.$delta ? '' : 0)};
+    right: ${props => (props.$delta ? '17px' : '')};
+    left: ${props => (props.$delta ? '' : '17px')};
     padding: 24px 16px;
     width: 292px;
   }
@@ -42,5 +42,17 @@ export const CalendarModalStyled = styled.div`
       font-weight: 500;
       line-height: calc(24 / 18);
     }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-color: #f9f9f9 transparent transparent transparent;
+    border-width: 10px;
+    border-style: solid;
   }
 `;
