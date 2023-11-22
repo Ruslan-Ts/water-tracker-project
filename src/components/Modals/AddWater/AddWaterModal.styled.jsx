@@ -6,26 +6,35 @@ export const ModalWrapper = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   background-color: #ffff;
   border-radius: 10px;
   padding: 24px 12px;
   transition: opacity 0.3s;
   width: 280px;
-  height: 540px;
   box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
     width: 704px;
-    height: 504px;
     padding: 32px 24px;
   }
   @media screen and (min-width: 1440px) {
     width: 592px;
-    height: 504px;
   }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export const Title = styled.div`
+  font-size: ${theme.fontSizes.large};
+  line-height: calc(32 / 26);
+  font-weight: 500;
+  color: ${theme.colors.primaryDark};
+  padding: 0;
+  margin-bottom: 24px;
 `;
 
 export const Forma = styled.form`
@@ -40,6 +49,7 @@ export const FormTitle = styled.p`
   font-weight: 500;
   color: ${theme.colors.primaryDark};
   padding: 0;
+  margin-bottom: 16px;
 `;
 export const Label2 = styled.label`
   display: flex;
@@ -80,6 +90,7 @@ export const BtnSign = styled.button`
   background-color: ${theme.colors.primaryLight};
   color: ${theme.colors.primaryAccent};
   fill: ${theme.colors.primaryAccent};
+  box-shadow: 0px 2px 4px rgba(64, 123, 255, 0.2);
 `;
 
 export const CounterInput = styled.div`
@@ -96,15 +107,15 @@ export const CounterInput = styled.div`
   margin: 0;
 `;
 
-export const ModalList = styled.ul`
+export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: end;
   }
 `;
@@ -121,16 +132,17 @@ export const BtnSave = styled.button`
   }
 `;
 
-export const BtnCounter = styled.button`
-  width: 256px;
-  height: 36px;
+export const TextCounter = styled.p`
+  font-size: ${theme.fontSizes.medium};
+  font-weight: 700;
   background-color: ${theme.colors.primaryLight};
   color: ${theme.colors.primaryAccent};
   border: none;
   outline: none;
+  margin-bottom: 22px;
 
   @media screen and (min-width: 768px) {
-    width: 72px;
-    height: 44px;
+    margin-bottom: 0;
+    margin-right: 41px;
   }
 `;
