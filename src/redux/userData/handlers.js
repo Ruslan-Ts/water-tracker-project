@@ -20,6 +20,14 @@ export const handleFetchMonth = (state, { payload }) => {
 };
 
 export const handleEditWater = (state, { payload }) => {
-  state.today.waterInputsForToday.push(payload);
-
+  const array = state.today.waterInputsForToday;
+  let indexChange;
+  for (let index = 0; index < array.length; index++) {
+    if (array[index]._id === payload._id) {
+      indexChange = index;
+      break;
+      ;
+    }
+  }
+  array[indexChange] = payload
 };

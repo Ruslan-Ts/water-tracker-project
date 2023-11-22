@@ -13,7 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
 import { dataReducer } from './userData/slice';
-import { modalReducer } from './modals/slice';
+
 import { rootReducer } from './root/slice';
 
 const PersistConfig = {
@@ -27,7 +27,7 @@ export const store = configureStore({
     root: rootReducer,
     auth: persistReducer(PersistConfig, authReducer),
     dataUser: dataReducer,
-    modals: modalReducer,
+
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
