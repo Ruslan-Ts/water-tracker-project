@@ -1,13 +1,19 @@
-import React, { useContext, useRef } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { useContext, useRef } from 'react';
+
 import UserLogoutModal from '../UserLogoutModal';
 import {
   LogoModalMenu,
   ModalMenuBtn,
   ModalMenuIcon,
 } from './UserLogoModal.styled';
-import sprite from '../../../img/sprite.svg';
+
 import { ModalContext } from '../../ModalContext';
 import Setting from '../Setting/Setting';
+
+import { scaleYVariants } from 'js/animations/variants';
+
+import sprite from '../../../img/sprite.svg';
 
 const UserLogoModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
@@ -34,9 +40,15 @@ const UserLogoModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
-        <LogoModalMenu ref={modalRef}>
+        <LogoModalMenu
+          variants={scaleYVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          ref={modalRef}
+        >
           <ModalMenuBtn onClick={handleSettingButtonClick}>
             <ModalMenuIcon>
               <svg>
@@ -55,7 +67,7 @@ const UserLogoModal = ({ isOpen, onClose }) => {
           </ModalMenuBtn>
         </LogoModalMenu>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

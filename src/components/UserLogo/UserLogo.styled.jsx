@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import theme from '../../CommonStyle/theme';
+import { motion } from 'framer-motion';
 
-export const UserLogoContainer= styled.div`
-position: relative;
+export const UserLogoContainer = styled.div`
+  position: relative;
 `;
 
 export const UserLogoBtn = styled.button`
@@ -25,7 +26,7 @@ export const UserName = styled.div`
   font-size: 16px;
 `;
 
-export const UserLogoText= styled.div`
+export const UserLogoText = styled.div`
   width: 28px;
   height: 28px;
   margin-right: 4px;
@@ -36,8 +37,8 @@ export const UserLogoText= styled.div`
   justify-content: center;
 `;
 
-export const UserLogoIcon = styled.svg`
-    width: 16px;
-    height: 16px;
-    fill: ${theme.colors.primaryAccent};
+export const UserLogoIcon = styled(motion.svg)`
+  width: 16px;
+  height: 16px;
+  fill: ${theme.colors.primaryAccent};
 `;

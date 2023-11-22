@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
-import UserLogoModal from '../Modals/UserLogoModal';
-import { UserAvatar, UserName, UserLogoBtn, UserLogoText, UserLogoIcon, UserLogoContainer } from './UserLogo.styled';
-import sprite from '../../img/sprite.svg';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import { selectorUserProfile } from '../../redux/auth/selectors';
+import UserLogoModal from '../Modals/UserLogoModal';
+import {
+  UserAvatar,
+  UserName,
+  UserLogoBtn,
+  UserLogoText,
+  UserLogoIcon,
+  UserLogoContainer,
+} from './UserLogo.styled';
+
+import { rotate180DegVariants } from 'js/animations/variants';
+
+import sprite from '../../img/sprite.svg';
 
 const UserLogo = () => {
   const userProfile = useSelector(selectorUserProfile);
@@ -32,7 +43,10 @@ const UserLogo = () => {
             <p>{defaultName}</p>
           </UserLogoText>
         )}
-        <UserLogoIcon>
+        <UserLogoIcon
+          variants={rotate180DegVariants}
+          animate={isModalOpen ? 'rotate' : 'stop'}
+        >
           <svg>
             <use href={sprite + '#arrow-down'}></use>
           </svg>
