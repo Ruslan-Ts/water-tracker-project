@@ -25,7 +25,8 @@ export const ModalWrapper = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  margin-bottom: 24px;
 `;
 
 export const Title = styled.div`
@@ -34,7 +35,6 @@ export const Title = styled.div`
   font-weight: 500;
   color: ${theme.colors.primaryDark};
   padding: 0;
-  margin-bottom: 24px;
 `;
 
 export const Forma = styled.form`
