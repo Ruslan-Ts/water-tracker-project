@@ -47,47 +47,52 @@ const Today = () => {
       <Viewport>
         <TableStyled>
           <tbody>
-            {waterInputsForToday.map(data => (
-              <TableRow key={data._id}>
-                <TableCell>
-                  <ImgCont>
-                    <svg className={css.cup} width="26" height="26">
-                      <use href={Icons + '#cup'}></use>
-                    </svg>
-                  </ImgCont>
-                </TableCell>
-                <TextCell>{data.waterVolume} ml</TextCell>
-                <TimeCell>
-                  {new Intl.DateTimeFormat('en', {
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    hour12: true,
-                  }).format(new Date(data.date))}
-                </TimeCell>
-                <TableCell>
-                  <Button
-                    onClick={() => {
-                      handleEditNotice({ data });
-                    }}
-                  >
-                    <svg className={css.icon_pencil} width="16" height="16">
-                      <use href={Icons + '#pencil-square'}></use>
-                    </svg>
-                  </Button>
-                </TableCell>
-                <TableCell>
-                  <Button
-                    onClick={() => {
-                      handleDeleteNotice(data._id);
-                    }}
-                  >
-                    <svg className={css.icon_trash} width="16" height="16">
-                      <use href={Icons + '#trash'}></use>
-                    </svg>
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
+            {waterInputsForToday
+              .toSorted(
+                (a, b) =>
+                  new Date(a.date).getTime() - new Date(b.date).getTime()
+              )
+              .map(data => (
+                <TableRow key={data._id}>
+                  <TableCell>
+                    <ImgCont>
+                      <svg className={css.cup} width="26" height="26">
+                        <use href={Icons + '#cup'}></use>
+                      </svg>
+                    </ImgCont>
+                  </TableCell>
+                  <TextCell>{data.waterVolume} ml</TextCell>
+                  <TimeCell>
+                    {new Intl.DateTimeFormat('en', {
+                      hour: 'numeric',
+                      minute: 'numeric',
+                      hour12: true,
+                    }).format(new Date(data.date))}
+                  </TimeCell>
+                  <TableCell>
+                    <Button
+                      onClick={() => {
+                        handleEditNotice({ data });
+                      }}
+                    >
+                      <svg className={css.icon_pencil} width="16" height="16">
+                        <use href={Icons + '#pencil-square'}></use>
+                      </svg>
+                    </Button>
+                  </TableCell>
+                  <TableCell>
+                    <Button
+                      onClick={() => {
+                        handleDeleteNotice(data._id);
+                      }}
+                    >
+                      <svg className={css.icon_trash} width="16" height="16">
+                        <use href={Icons + '#trash'}></use>
+                      </svg>
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
           </tbody>
         </TableStyled>
         <AddButton type="submit" onClick={handleOpenWaterModal}>
