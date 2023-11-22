@@ -22,9 +22,9 @@ import {
   BtnSign,
   CounterInput,
   Forma,
-  ModalList,
+  ButtonWrapper,
   BtnSave,
-  BtnCounter,
+  TextCounter,
   CounterScore,
   ImgCont,
   TimeCell,
@@ -182,18 +182,12 @@ const EditAmountModal = data => {
         {touched.waterVolume && errors.waterVolume && (
           <InputError>{errors.waterVolume}</InputError>
         )}
-        <ModalList>
-          <li>
-            <BtnCounter type="button" onClick={handleClose}>
-              {counterValue}ml
-            </BtnCounter>
-          </li>
-          <li>
-            <Button as={BtnSave} type="submit">
-              Save
-            </Button>
-          </li>
-        </ModalList>
+        <ButtonWrapper>
+          <TextCounter>{counterValue}ml</TextCounter>
+          <Button as={BtnSave} type="submit">
+            Save
+          </Button>
+        </ButtonWrapper>
       </Forma>
     </ModalWrapper>
   );

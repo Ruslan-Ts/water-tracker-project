@@ -12,9 +12,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Input } from 'components/forms/Input.styled';
 import { Button } from 'CommonStyle/Buttons/Button.styled';
 import css from './AddWaterCSS.module.css';
-import {
-  ButtonClose,
-} from 'components/Modals/DeleteEntry/DeleteEntryModal.styled';
+import { ButtonClose } from 'components/Modals/DeleteEntry/DeleteEntryModal.styled';
 import {
   Wrapper,
   Title,
@@ -37,6 +35,7 @@ import { InputError } from 'components/forms/InputError.styled';
 const AddWaterModal = () => {
   const [counterValue, setCounterValue] = useState(50);
   const [startDate, setStartDate] = useState(new Date());
+
   const toggleModal = useContext(ModalContext);
 
   const dispatch = useDispatch();
@@ -129,6 +128,8 @@ const AddWaterModal = () => {
             timeCaption="Time"
             dateFormat="h:mm aa"
             maxDate={new Date()}
+            minTime={new Date(2023, 1, 1, 0, 0)}
+            maxTime={new Date()}
             timeZone="UTC"
             style={{
               border: '1px solid #ccc',
