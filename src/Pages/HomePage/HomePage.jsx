@@ -7,18 +7,21 @@ import { useSelector } from 'react-redux';
 
 import { WrapperHomePage } from './HomePage.styled';
 import { selectIsLoading } from 'redux/root/selectors';
+import { LayoutStyled } from 'components/Layout/Layout.styled';
 
 const HomePage = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    <div className="container">
-      <WrapperHomePage>
-        {isLoading && <Loader />}
-        <MyDailyNorma />
-        <Calendar />
-      </WrapperHomePage>
-    </div>
+    <LayoutStyled>
+      <div className="container">
+        <WrapperHomePage>
+          {isLoading && <Loader />}
+          <MyDailyNorma />
+          <Calendar />
+        </WrapperHomePage>
+      </div>
+    </LayoutStyled>
   );
 };
 
