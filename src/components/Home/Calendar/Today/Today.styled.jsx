@@ -1,3 +1,4 @@
+import { HoverBtnStyled } from 'CommonStyle/Buttons/Button.styled';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -99,7 +100,7 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const AddButton = styled.button`
+export const AddButton = styled(HoverBtnStyled)`
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;

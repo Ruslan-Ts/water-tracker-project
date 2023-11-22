@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../../../CommonStyle/theme';
+import { HoverBtnStyled } from 'CommonStyle/Buttons/Button.styled';
 
 export const DailyNormaContainer = styled.div`
   border-radius: 10px;
@@ -44,7 +45,7 @@ export const NormaContainer = styled.div`
   align-items: center;
 `;
 
-export const NormaBtn = styled.button`
+export const NormaBtn = styled(HoverBtnStyled)`
   font-size: ${theme.fontSizes.small};
   line-height: calc(20 / 16);
   background-color: transparent;

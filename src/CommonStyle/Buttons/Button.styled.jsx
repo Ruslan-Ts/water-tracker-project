@@ -48,3 +48,24 @@ export const Button = styled(CommonStyles)`
     height: 44px;
   }
 `;
+
+export const HoverBtnStyled = styled.button`
+  transition: color ${theme.animation.cubicBezier};
+  position: relative;
+  &:hover {
+    color: ${theme.colors.secondaryYellow};
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: ${theme.colors.secondaryYellow};
+    transition: width 0.3s ease;
+  }
+  &:hover:before {
+    width: 100%;
+  }
+`;
