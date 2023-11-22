@@ -9,15 +9,15 @@ import {
 } from 'redux/userData/thunk';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Title } from 'CommonStyle/Title/Title.styled';
 import { Input } from 'components/forms/Input.styled';
 import { Button } from 'CommonStyle/Buttons/Button.styled';
 import css from './AddWaterCSS.module.css';
 import {
-  Wrapper,
   ButtonClose,
 } from 'components/Modals/DeleteEntry/DeleteEntryModal.styled';
 import {
+  Wrapper,
+  Title,
   ModalWrapper,
   FormTitle,
   Label,
@@ -26,9 +26,9 @@ import {
   BtnSign,
   CounterInput,
   Forma,
-  ModalList,
+  ButtonWrapper,
   BtnSave,
-  BtnCounter,
+  TextCounter,
 } from './AddWaterModal.styled';
 import { AddWaterSchema } from 'js/validation/schemas';
 import { ModalContext } from 'components/ModalContext';
@@ -96,8 +96,8 @@ const AddWaterModal = () => {
           </svg>
         </ButtonClose>
       </Wrapper>
+      <FormTitle>Choose a value:</FormTitle>
       <Forma onSubmit={handleSubmit}>
-        <FormTitle>Choose a value:</FormTitle>
         <Label htmlFor="counterValue">
           Amount of water:
           <Counter>
@@ -164,18 +164,12 @@ const AddWaterModal = () => {
         {touched.waterVolume && errors.waterVolume && (
           <InputError>{errors.waterVolume}</InputError>
         )}
-        <ModalList>
-          <li>
-            <BtnCounter type="button" onClick={handleClose}>
-              {counterValue}ml
-            </BtnCounter>
-          </li>
-          <li>
-            <Button as={BtnSave} type="submit">
-              Save
-            </Button>
-          </li>
-        </ModalList>
+        <ButtonWrapper>
+          <TextCounter>{counterValue}ml</TextCounter>
+          <Button as={BtnSave} type="submit">
+            Save
+          </Button>
+        </ButtonWrapper>
       </Forma>
     </ModalWrapper>
   );
