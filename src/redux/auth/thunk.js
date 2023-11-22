@@ -97,6 +97,9 @@ export const resetPasswordThunk = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       await resetPassword(body);
+      toast.success(
+        `The email has been sent successfully.`
+      );
     } catch (error) {
       toast.error(`Error! User with this email not found!`);
       return rejectWithValue(error.message);

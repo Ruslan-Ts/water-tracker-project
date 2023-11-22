@@ -2,7 +2,11 @@ import React, { useContext, useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import Icons from '../../../img/sprite.svg';
-import { editWatersThunk, fetchTodayThunk } from 'redux/userData/thunk';
+import {
+  editWatersThunk,
+  fetchMonthThunk,
+  fetchTodayThunk,
+} from 'redux/userData/thunk';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
@@ -65,16 +69,15 @@ const EditAmountModal = data => {
     }
   };
 
-  const handleSave = ({ waterVolume, date }) => {
+  const handleSave = async ({ waterVolume, date }) => {
     const newWaterUsed = { waterVolume, date };
 
-    dispatch(editWatersThunk({ newWaterUsed, id: data.data._id }))
-      .unwrap()
-      .then(() => {
-        dispatch(fetchTodayThunk()).then(() => {
-          toggleModal();
-        });
-      });
+    await dispatch(
+      editWatersThunk({ newWaterUsed, id: data.data._id })
+    ).unwrap();
+    await dispatch(fetchTodayThunk()).unwrap();
+    await dispatch(fetchMonthThunk(new Date().getMonth())).unwrap();
+    toggleModal();
   };
 
   const { handleSubmit, setFieldValue, errors, touched } = useFormik({
