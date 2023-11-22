@@ -47,7 +47,9 @@ const Setting = () => {
         <ContainerAvatar>
           {!userProfile.avatarURL && (
             <div>
-              {userProfile.userName ? userProfile.userName.split('')[0] : 'V'}
+              {userProfile.userName
+                ? userProfile.userName.split('')[0].toUpperCase()
+                : 'V'}
             </div>
           )}
           {userProfile.avatarURL && (
