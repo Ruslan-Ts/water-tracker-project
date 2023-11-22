@@ -7,7 +7,7 @@ import {
 } from 'redux/userData/thunk';
 
 import { Title } from 'CommonStyle/Title/Title.styled';
-import { Button } from 'CommonStyle/Buttons/Button.styled';
+import { Button, HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 
 import Icons from '../../../img/sprite.svg';
 
@@ -42,9 +42,11 @@ const DeleteEntryModal = ({ waterId }) => {
         <Wrapper>
           <Title>Delete Entry</Title>
           <ButtonClose onClick={handleClose}>
-            <svg width="24" height="24">
-              <use href={Icons + '#close'}></use>
-            </svg>
+            <HoverCloseBtn>
+              <svg width="24" height="24">
+                <use href={Icons + '#close'}></use>
+              </svg>
+            </HoverCloseBtn>
           </ButtonClose>
         </Wrapper>
         <WrapperTitle>Are you sure you want to delete the entry?</WrapperTitle>

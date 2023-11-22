@@ -164,7 +164,7 @@ export const WaterInfo = styled.div`
     &::before {
       content: '';
       display: block;
-      width: 3px;
+      width: 1px;
       height: 8px;
       background-color: ${theme.colors.secondaryLightBlue};
       position: absolute;

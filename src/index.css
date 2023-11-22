@@ -1,4 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('./CommonStyle/theme.css');
 
 @font-face {
   font-family: 'Roboto';

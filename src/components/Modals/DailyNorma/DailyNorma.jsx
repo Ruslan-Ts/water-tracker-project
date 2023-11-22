@@ -26,6 +26,7 @@ import FormaWaterRate from './FormaWaterRate';
 import { CloseBtn } from '../Setting/Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { ModalContext } from 'components/ModalContext';
+import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 
 const DailyNorma = () => {
   const [result, setResult] = useState();
@@ -82,9 +83,11 @@ const DailyNorma = () => {
           onClose();
         }}
       >
-        <svg width="24" height="24">
-          <use href={Icons + '#close'}></use>
-        </svg>
+        <HoverCloseBtn>
+          <svg width="24" height="24">
+            <use href={Icons + '#close'}></use>
+          </svg>
+        </HoverCloseBtn>
       </CloseBtn>
       <Title>My daily norma</Title>
 

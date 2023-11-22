@@ -38,6 +38,9 @@ export const ButtonClose = styled.button`
   background-color: transparent;
   width: 24px;
   height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ModalList = styled.ul`

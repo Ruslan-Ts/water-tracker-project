@@ -11,7 +11,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { Input } from 'components/forms/Input.styled';
-import { Button } from 'CommonStyle/Buttons/Button.styled';
+import { Button, HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 import css from './AddWaterCSS.module.css';
 import {
   Wrapper,
@@ -91,9 +91,11 @@ const AddWaterModal = () => {
       <Wrapper>
         <Title>Add water</Title>
         <ButtonClose onClick={handleClose}>
-          <svg width="24" height="24">
-            <use href={Icons + '#close'}></use>
-          </svg>
+          <HoverCloseBtn>
+            <svg width="24" height="24">
+              <use href={Icons + '#close'}></use>
+            </svg>
+          </HoverCloseBtn>
         </ButtonClose>
       </Wrapper>
       <Forma onSubmit={handleSubmit}>

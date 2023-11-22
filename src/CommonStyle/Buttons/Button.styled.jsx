@@ -69,3 +69,16 @@ export const HoverBtnStyled = styled.button`
     width: 100%;
   }
 `;
+
+export const HoverCloseBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 100%;
+  transition: background-color ${theme.animation.cubicBezier};
+  &:hover {
+    background-color: ${theme.colors.secondaryLightBlue};
+  }
+`;
