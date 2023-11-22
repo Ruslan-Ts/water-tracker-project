@@ -35,7 +35,6 @@ export const WrapperDefinition = styled.div`
 
   @media screen and (min-width: 768px) {
     gap: 24px;
-    margin-top: 12px;
   }
   @media screen and (min-width: 1440px) {
   }
@@ -140,7 +139,7 @@ export const FormaCalculation = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: ${prop => prop.$gap || '16px'};
   width: 100%;
   @media screen and (min-width: 768px) {
   }
@@ -153,7 +152,7 @@ export const TitlePart = styled.h3`
   font-weight: 500;
   line-height: calc(20 / 18);
 
-  margin-top: ${props => props.$marginTop || '24px;'};
+  margin-top: ${props => props.$marginTop || '24px'};
   margin-bottom: ${props => props.$marginBottom || '16px'};
 `;
 
@@ -181,7 +180,7 @@ export const ValueResult = styled.span`
   font-size: 18px;
   font-weight: 700;
   line-height: calc(24 / 18);
-  padding-right: 15px;
+  /* padding-right: 15px; */
   @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1440px) {
@@ -200,7 +199,11 @@ export const Button = styled.button`
   outline: none;
   border: none;
   border-radius: 10px;
-  padding: 10px 61px;
+  padding-left: 61px;
+  padding-right: 61px;
+  padding-top: ${props => props.$paddingTB || '10px'};
+  padding-bottom: ${props => props.$paddingTB || '10px'};
+
   margin-left: auto;
   cursor: pointer;
   &:hover {
@@ -211,6 +214,9 @@ export const Button = styled.button`
     /* margin-top: 8px; */
     font-size: 18px;
     line-height: calc(24 / 18);
+
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 `;
 

@@ -42,8 +42,8 @@ const DailyNorma = () => {
   } = useFormik({
     initialValues: {
       gender: 'girl',
-      weight: '',
-      physical: '',
+      weight: 0,
+      physical: 0,
     },
     validationSchema: rateSchema,
   });
@@ -142,7 +142,8 @@ const DailyNorma = () => {
             value={values.weight}
             onChange={handleChange}
             onBlur={handleBlur}
-            placeholder="weight"
+            // placeholder="0"
+            defaultValue={'0'}
             error={touched.weight && errors.weight}
           />
           {touched.weight && errors.weight && (
@@ -159,7 +160,8 @@ const DailyNorma = () => {
             value={values.physical}
             onChange={handleChange}
             onBlur={handleBlur}
-            placeholder="physical load"
+            // placeholder="0"
+            // defaultValue={0}
             error={touched.physical && errors.physical}
           />
           {touched.physical && errors.physical && (
