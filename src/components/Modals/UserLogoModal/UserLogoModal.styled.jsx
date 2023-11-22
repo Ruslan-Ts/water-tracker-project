@@ -15,6 +15,7 @@ export const LogoModalMenu = styled.div`
   justify-content: center;
   padding: 16px;
   margin-top: 2px;
+  right: 0;
   @media screen and (min-width: 1440px) {
     margin-top: 6px;
   }
