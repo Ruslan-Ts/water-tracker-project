@@ -3,11 +3,13 @@ import theme from '../../../../CommonStyle/theme';
 import { HoverBtnStyled } from 'CommonStyle/Buttons/Button.styled';
 
 export const DailyNormaContainer = styled.div`
+  display: inline-block;
+  box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid ${theme.colors.secondaryLight};
   background: #fff;
   box-shadow: 0px 4px 8px 0px rgba(158, 187, 255, 0.12);
-  width: 164px;
+  /* width: 164px; */
   padding: 8px 20px;
   margin-bottom: 8px;
   /* @media only screen and (min-width: 1440px) {
@@ -16,7 +18,7 @@ export const DailyNormaContainer = styled.div`
   } */
   @media screen and (min-width: 1440px) {
     position: absolute;
-    top: 40px;
+    top: 30px;
     left: 0;
   }
 `;
@@ -54,7 +56,7 @@ export const NormaBtn = styled(HoverBtnStyled)`
 
 export const Container = styled.div`
   position: relative;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   width: 100%;
   img {
     margin: 0 auto;
@@ -65,6 +67,10 @@ export const Container = styled.div`
   }
   @media screen and (min-width: 1440px) {
     width: 50%;
+    img {
+      height: 548px;
+      object-fit: cover;
+    }
   }
 `;
 
@@ -73,19 +79,27 @@ export const StatusContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 16px;
   button {
     width: 100%;
+    padding-top: 6px;
+    padding-bottom: 6px;
     @media screen and (min-width: 768px) {
       width: 336px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
     @media screen and (min-width: 1440px) {
       width: 178px;
     }
   }
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 12px;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 23px;
   }
 `;
 
