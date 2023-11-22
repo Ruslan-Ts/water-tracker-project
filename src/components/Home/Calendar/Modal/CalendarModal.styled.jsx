@@ -43,16 +43,4 @@ export const CalendarModalStyled = styled.div`
       line-height: calc(24 / 18);
     }
   }
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: -18px;
-    left: 20px;
-    width: 0;
-    height: 0;
-    border-color: #f9f9f9 transparent transparent transparent;
-    border-width: 10px;
-    border-style: solid;
-  }
 `;
