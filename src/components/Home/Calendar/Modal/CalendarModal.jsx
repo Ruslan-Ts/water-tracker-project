@@ -1,3 +1,4 @@
+import { scaleYVariants } from 'js/animations/variants';
 import { CalendarModalStyled } from './CalendarModal.styled';
 
 const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
@@ -15,7 +16,14 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
   }
 
   return (
-    <CalendarModalStyled $delta={position} $deltaNum={delta}>
+    <CalendarModalStyled
+      variants={scaleYVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      $delta={position}
+      $deltaNum={delta}
+    >
       {Object.values(waterData).length ? (
         <>
           <h3>{data}</h3>

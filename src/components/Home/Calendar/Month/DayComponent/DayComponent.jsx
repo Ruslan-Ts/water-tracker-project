@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Day, DayCell, DayPercent } from '../Month.styled';
 import CalendarModal from '../../Modal/CalendarModal';
+import { AnimatePresence } from 'framer-motion';
 
 const DayComponent = ({ calendarRef, day, waterPercentage }) => {
   const [activeModal, setActiveModal] = useState(null);
@@ -25,14 +26,16 @@ const DayComponent = ({ calendarRef, day, waterPercentage }) => {
 
   return (
     <DayCell key={day}>
-      {activeModal === day && (
-        <CalendarModal
-          calendarRef={calendarRef}
-          refData={ref}
-          key={day}
-          waterData={waterPercentage}
-        />
-      )}
+      <AnimatePresence>
+        {activeModal === day && (
+          <CalendarModal
+            calendarRef={calendarRef}
+            refData={ref}
+            key={day}
+            waterData={waterPercentage}
+          />
+        )}
+      </AnimatePresence>
       <Day
         ref={ref}
         onClick={() => toggleModal(day)}
