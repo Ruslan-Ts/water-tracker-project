@@ -18,3 +18,8 @@ export const handleFetchToday = (state, { payload }) => {
 export const handleFetchMonth = (state, { payload }) => {
   state.month = payload;
 };
+
+export const handleEditWater = (state, { payload }) => {
+  state.today.waterInputsForToday.push(payload);
+
+};

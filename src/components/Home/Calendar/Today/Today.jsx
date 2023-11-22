@@ -15,6 +15,8 @@ import {
 import AddWaterModal from '../../../Modals/AddWater/AddWaterModal';
 import { selectorWaterCurrentDay } from '../../../../redux/userData/selectors';
 
+import EditAmountModal from '../../../Modals/EditAmount/EditAmountModal.jsx';
+
 import { fetchTodayThunk } from '../../../../redux/userData/thunk';
 import { useContext, useEffect } from 'react';
 import { ModalContext } from 'components/ModalContext';
@@ -28,6 +30,9 @@ const Today = () => {
   };
   const handleDeleteNotice = waterId => {
     toggleModal(<DeleteEntryModal waterId={waterId} />);
+  };
+  const handleEditNotice = ({ data }) => {
+    toggleModal(<EditAmountModal data={data} />);
   };
 
   useEffect(() => {
@@ -60,7 +65,11 @@ const Today = () => {
                   }).format(new Date(data.date))}
                 </TimeCell>
                 <TableCell>
-                  <Button>
+                  <Button
+                    onClick={() => {
+                      handleEditNotice({ data });
+                    }}
+                  >
                     <svg className={css.icon_pencil} width="16" height="16">
                       <use href={Icons + '#pencil-square'}></use>
                     </svg>
