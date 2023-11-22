@@ -22,8 +22,8 @@ export const CalendarModalStyled = styled(motion.div)`
   }
 
   @media screen and (min-width: 768px) {
-    right: ${props => (props.$delta ? 0 : '')};
-    left: ${props => (props.$delta ? '' : 0)};
+    right: ${props => (props.$delta ? '17px' : '')};
+    left: ${props => (props.$delta ? '' : '17px')};
     padding: 24px 16px;
     width: 292px;
   }

@@ -36,8 +36,8 @@ const FormaWaterRate = ({ onClose }) => {
 
   return (
     <>
-      <TitlePart>Write down how much water you drink in liters:</TitlePart>
-      <FormaCalculation onSubmit={handleSubmit}>
+      <TitlePart>Write down how much water you will drink in liters:</TitlePart>
+      <FormaCalculation $gap={'24px'} onSubmit={handleSubmit}>
         <Input
           type="number"
           step="0.001"
@@ -49,7 +49,9 @@ const FormaWaterRate = ({ onClose }) => {
         />
         {touched.rate && errors.rate && <InputError>{errors.rate}</InputError>}
 
-        <Button type="submit">Save</Button>
+        <Button $paddingTB={'8px'} type="submit">
+          Save
+        </Button>
       </FormaCalculation>
     </>
   );

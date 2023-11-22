@@ -23,7 +23,7 @@ export const MainTitle = styled.h1`
   }
 `;
 
-export const SubTitle = styled.h3`
+export const SubTitle = styled.h2`
   font-size: ${theme.fontSizes.medium};
   font-weight: 700;
   line-height: calc(20 / 18);

@@ -124,9 +124,13 @@ export const updateAvatarThunk = createAsyncThunk(
   'auth/updateAvatar',
   async (newPhotoFile, { rejectWithValue }) => {
     try {
-         const avatarURL = await updateAvatar(newPhotoFile);
+      const avatarURL = await updateAvatar(newPhotoFile);
+      toast.success(
+        `The photo has been successfully uploaded.`
+      );
       return avatarURL;
     } catch (error) {
+      toast.error(`Unfortunately, the photo did not upload successfully. Please try again later.`);
       return rejectWithValue(error.massage);
     }
   }

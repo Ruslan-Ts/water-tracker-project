@@ -17,6 +17,7 @@ export const LogoModalMenu = styled(motion.div)`
   padding: 16px;
   margin-top: 2px;
   transform-origin: top;
+  right: 0;
   @media screen and (min-width: 1440px) {
     margin-top: 6px;
   }

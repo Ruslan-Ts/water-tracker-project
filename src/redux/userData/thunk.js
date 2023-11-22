@@ -46,7 +46,7 @@ export const editWatersThunk = createAsyncThunk(
   'water/editWaters', async (inputData, { rejectWithValue }) => {
     try {
       const data = await editWaters(inputData);
-      console.log(data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

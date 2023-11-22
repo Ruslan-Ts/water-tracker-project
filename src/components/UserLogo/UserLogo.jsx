@@ -1,4 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import UserLogoModal from '../Modals/UserLogoModal';
+import {
+  UserAvatar,
+  UserName,
+  UserLogoBtn,
+  UserLogoText,
+  UserLogoIcon,
+  UserLogoContainer,
+} from './UserLogo.styled';
+import sprite from '../../img/sprite.svg';
 import { useSelector } from 'react-redux';
 
 import { selectorUserProfile } from '../../redux/auth/selectors';
@@ -22,19 +32,44 @@ const UserLogo = () => {
   const avatar = userProfile.avatarURL;
   const defaultName = name ? name.slice(0, 1).toUpperCase() : 'V';
 
-  const [isModalOpen, setModalOpen] = useState(false);
+  const modalRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleButtonClick = () => {
-    setModalOpen(!isModalOpen);
+  const handleButtonClick = e => {
+    setIsOpen(!isOpen);
+    e.stopPropagation();
   };
 
-  const handleModalClose = () => {
-    setModalOpen(false);
-  };
+  useEffect(() => {
+    const handleEscapeKey = e => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    const closeModal = e => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscapeKey);
+      document.addEventListener('click', closeModal);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('click', closeModal);
+    };
+  }, [isOpen, setIsOpen, modalRef]);
 
   return (
     <UserLogoContainer>
-      <UserLogoBtn onClick={handleButtonClick} aria-label="User Logo">
+      <UserLogoBtn
+        onClick={e => handleButtonClick(e)}
+        ref={modalRef}
+        aria-label="User Logo"
+      >
         <UserName>{name}</UserName>
         {avatar ? (
           <UserAvatar src={avatar} alt="Avatar" />
@@ -52,7 +87,7 @@ const UserLogo = () => {
           </svg>
         </UserLogoIcon>
       </UserLogoBtn>
-      <UserLogoModal isOpen={isModalOpen} onClose={handleModalClose} />
+      <UserLogoModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </UserLogoContainer>
   );
 };
