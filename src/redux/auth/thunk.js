@@ -94,9 +94,10 @@ export const refreshUserThunk = createAsyncThunk(
 
 export const resetPasswordThunk = createAsyncThunk(
   'auth/reset-password',
-  async (body, { rejectWithValue }) => {
+  async ({ email, setNavigate }, { rejectWithValue }) => {
     try {
-      await resetPassword(body);
+      await resetPassword(email);
+      setNavigate(true);
       toast.success(
         `The email has been sent successfully.`
       );
@@ -118,6 +119,7 @@ export const updateWaterRateThunk = createAsyncThunk(
       const { waterRate } = await updateWaterRate(rate);
       return waterRate;
     } catch (error) {
+      toast.error(`Unfortunately, the Water Rate did not upload successfully. Please try again later.`);
       return rejectWithValue(error.massage);
     }
   }
@@ -158,6 +160,7 @@ export const updateUserProfileThunk = createAsyncThunk(
           );
           return rejectWithValue(error.massage);
         default:
+          toast.error(`Error. Please try again later.`);
           return rejectWithValue(error.massage);
       }
     }
