@@ -15,13 +15,15 @@ const Layout = () => {
   return (
     <>
       <LayoutStyled>
-        <HeaderComponent isAuthenticated={isLoggedIn} />
-        <main>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-            <Footer/>
-          </Suspense>
-        </main>
+        <div>
+          <HeaderComponent isAuthenticated={isLoggedIn} />
+          <main>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </main>
+        </div>
+        <Footer />
       </LayoutStyled>
     </>
   );

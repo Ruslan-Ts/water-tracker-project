@@ -13,15 +13,15 @@ const HomePage = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    <LayoutStyled>
-      <div className="container">
-        <WrapperHomePage>
-          {isLoading && <Loader />}
-          <MyDailyNorma />
-          <Calendar />
-        </WrapperHomePage>
-      </div>
-    </LayoutStyled>
+    // <LayoutStyled>
+    <div className="container">
+      <WrapperHomePage>
+        {isLoading && <Loader />}
+        <MyDailyNorma />
+        <Calendar />
+      </WrapperHomePage>
+    </div>
+    // </LayoutStyled>
   );
 };
 

@@ -8,6 +8,8 @@ import bg_mob_1x from './bg/bg-main-mob-1x.png';
 import bg_mob_2x from './bg/bg-main-mob-2x.png';
 
 export const LayoutStyled = styled.div`
+  justify-content: space-between;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
