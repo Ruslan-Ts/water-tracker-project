@@ -17,6 +17,7 @@ export const CommonStyles = styled.button`
   outline: none;
   border: none;
   border-radius: 10px;
+  transition: all ${theme.animation.cubicBezier};
   cursor: pointer;
   &:hover {
     box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
