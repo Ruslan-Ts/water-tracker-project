@@ -16,14 +16,24 @@ import { recoverySchema } from 'js/validation/schemas';
 
 import { resetPasswordThunk } from 'redux/auth/thunk';
 import { selectIsLoading } from 'redux/root/selectors';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ForgotPasswordPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+  const [navigate, setNavigate] = useState(null);
+  const navigateToSinIn = useNavigate();
 
   const onSubmit = e => {
-    dispatch(resetPasswordThunk(e));
+    dispatch(resetPasswordThunk({ email: e, setNavigate: setNavigate }));
   };
+
+  useEffect(() => {
+    if (navigate) {
+      navigateToSinIn('/singin');
+    }
+  }, [navigateToSinIn, navigate]);
 
   const { values, touched, errors, handleSubmit, handleBlur, handleChange } =
     useFormik({
