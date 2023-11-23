@@ -8,7 +8,7 @@ export const CalendarModalStyled = styled(motion.div)`
   gap: 16px;
   width: 280px;
   position: absolute;
-  bottom: 48px;
+  bottom: 54px;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 10px;
@@ -16,9 +16,10 @@ export const CalendarModalStyled = styled(motion.div)`
   padding: 24px 13px;
   transform-origin: bottom;
   z-index: 2;
+
   @media screen and (max-width: 767px) {
     /* left: 50%; */
-    left: ${props => 132 - props.$deltaNum}px;
+    left: ${props => -7 - props.$deltaNum}px;
     transform: translateX(-50%);
   }
 
@@ -27,7 +28,11 @@ export const CalendarModalStyled = styled(motion.div)`
     left: ${props => (props.$delta ? '' : '17px')};
     padding: 24px 16px;
     width: 292px;
-    bottom: 51px;
+    bottom: 58px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    bottom: 56px;
   }
 
   h3 {

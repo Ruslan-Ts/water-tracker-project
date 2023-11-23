@@ -20,3 +20,48 @@
   --ident: 26px;
   --items: 5;
 }
+
+.heart {
+  animation: heartbeat 1s infinite;
+  background-color: var(--accent-color);
+  display: inline-block;
+  height: 12px;
+  margin: 0 12px;
+  top: 0;
+
+  left: 45%;
+  top: 45%;
+  width: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+
+  border-radius: 50%;
+  height: 12px;
+  position: absolute;
+  width: 12px;
+}
+.heart::before {
+  top: -6px;
+  left: 0;
+}
+.heart::after {
+  left: 6px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.25);
+  }
+}

@@ -10,7 +10,6 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
   let position = true;
 
   const delta = currentRef - containerRef;
-
   if (delta < 300) {
     position = false;
   }
