@@ -7,13 +7,11 @@ import { useSelector } from 'react-redux';
 
 import { WrapperHomePage } from './HomePage.styled';
 import { selectIsLoading } from 'redux/root/selectors';
-import { LayoutStyled } from 'components/Layout/Layout.styled';
 
 const HomePage = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-    // <LayoutStyled>
     <div className="container">
       <WrapperHomePage>
         {isLoading && <Loader />}
@@ -21,7 +19,6 @@ const HomePage = () => {
         <Calendar />
       </WrapperHomePage>
     </div>
-    // </LayoutStyled>
   );
 };
 
