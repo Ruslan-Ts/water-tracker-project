@@ -14,19 +14,19 @@ const Footer = () => {
 
   return (
     <FooterContainer>
-    <div className="container">
-      <FooterText>
-        Developed by <FooterBtn onClick={handleButtonClick}>CodeCreators
-        <svg>
-        <use href={sprite + '#heart'}></use>
-      </svg>
-      </FooterBtn>
-      </FooterText>
-    </div>
+      <div className="container">
+        <FooterText>
+          Developed by
+          <FooterBtn onClick={handleButtonClick}>
+            CodeCreators
+            <svg className="heart">
+              <use href={sprite + '#heart'}></use>
+            </svg>
+          </FooterBtn>
+        </FooterText>
+      </div>
     </FooterContainer>
   );
 };
 
 export default Footer;
-
-

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../../CommonStyle/theme';
 
 export const FooterContainer = styled.div`
-padding: 5px 0 10px 0;
+  padding: 5px 0 10px 0;
   display: flex;
   text-align: center;
   bottom: 0;
@@ -16,7 +16,8 @@ export const FooterText = styled.span`
 `;
 
 export const FooterBtn = styled.button`
-background-color: transparent;
+  background-color: transparent;
+  padding-left: 4px;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -25,7 +26,7 @@ background-color: transparent;
   &:hover {
     color: ${theme.colors.secondaryYellow};
     transition: color 0.3s ease;
-  };
+  }
   svg {
     margin-left: 5px;
     width: 13px;
