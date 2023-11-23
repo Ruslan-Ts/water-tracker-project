@@ -40,7 +40,7 @@ export const WelcomeStyledLayout = styled.section`
   }
 
   @media screen and (min-width: 1440px) {
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 161px);
     padding-top: 40px;
     background-image: url(${bg_desk_1x});
   }
