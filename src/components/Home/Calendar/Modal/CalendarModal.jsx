@@ -7,13 +7,9 @@ const CalendarModal = ({ calendarRef, refData, waterData = {} }) => {
   const currentRef = refData?.current.getBoundingClientRect().left;
   const containerRef = calendarRef?.current.getBoundingClientRect().left;
 
-  console.log('currentRef', currentRef);
-  console.log('containerRef', containerRef);
-
   let position = true;
 
   const delta = currentRef - containerRef;
-  console.log(delta);
   if (delta < 300) {
     position = false;
   }
