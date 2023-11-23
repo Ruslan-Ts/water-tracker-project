@@ -35,7 +35,7 @@ const CommandModal = ({ closeModal }) => {
           name="Руслан"
           role="Team Lead"
           githubLink="https://github.com/Ruslan-Ts"
-          linkedinLink="https://www.linkedin.com/in/ruslan-tsuman"
+          linkedinLink="https://www.linkedin.com/in/ruslan-tsuman-67206b266/"
         />
         </CommandListItem>
         <CommandListItem>
