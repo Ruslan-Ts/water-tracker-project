@@ -7,6 +7,7 @@ import { selectUserToken } from '../../redux/auth/selectors';
 import { LayoutStyled } from './Layout.styled';
 import Loader from 'components/Loader';
 import HeaderComponent from '../Header';
+import Footer from '../Footer';
 
 const Layout = () => {
   const isLoggedIn = useSelector(selectUserToken);
@@ -18,6 +19,7 @@ const Layout = () => {
         <main>
           <Suspense fallback={<Loader />}>
             <Outlet />
+            <Footer/>
           </Suspense>
         </main>
       </LayoutStyled>
