@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import theme from '../../CommonStyle/theme';
+import theme from '../../CommonStyle/themeJSX';
 
-export const LogoIcon = styled.img `
+export const LogoIcon = styled.img`
   width: 40px;
   height: 48px;
 `;

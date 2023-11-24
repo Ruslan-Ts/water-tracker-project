@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 
 export const RouterLink = styled(Link)`
   font-size: 16px;

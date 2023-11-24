@@ -1,4 +1,4 @@
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 import styled from 'styled-components';
 
 export const InputError = styled.p`

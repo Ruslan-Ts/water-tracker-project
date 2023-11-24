@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../CommonStyle/theme';
+import theme from '../../../CommonStyle/themeJSX';
 
 export const ContainerMember = styled.div`
   display: flex;
@@ -49,9 +49,9 @@ export const Links = styled.div`
 `;
 
 export const CommandLink = styled.a`
-&:not(:last-child){
-  margin-right: 15px;
-}
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
 `;
 
 export const SocialIcon = styled.svg`

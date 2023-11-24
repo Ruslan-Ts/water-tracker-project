@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../CommonStyle/theme.jsx';
+import theme from '../../../CommonStyle/themeJSX.jsx';
 import { Input } from 'components/forms/Input.styled';
 
 export const ContainerSettings = styled.div`

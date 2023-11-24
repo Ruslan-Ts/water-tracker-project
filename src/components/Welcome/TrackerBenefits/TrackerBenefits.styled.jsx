@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 import { ReactComponent as CalendarIconSvg } from '../../../img/welcome/icons/calendar.svg';
 import { ReactComponent as StatisticsIconSvg } from '../../../img/welcome/icons/statistics.svg';
 import { ReactComponent as SettingsIconSvg } from '../../../img/welcome/icons/settings.svg';

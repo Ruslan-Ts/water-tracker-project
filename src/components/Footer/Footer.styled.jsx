@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../CommonStyle/theme';
+import theme from '../../CommonStyle/themeJSX';
 
 export const FooterContainer = styled.div`
   padding: 5px 0 10px 0;

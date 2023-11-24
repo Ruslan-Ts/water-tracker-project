@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../CommonStyle/theme.jsx';
+import theme from '../../../CommonStyle/themeJSX.jsx';
 
 export const ModalWrapper = styled.div`
   position: absolute;

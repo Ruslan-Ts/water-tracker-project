@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import theme from '../../CommonStyle/theme';
+import theme from '../../CommonStyle/themeJSX';
 
 export const RouterLink = styled(Link)`
   width: 84px;
@@ -14,7 +14,7 @@ export const RouterLink = styled(Link)`
   &:hover {
     color: ${theme.colors.secondaryYellow};
     transition: color 0.3s ease;
-  };
+  }
   &:before {
     content: '';
     position: absolute;
@@ -24,7 +24,7 @@ export const RouterLink = styled(Link)`
     height: 1px;
     background-color: ${theme.colors.secondaryYellow};
     transition: width 0.3s ease;
-  };
+  }
   &:hover:before {
     width: 60%;
   }
@@ -36,9 +36,9 @@ export const RouterLink = styled(Link)`
 `;
 
 export const HeaderIcon = styled.svg`
-    margin-left: 8px;
-    width: 28px;
-    height: 28px;
-    fill: ${theme.colors.primaryLight};
-    stroke: ${theme.colors.primaryDark};
+  margin-left: 8px;
+  width: 28px;
+  height: 28px;
+  fill: ${theme.colors.primaryLight};
+  stroke: ${theme.colors.primaryDark};
 `;

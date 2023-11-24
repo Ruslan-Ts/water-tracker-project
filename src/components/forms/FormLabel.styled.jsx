@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 
 export const FormLabel = styled.label`
   font-size: 18px;

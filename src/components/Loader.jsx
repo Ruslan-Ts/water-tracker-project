@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
 import { RotatingLines } from 'react-loader-spinner';
-import theme from '../CommonStyle/theme.jsx';
+import theme from '../CommonStyle/themeJSX.jsx';
 
 const loader = document.querySelector('#loader-root');
 

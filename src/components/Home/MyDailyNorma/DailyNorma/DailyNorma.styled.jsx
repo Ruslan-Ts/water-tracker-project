@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../../CommonStyle/theme';
+import theme from '../../../../CommonStyle/themeJSX';
 import { HoverBtnStyled } from 'CommonStyle/Buttons/Button.styled';
 
 export const DailyNormaContainer = styled.div`

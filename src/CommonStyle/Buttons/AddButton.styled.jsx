@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { CommonStyles } from './Button.styled';
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 
 export const AddButton = styled(CommonStyles)`
   display: flex;

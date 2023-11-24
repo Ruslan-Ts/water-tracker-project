@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 
 export const CommonStyles = styled.button`
   display: flex;
