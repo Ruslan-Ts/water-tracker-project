@@ -10,7 +10,7 @@ export const WrapperHomePage = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    gap: 60px;
+    gap: 40px;
   }
 
   @media only screen and (min-width: 1440px) {

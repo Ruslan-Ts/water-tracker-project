@@ -8,7 +8,7 @@ import bg_mob_1x from '../../../img/welcome/bg-mobile-1x.png';
 import bg_mob_2x from '../../../img/welcome/bg-mobile-2x.png';
 
 export const WelcomeStyledLayout = styled.section`
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 119px);
   background-image: url(${bg_mob_1x});
   background-size: cover;
   background-position: center bottom;
@@ -30,7 +30,7 @@ export const WelcomeStyledLayout = styled.section`
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
-    min-height: calc(100vh - 104px);
+    min-height: calc(100vh - 143px);
     background-image: url(${bg_tabl_1x});
   }
 
@@ -40,7 +40,7 @@ export const WelcomeStyledLayout = styled.section`
   }
 
   @media screen and (min-width: 1440px) {
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 161px);
     padding-top: 40px;
     background-image: url(${bg_desk_1x});
   }

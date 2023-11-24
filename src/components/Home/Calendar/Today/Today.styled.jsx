@@ -3,11 +3,33 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: fit-content;
+  h2 {
+    color: #2f2f2f;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: calc(30 / 24);
+
+    @media screen and (min-width: 768px) {
+      font-size: 26px;
+      line-height: calc(32 / 26);
+    }
+
+    @media screen and (min-width: 1440px) {
+    }
+  }
 `;
 export const Viewport = styled.div`
   height: 220px;
   overflow-y: auto;
   margin-top: 16px;
+
+  @media screen and (min-width: 768px) {
+    height: 228px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 212px;
+  }
 
   &::-webkit-scrollbar {
     width: 4px;

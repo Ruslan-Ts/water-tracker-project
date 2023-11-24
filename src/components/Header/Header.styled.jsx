@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
     padding: 16px 0 40px 0;
   }
   @media screen and (min-width: 1440px) {
-    padding: 12px 0 40px 0;
+    padding: 12px 0 22px 0;
   }
 `;
 
