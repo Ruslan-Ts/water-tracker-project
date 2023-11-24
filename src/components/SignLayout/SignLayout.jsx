@@ -13,10 +13,10 @@ import imgTabletPng2x from '../../img/signup/bottle-tab-2x.png';
 import imgMobPng from '../../img/signup/bottle-mob-1x.png';
 import imgMobPng2x from '../../img/signup/bottle-mob-2x.png';
 
-const SignLayout = ({ children }) => {
+const SignLayout = ({ children, signIn }) => {
   return (
-    <section className="section-main-container">
-      <SignLayoutStyled>
+    <section className={'section-main-container'}>
+      <SignLayoutStyled className={signIn ? 'sign-in' : ''}>
         <picture>
           <source
             media="(min-width: 1440px)"

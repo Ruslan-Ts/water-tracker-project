@@ -57,3 +57,9 @@ code {
 .section-main-container {
   height: 100%;
 }
+
+@media screen and (max-width: 767px) {
+  .sign-in {
+    gap: 66px;
+  }
+}
