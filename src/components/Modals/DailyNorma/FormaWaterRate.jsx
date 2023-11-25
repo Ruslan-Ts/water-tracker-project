@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, FormaCalculation, TitlePart } from './DailyNorma.styled';
+import { FormaCalculation, TitlePart } from './DailyNorma.styled';
 
 import { rateOutSchema } from 'js/validation/schemas';
 import { useFormik } from 'formik';
@@ -9,6 +9,7 @@ import { updateWaterRateThunk } from 'redux/auth/thunk';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorWaterRate } from 'redux/auth/selectors';
 import { fetchMonthThunk, fetchTodayThunk } from 'redux/userData/thunk';
+import Button from 'CommonStyle/Button';
 
 const FormaWaterRate = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const FormaWaterRate = ({ onClose }) => {
         />
         {touched.rate && errors.rate && <InputError>{errors.rate}</InputError>}
 
-        <Button $paddingTB={'8px'} type="submit">
+        <Button type="submit" $width="160px" $marginLeft="auto">
           Save
         </Button>
       </FormaCalculation>

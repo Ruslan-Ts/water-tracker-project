@@ -6,17 +6,19 @@ export const CommonStyles = styled.button`
   justify-content: center;
   align-items: center;
   gap: 15px;
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  transition: all ${theme.animation.cubicBezier};
+
   font-size: 16px;
   line-height: calc(20 / 16);
   font-weight: 500;
   text-align: center;
-  background-color: ${theme.colors.primaryAccent};
   color: #fff;
+
   outline: none;
   border: none;
   border-radius: 10px;
+  background-color: ${theme.colors.primaryAccent};
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+
   transition: all ${theme.animation.cubicBezier};
   cursor: pointer;
   &:hover {
@@ -52,6 +54,7 @@ export const Button = styled(CommonStyles)`
 
 export const HoverBtnStyled = styled.button`
   transition: color ${theme.animation.cubicBezier};
+
   position: relative;
   &:hover {
     color: ${theme.colors.secondaryYellow};
