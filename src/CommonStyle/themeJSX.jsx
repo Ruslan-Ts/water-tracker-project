@@ -16,6 +16,7 @@ const theme = Object.freeze({
     small: '16px',
     medium: '18px',
     large: '26px',
+    XL: '28px',
   },
 
   animation: {

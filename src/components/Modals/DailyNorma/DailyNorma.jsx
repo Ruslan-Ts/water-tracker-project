@@ -13,7 +13,7 @@ import {
 } from './DailyNorma.styled';
 import { rateSchema } from 'js/validation/schemas';
 import { InputError } from 'components/forms/InputError.styled';
-import { Title } from 'CommonStyle/Title/Title.styled';
+// import { Title } from 'CommonStyle/Title/Title.styled';
 import { useFormik } from 'formik';
 import {
   ContainerDefinition,
@@ -27,6 +27,7 @@ import { CloseBtn } from '../Setting/Setting.styled';
 import Icons from '../../../img/sprite.svg';
 import { ModalContext } from 'components/ModalContext';
 import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
+import { Title, TitleMedium } from 'CommonStyle/Title/Title.styled';
 
 const DailyNorma = () => {
   const [result, setResult] = useState();
@@ -107,7 +108,9 @@ const DailyNorma = () => {
         activity commensurate in terms of loads (in the absence of these, you
         must set 0)
       </NoticeWrapper>
-      <TitlePart>Calculate your rate:</TitlePart>
+      <TitleMedium $marginTop="24px" $marginBottom="16px">
+        Calculate your rate:
+      </TitleMedium>
 
       <FormaCalculation onSubmit={handleSubmit}>
         <WrapperRadio>
