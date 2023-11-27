@@ -1,16 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
+import theme from './themeJSX';
 
 export const GlobalStyles = createGlobalStyle`
 	html {
-		box-sizing: border-box;
-		scroll-behavior: smooth;
+	scroll-behavior: smooth;
 	}
-
 	body {
-	
-		margin: 0;
-		font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", 
+	font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", 
 			"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
 			"Helvetica Neue", sans-serif;
 
@@ -57,29 +53,24 @@ export const GlobalStyles = createGlobalStyle`
 		height: auto;
 	}
 
-	code {
-		font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-			monospace;
-	}
-	[class="container"], [class$="main-container"] {
-		width: 280px;
+		[class="container"], [class$="main-container"] {
+		width: 320px;
 		padding: 0 20px;
 		margin: 0 auto;
 	}
 	@media screen and (min-width: 768px) {
 		[class="container"], [class$="main-container"] {
-			width: 704px;
+			width: 768px;
 			padding: 0 32px;
 		}
 	}
 	@media screen and (min-width: 1440px) {
 		[class="container"], [class$="main-container"] {
-			width: 1216px;
-			/* padding: 0 32px; */
+			width: 1440px;
+			padding: 0 112px;
 		}
-	
-		/* -----------------CSS MODAL----------------- */
-	}
+			}
+	/* -----------------CSS MODAL----------------- */
 	.ReactModal__Body--open {
     overflow: hidden;
 }
@@ -95,7 +86,6 @@ export const GlobalStyles = createGlobalStyle`
 .ReactModal__Overlay--before-close{
     opacity: 0;
 }
-
 
 .content {
   position: static;
@@ -127,6 +117,7 @@ export const GlobalStyles = createGlobalStyle`
   align-items: center;
   /* z-index: 12000000000000; */
 }
+
 /* ---------------- Input arrow -------------- */
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
@@ -138,5 +129,23 @@ input[type='number']:hover,
 input[type='number']:focus {
   appearance: none;
   -moz-appearance: textfield;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.section-main-container {
+  height: 100%;
 }
 `;

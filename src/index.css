@@ -1,5 +1,5 @@
-@import-normalize; /* bring in normalize.css styles */
-@import url('./CommonStyle/theme.css');
+@import url('../node_modules/modern-normalize/modern-normalize.css');
+@import url('./CommonStyle/themeCSS.css');
 
 @font-face {
   font-family: 'Roboto';
@@ -24,42 +24,4 @@
   src: url('./fonts/Roboto-Bold.woff2') format('woff2'),
     url('./fonts/Roboto-Bold.woff') format('woff'),
     url('./fonts//Roboto-Bold.ttf') format('truetype');
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.section-main-container {
-  height: 100%;
-}
-
-@media screen and (max-width: 767px) {
-  .sign-in {
-    gap: 66px;
-  }
 }

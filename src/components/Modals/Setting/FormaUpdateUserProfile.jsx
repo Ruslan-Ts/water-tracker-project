@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Button,
   FormLabel,
   FormLabelRadio,
   TitlePart,
@@ -26,6 +25,7 @@ import { calculateStrength } from 'js/validation/passwordStrength';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/auth/selectors';
 import { updateUserProfileThunk } from 'redux/auth/thunk';
+import Button from 'CommonStyle/Button';
 
 const FormaUpdateUserProfile = ({ onClose }) => {
   const userProfile = useSelector(selectorUserProfile);
@@ -208,7 +208,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <Button $paddingTB={'8px'} type="submit">
+        <Button $width="160px" $marginLeft="auto" type="submit">
           Save
         </Button>
       </WrapperForma>

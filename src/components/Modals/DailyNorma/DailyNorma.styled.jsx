@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../CommonStyle/theme.jsx';
+import theme from '../../../CommonStyle/themeJSX.jsx';
 
 export const ContainerNorma = styled.div`
   position: absolute;
@@ -12,7 +12,6 @@ export const ContainerNorma = styled.div`
   padding: 24px 12px;
   border-radius: 10px;
   background: #fff;
-  box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -107,8 +106,7 @@ export const FormLabelRadio = styled.label`
   line-height: calc(20 / 16);
 
   div {
-    box-sizing: border-box;
-    width: 14px;
+       width: 14px;
     height: 14px;
     background-color: transparent;
     border-radius: 100%;
@@ -181,46 +179,6 @@ export const ValueResult = styled.span`
   font-weight: 700;
   line-height: calc(24 / 18);
   /* padding-right: 15px; */
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1440px) {
-  }
-`;
-
-export const Button = styled.button`
-  width: 100%;
-  font-size: 16px;
-  line-height: calc(20 / 16);
-  font-weight: 500;
-  text-align: center;
-  background-color: ${theme.colors.primaryAccent};
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  color: #fff;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  padding-left: 61px;
-  padding-right: 61px;
-  padding-top: ${props => props.$paddingTB || '10px'};
-  padding-bottom: ${props => props.$paddingTB || '10px'};
-
-  margin-left: auto;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-  }
-  @media screen and (min-width: 768px) {
-    width: auto;
-    /* margin-top: 8px; */
-    font-size: 18px;
-    line-height: calc(24 / 18);
-
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-`;
-
-export const ddddd = styled.span`
   @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1440px) {

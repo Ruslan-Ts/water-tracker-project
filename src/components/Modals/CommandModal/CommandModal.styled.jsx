@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../CommonStyle/theme';
+import theme from '../../../CommonStyle/themeJSX';
 
 export const ModalContainer = styled.div`
   padding: 10px;
@@ -9,8 +9,7 @@ export const ModalContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  box-sizing: border-box;
-  overflow-y: auto;
+    overflow-y: auto;
   max-height: 90vh;
   width: 290px;
   @media screen and (min-width: 768px) {
@@ -49,7 +48,7 @@ export const CommandListItem = styled.li`
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-bottom: 15px;
   }
   @media screen and (min-width: 1440px) {
@@ -57,7 +56,7 @@ export const CommandListItem = styled.li`
   }
 `;
 
-export const CommandCloseBtn = styled.button `
+export const CommandCloseBtn = styled.button`
   background-color: ${theme.colors.primaryLight};
   transition: transform 0.5s ease-out;
   padding: 4px;
@@ -78,4 +77,3 @@ export const CommandCloseBtn = styled.button `
     }
   }
 `;
-

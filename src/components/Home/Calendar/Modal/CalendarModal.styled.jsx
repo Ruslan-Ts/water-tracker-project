@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 import { motion } from 'framer-motion';
 
 export const CalendarModalStyled = styled(motion.div)`
@@ -9,7 +9,7 @@ export const CalendarModalStyled = styled(motion.div)`
   width: 280px;
   position: absolute;
   bottom: 54px;
-  box-sizing: border-box;
+ 
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);

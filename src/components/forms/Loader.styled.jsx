@@ -1,4 +1,4 @@
-import theme from 'CommonStyle/theme';
+import theme from 'CommonStyle/themeJSX';
 import styled, { keyframes } from 'styled-components';
 
 const loadingAnimation = keyframes`
