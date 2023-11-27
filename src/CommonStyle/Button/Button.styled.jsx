@@ -5,7 +5,7 @@ export const ButtonBase = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 
   font-size: 16px;
   line-height: calc(20 / 16);

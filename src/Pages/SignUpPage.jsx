@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 
 import { signUpThunk } from 'redux/auth/thunk';
 
-import { Button } from 'CommonStyle/Buttons/Button.styled';
+// import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
@@ -22,6 +22,7 @@ import SignLayout from 'layouts/SignLayout/SignLayout';
 import { signUpSchema } from 'js/validation/schemas';
 import { calculateStrength } from 'js/validation/passwordStrength';
 import { selectIsLoading } from 'redux/root/selectors';
+import Button from 'CommonStyle/Button';
 
 const SignUp = () => {
   const dispatch = useDispatch();

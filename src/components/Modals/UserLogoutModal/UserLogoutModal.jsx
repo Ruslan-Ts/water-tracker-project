@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
 import { logOutThunk } from '../../../redux/auth/thunk';
 import {
-  LogOutBtn,
   LogOutBtns,
   LogOutClose,
   LogOutHeader,
@@ -12,6 +11,7 @@ import {
 } from './UserLogoutModal.styled';
 import sprite from '../../../img/sprite.svg';
 import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
+import Button from 'CommonStyle/Button';
 
 ReactModal.setAppElement('#root');
 
@@ -49,8 +49,12 @@ const UserLogoutModal = ({ onClose }) => {
         <p>Do you really want to leave?</p>
       </LogOutText>
       <LogOutBtns>
-        <LogOutBtn onClick={handleCancel}>Cancel</LogOutBtn>
-        <LogOutBtn onClick={handleLogout}>Log out</LogOutBtn>
+        <Button typeStyle="escape" $width="160px" onClick={handleCancel}>
+          Cancel
+        </Button>
+        <Button typeStyle="accept" $width="160px" onClick={handleLogout}>
+          Log out
+        </Button>
       </LogOutBtns>
     </LogOutWindow>
   );

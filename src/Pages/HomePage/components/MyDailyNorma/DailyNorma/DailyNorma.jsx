@@ -12,7 +12,7 @@ import {
   WaterInfo,
 } from './DailyNorma.styled';
 
-import { AddButton } from 'CommonStyle/Buttons/AddButton.styled';
+// import { AddButton } from 'CommonStyle/Buttons/AddButton.styled';
 import { ModalContext } from 'components/ModalContext';
 import DailyNormaModal from 'components/Modals/DailyNorma/DailyNorma';
 
@@ -34,6 +34,7 @@ import { useSelector } from 'react-redux';
 import { selectorWaterCurrentDay } from 'redux/userData/selectors';
 import { selectorWaterRate } from 'redux/auth/selectors';
 import AddWaterModal from 'components/Modals/AddWater/AddWaterModal';
+import Button from 'CommonStyle/Button';
 
 export const DailyNorma = () => {
   const onClose = useContext(ModalContext);
@@ -102,12 +103,12 @@ export const DailyNorma = () => {
             <span>100%</span>
           </WaterInfo>
         </WaterStatus>
-        <AddButton onClick={handleOpenWaterModal}>
+        <Button onClick={handleOpenWaterModal}>
           <svg>
             <use href={sprite + '#plus-circle'} />
           </svg>
           Add water
-        </AddButton>
+        </Button>
       </StatusContainer>
     </Container>
   );
