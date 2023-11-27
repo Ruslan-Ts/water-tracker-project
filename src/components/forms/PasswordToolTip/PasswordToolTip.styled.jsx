@@ -51,7 +51,7 @@ export const PasswordTipInfo = styled.div`
     border-color: #eee transparent transparent transparent;
     transform: rotate(180deg);
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     width: 410px;
   }
   div {
