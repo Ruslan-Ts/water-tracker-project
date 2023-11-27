@@ -37,7 +37,7 @@ const SignIn = () => {
     });
 
   return (
-    <SignLayout>
+    <SignLayout signIn={true}>
       <AuthForm onSubmit={handleSubmit}>
         <Title>Sign in</Title>
         <FormLabel>
