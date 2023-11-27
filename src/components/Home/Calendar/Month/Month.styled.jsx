@@ -3,6 +3,14 @@ import styled from 'styled-components';
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
+  height: 506px;
+
+  @media screen and (min-width: 768px) {
+    height: 340px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 284px;
+  }
 `;
 
 export const MonthNavigation = styled.div`
@@ -105,5 +113,5 @@ export const DayCell = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-   position: relative;
+  position: relative;
 `;
