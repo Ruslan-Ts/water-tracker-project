@@ -10,7 +10,7 @@ export const Input = styled.input`
   border: 1px solid ${theme.colors.secondaryLightBlue};
   border-radius: 6px;
   width: 100%;
-  box-sizing: border-box;
+
   &:focus {
     outline: none;
   }

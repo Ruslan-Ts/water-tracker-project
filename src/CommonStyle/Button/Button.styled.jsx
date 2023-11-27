@@ -36,8 +36,8 @@ export const ButtonBase = styled.button`
   }
   @media screen and (min-width: 768px) {
     width: ${props => props.$width || '100%'};
-    margin-left: ${props => props.$marginLeft || '0px'};
-    margin-right: ${props => props.$marginRight || '0px'};
+    margin-left: ${props => props.$marginLeft || ''};
+    margin-right: ${props => props.$marginRight || ''};
     font-size: 18px;
     line-height: calc(24 / 18);
     padding: 10px 30px;

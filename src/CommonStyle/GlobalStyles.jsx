@@ -54,20 +54,20 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
 		[class="container"], [class$="main-container"] {
-		width: 280px;
+		width: 320px;
 		padding: 0 20px;
 		margin: 0 auto;
 	}
 	@media screen and (min-width: 768px) {
 		[class="container"], [class$="main-container"] {
-			width: 704px;
+			width: 768px;
 			padding: 0 32px;
 		}
 	}
 	@media screen and (min-width: 1440px) {
 		[class="container"], [class$="main-container"] {
-			width: 1216px;
-			/* padding: 0 32px; */
+			width: 1440px;
+			padding: 0 112px;
 		}
 			}
 	/* -----------------CSS MODAL----------------- */

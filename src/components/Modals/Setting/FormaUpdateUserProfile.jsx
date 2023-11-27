@@ -208,7 +208,7 @@ const FormaUpdateUserProfile = ({ onClose }) => {
             </FormLabel>
           </WrapperFormaRight>
         </WrapperFormaMain>
-        <Button $paddingTB={'8px'} type="submit">
+        <Button $width="160px" $marginLeft="auto" type="submit">
           Save
         </Button>
       </WrapperForma>

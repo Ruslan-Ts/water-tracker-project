@@ -10,7 +10,6 @@ export const ContainerSettings = styled.div`
 
   color: ${theme.colors.primaryDark};
   background-color: white;
-  box-sizing: border-box;
   width: 280px;
   padding: 32px 12px;
   border-radius: 10px;
@@ -125,7 +124,6 @@ export const CloseBtn = styled.button`
   right: 12px;
   height: 24px;
 
-  box-sizing: border-box;
   background-color: transparent;
   border: none;
   cursor: pointer;

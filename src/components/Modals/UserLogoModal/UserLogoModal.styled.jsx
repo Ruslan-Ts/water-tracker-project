@@ -7,7 +7,6 @@ export const LogoModalMenu = styled(motion.div)`
   border-radius: 10px;
   z-index: 500;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.2);
-  box-sizing: border-box;
   width: 118px;
   background-color: ${theme.colors.primaryLight};
   display: flex;

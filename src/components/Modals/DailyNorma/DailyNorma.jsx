@@ -5,7 +5,6 @@ import {
   FormLabel,
   FormLabelRadio,
   FormaCalculation,
-  TitlePart,
   TitleResult,
   ValueResult,
   WrapperRadio,
@@ -13,7 +12,6 @@ import {
 } from './DailyNorma.styled';
 import { rateSchema } from 'js/validation/schemas';
 import { InputError } from 'components/forms/InputError.styled';
-// import { Title } from 'CommonStyle/Title/Title.styled';
 import { useFormik } from 'formik';
 import {
   ContainerDefinition,
@@ -33,22 +31,15 @@ const DailyNorma = () => {
   const [result, setResult] = useState();
   const onClose = useContext(ModalContext);
 
-  const {
-    values,
-    touched,
-    errors,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    // resetForm,
-  } = useFormik({
-    initialValues: {
-      gender: 'girl',
-      weight: 0,
-      physical: 0,
-    },
-    validationSchema: rateSchema,
-  });
+  const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
+    useFormik({
+      initialValues: {
+        gender: 'girl',
+        weight: 0,
+        physical: 0,
+      },
+      validationSchema: rateSchema,
+    });
 
   useEffect(() => {
     const calcRate = (gender, weight, physical) => {

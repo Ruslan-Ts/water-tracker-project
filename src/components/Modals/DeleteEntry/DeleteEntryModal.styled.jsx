@@ -14,8 +14,7 @@ export const ModalWrapper = styled.div`
   padding: 32px 24px;
   border-radius: 10px;
   background: #fff;
-  box-sizing: border-box;
-  transition: opacity 0.3s;
+    transition: opacity 0.3s;
 
   @media screen and (min-width: 768px) {
     width: 592px;

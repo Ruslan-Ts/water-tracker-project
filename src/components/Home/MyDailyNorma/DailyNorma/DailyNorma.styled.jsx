@@ -4,7 +4,7 @@ import { HoverBtnStyled } from 'CommonStyle/Buttons/Button.styled';
 
 export const DailyNormaContainer = styled.div`
   display: inline-block;
-  box-sizing: border-box;
+ 
   border-radius: 10px;
   border: 1px solid ${theme.colors.secondaryLight};
   background: #fff;
@@ -123,8 +123,7 @@ export const WaterStatus = styled.div`
 `;
 
 export const WaterMeter = styled.div`
-  box-sizing: border-box;
-  position: relative;
+   position: relative;
   height: 8px;
   background-color: ${theme.colors.secondaryLightBlue};
   width: calc(100% - 31px);

@@ -9,8 +9,7 @@ export const ModalContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  box-sizing: border-box;
-  overflow-y: auto;
+    overflow-y: auto;
   max-height: 90vh;
   width: 290px;
   @media screen and (min-width: 768px) {

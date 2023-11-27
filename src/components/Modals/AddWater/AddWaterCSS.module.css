@@ -6,8 +6,7 @@
   border: 1px solid #d7e3ff;
   border-radius: 6px;
   width: 100%;
-  box-sizing: border-box;
-  &:focus {
+    &:focus {
     outline: none;
   }
   &::placeholder {

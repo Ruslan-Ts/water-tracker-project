@@ -12,7 +12,6 @@ export const ContainerNorma = styled.div`
   padding: 24px 12px;
   border-radius: 10px;
   background: #fff;
-  box-sizing: border-box;
 
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -107,8 +106,7 @@ export const FormLabelRadio = styled.label`
   line-height: calc(20 / 16);
 
   div {
-    box-sizing: border-box;
-    width: 14px;
+       width: 14px;
     height: 14px;
     background-color: transparent;
     border-radius: 100%;

@@ -8,7 +8,6 @@ export const LogOutWindow = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  box-sizing: border-box;
   width: 280px;
   padding: 32px 24px;
   flex-direction: column;
@@ -57,7 +56,6 @@ export const LogOutBtn = styled.button`
   color: ${theme.colors.primaryLight};
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   transition: box-shadow 0.3s ease, transform 0.3s ease, width 0.3s ease;
-  box-sizing: border-box;
   width: 232px;
   height: 36px;
   padding: 8px 30px;

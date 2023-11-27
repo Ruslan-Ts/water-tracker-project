@@ -9,7 +9,7 @@ export const CalendarModalStyled = styled(motion.div)`
   width: 280px;
   position: absolute;
   bottom: 54px;
-  box-sizing: border-box;
+ 
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
