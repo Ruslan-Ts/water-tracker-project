@@ -1,5 +1,10 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
+
+import { resetPasswordThunk } from 'redux/auth/thunk';
+import { selectIsLoading } from 'redux/root/selectors';
 
 import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
@@ -9,15 +14,11 @@ import { AuthForm } from 'components/forms/AuthForm.styled';
 import { Input } from 'components/forms/Input.styled';
 import { FormLabel } from 'components/forms/FormLabel.styled';
 import { InputError } from 'components/forms/InputError.styled';
-import SignLayout from 'components/SignLayout/SignLayout';
 import { ButtonLoader } from 'components/forms/Loader.styled';
 
-import { recoverySchema } from 'js/validation/schemas';
+import SignLayout from 'layouts/SignLayout/SignLayout';
 
-import { resetPasswordThunk } from 'redux/auth/thunk';
-import { selectIsLoading } from 'redux/root/selectors';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { recoverySchema } from 'js/validation/schemas';
 
 const ForgotPasswordPage = () => {
   const dispatch = useDispatch();

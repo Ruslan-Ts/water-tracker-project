@@ -10,8 +10,9 @@ import { FormLabel } from 'components/forms/FormLabel.styled';
 import { InputError } from 'components/forms/InputError.styled';
 import { AuthForm } from 'components/forms/AuthForm.styled';
 import PasswordInput from 'components/forms/PasswordInput/PasswordInput';
-import SignLayout from 'components/SignLayout/SignLayout';
 import { ButtonLoader } from 'components/forms/Loader.styled';
+
+import SignLayout from 'layouts/SignLayout/SignLayout';
 
 import { signInSchema } from 'js/validation/schemas';
 
