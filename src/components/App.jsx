@@ -6,13 +6,12 @@ import { ToastContainer } from 'react-toastify';
 import { selectIsRefreshing, selectUserToken } from 'redux/auth/selectors.js';
 import { refreshUserThunk } from 'redux/auth/thunk.js';
 
-import Layout from './Layout/Layout.jsx';
-
 import 'react-toastify/dist/ReactToastify.css';
 import PublicRoute from 'guards/PublicRoute.jsx';
 
 import 'react-toastify/dist/ReactToastify.css';
 import ModalProvider from './ModalContext.jsx';
+import Layout from 'layouts/Layout/Layout.jsx';
 import Loader from './Loader.jsx';
 import PrivateRoute from 'guards/PrivateRoute.jsx';
 
