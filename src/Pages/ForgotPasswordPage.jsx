@@ -6,7 +6,6 @@ import { useFormik } from 'formik';
 import { resetPasswordThunk } from 'redux/auth/thunk';
 import { selectIsLoading } from 'redux/root/selectors';
 
-import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
@@ -19,6 +18,7 @@ import { ButtonLoader } from 'components/forms/Loader.styled';
 import SignLayout from 'layouts/SignLayout/SignLayout';
 
 import { recoverySchema } from 'js/validation/schemas';
+import Button from 'CommonStyle/Button';
 
 const ForgotPasswordPage = () => {
   const dispatch = useDispatch();

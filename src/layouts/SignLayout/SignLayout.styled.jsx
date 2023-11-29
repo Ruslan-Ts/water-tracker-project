@@ -39,7 +39,6 @@ export const SignLayoutStyled = styled.div`
       margin-left: auto;
       width: 384px;
       padding-top: 100px;
-      padding-right: 105px;
     }
     picture {
       position: absolute;

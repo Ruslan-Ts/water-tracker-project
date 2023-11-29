@@ -10,7 +10,7 @@ import {
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Input } from 'components/forms/Input.styled';
-import { Button, HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
+import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 import css from './AddWaterCSS.module.css';
 import { ButtonClose } from 'components/Modals/DeleteEntry/DeleteEntryModal.styled';
 import {
@@ -31,6 +31,7 @@ import {
 import { AddWaterSchema } from 'js/validation/schemas';
 import { ModalContext } from 'components/ModalContext';
 import { InputError } from 'components/forms/InputError.styled';
+import Button from 'CommonStyle/Button';
 
 const AddWaterModal = () => {
   const [counterValue, setCounterValue] = useState(50);

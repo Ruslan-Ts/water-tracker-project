@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Button } from 'CommonStyle/Buttons/Button.styled';
+// import { Button } from 'CommonStyle/Buttons/Button.styled';
 import { RouterLink } from 'CommonStyle/RouterLink/RouterLink.styled';
 import { Title } from 'CommonStyle/Title/Title.styled';
 
@@ -18,6 +18,7 @@ import { signInSchema } from 'js/validation/schemas';
 
 import { signInThunk } from 'redux/auth/thunk';
 import { selectIsLoading } from 'redux/root/selectors';
+import Button from 'CommonStyle/Button';
 
 const SignIn = () => {
   const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Title } from 'CommonStyle/Title/Title.styled';
 import { Input } from 'components/forms/Input.styled';
-import { Button, HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
+import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
 import css from './EditAmountCSS.module.css';
 import {
   Wrapper,
@@ -37,6 +37,7 @@ import {
 import { AddWaterSchema } from 'js/validation/schemas';
 import { ModalContext } from 'components/ModalContext';
 import { InputError } from 'components/forms/InputError.styled';
+import Button from 'CommonStyle/Button';
 
 const EditAmountModal = data => {
   const [counterValue, setCounterValue] = useState(data.data.waterVolume);

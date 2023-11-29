@@ -37,6 +37,7 @@ export const LogOutBtns = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  gap: 24px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;

@@ -4,12 +4,14 @@ export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   gap: 16px;
   width: 280px;
   @media screen and (min-width: 768px) {
     width: 336px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1440px) {
     width: 384px;
+    margin-right: 104px;
   }
 `;
